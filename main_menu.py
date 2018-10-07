@@ -115,15 +115,4 @@ def main_menu():
 
     selection = main_selection()
 
-    # FOR TESTING
-    print("FOR TESTING: Value returned from main_menu() is %s."%selection)
-
     return selection
-
-
-def main():
-    main_menu()
-
-
-# Game starts
-main()
