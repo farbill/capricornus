@@ -119,11 +119,3 @@ def main_menu():
     print("FOR TESTING: Value returned from main_menu() is %s."%selection)
 
     return selection
-
-
-def main():
-    main_menu()
-
-
-# Game starts
-main()
