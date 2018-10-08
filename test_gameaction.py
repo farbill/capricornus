@@ -1,13 +1,13 @@
 from unittest import TestCase
 
-import GameState
-import GameAction
+import gamestate
+import gameaction
 
 
 class GameActionTestCase(TestCase):
     def setUp(self):
-        self.game_state = GameState.GameState()
-        self.game_action = GameAction.GameAction(self.game_state)
+        self.game_state = gamestate.GameState()
+        self.game_action = gameaction.GameAction(self.game_state)
 
     # def tearDown(self):
     #     print("teardown -- ")
