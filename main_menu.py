@@ -1,4 +1,4 @@
-import sys
+mport sys
 import time
 
 #####################################################################################################################
@@ -47,9 +47,8 @@ def write_over(the_string):
     sys.stdout.flush()
 
 
-def main_selection():
-    command_line = "Make your selection >>> "
-    the_input = input(command_line)
+def main_selection(the_input):
+
 
     # inputs to be recognized as valid
     list_one = [1, "1", "new", "new game", "1. new game"]
@@ -58,6 +57,7 @@ def main_selection():
 
     selection = 0
     wrong_input = True
+    the_input = str(the_input)
     lowered_input = the_input.lower()  # to make the input case insensitive
 
     while wrong_input:
@@ -84,9 +84,11 @@ def main_selection():
             if len(the_input) > 99:
                 write_over("Your input is too long.")
             write_over("Invalid Input.  Try again.")
+            command_line = "Make your selection >>> "
             the_input = input(command_line)
+            the_input = str(the_input)
             lowered_input = the_input.lower()
-    return selection
+    return int(selection)
 
 
 def main_menu():
@@ -113,6 +115,9 @@ def main_menu():
     print("Ver. " + game_version)
     dotted_line(dotted_line_length)
 
-    selection = main_selection()
+    command_line = "Make your selection >>> "
+    the_input = input(command_line)
+
+    selection = main_selection(the_input)
 
     return selection
