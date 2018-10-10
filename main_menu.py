@@ -1,5 +1,6 @@
-mport sys
+import sys
 import time
+from command_parsing import *
 
 #####################################################################################################################
 # Main  Menu
@@ -51,9 +52,9 @@ def main_selection(the_input):
 
 
     # inputs to be recognized as valid
-    list_one = [1, "1", "new", "new game", "1. new game"]
-    list_two = [2, "2", "load", "load game", "2. load game"]
-    list_three = [3, "3", "exit", "quit", "exit game", "quit game", "3. exit"]
+    list_one = [1, "1", "new", "new game", "1. new game", "start", "begin", "go"]
+    list_two = [2, "2", "load", "load game", "2. load game", "continue"]
+    list_three = [3, "3", "exit", "quit", "exit game", "quit game", "3. exit", "bye"]
 
     selection = 0
     wrong_input = True
@@ -62,23 +63,17 @@ def main_selection(the_input):
 
     while wrong_input:
 
-        for i in list_one:
-            if lowered_input == i:
-                selection = 1
-                wrong_input = False
-                break
+        if command_parsing(lowered_input, list_one):
+            selection = 1
+            break
 
-        for i in list_two:
-            if lowered_input == i:
-                selection = 2
-                wrong_input = False
-                break
+        if command_parsing(lowered_input, list_two):
+            selection = 2
+            break
 
-        for i in list_three:
-            if lowered_input == i:
-                selection = 3
-                wrong_input = False
-                break
+        if command_parsing(lowered_input, list_three):
+            selection = 3
+            break
 
         if wrong_input:
             if len(the_input) > 99:
