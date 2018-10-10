@@ -12,10 +12,21 @@ class GameActionTestCase(TestCase):
     # def tearDown(self):
     #     print("teardown -- ")
 
+    # Test turns remains (getter and decrementer functions)
+    def test_turns_remaining(self):
+        self.assertEqual(self.game_action.turns_remaining, gamestate.INITIAL_NUMBER_OF_TURNS)
+        self.game_action.decrement_turns_remaining()
+        self.assertEqual(self.game_action.turns_remaining, gamestate.INITIAL_NUMBER_OF_TURNS - 1)
+        self.game_action.decrement_turns_remaining()
+        self.game_action.decrement_turns_remaining()
+        self.assertEqual(self.game_action.turns_remaining, gamestate.INITIAL_NUMBER_OF_TURNS - 3)
+        self.game_action.decrement_turns_remaining()
+        self.assertEqual(self.game_action.turns_remaining, gamestate.INITIAL_NUMBER_OF_TURNS - 4)
+
     # Test single location change to valid location
     def test_change_location(self):
-        self.game_action.change_location("river_gardens")
-        self.assertEqual(self.game_action.current_location, "river_gardens")
+        self.game_action.change_location("River Gardens")
+        self.assertEqual(self.game_action.current_location, "River Gardens")
 
     # Test adding 1 valid item, "key"
     def test_add_to_inventory(self):
@@ -45,6 +56,23 @@ class GameActionTestCase(TestCase):
         self.assertEqual(ret, 0)
         self.assertFalse(valid_item in self.game_action.current_inventory)
 
+    # Test check inventory
+    def test_check_inventory(self):
+        self.assertEqual(self.game_action.check_inventory("foobar"), False)
+        self.assertEqual(self.game_action.check_inventory("key"), False)
+        self.game_action.add_to_inventory("key")
+        self.assertEqual(self.game_action.check_inventory("key"), True)
+        self.assertEqual(self.game_action.check_inventory("foobar"), False)
+
+    # Test maximum limit of inventory
+    def test_maximum_limit_of_inventory(self):
+        for i in range(0, gamestate.MAX_INVENTORY):
+            self.assertEqual(self.game_action.add_to_inventory("rock" + str(i)), 0)
+        self.assertEqual(len(self.game_action.current_inventory), gamestate.MAX_INVENTORY)
+        self.assertEqual(self.game_action.add_to_inventory("bad rock"), 1)
+        self.assertEqual(self.game_action.add_to_inventory("bad rock"), 1)
+        self.assertEqual(self.game_action.add_to_inventory("bad rock"), 1)
+
     # Test adding a valid puzzle
     def test_add_to_solved_puzzles(self):
         number_of_puzzles = len(self.game_action.solved_puzzles)
@@ -64,6 +92,18 @@ class GameActionTestCase(TestCase):
         self.game_action.add_to_solved_puzzles(2, "puzzle two")
         self.assertEqual(self.game_action.solved_puzzles, {1: 'puzzle one', 2: 'puzzle two', 5: 'puzzle five'})
 
+    # Test for solved puzzle
+    def test_check_for_solved_puzzle(self):
+        self.game_action.add_to_solved_puzzles(5, "puzzle five")
+        self.game_action.add_to_solved_puzzles(1, "puzzle one")
+        self.game_action.add_to_solved_puzzles(2, "puzzle two")
+        self.assertEqual(self.game_action.check_for_solved_puzzle(1), True)
+        self.assertEqual(self.game_action.check_for_solved_puzzle(2), True)
+        self.assertEqual(self.game_action.check_for_solved_puzzle(3), False)
+        self.assertEqual(self.game_action.check_for_solved_puzzle(4), False)
+        self.assertEqual(self.game_action.check_for_solved_puzzle(5), True)
+        self.assertEqual(self.game_action.check_for_solved_puzzle(100), False)
+
     # Test adding a valid clue
     def test_add_to_obtained_clues(self):
         number_of_clues = len(self.game_action.obtained_clues)
@@ -78,7 +118,19 @@ class GameActionTestCase(TestCase):
 
     # Test valid return of clue dictionary
     def test_order_of_clues(self):
-        self.game_action.add_to_solved_puzzles(5, "clue five")
-        self.game_action.add_to_solved_puzzles(1, "clue one")
-        self.game_action.add_to_solved_puzzles(2, "clue two")
-        self.assertEqual(self.game_action.solved_puzzles, {1: 'clue one', 2: 'clue two', 5: 'clue five'})
+        self.game_action.add_to_obtained_clues(5, "clue five")
+        self.game_action.add_to_obtained_clues(1, "clue one")
+        self.game_action.add_to_obtained_clues(2, "clue two")
+        self.assertEqual(self.game_action.obtained_clues, {1: 'clue one', 2: 'clue two', 5: 'clue five'})
+
+    # Test for obtained clue
+    def test_check_for_obtained_clue(self):
+        self.game_action.add_to_obtained_clues(5, "clue five")
+        self.game_action.add_to_obtained_clues(1, "clue one")
+        self.game_action.add_to_obtained_clues(2, "clue two")
+        self.assertEqual(self.game_action.check_for_obtained_clue(1), True)
+        self.assertEqual(self.game_action.check_for_obtained_clue(2), True)
+        self.assertEqual(self.game_action.check_for_obtained_clue(3), False)
+        self.assertEqual(self.game_action.check_for_obtained_clue(4), False)
+        self.assertEqual(self.game_action.check_for_obtained_clue(5), True)
+        self.assertEqual(self.game_action.check_for_obtained_clue(100), False)
