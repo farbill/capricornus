@@ -1,0 +1,10 @@
+def game_play():
+    print("TEST PURPOSE: game_play triggered\n")
+    print("TEST PURPOSE: GameState class for a new game need to be instantiated")
+    print("TEST PURPOSE: GameAction classes need to be instantiated")
+    print("TEST PURPOSE: Agent Dope class needs tobe instantiated")
+    print("TEST PURPOSE: Dr. Crime class needs tobe instantiated")
+    print("TEST PURPOSE: City class needs to be instantiated")
+    print("TEST PURPOSE: District classes need to be instantiated")
+    print("TEST PURPOSE: Item classes need to be instantiated")
+    print("TEST PURPOSE: Puzzle classes need to be instantiated")
