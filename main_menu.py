@@ -1,6 +1,7 @@
 import sys
 import time
 from command_parsing import *
+from colorama import *
 
 #####################################################################################################################
 # Main  Menu
@@ -99,7 +100,9 @@ def main_menu():
     dotted_line(dotted_line_length)
 
     empty_line(1)
+    print(Fore.RED)
     print_in_the_middle(dotted_line_length, title)
+    print(Fore.WHITE)
 
     empty_line(1)
     print_in_the_middle(dotted_line_length, new_game)
