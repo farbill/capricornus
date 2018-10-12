@@ -39,7 +39,7 @@ def print_in_the_middle(line_length, the_string):
 def write_over(the_string):
     sys.stdout.write(the_string)
     sys.stdout.flush()
-    time.sleep(1)
+    time.sleep(2)
     sys.stdout.write('\r')
     sys.stdout.flush()
     sys.stdout.write(" " * 99)
