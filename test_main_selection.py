@@ -6,9 +6,9 @@ class TestMainSelection(TestCase):
     def test_main_selection(self):
 
         # inputs to be recognized as valid
-        list_one = [1, "1", "new", "new game", "1. new game"]
-        list_two = [2, "2", "load", "load game", "2. load game"]
-        list_three = [3, "3", "exit", "quit", "exit game", "quit game", "3. exit"]
+        list_one = [1, "1", "new", "new game", "1. new game", "start", "begin", "go"]
+        list_two = [2, "2", "load", "load game", "2. load game", "continue"]
+        list_three = [3, "3", "exit", "quit", "exit game", "quit game", "3. exit", "bye"]
 
         for i in list_one:
             self.assertEqual(main_selection(i), 1, "Inputs for choice 1")
