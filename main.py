@@ -4,7 +4,7 @@ def main():
 
     main_menu_choice = main_menu.main_menu()
     if main_menu_choice == 1:
-        print("TESTING PURPOSE:   NEW GAME")
+        game_play()
     elif main_menu_choice == 2:
         print("TESTING PURPOSE:   LOAD GAME")
     elif main_menu_choice == 3:
