@@ -1,4 +1,5 @@
 import main_menu
+from game_play import *
 
 def main():
 
