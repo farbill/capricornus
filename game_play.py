@@ -39,7 +39,6 @@ title_narration_part2 = "The latest reconnaissance shows that Dr. Crime has esta
 
 def game_play():
     clear()
-    print("TEST PURPOSE: game_play triggered\n\n")
 
     dotted_line(GAME_WIDTH)
     narration(title_narration_part1, GAME_WIDTH)
