@@ -125,5 +125,5 @@ class GameAction(gamestate.GameState):
         return obtained_clue
 
 # if __name__ == "__main__":
-#     game_state = GameState.GameState()
+#     game_state = gamestate.GameState()
 #     game_action = GameAction(game_state)

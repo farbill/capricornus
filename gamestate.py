@@ -61,6 +61,8 @@ class GameState(object):
         self._visited = self._initialize_visited()
         self._lair_location = self._randomly_select_lair_location()
 
+        self._savename = ""
+
     # Assign to self._visited =
     #  {'City Hall': False, 'Hawkins': False, 'Washington Heights': False, 'Greenland Grove': False,
     #  'Oak Square': False, 'Northtown': False, 'River Gardens': False, 'Bayrock': False, 'Sunset Hills': False,
@@ -83,6 +85,7 @@ class GameState(object):
     #     json_obj = json.loads(json_string)
 
     # def save_game_state(self):
+
 
 
 # if __name__ == "__main__":
