@@ -1,7 +1,6 @@
 import sys
 import time
 from command_parsing import *
-from colorama import *
 
 #####################################################################################################################
 # Main  Menu
@@ -9,6 +8,9 @@ from colorama import *
 #
 # Ref: https://stackoverflow.com/questions/465348/how-can-i-print-over-the-current-line-in-a-command-line-application
 #####################################################################################################################
+
+# GLOBAL VARIABLE
+GAME_WIDTH = 100
 
 
 def dotted_line(count):
@@ -50,7 +52,6 @@ def write_over(the_string):
 
 
 def main_selection(the_input):
-
 
     # inputs to be recognized as valid
     list_one = [1, "1", "new", "new game", "1. new game", "start", "begin", "go", "play"]
@@ -96,13 +97,13 @@ def main_menu():
     load_game = "2. Load Game"
     exit_game = "3. Exit     "
 
-    dotted_line_length = 100
+    dotted_line_length = GAME_WIDTH
     dotted_line(dotted_line_length)
 
     empty_line(1)
-    print(Fore.RED)
+
     print_in_the_middle(dotted_line_length, title)
-    print(Fore.WHITE)
+
 
     empty_line(1)
     print_in_the_middle(dotted_line_length, new_game)
@@ -114,8 +115,12 @@ def main_menu():
     dotted_line(dotted_line_length)
 
     command_line = "Make your selection >>> "
+
     the_input = input(command_line)
 
     selection = main_selection(the_input)
 
     return selection
+
+
+
