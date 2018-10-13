@@ -10,7 +10,7 @@ def main():
     gs = gamestate.GameState()
     ga = gameaction.GameAction(gs)
 
-    main_menu_choice = main_menu.main_menu()
+    main_menu_choice = main_menu()
 
     if main_menu_choice == 1:
         game_play(ga)
