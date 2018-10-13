@@ -51,6 +51,8 @@ def game_play():
     narration(title_narration_part2, GAME_WIDTH)
     dotted_line(GAME_WIDTH)
     input("\nPress any key to continue...\n")
+    
+    clear()
 
     print("\n\nTEST PURPOSE: GameState class for a new game need to be instantiated")
     print("TEST PURPOSE: GameAction classes need to be instantiated")
