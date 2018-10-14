@@ -1,7 +1,7 @@
 from unittest import TestCase
 
 import gamestate
-import os.path
+import os
 
 
 class GameStateTestCase(TestCase):

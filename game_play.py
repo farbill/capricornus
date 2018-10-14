@@ -3,8 +3,8 @@ import gameaction
 
 # import only system from os
 from os import system, name
-from narration import *
-from main_menu import *
+import narration
+import main_menu
 
 
 # define our clear function
@@ -44,16 +44,16 @@ def game_play(ga: gameaction.GameAction):
 
     clear()
 
-    dotted_line(GAME_WIDTH)
-    narration(title_narration_part1, GAME_WIDTH)
-    dotted_line(GAME_WIDTH)
+    main_menu.dotted_line(main_menu.GAME_WIDTH)
+    narration.narration(title_narration_part1, main_menu.GAME_WIDTH)
+    main_menu.dotted_line(main_menu.GAME_WIDTH)
     input("\nPress any key to continue...\n")
 
     clear()
 
-    dotted_line(GAME_WIDTH)
-    narration(title_narration_part2, GAME_WIDTH)
-    dotted_line(GAME_WIDTH)
+    main_menu.dotted_line(main_menu.GAME_WIDTH)
+    narration.narration(title_narration_part2, main_menu.GAME_WIDTH)
+    main_menu.dotted_line(main_menu.GAME_WIDTH)
     input("\nPress any key to continue...\n")
     
     clear()
@@ -69,9 +69,13 @@ def game_play(ga: gameaction.GameAction):
 
 
 def load_game(ga: gameaction.GameAction) -> gameaction.GameAction:
-    print("Load_game function called")
-    print("- Call load game function in GameAction class to load into GameState")
-    print("- return a loaded GameAction class obj")
+    # print("Load_game function called")
+    # print("- Call load game function in GameAction class to load into GameState")
+    # print("- return a loaded GameAction class obj")
+
+    load_menu_choice = main_menu.load_menu()
+    print("load_menu() returned: " + str(load_menu_choice))
+
     return ga
 
 
