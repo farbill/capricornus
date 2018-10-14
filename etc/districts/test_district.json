@@ -1,0 +1,9 @@
+{
+  "x": 0,
+  "y": 0,
+  "items": [],
+  "clues":[],
+  "characters": ["../skateboarder.json"],
+  "short_description": "Plain Old District",
+  "long_description": "This is just a lil district to test.",
+}
