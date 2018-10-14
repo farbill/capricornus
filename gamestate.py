@@ -61,8 +61,6 @@ class GameState(object):
         self._visited = self._initialize_visited()
         self._lair_location = self._randomly_select_lair_location()
 
-        self._savename = ""
-
     # Assign to self._visited =
     #  {'City Hall': False, 'Hawkins': False, 'Washington Heights': False, 'Greenland Grove': False,
     #  'Oak Square': False, 'Northtown': False, 'River Gardens': False, 'Bayrock': False, 'Sunset Hills': False,
@@ -79,23 +77,47 @@ class GameState(object):
         return District(random.randint(RANDOM_DISTRICT_LOWER_LIMIT, RANDOM_DISTRICT_UPPER_LIMIT)).name
 
 
-    # Work in progress ...
+    # Save game state - takes save slot as input (1, 2, 3)
+    def save_game_state(self, save_slot: int) -> int:
+        if save_slot < 1 or save_slot > 3:
+            return 1
+        filename = "savedgame_" + str(save_slot)
+        try:
+            with open(filename, 'w') as outputfile:
+                json.dump(self.__dict__, outputfile)
+        except IOError:
+            return 2
+        return 0
 
-    # def load_game_state(self, json_string):
-    #     json_obj = json.loads(json_string)
+    # Load game state - takes load slot as input (1, 2, 3)
+    def load_game_state(self, load_slot: int) -> int:
+        if load_slot < 1 or load_slot > 3:
+            return 1
+        filename = "savedgame_" + str(load_slot)
+        with open(filename, 'r') as inputfile:
+            self.__dict__ = json.load(inputfile)
 
-    # def save_game_state(self):
+        # Adjust dictionary variables from "str":"str" to int:"str"
+        # https://stackoverflow.com/questions/21193682/convert-a-string-key-to-int-in-a-dictionary
+        self._solved_puzzles = {int(k): v for k, v in self._solved_puzzles.items()}
+        self._obtained_clues = {int(k): v for k, v in self._obtained_clues.items()}
+
+        return 0
 
 
 
-# if __name__ == "__main__":
-#     mygame = GameState()
+if __name__ == "__main__":
+    mygame = GameState()
+
+    mygame.save_game_state(1);
+
+    mygame.load_game_state(1);
 
     # for district in District:
     #     print(district.name)
-
-    #print(District["City Hall"].value)
-    #print(District(5).name)
+    #
+    # print(District["City Hall"].value)
+    # print(District(5).name)
 
 
 

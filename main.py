@@ -6,6 +6,7 @@ import gameaction
 def main():
 
     clear()
+
     # Global gamestate and gameaction instances
     gs = gamestate.GameState()
     ga = gameaction.GameAction(gs)
