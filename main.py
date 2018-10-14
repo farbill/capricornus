@@ -16,9 +16,9 @@ def main():
     if main_menu_choice == 1:
         game_play(ga)
     elif main_menu_choice == 2:
-        print("TESTING PURPOSE:   LOAD GAME")
+        clear()
         ga = load_game(ga)
-        #game_play(ga)
+        # game_play(ga)
     elif main_menu_choice == 3:
         # insert confirmation check
         print("Exiting...\nGood Bye!")

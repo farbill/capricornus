@@ -136,9 +136,11 @@ class GameState(object):
 if __name__ == "__main__":
     mygame = GameState()
 
-    mygame.save_game_state(1);
+    mygame.save_game_state(int(sys.argv[1]))
 
-    mygame.load_game_state(1);
+    # mygame.save_game_state(1)
+
+    # mygame.load_game_state(1)
 
 
 
