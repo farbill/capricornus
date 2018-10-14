@@ -4,6 +4,8 @@ import string
 import random
 from enum import Enum
 import itertools
+import sys
+import os
 
 
 RANDOM_DISTRICT_LOWER_LIMIT = 12
@@ -81,9 +83,21 @@ class GameState(object):
     def save_game_state(self, save_slot: int) -> int:
         if save_slot < 1 or save_slot > 3:
             return 1
+
+        # Build save path
+        dirname = os.path.join(os.path.realpath('.'), "savedgames")
         filename = "savedgame_" + str(save_slot)
+        fullpath = os.path.join(dirname, filename)
+
+        # Check savedgame folder exists, if not, make it
         try:
-            with open(filename, 'w') as outputfile:
+            if not os.path.exists(dirname):
+                os.makedirs(dirname)
+        except OSError:
+            return 2
+
+        try:
+            with open(fullpath, 'w') as outputfile:
                 json.dump(self.__dict__, outputfile)
         except IOError:
             return 2
@@ -93,8 +107,18 @@ class GameState(object):
     def load_game_state(self, load_slot: int) -> int:
         if load_slot < 1 or load_slot > 3:
             return 1
+
+        # Build load path
+        dirname = os.path.join(os.path.realpath('.'), "savedgames")
         filename = "savedgame_" + str(load_slot)
-        with open(filename, 'r') as inputfile:
+        fullpath = os.path.join(dirname, filename)
+
+        # Check savedgame folder exists,
+        if not os.path.exists(dirname):
+            return 2
+
+        # Load savedgame file
+        with open(fullpath, 'r') as inputfile:
             self.__dict__ = json.load(inputfile)
 
         # Adjust dictionary variables from "str":"str" to int:"str"
@@ -111,7 +135,7 @@ if __name__ == "__main__":
 
     mygame.save_game_state(1);
 
-    mygame.load_game_state(1);
+    # mygame.load_game_state(1);
 
     # for district in District:
     #     print(district.name)

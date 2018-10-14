@@ -54,35 +54,51 @@ class GameStateTestCase(TestCase):
         self.game_state._obtained_clues = {3: "clue three", 7: "clue seven"}
         self.game_state._lair_location = "Paradise Creek"
 
+        # Test existence of savedgame folder
+        dirname = os.path.join(os.path.realpath('.'), "savedgames")
+        self.assertEqual(os.path.exists(dirname), True)
+
         # Test save file exists and saved data to file as expected
         for num in range(3):
             save_slot = num + 1
             self.assertEqual(self.game_state.save_game_state(save_slot), 0)
             filename = "savedgame_" + str(save_slot)
-            self.assertEqual(os.path.isfile(filename), True)
-            with open(filename, 'r') as inputfile:
+            fullpath = os.path.join(dirname, filename)
+            self.assertEqual(os.path.isfile(fullpath), True)
+            with open(fullpath, 'r') as inputfile:
                 content = inputfile.readlines()
                 self.assertEqual(content[0], '{"_turns_remaining": 123, "_current_location": "Gato Springs", "_current_inventory": ["key", "rock"], "_solved_puzzles": {"1": "puzzle one", "5": "puzzle five"}, "_obtained_clues": {"3": "clue three", "7": "clue seven"}, "_vision_orb": false, "_strength_orb": false, "_vitality_orb": false, "_magic_sword": false, "_visited": {"City Hall": false, "Hawkins": false, "Washington Heights": false, "Greenland Grove": false, "Oak Square": false, "Northtown": false, "River Gardens": false, "Bayrock": false, "Sunset Hills": false, "Lemonfield": false, "Gato Springs": false, "Webster Mountain": false, "Paradise Creek": false, "Coltwood": false, "Lake Cypress": false}, "_lair_location": "Paradise Creek"}')
 
         # Remove saved files for clean up
         for num in range(3):
             filename = "savedgame_" + str(num + 1)
-            os.remove(filename)
+            fullpath = os.path.join(dirname, filename)
+            os.remove(fullpath)
 
     # Test invalid options for load game function
     def test_invalid_load_game_state(self):
+
+        dirname = os.path.join(os.path.realpath('.'), "savedgames")
+
         load_slot = 0
         self.assertEqual(self.game_state.load_game_state(load_slot), 1)
-        self.assertEqual(os.path.isfile("savedgame_" + str(load_slot)), False)
+        filename = "savedgame_" + str(load_slot)
+        self.assertEqual(os.path.isfile(os.path.join(dirname, filename)), False)
+
         load_slot = 4
         self.assertEqual(self.game_state.load_game_state(load_slot), 1)
-        self.assertEqual(os.path.isfile("savedgame_" + str(load_slot)), False)
+        filename = "savedgame_" + str(load_slot)
+        self.assertEqual(os.path.isfile(os.path.join(dirname, filename)), False)
+
         load_slot = -1
         self.assertEqual(self.game_state.load_game_state(load_slot), 1)
-        self.assertEqual(os.path.isfile("savedgame_" + str(load_slot)), False)
+        filename = "savedgame_" + str(load_slot)
+        self.assertEqual(os.path.isfile(os.path.join(dirname, filename)), False)
+
         load_slot = 100
         self.assertEqual(self.game_state.load_game_state(load_slot), 1)
-        self.assertEqual(os.path.isfile("savedgame_" + str(load_slot)), False)
+        filename = "savedgame_" + str(load_slot)
+        self.assertEqual(os.path.isfile(os.path.join(dirname, filename)), False)
 
     # Test valid load game function
     def test_valid_load_game_state(self):
@@ -94,6 +110,9 @@ class GameStateTestCase(TestCase):
         self.game_state._obtained_clues = {3: "clue three", 7: "clue seven"}
         self.game_state._lair_location = "Paradise Creek"
         self.game_state._visited["Lemonfield"] = True
+
+        # savedgame directory
+        dirname = os.path.join(os.path.realpath('.'), "savedgames")
 
         # Create save file, and load back save file and verify data
         for num in range(3):
@@ -124,4 +143,5 @@ class GameStateTestCase(TestCase):
         # Remove saved files for clean up
         for num in range(3):
             filename = "savedgame_" + str(num + 1)
-            os.remove(filename)
+            fullpath = os.path.join(dirname, filename)
+            os.remove(fullpath)
