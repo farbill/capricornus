@@ -118,8 +118,11 @@ class GameState(object):
             return 2
 
         # Load savedgame file
-        with open(fullpath, 'r') as inputfile:
-            self.__dict__ = json.load(inputfile)
+        try:
+            with open(fullpath, 'r') as inputfile:
+                self.__dict__ = json.load(inputfile)
+        except IOError:
+            return 2
 
         # Adjust dictionary variables from "str":"str" to int:"str"
         # https://stackoverflow.com/questions/21193682/convert-a-string-key-to-int-in-a-dictionary
@@ -135,13 +138,7 @@ if __name__ == "__main__":
 
     mygame.save_game_state(1);
 
-    # mygame.load_game_state(1);
-
-    # for district in District:
-    #     print(district.name)
-    #
-    # print(District["City Hall"].value)
-    # print(District(5).name)
+    mygame.load_game_state(1);
 
 
 

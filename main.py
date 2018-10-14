@@ -1,5 +1,5 @@
-import main_menu
-from game_play import *
+from main_menu import main_menu
+from game_play import load_game, clear, game_play
 import gamestate
 import gameaction
 
@@ -18,7 +18,7 @@ def main():
     elif main_menu_choice == 2:
         print("TESTING PURPOSE:   LOAD GAME")
         ga = load_game(ga)
-        game_play(ga)
+        #game_play(ga)
     elif main_menu_choice == 3:
         # insert confirmation check
         print("Exiting...\nGood Bye!")
