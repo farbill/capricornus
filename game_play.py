@@ -20,19 +20,6 @@ def clear():
         _ = system('clear')
 
 
-#Game Start Narration
-short_for_agt_dope = "An elite secret agent who's after Dr. Crime" 
-
-long_for_agt_dope  = "An elite secret agent who is an expert in forensic and many other scientific " \
-                     "principles with multiple years of training MMA."
-				  
-short_for_dr_crime = "An evil scientist who was once renowned scientist from the affluent Crime family, " \
-                   "known for their charity and philanthropy."
-
-long_for_dr_crime  = "An evil scientist who was once renowned scientist from the affluent Crime family, " \
-                   "known for their charity and philanthropy, who spent nearly a decade " \
-                   "working on the theory of Dark Magic to restore Life." 
-
 def game_play(ga: gameaction.GameAction):
 
     clear()
@@ -62,9 +49,9 @@ def game_play(ga: gameaction.GameAction):
     
     print("Initializing Character Information...")
     time.sleep(1)
-    agt_dope = characters.AgentDope(short_for_agt_dope, long_for_agt_dope)
+    agt_dope = characters.AgentDope(narration.short_for_agt_dope(), narration.long_for_agt_dope())
 	#Dr. Crime needs to be initialized with specified PUZZLE and DIALOGS
-    dr_crime = characters.DrCrime(short_for_dr_crime, long_for_dr_crime, 0, 0)
+    dr_crime = characters.DrCrime(narration.short_for_dr_crime(), narration.long_for_dr_crime(), 0, 0)
    
     print("Initializing Item Data...")
     time.sleep(1)
