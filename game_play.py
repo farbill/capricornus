@@ -5,7 +5,7 @@ import gameaction
 from os import system, name
 import narration
 import main_menu
-
+import time
 
 # define our clear function
 # Ref: https://www.geeksforgeeks.org/clear-screen-python/
@@ -39,6 +39,11 @@ title_narration_part2 = "The latest reconnaissance shows that Dr. Crime has esta
                          "necessary artifacts, and use them to stop Dr. Crime before the poison is " \
                          "released. Hurry, time is ticking!"
 
+short_for_agt_dope = "an elite secret agent who works for the U.S. Government" 
+
+long_for_agt_dope = "an elite secret agent who works for the U.S. Government. " \
+                  "He has been putting countless number of criminals to jail. " \
+                  "Now he's after Dr. Crime to put a halt to his evil plan."
 
 def game_play(ga: gameaction.GameAction):
 
@@ -67,7 +72,17 @@ def game_play(ga: gameaction.GameAction):
     print("TEST PURPOSE: Item classes need to be instantiated")
     print("TEST PURPOSE: Puzzle classes need to be instantiated")
 
-
+    print("Initializing Agent Dope Information...")
+    time.sleep(1)
+    agtDope = characters.AgentDope(short_for_agt_dope, long_for_agt_dope)
+    print("Initializing Item Data...")
+    time.sleep(1)
+    print("Initializing Puzzle Data...")
+    time.sleep(1)
+    print("Initializing Location Data...")
+    time.sleep(1)
+    
+    
 def load_game(ga: gameaction.GameAction) -> gameaction.GameAction:
     # print("Load_game function called")
     # print("- Call load game function in GameAction class to load into GameState")
