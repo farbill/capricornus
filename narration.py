@@ -25,6 +25,34 @@ def start_narration2():
 	return title_narration_part2
 
 
+def short_for_agt_dope():
+	text = "An elite secret agent who's after Dr. Crime" 
+	
+	return text
+	
+	
+def long_for_agt_dope():
+	text  = "An elite secret agent who is an expert in forensic and many other scientific " \
+                     "principles with multiple years of training MMA."
+	
+	return text
+	
+	
+def short_for_dr_crime():
+	text  = "An evil scientist who was once renowned scientist from the affluent Crime family, " \
+                   "known for their charity and philanthropy."
+	
+	return text
+	
+	
+def long_for_dr_crime():
+	text  = "An evil scientist who was once renowned scientist from the affluent Crime family, " \
+                   "known for their charity and philanthropy, who spent nearly a decade " \
+                   "working on the theory of Dark Magic to restore Life." 
+	
+	return text
+
+
 def narration(the_string, line_length):
     counter = 0
 
@@ -45,8 +73,4 @@ def narration(the_string, line_length):
 
     if last_line_indicator <= len(the_string):
         print(to_print)
-
-
-
-
 
