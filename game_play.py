@@ -1,5 +1,6 @@
 import gamestate
 import gameaction
+import characters
 
 # import only system from os
 from os import system, name
@@ -31,19 +32,25 @@ title_narration_part1 = "Agent Dope, who is tasked with the mission of finding a
                   "Magic to poison the city and kill all of its citizens. "
 
 title_narration_part2 = "The latest reconnaissance shows that Dr. Crime has established a lair " \
-                         "which is protected by a Magical Barrier, which can only be destroyed by " \
-                         "an individual who possess the Magical Orbs. The reconnaissance also revealed " \
-                         "that Dr. Crime is clothed in a Magical Armor that can be only penetrated by " \
-                         "the Magic Sword of Light. With none of these in hand, the cautious, yet " \
-                         "courageous Agt. Dope must explore the city of New San Diego, find all the " \
-                         "necessary artifacts, and use them to stop Dr. Crime before the poison is " \
-                         "released. Hurry, time is ticking!"
+                    "which is protected by a Magical Barrier, which can only be destroyed by " \
+                    "an individual who possess the Magical Orbs. The reconnaissance also revealed " \
+                    "that Dr. Crime is clothed in a Magical Armor that can be only penetrated by " \
+                    "the Magic Sword of Light. With none of these in hand, the cautious, yet " \
+                    "courageous Agt. Dope must explore the city of New San Diego, find all the " \
+                    "necessary artifacts, and use them to stop Dr. Crime before the poison is " \
+                    "released. Hurry, time is ticking!"
 
-short_for_agt_dope = "an elite secret agent who works for the U.S. Government" 
+short_for_agt_dope = "An elite secret agent who's after Dr. Crime" 
 
-long_for_agt_dope = "an elite secret agent who works for the U.S. Government. " \
-                  "He has been putting countless number of criminals to jail. " \
-                  "Now he's after Dr. Crime to put a halt to his evil plan."
+long_for_agt_dope  = "An elite secret agent who is an expert in forensic and many other scientific " \
+                     "principles with multiple years of training MMA."
+				  
+short_for_dr_crime = "An evil scientist who was once renowned scientist from the affluent Crime family, " \
+                   "known for their charity and philanthropy."
+
+long_for_dr_crime  = "An evil scientist who was once renowned scientist from the affluent Crime family, " \
+                   "known for their charity and philanthropy, who spent nearly a decade " \
+                   "working on the theory of Dark Magic to restore Life." 
 
 def game_play(ga: gameaction.GameAction):
 
@@ -65,24 +72,28 @@ def game_play(ga: gameaction.GameAction):
 
     # print("\n\nTEST PURPOSE: GameState class for a new game need to be instantiated")
     # print("TEST PURPOSE: GameAction classes need to be instantiated")
-    print("TEST PURPOSE: Agent Dope class needs tobe instantiated")
-    print("TEST PURPOSE: Dr. Crime class needs tobe instantiated")
+    print("TEST PURPOSE: Agent Dope class needs to be instantiated")
+    print("TEST PURPOSE: Dr. Crime class needs to be instantiated")
     print("TEST PURPOSE: City class needs to be instantiated")
     print("TEST PURPOSE: District classes need to be instantiated")
     print("TEST PURPOSE: Item classes need to be instantiated")
-    print("TEST PURPOSE: Puzzle classes need to be instantiated")
-
-    print("Initializing Agent Dope Information...")
+    print("TEST PURPOSE: Puzzle classes need to be instantiated\n")
+    
+    print("Initializing Character Information...")
     time.sleep(1)
-    agtDope = characters.AgentDope(short_for_agt_dope, long_for_agt_dope)
+    agt_dope = characters.AgentDope(short_for_agt_dope, long_for_agt_dope)
+	#Dr. Crime needs to be initialized with specified PUZZLE and DIALOGS
+    dr_crime = characters.DrCrime(short_for_dr_crime, long_for_dr_crime, 0, 0)
+   
     print("Initializing Item Data...")
     time.sleep(1)
+	
     print("Initializing Puzzle Data...")
     time.sleep(1)
+	
     print("Initializing Location Data...")
     time.sleep(1)
-    
-    
+
 def load_game(ga: gameaction.GameAction) -> gameaction.GameAction:
     # print("Load_game function called")
     # print("- Call load game function in GameAction class to load into GameState")
