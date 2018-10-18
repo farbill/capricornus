@@ -28,6 +28,10 @@ class GameActionTestCase(TestCase):
         self.game_action.change_location("River Gardens")
         self.assertEqual(self.game_action.current_location, "River Gardens")
 
+    # Test single location change to invalid location
+    def test_change_location(self):
+        self.assertEqual(self.game_action.change_location("not-a-location"), 1)
+
     # Test adding 1 valid item, "key"
     def test_add_to_inventory(self):
         number_of_items = len(self.game_action.current_inventory)
@@ -134,3 +138,83 @@ class GameActionTestCase(TestCase):
         self.assertEqual(self.game_action.check_for_obtained_clue(4), False)
         self.assertEqual(self.game_action.check_for_obtained_clue(5), True)
         self.assertEqual(self.game_action.check_for_obtained_clue(100), False)
+
+
+    # Test check_visited with invalid district_names
+    def test_invalid_check_visited(self):
+        with self.assertRaises(ValueError):
+            self.game_action.check_visited("abc")
+        with self.assertRaises(ValueError):
+            self.game_action.check_visited("c i t y h a l l")   # spacing
+        with self.assertRaises(ValueError):
+            self.game_action.check_visited("123")               # not letters
+        with self.assertRaises(ValueError):
+            self.game_action.check_visited("not_a_location")    # not a location
+        with self.assertRaises(ValueError):
+            self.game_action.check_visited("paradise crek")     # misspelling
+        with self.assertRaises(ValueError):
+            self.game_action.check_visited("")                  # empty
+        with self.assertRaises(ValueError):
+            self.game_action.check_visited(" ")                 # space
+
+
+    # Test check_visited with valid district_names
+    def test_valid_check_visited(self):
+        test_data =["City Hall", "city hall", "city_hall", "cityhall",
+                    "Hawkins", "hawkins",
+                    "Washington Heights", "washington heights", "washington_heights", "washingtonheights",
+                    "Greenland Grove", "greenland grove", "greenland_grove", "greenlandgrove",
+                    "Oak Square", "oak square", "oak_square", "oaksquare",
+                    "Northtown", "northtown",
+                    "River Gardens", "river gardens", "river_gardens", "rivergardens",
+                    "Bayrock", "bayrock",
+                    "Sunset Hills", "sunset hills", "sunset_hills", "sunsethills",
+                    "Lemonfield", "lemonfield",
+                    "Gato Springs", "gato springs", "gato_springs", "gatosprings",
+                    "Webster Mountain", "webster mountain", "webster_mountain", "webstermountain",
+                    "Paradise Creek", "paradise creek" ,"paradise_creek", "paradisecreek",
+                    "Coltwood", "coltwood",
+                    "Lake Cypress", "lake cypress", "lake_cypress", "lakecypress"]
+        for d_name in test_data:
+            self.assertEqual(self.game_action.check_visited(d_name), False)
+
+        # FOR TEST ONLY: Access _visited dict directly and change all values to True for testing
+        for k, v in self.game_state._visited.items():
+            self.game_state._visited[k] = True
+
+        for d_name in test_data:
+            self.assertEqual(self.game_action.check_visited(d_name), True)
+
+    # Test change_visited with valid district names
+    def test_valid_check_visited(self):
+        test_data =["City Hall", "city hall", "city_hall", "cityhall",
+                    "Hawkins", "hawkins",
+                    "Washington Heights", "washington heights", "washington_heights", "washingtonheights",
+                    "Greenland Grove", "greenland grove", "greenland_grove", "greenlandgrove",
+                    "Oak Square", "oak square", "oak_square", "oaksquare",
+                    "Northtown", "northtown",
+                    "River Gardens", "river gardens", "river_gardens", "rivergardens",
+                    "Bayrock", "bayrock",
+                    "Sunset Hills", "sunset hills", "sunset_hills", "sunsethills",
+                    "Lemonfield", "lemonfield",
+                    "Gato Springs", "gato springs", "gato_springs", "gatosprings",
+                    "Webster Mountain", "webster mountain", "webster_mountain", "webstermountain",
+                    "Paradise Creek", "paradise creek" ,"paradise_creek", "paradisecreek",
+                    "Coltwood", "coltwood",
+                    "Lake Cypress", "lake cypress", "lake_cypress", "lakecypress"]
+        for d_name in test_data:
+            self.assertEqual(self.game_action.check_visited(d_name), False)
+            self.assertEqual(self.game_action.change_visited(d_name), 0)
+            self.assertEqual(self.game_action.check_visited(d_name), True)
+            # FOR TEST ONLY: Change back _visited to False
+            self.game_state._visited[gamestate.District[d_name].name] = False
+
+    # Test change_visited with invalid names
+    def test_invalid_change_visited(self):
+        self.assertEqual(self.game_action.change_visited("abc"), 1)
+        self.assertEqual(self.game_action.change_visited("c i t y h a l l"), 1)   # spacing
+        self.assertEqual(self.game_action.change_visited("123"), 1)               # not letters
+        self.assertEqual(self.game_action.change_visited("not_a_location"), 1)    # not a location
+        self.assertEqual(self.game_action.change_visited("paradise crek"), 1)     # misspelling
+        self.assertEqual(self.game_action.change_visited(""), 1)                  # empty
+        self.assertEqual(self.game_action.change_visited(" ") , 1)                # space

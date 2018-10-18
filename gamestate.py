@@ -18,21 +18,21 @@ MAX_INVENTORY = 8
 # Enumerate the Districts
 # https://www.notinventedhere.org/articles/python/how-to-use-strings-as-name-aliases-in-python-enums.html
 _DISTRICTS = {
-    1: ["City Hall", "city hall"],
+    1: ["City Hall", "city hall", "city_hall", "cityhall"],
     2: ["Hawkins", "hawkins"],
-    3: ["Washington Heights", "washington heights"],
-    4: ["Greenland Grove", "greenland grove"],
-    5: ["Oak Square", "oak square"],
+    3: ["Washington Heights", "washington heights", "washington_heights", "washingtonheights"],
+    4: ["Greenland Grove", "greenland grove", "greenland_grove", "greenlandgrove"],
+    5: ["Oak Square", "oak square", "oak_square", "oaksquare"],
     6: ["Northtown", "northtown"],
-    7: ["River Gardens", "river gardens"],
+    7: ["River Gardens", "river gardens", "river_gardens", "rivergardens"],
     8: ["Bayrock", "bayrock"],
-    9: ["Sunset Hills", "sunset hills"],
+    9: ["Sunset Hills", "sunset hills", "sunset_hills", "sunsethills"],
     10: ["Lemonfield", "lemonfield"],
-    11: ["Gato Springs", "gato springs"],
-    12: ["Webster Mountain", "webster mountain"],
-    13: ["Paradise Creek", "paradise creek"],
+    11: ["Gato Springs", "gato springs", "gato_springs", "gatosprings"],
+    12: ["Webster Mountain", "webster mountain", "webster_mountain", "webstermountain"],
+    13: ["Paradise Creek", "paradise creek" ,"paradise_creek", "paradisecreek"],
     14: ["Coltwood", "coltwood"],
-    15: ["Lake Cypress", "lake cypress"],
+    15: ["Lake Cypress", "lake cypress", "lake_cypress", "lakecypress"],
 }
 District = Enum(
     value='District',
@@ -142,5 +142,17 @@ if __name__ == "__main__":
 
     # mygame.load_game_state(1)
 
+    # print("city hall" in District.__dict__)
+    # print(District["City Hall"].value)
+    # print("City Hall" in District.__dict__)
+    # print("cityhall" in District.__dict__)
+    # print(District(3).name)
+
+    # district_name = "cIty hAll"
+    # district_name = district_name.lower()
+    # print(district_name in District.__dict__)
+    #
+    # rname = District[district_name].name
+    # print(mygame._visited[rname])
 
 

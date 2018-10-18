@@ -1,6 +1,7 @@
 import json
 
 import gamestate
+from enum import Enum
 from typing import List, Dict
 
 
@@ -24,14 +25,14 @@ class GameAction(gamestate.GameState):
 
     # Change location
     def change_location(self, new_location: str) -> int:
-        valid_location = True
+        valid_location = False
 
-        # TODO: validate location
-        if (True):
-            pass
+        new_location = new_location.lower()
+        if new_location in gamestate.District.__dict__:
+            valid_location = True
 
         if valid_location:
-            self.game_state._current_location = new_location
+            self.game_state._current_location = gamestate.District[new_location].name
             return 0
         else:
             return 1
@@ -124,6 +125,28 @@ class GameAction(gamestate.GameState):
             obtained_clue = True
         return obtained_clue
 
+    # Check if district has been visited
+    def check_visited(self, district_name: str) -> bool:
+        district_name = district_name.lower()
+        if district_name in gamestate.District.__dict__:
+            proper_name = gamestate.District[district_name].name
+
+            return self.game_state._visited[proper_name]
+        else:
+            raise ValueError("A bad district_name was supplied.")
+
+    # Change district to visited
+    def change_visited(self, district_name: str) -> int:
+        district_name = district_name.lower()
+        if district_name in gamestate.District.__dict__:
+            proper_name = gamestate.District[district_name].name
+            self.game_state._visited[proper_name] = True
+            return 0
+        else:
+            return 1
+
 if __name__ == "__main__":
     game_state = gamestate.GameState()
     game_action = GameAction(game_state)
+
+    # game_action.check_visited("hAWKINs")

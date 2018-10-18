@@ -4,6 +4,8 @@ from command_parsing import command_parsing
 import os
 import game_play
 
+TIME_TO_WAIT_FOR_WRITE_OVER = 1
+
 #####################################################################################################################
 # Main  Menu
 # Displayed when the game starts
@@ -52,14 +54,13 @@ def print_left_indented(indentation, the_string):
 def write_over(the_string):
     sys.stdout.write(the_string)
     sys.stdout.flush()
-    time.sleep(2)
-    sys.stdout.write('\r')
-    sys.stdout.flush()
-    sys.stdout.write(" " * 99)
-    sys.stdout.flush()
-    sys.stdout.write('\r')
-    sys.stdout.flush()
-
+    # time.sleep(TIME_TO_WAIT_FOR_WRITE_OVER)
+    # sys.stdout.write('\r')
+    # sys.stdout.flush()
+    # sys.stdout.write(" " * 99)
+    # sys.stdout.flush()
+    # sys.stdout.write('\r')
+    # sys.stdout.flush()
 
 def main_selection(the_input):
 
@@ -91,13 +92,15 @@ def main_selection(the_input):
             if len(the_input) > 99:
                 write_over("Your input is too long.")
             write_over("Invalid Input.  Try again.")
+            sys.stdout.write("\033[F")      # go up one line
+            sys.stdout.write("\033[K")      # clear line
             command_line = "Make your selection >>> "
             the_input = input(command_line)
             the_input = str(the_input)
             lowered_input = the_input.lower()
     return int(selection)
 
-def load_selection(the_input) -> int:
+def load_selection(the_input: str, slot_tracker: []) -> int:
 
     # inputs to be recognized as valid
     list_one =      [1, "1", "1.", "game1", "slot1", "game slot 1", "gameslot 1", "gameslot1", "game 1", "slot 1"]
@@ -114,14 +117,41 @@ def load_selection(the_input) -> int:
 
         if command_parsing(lowered_input, list_one):
             selection = 1
+            if slot_tracker[0] == False:
+                write_over("Invalid choice. Save file does not exists.")
+                sys.stdout.write("\033[F")  # go up one line
+                sys.stdout.write("\033[K")  # clear line
+                command_line = "Make your selection >>> "
+                the_input = input(command_line)
+                the_input = str(the_input)
+                lowered_input = the_input.lower()
+                continue
             break
 
         if command_parsing(lowered_input, list_two):
             selection = 2
+            if slot_tracker[1] == False:
+                write_over("Invalid choice. Save file does not exists.")
+                sys.stdout.write("\033[F")  # go up one line
+                sys.stdout.write("\033[K")  # clear line
+                command_line = "Make your selection >>> "
+                the_input = input(command_line)
+                the_input = str(the_input)
+                lowered_input = the_input.lower()
+                continue
             break
 
         if command_parsing(lowered_input, list_three):
             selection = 3
+            if slot_tracker[2] == False:
+                write_over("Invalid choice. Save file does not exists.")
+                sys.stdout.write("\033[F")  # go up one line
+                sys.stdout.write("\033[K")  # clear line
+                command_line = "Make your selection >>> "
+                the_input = input(command_line)
+                the_input = str(the_input)
+                lowered_input = the_input.lower()
+                continue
             break
 
         if command_parsing(lowered_input, list_exit):
@@ -132,6 +162,8 @@ def load_selection(the_input) -> int:
             if len(the_input) > 99:
                 write_over("Your input is too long.")
             write_over("Invalid Input.  Try again.")
+            sys.stdout.write("\033[F")      # go up one line
+            sys.stdout.write("\033[K")      # clear line
             command_line = "Make your selection >>> "
             the_input = input(command_line)
             the_input = str(the_input)
@@ -139,6 +171,39 @@ def load_selection(the_input) -> int:
 
     return int(selection)
 
+def exit_selection(the_input) -> int:
+
+    # inputs to be recognized as valid
+    list_one =      ["y", "yes", "yep", "true"]
+    list_two =      ["n", "no", "nope", "false"]
+
+    selection = 0
+    wrong_input = True
+    the_input = str(the_input)
+    lowered_input = the_input.lower()  # to make the input case insensitive
+
+    while wrong_input:
+
+        if command_parsing(lowered_input, list_one):
+            selection = 1
+            break
+
+        if command_parsing(lowered_input, list_two):
+            selection = 2
+            break
+
+        if wrong_input:
+            if len(the_input) > 99:
+                write_over("Your input is too long.")
+            write_over("Invalid Input.  Try again.")
+            sys.stdout.write("\033[F")      # go up one line
+            sys.stdout.write("\033[K")      # clear line
+            command_line = "Yes/No >>> "
+            the_input = input(command_line)
+            the_input = str(the_input)
+            lowered_input = the_input.lower()
+
+    return int(selection)
 
 def main_menu():
     game_version = "1.0"
@@ -183,7 +248,7 @@ def load_menu():
     menu_options = ["1. Game Slot 1",
                     "2. Game Slot 2",
                     "3. Game Slot 3",
-                    "4. Exit"           ]
+                    "4. Go back"        ]
 
     slot_tracker = [False, False, False]
 
@@ -199,35 +264,51 @@ def load_menu():
         else:
             menu_options[num] += " -- no file"
 
-    while True:
+    # while True:
 
         # game_play.clear()
 
-        dotted_line_length = GAME_WIDTH
-        dotted_line(dotted_line_length)
+    dotted_line_length = GAME_WIDTH
+    dotted_line(dotted_line_length)
 
-        empty_line(1)
+    empty_line(1)
 
-        print_in_the_middle(dotted_line_length, title)
+    print_in_the_middle(dotted_line_length, title)
 
-        empty_line(1)
-        for x in menu_options:
-            print_left_indented(int(dotted_line_length/3.5), x)
-        empty_line(1)
+    empty_line(1)
+    for x in menu_options:
+        print_left_indented(int(dotted_line_length/3.5), x)
+    empty_line(1)
 
-        print("Ver. " + game_version)
-        dotted_line(dotted_line_length)
+    print("Ver. " + game_version)
+    dotted_line(dotted_line_length)
 
-        selection = load_selection(input("Make your selection >>> "))
+    # selection = load_selection(input("Make your selection >>> "))
 
-        if 1 <= selection <= 3 and slot_tracker[selection - 1] == False:
-            game_play.clear()
-            dotted_line(dotted_line_length)
-            empty_line(2)
-            print_left_indented(int(dotted_line_length/3.5), "Invalid choice. Save file does not exists.")
-            empty_line(2)
-        else:
-            break
+    # if 1 <= selection <= 3 and slot_tracker[selection - 1] == False:
+    #     game_play.clear()
+    #     dotted_line(dotted_line_length)
+    #     empty_line(2)
+    #     print_left_indented(int(dotted_line_length/3.5), "Invalid choice. Save file does not exists.")
+    #     empty_line(2)
+    # else:
+    #     break
+
+    selection = load_selection(input("Make your selection >>> "), slot_tracker)
 
     return selection
 
+def exit_game_confirmation():
+    game_version = "1.0"
+    title = "Are you sure you want to exit the game?"
+
+    dotted_line_length = GAME_WIDTH
+    dotted_line(dotted_line_length)
+    empty_line(1)
+    print_in_the_middle(dotted_line_length, title)
+    empty_line(1)
+    dotted_line(dotted_line_length)
+
+    selection = exit_selection(input("Yes/No >>> "))
+
+    return selection

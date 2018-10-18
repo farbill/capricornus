@@ -8,6 +8,8 @@ import narration
 import main_menu
 import time
 
+STARTING_LOCATION = "City Hall"
+
 # define our clear function
 # Ref: https://www.geeksforgeeks.org/clear-screen-python/
 def clear():
@@ -20,9 +22,7 @@ def clear():
         _ = system('clear')
 
 
-def game_play(ga: gameaction.GameAction):
-
-    clear()
+def intro_narration():
 
     main_menu.dotted_line(main_menu.GAME_WIDTH)
     narration.narration(narration.start_narration1(), main_menu.GAME_WIDTH)
@@ -35,11 +35,15 @@ def game_play(ga: gameaction.GameAction):
     narration.narration(narration.start_narration2(), main_menu.GAME_WIDTH)
     main_menu.dotted_line(main_menu.GAME_WIDTH)
     input("\nPress any key to continue...\n")
+
+def game_play(ga: gameaction.GameAction):
+
+    clear()
+    if ga.check_visited(STARTING_LOCATION) == False:
+        intro_narration()
     
     clear()
 
-    # print("\n\nTEST PURPOSE: GameState class for a new game need to be instantiated")
-    # print("TEST PURPOSE: GameAction classes need to be instantiated")
     print("TEST PURPOSE: Agent Dope class needs to be instantiated")
     print("TEST PURPOSE: Dr. Crime class needs to be instantiated")
     print("TEST PURPOSE: City class needs to be instantiated")
@@ -62,14 +66,11 @@ def game_play(ga: gameaction.GameAction):
     print("Initializing Location Data...")
     time.sleep(1)
 
-def load_game(ga: gameaction.GameAction) -> gameaction.GameAction:
-    # print("Load_game function called")
-    # print("- Call load game function in GameAction class to load into GameState")
-    # print("- return a loaded GameAction class obj")
-
+# Offers user the load menu and load a game slot
+def load_game(ga: gameaction.GameAction) -> (gameaction.GameAction, int):
     load_menu_choice = main_menu.load_menu()
-    print("load_menu() returned: " + str(load_menu_choice))
-
-    return ga
+    if (1 <= load_menu_choice <= 3):
+        ga.game_state.load_game_state(load_menu_choice)
+    return (ga, load_menu_choice)
 
 
