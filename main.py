@@ -16,14 +16,12 @@ def main():
 
         if main_menu_choice == 1:
             game_play.game_play(ga)
-            break
         elif main_menu_choice == 2:
             game_play.clear()
             ga, load_menu_choice = game_play.load_game(ga)
             if load_menu_choice == 4:
                 continue
             game_play.game_play(ga)
-            break
         elif main_menu_choice == 3:
             # insert confirmation check
             game_play.clear()
@@ -31,8 +29,8 @@ def main():
             if exit_choice == 2:    # 1 == exit, 2 == stay
                 continue
             sys.stdout.write("\033[K")  # clear line
-            print("\nOK! Good Bye!!")
-            input("\nPress any key to continue...\n")
+            print("\nThanks for playing! Good-bye!")
+            input("\nPress [Enter] to continue...\n")
             break
 
 

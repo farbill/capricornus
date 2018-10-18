@@ -205,6 +205,45 @@ def exit_selection(the_input) -> int:
 
     return int(selection)
 
+
+def gameplay_selection(the_input: str) -> str:
+
+    # 2D general action array
+    #   1st element of each 1D action list is the key action noun
+    general_action_array = [
+        ["exit", "quit", "q", "exit game", "quit game", "bye", "byebye"],
+        ["go up", "go north","go to north"],
+        ["go down", "go south", "go to south"],
+        ["go left", "go west", "go to west"],
+        ["go right", "go east", "go to east"],
+        # ....
+    ]
+
+    selection = None
+    the_input = str(the_input).lower()  # to make the input case insensitive
+
+    while selection == None:
+
+        # Check for valid action in general action array
+        for action_list in general_action_array:
+            if the_input in action_list:
+                selection = action_list[0]
+                break
+
+        # TODO: Check for district-specific action
+        # ...
+
+        # Else, bad action
+        if selection == None:
+            if len(the_input) > 99:
+                write_over("Your input is too long.")
+            write_over("Invalid Input.  Try again.")
+            sys.stdout.write("\033[F")      # go up one line
+            sys.stdout.write("\033[K")      # clear line
+            the_input = str(input(">>> ")).lower()
+
+    return selection
+
 def main_menu():
     game_version = "1.0"
     title = "New San Diego Saga"
@@ -300,12 +339,29 @@ def load_menu():
 
 def exit_game_confirmation():
     game_version = "1.0"
-    title = "Are you sure you want to exit the game?"
+    title = "Are you sure you want to exit the GAME?"
 
     dotted_line_length = GAME_WIDTH
     dotted_line(dotted_line_length)
     empty_line(1)
     print_in_the_middle(dotted_line_length, title)
+    empty_line(1)
+    dotted_line(dotted_line_length)
+
+    selection = exit_selection(input("Yes/No >>> "))
+
+    return selection
+
+def exit_to_main_confirmation():
+    game_version = "1.0"
+    msg1 = "Are you sure you want to exit to MENU?"
+    msg2 = "Any unsaved progress will be loss."
+
+    dotted_line_length = GAME_WIDTH
+    dotted_line(dotted_line_length)
+    empty_line(1)
+    print_in_the_middle(dotted_line_length, msg1)
+    print_in_the_middle(dotted_line_length, msg2)
     empty_line(1)
     dotted_line(dotted_line_length)
 
