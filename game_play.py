@@ -88,7 +88,7 @@ def game_play(ga: gameaction.GameAction):
         time.sleep(1)
 
         # TODO: perform action
-        # ...
+        # ....
 
         if selection == "exit":
             clear()
