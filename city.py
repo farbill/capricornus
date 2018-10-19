@@ -6,10 +6,12 @@ class City(object):
     def __init__(self,
                  name,
                  short_description,
-                 long_description):
+                 long_description,
+                 grid_size):
         self.name = name
         self._short_description = short_description
         self._long_description = long_description
+        self._grid = [[None for _ in range(len(grid_size))] for _ in range(len(grid_size))]
 
 
 class DistrictId(object):

@@ -1,3 +1,4 @@
+from functools import reduce
 from enum import Enum
 
 
@@ -25,37 +26,41 @@ class PuzzleData(object):
                  question: str,
                  puzzle_type: PuzzleType,
                  difficulty: PuzzleDifficulty,
-                 state: PuzzleState):
-        self._question = question
-        self._puzzle_type = puzzle_type
-        self._difficulty = difficulty
-        self._state = state
+                 answer: str):
+        self.question = question
+        self.puzzle_type = puzzle_type
+        self.difficulty = difficulty
+        self.answer = answer.lower()
+
+    def __eq__(self, other):
+        properties = [self.question == other.question,
+                      self.puzzle_type == other.puzzle_type,
+                      self.difficulty == other.difficulty,
+                      self.answer == other.answer]
+        return reduce(lambda x, y: x and y, properties)
+
 
 class Puzzle(object):
     def __init__(self,
-                 data: PuzzleData):
+                 data: PuzzleData,
+                 state: PuzzleState = PuzzleState.UNTAKEN):
         self._data = data
+        self.state = state
+        self.attempted = 0
 
-    def play(self):
-        # takes input, and then alters puzzles state depending on answer
-        self._ask_question()
-        answer = self._get_answer()
-        self._evaluate_answer(answer)
-        '''
-        BILL: I'm not quite sure what to do here? do we want the puzzle itself
-        to ask the question, or should we pass in some sort of output mode?
-        if you passed in an output mode we could eventually make the game so
-        that it doesn't even depend on text input(could have a GUI for example)
-        '''
+    def get_question(self):
+        return self._data.question
 
-    def _get_answer(self):
-        pass
+    def attempt_answer(self, answer: str) -> bool:
+        self.attempted += 1
+        answer = answer.lower()
+        if answer == self._data.answer:
+            self.state = PuzzleState.SOLVED
+            return True
+        else:
+            self.state = PuzzleState.TAKEN
+            return False
 
-    def _ask_question(self) -> None:
-        pass
 
-    def _evaluate_answer(self, answer) -> bool:
-        # TODO: how do we want to evaluate answers?
-        # should we make a separate class for evaluating/NLP
-        # probably makes sense right?
-        return False
+
+
