@@ -216,6 +216,8 @@ def gameplay_selection(the_input: str) -> str:
         ["go down", "go south", "go to south", "south", "down"],
         ["go left", "go west", "go to west", "west", "left"],
         ["go right", "go east", "go to east", "east", "right"],
+        ["inventory", "bag", "open inventory", "open bag", "see inventory", "check inventory"],
+        ["help", "help me", "manual", "guide", "q&a", "open help"],
         # ....
     ]
 
@@ -243,6 +245,7 @@ def gameplay_selection(the_input: str) -> str:
             the_input = str(input(">>> ")).lower()
 
     return selection
+
 
 def main_menu():
     game_version = "1.0"
