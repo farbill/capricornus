@@ -22,6 +22,17 @@ def clear():
         _ = system('clear')
 
 
+def general_info(ga):
+    main_menu.empty_line(2)
+    main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Remaining Turns:%s"%ga.turns_remaining))
+    main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Current Location:%s"%ga.current_location))
+    main_menu.empty_line(3)
+    legendary_status(ga)
+    main_menu.empty_line(2)
+    narration.help_menu()
+    main_menu.empty_line(1)
+
+
 def intro_narration():
 
     main_menu.dotted_line(main_menu.GAME_WIDTH)
@@ -80,30 +91,36 @@ def game_play(ga: gameaction.GameAction):
 
         # TODO: display game stuff
         main_menu.dotted_line(main_menu.GAME_WIDTH)
-        main_menu.empty_line(2)
-        main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Remaining Turns:%s"%ga.turns_remaining))
-        main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Current Location:%s"%ga.current_location))
-        main_menu.empty_line(3)
-        legendary_status(ga)
-        main_menu.empty_line(2)
-        narration.possible_menu()
-        main_menu.empty_line(1)
+        general_info(ga)
         main_menu.dotted_line(main_menu.GAME_WIDTH)
 
         # get validated input
         selection = main_menu.gameplay_selection(input(">>> "))
         print("TESTING - YOU'VE SELECTED: " + selection)
-        time.sleep(1)
+        time.sleep(2)
 
         # TODO: perform action
         # ....
 
-	
+
         if selection == "exit":
             clear()
             confirmation = main_menu.exit_to_main_confirmation()
             if confirmation == 1:
                 break
+        elif selection == "inventory":
+            clear()
+        elif selection == "help":
+            clear()
+        elif selection == "go up":
+            clear()
+        elif selection == "go down":
+            clear()
+        elif selection == "go left":
+            clear()
+        elif selection == "go right":
+            clear()
+        
 
 # Offers user the load menu and load a game slot
 def load_game(ga: gameaction.GameAction) -> (gameaction.GameAction, int):
