@@ -180,3 +180,6 @@ def help_menu_screen():
                 game_play.clear()
                 back_to_game = True
                 break
+            else:
+                game_play.clear()
+		break
