@@ -111,10 +111,10 @@ def help_menu_screen():
         main_menu.dotted_line(main_menu.GAME_WIDTH)
 
         list_game_story = ["1", "game story", "story", "about game", "1. game story"]
-        list_characters = ["2", "character", "characters", "game characters", "2. chracters"]
+        list_characters = ["2", "character", "characters", "char", "chars", "game characters", "2. characters"]
         list_game_commands = ["3", "game commands", "game command", "commands", "command", "3. game commands"]
-        list_items = ["4", "item", "items", "about items", "4. itmes"]
-        list_back = ["5", "exit", "return", "back", "resuem game", "5. resume game"]
+        list_items = ["4", "item", "items", "about items", "4. items"]
+        list_back = ["5", "exit", "return", "back", "resume", "resume game", "5. resume game"]
 
         selection = input(">>> ")
 
@@ -126,14 +126,14 @@ def help_menu_screen():
                 narration(start_narration1(), main_menu.GAME_WIDTH)
                 main_menu.empty_line(2)
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
-                input("Pree any key to continue...")
+                input("Press [Enter] to continue...")
                 game_play.clear()
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 main_menu.empty_line(2)
                 narration(start_narration2(), main_menu.GAME_WIDTH)
                 main_menu.empty_line(2)
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
-                input("Pree any key to continue...")
+                input("Press [Enter] to continue...")
                 game_play.clear()
                 break
             if command_parsing(selection, list_characters) == 1: #Help for game characters
@@ -145,7 +145,7 @@ def help_menu_screen():
                 narration(long_for_agt_dope(), main_menu.GAME_WIDTH)
                 main_menu.empty_line(2)
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
-                input("Pree any key to continue...")
+                input("Press [Enter] to continue...")
                 game_play.clear()
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 main_menu.empty_line(2)
@@ -154,7 +154,7 @@ def help_menu_screen():
                 narration(long_for_dr_crime(), main_menu.GAME_WIDTH)
                 main_menu.empty_line(2)
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
-                input("Pree any key to continue...")
+                input("Press [Enter] to continue...")
                 game_play.clear()
                 break
             if command_parsing(selection, list_game_commands) == 1: #Help for game commands
@@ -164,7 +164,7 @@ def help_menu_screen():
                 command_help(main_menu.GAME_WIDTH)
                 main_menu.empty_line(2)
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
-                input("Pree any key to continue...")
+                input("Press [Enter] to continue...")
                 game_play.clear()
                 break
             if command_parsing(selection, list_items) == 1:         #Help for game items
@@ -180,3 +180,7 @@ def help_menu_screen():
                 game_play.clear()
                 back_to_game = True
                 break
+            main_menu.write_over("Invalid Input.  Try again.")
+            sys.stdout.write("\033[F")      # go up one line
+            sys.stdout.write("\033[K")      # clear line
+            selection = str(input(">>> ")).lower()

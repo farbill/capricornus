@@ -306,10 +306,6 @@ def load_menu():
         else:
             menu_options[num] += " -- no file"
 
-    # while True:
-
-        # game_play.clear()
-
     dotted_line_length = GAME_WIDTH
     dotted_line(dotted_line_length)
 
@@ -324,17 +320,6 @@ def load_menu():
 
     print("Ver. " + game_version)
     dotted_line(dotted_line_length)
-
-    # selection = load_selection(input("Make your selection >>> "))
-
-    # if 1 <= selection <= 3 and slot_tracker[selection - 1] == False:
-    #     game_play.clear()
-    #     dotted_line(dotted_line_length)
-    #     empty_line(2)
-    #     print_left_indented(int(dotted_line_length/3.5), "Invalid choice. Save file does not exists.")
-    #     empty_line(2)
-    # else:
-    #     break
 
     selection = load_selection(input("Make your selection >>> "), slot_tracker)
 
