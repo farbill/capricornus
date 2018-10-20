@@ -41,7 +41,16 @@ class GameAction(gamestate.GameState):
     # Return inventory
     def current_inventory(self) -> List[str]:
         return self.game_state._current_inventory
-
+    
+    # Check lengendary items collected
+    def check_legendary(self) -> list:
+        legendary_list = [None] * 4
+        legendary_list[0] = self.game_state._vision_orb
+        legendary_list[1] = self.game_state._strength_orb
+        legendary_list[2] = self.game_state._vitality_orb
+        legendary_list[3] = self.game_state._magic_sword
+        return legendary_list
+    
     # Add item to inventory
     def add_to_inventory(self, new_item: str) -> int:
         valid_item = True
