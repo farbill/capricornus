@@ -60,15 +60,9 @@ def game_play(ga: gameaction.GameAction):
 
 	#Dr. Crime needs to be initialized with specified PUZZLE and DIALOGS
     dr_crime = characters.DrCrime(narration.short_for_dr_crime(), narration.long_for_dr_crime(), 0, 0)
-   
-    print("Initializing Item Data...")
-    # time.sleep(1)
-	
-    print("Initializing Puzzle Data...")
-    # time.sleep(1)
-	
-    print("Initializing Location Data...")
-    # time.sleep(1)
+
+    #mygame class instantiated here
+    mygame = gamestate.GameState()
 
     # Game loop
     while True:
@@ -79,6 +73,8 @@ def game_play(ga: gameaction.GameAction):
         main_menu.dotted_line(main_menu.GAME_WIDTH)
         main_menu.empty_line(3)
         main_menu.print_in_the_middle(main_menu.GAME_WIDTH, "PRINT GAME STUFF HERE")
+        main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Remaining Turns:%s"%mygame._turns_remaining))
+        main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Current Location:%s"%mygame._current_location))
         main_menu.empty_line(3)
         main_menu.dotted_line(main_menu.GAME_WIDTH)
 
