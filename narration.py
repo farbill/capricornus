@@ -119,7 +119,7 @@ def help_menu_screen():
         selection = input(">>> ")
 
         while True:
-            if command_parsing(selection, list_game_story) == 1:
+            if command_parsing(selection, list_game_story) == 1: #Help for game story
                 game_play.clear()
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 main_menu.empty_line(2)
@@ -136,7 +136,7 @@ def help_menu_screen():
                 input("Pree any key to continue...")
                 game_play.clear()
                 break
-            if command_parsing(selection, list_characters) == 1:
+            if command_parsing(selection, list_characters) == 1: #Help for game characters
                 game_play.clear()
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 main_menu.empty_line(2)
@@ -157,7 +157,7 @@ def help_menu_screen():
                 input("Pree any key to continue...")
                 game_play.clear()
                 break
-            if command_parsing(selection, list_game_commands) == 1:
+            if command_parsing(selection, list_game_commands) == 1: #Help for game commands
                 game_play.clear()
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 main_menu.empty_line(2)
@@ -167,13 +167,13 @@ def help_menu_screen():
                 input("Pree any key to continue...")
                 game_play.clear()
                 break
-            if command_parsing(selection, list_items) == 1:
+            if command_parsing(selection, list_items) == 1:         #Help for game items
                 game_play.clear()
                 print("#Testing: About game items")
                 time.sleep(1)
                 game_play.clear()
                 break
-            if command_parsing(selection, list_back) == 1:
+            if command_parsing(selection, list_back) == 1:          #Back to the game
                 game_play.clear()
                 print("#Testing: Back")
                 time.sleep(1)
