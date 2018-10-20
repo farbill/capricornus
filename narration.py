@@ -127,8 +127,23 @@ def help_menu_screen():
                 break
             if command_parsing(selection, list_characters) == 1:
                 game_play.clear()
-                print("#Testing: About game characters")
-                time.sleep(1)
+                main_menu.dotted_line(main_menu.GAME_WIDTH)
+                main_menu.empty_line(2)
+                narration("Agent Dope", main_menu.GAME_WIDTH)
+                main_menu.empty_line(1)
+                narration(long_for_agt_dope(), main_menu.GAME_WIDTH)
+                main_menu.empty_line(2)
+                main_menu.dotted_line(main_menu.GAME_WIDTH)
+                input("Pree any key to continue...")
+                game_play.clear()
+                main_menu.dotted_line(main_menu.GAME_WIDTH)
+                main_menu.empty_line(2)
+                narration("Dr. Crime", main_menu.GAME_WIDTH)
+                main_menu.empty_line(1)
+                narration(long_for_dr_crime(), main_menu.GAME_WIDTH)
+                main_menu.empty_line(2)
+                main_menu.dotted_line(main_menu.GAME_WIDTH)
+                input("Pree any key to continue...")
                 game_play.clear()
                 break
             if command_parsing(selection, list_game_commands) == 1:
