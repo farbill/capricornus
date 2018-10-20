@@ -5,6 +5,7 @@ def possible_menu():
         main_menu.print_in_the_middle(main_menu.GAME_WIDTH, "- Go North, South, West, or East    ")
         main_menu.print_in_the_middle(main_menu.GAME_WIDTH, "- Open Inventory                    ")
         main_menu.print_in_the_middle(main_menu.GAME_WIDTH, "- Interact with the district feature")
+        main_menu.print_in_the_middle(main_menu.GAME_WIDTH, "- Exit to the main menu             ")
 
 def start_narration1():
 	title_narration_part1 = "Agent Dope, who is tasked with the mission of finding and appending " \
