@@ -1,4 +1,8 @@
 import main_menu
+from command_parsing import command_parsing
+import sys
+import game_play
+import time
 
 def help_menu():
         main_menu.print_in_the_middle(main_menu.GAME_WIDTH, "Type \"Help\" for game commands")
@@ -79,3 +83,59 @@ def narration(the_string, line_length):
     if last_line_indicator <= len(the_string):
         print(to_print)
 
+
+def help_menu_screen():
+    back_to_game = False
+    while back_to_game == False:
+        main_menu.dotted_line(main_menu.GAME_WIDTH)
+        main_menu.empty_line(2)
+        main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("HELP"))
+        main_menu.empty_line(2)
+        main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("1. Game Story   "))
+        main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("2. Characters   "))
+        main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("3. Game Commands"))
+        main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("4. Items        "))
+        main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("5. Resume Game  "))
+        main_menu.empty_line(3)
+        main_menu.dotted_line(main_menu.GAME_WIDTH)
+
+        list_game_story = ["1", "game story", "story", "about game", "1. game story"]
+        list_characters = ["2", "character", "characters", "game characters", "2. chracters"]
+        list_game_commands = ["3", "game commands", "game command", "commands", "command", "3. game commands"]
+        list_items = ["4", "item", "items", "about items", "4. itmes"]
+        list_back = ["5", "exit", "return", "back", "resuem game", "5. resume game"]
+
+        selection = input(">>> ")
+
+        while True:
+            if command_parsing(selection, list_game_story) == 1:
+                game_play.clear()
+                print("#Testing: Narrate game story")
+                time.sleep(1)
+                game_play.clear()
+                break
+            if command_parsing(selection, list_characters) == 1:
+                game_play.clear()
+                print("#Testing: About game characters")
+                time.sleep(1)
+                game_play.clear()
+                break
+            if command_parsing(selection, list_game_commands) == 1:
+                game_play.clear()
+                print("#Testing: About game commands")
+                time.sleep(1)
+                game_play.clear()
+                break
+            if command_parsing(selection, list_items) == 1:
+                game_play.clear()
+                print("#Testing: About game items")
+                time.sleep(1)
+                game_play.clear()
+                break
+            if command_parsing(selection, list_back) == 1:
+                game_play.clear()
+                print("#Testing: Back")
+                time.sleep(1)
+                game_play.clear()
+                back_to_game = True
+                break
