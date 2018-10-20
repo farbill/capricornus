@@ -4,6 +4,17 @@ import sys
 import game_play
 import time
 
+def command_help(width):
+        main_menu.print_in_the_middle(width, ("1. Go to North, South, East, or West "))
+        main_menu.print_in_the_middle(width, ("2. Check Inventory                   "))
+        main_menu.print_in_the_middle(width, ("   i.   Inspect                      "))
+        main_menu.print_in_the_middle(width, ("   ii.  Drop                         "))
+        main_menu.print_in_the_middle(width, ("3. Check Visited                     "))
+        main_menu.print_in_the_middle(width, ("4. Look                              "))
+        main_menu.print_in_the_middle(width, ("5. Inspect                           "))
+        main_menu.print_in_the_middle(width, ("6. Pick Up                           "))
+        main_menu.print_in_the_middle(width, ("7. Help                              "))
+
 def help_menu():
         main_menu.print_in_the_middle(main_menu.GAME_WIDTH, "Type \"Help\" for game commands")
 
@@ -148,8 +159,12 @@ def help_menu_screen():
                 break
             if command_parsing(selection, list_game_commands) == 1:
                 game_play.clear()
-                print("#Testing: About game commands")
-                time.sleep(1)
+                main_menu.dotted_line(main_menu.GAME_WIDTH)
+                main_menu.empty_line(2)
+                command_help(main_menu.GAME_WIDTH)
+                main_menu.empty_line(2)
+                main_menu.dotted_line(main_menu.GAME_WIDTH)
+                input("Pree any key to continue...")
                 game_play.clear()
                 break
             if command_parsing(selection, list_items) == 1:
