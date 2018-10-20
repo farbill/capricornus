@@ -182,4 +182,4 @@ def help_menu_screen():
                 break
             else:
                 game_play.clear()
-		break
+                break
