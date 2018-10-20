@@ -79,7 +79,7 @@ def game_play(ga: gameaction.GameAction):
         main_menu.empty_line(3)
         main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Remaining Turns:%s"%ga.turns_remaining))
         main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Current Location:%s"%ga.current_location))
-	main_menu.empty_line(3)
+        main_menu.empty_line(3)
         legendary_status(ga)
         main_menu.empty_line(3)
         main_menu.dotted_line(main_menu.GAME_WIDTH)
