@@ -110,8 +110,19 @@ def help_menu_screen():
         while True:
             if command_parsing(selection, list_game_story) == 1:
                 game_play.clear()
-                print("#Testing: Narrate game story")
-                time.sleep(1)
+                main_menu.dotted_line(main_menu.GAME_WIDTH)
+                main_menu.empty_line(2)
+                narration(start_narration1(), main_menu.GAME_WIDTH)
+                main_menu.empty_line(2)
+                main_menu.dotted_line(main_menu.GAME_WIDTH)
+                input("Pree any key to continue...")
+                game_play.clear()
+                main_menu.dotted_line(main_menu.GAME_WIDTH)
+                main_menu.empty_line(2)
+                narration(start_narration2(), main_menu.GAME_WIDTH)
+                main_menu.empty_line(2)
+                main_menu.dotted_line(main_menu.GAME_WIDTH)
+                input("Pree any key to continue...")
                 game_play.clear()
                 break
             if command_parsing(selection, list_characters) == 1:
