@@ -211,11 +211,11 @@ def gameplay_selection(the_input: str) -> str:
     # 2D general action array
     #   1st element of each 1D action list is the key action noun
     general_action_array = [
-        ["exit", "quit", "q", "exit game", "quit game", "bye", "byebye"],
-        ["go up", "go north","go to north"],
-        ["go down", "go south", "go to south"],
-        ["go left", "go west", "go to west"],
-        ["go right", "go east", "go to east"],
+        ["exit", "quit", "q", "exit game", "quit game", "bye", "byebye", "main", "main menu"],
+        ["go up", "go north","go to north", "north", "up"],
+        ["go down", "go south", "go to south", "south", "down"],
+        ["go left", "go west", "go to west", "west", "left"],
+        ["go right", "go east", "go to east", "east", "right"],
         # ....
     ]
 
