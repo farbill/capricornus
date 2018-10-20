@@ -102,7 +102,6 @@ def game_play(ga: gameaction.GameAction):
         # TODO: perform action
         # ....
 
-
         if selection == "exit":
             clear()
             confirmation = main_menu.exit_to_main_confirmation()
@@ -112,6 +111,7 @@ def game_play(ga: gameaction.GameAction):
             clear()
         elif selection == "help":
             clear()
+            narration.help_menu_screen()
         elif selection == "go up":
             clear()
         elif selection == "go down":
