@@ -1,7 +1,6 @@
 import gamestate
 import gameaction
 import characters
-import command_parsing
 
 # import only system from os
 from os import system, name
@@ -91,9 +90,8 @@ def game_play(ga: gameaction.GameAction):
         # TODO: perform action
         # ....
 
-	#Command to exit to the main menu screen
-        exit_list = ["exit", "bye", "mainmenu", "main menu", "quit", "leave"]
-        if command_parsing(selection, exit_list):
+	
+        if selection == "exit":
             clear()
             confirmation = main_menu.exit_to_main_confirmation()
             if confirmation == 1:
