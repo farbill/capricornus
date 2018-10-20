@@ -25,14 +25,18 @@ def clear():
 def intro_narration():
 
     main_menu.dotted_line(main_menu.GAME_WIDTH)
+    main_menu.empty_line(2)
     narration.narration(narration.start_narration1(), main_menu.GAME_WIDTH)
+    main_menu.empty_line(2)
     main_menu.dotted_line(main_menu.GAME_WIDTH)
     input("\nPress [Enter] to continue...\n")
 
     clear()
 
     main_menu.dotted_line(main_menu.GAME_WIDTH)
+    main_menu.empty_line(2)
     narration.narration(narration.start_narration2(), main_menu.GAME_WIDTH)
+    main_menu.empty_line(2)
     main_menu.dotted_line(main_menu.GAME_WIDTH)
     input("\nPress [Enter] to continue...\n")
 
