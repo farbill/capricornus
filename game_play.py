@@ -36,6 +36,21 @@ def intro_narration():
     main_menu.dotted_line(main_menu.GAME_WIDTH)
     input("\nPress [Enter] to continue...\n")
 
+def legendary_status(ga):
+    legendary_list = ga.check_legendary()
+    status_list = [None] * 4
+    for i in range(0, 4):
+        if legendary_list[i] == False:
+            status_list[i] = "Empty  "
+        else:
+            status_list[i] = "On hand"
+    
+    vision_and_strength = "Vision Orb:   %s   Strength Orb: %s"%(status_list[0], status_list[1])
+    vitality_and_magic  = "Vitality Orb: %s   Magic Sword:  %s"%(status_list[2], status_list[3])
+    main_menu.print_in_the_middle(main_menu.GAME_WIDTH, vision_and_strength)
+    main_menu.print_in_the_middle(main_menu.GAME_WIDTH, vitality_and_magic)
+
+
 def game_play(ga: gameaction.GameAction):
 
     clear()
@@ -45,20 +60,13 @@ def game_play(ga: gameaction.GameAction):
         intro_narration()
     
     clear()
-
-    print("TEST PURPOSE: Agent Dope class needs to be instantiated")
-    print("TEST PURPOSE: Dr. Crime class needs to be instantiated")
-    print("TEST PURPOSE: City class needs to be instantiated")
-    print("TEST PURPOSE: District classes need to be instantiated")
-    print("TEST PURPOSE: Item classes need to be instantiated")
-    print("TEST PURPOSE: Puzzle classes need to be instantiated\n")
     
     print("Initializing Character Information...")
     # time.sleep(1)
 
     agt_dope = characters.AgentDope(narration.short_for_agt_dope(), narration.long_for_agt_dope())
 
-	#Dr. Crime needs to be initialized with specified PUZZLE and DIALOGS
+    #Dr. Crime needs to be initialized with specified PUZZLE and DIALOGS
     dr_crime = characters.DrCrime(narration.short_for_dr_crime(), narration.long_for_dr_crime(), 0, 0)
 
     # Game loop
@@ -69,9 +77,9 @@ def game_play(ga: gameaction.GameAction):
         # TODO: display game stuff
         main_menu.dotted_line(main_menu.GAME_WIDTH)
         main_menu.empty_line(3)
-        main_menu.print_in_the_middle(main_menu.GAME_WIDTH, "PRINT GAME STUFF HERE")
         main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Remaining Turns:%s"%ga.turns_remaining))
         main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Current Location:%s"%ga.current_location))
+        legendary_status(ga)
         main_menu.empty_line(3)
         main_menu.dotted_line(main_menu.GAME_WIDTH)
 
@@ -96,5 +104,3 @@ def load_game(ga: gameaction.GameAction) -> (gameaction.GameAction, int):
     if (1 <= load_menu_choice <= 3):
         ga.game_state.load_game_state(load_menu_choice)
     return (ga, load_menu_choice)
-
-
