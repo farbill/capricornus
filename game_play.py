@@ -1,6 +1,7 @@
 import gamestate
 import gameaction
 import characters
+import city
 
 # import only system from os
 from os import system, name
@@ -21,16 +22,55 @@ def clear():
     else:
         _ = system('clear')
 
+# Work in progress --------------------------
+def gametext_output(ga, map_arr) -> [str, str, str, str]:
+    # Current x,y coord
+    xy_coord = (None, None)
 
-def general_info(ga):
+    # North, South, West, East -- district info
+    cardinal_dir = ["north", "south", "west", "east"]
+    nswe_districts = [None, None, None, None]
+    relative_coord = [(0, 1), (0, -1), (-1, 0), (1, 0)]
+    static_coord = [None, None, None, None]
+
+    # Get x,y coords of current location
+    for district_obj in map_arr:
+        if ga.current_location == district_obj._district_name:
+            xy_coord = district_obj._id.get_id()
+
+    # get N, S, W, E districts
+    # https://stackoverflow.com/questions/1169725/adding-values-from-tuples-of-same-length
+    for i in range(4):
+        static_coord[i] = tuple(sum(x) for x in zip(xy_coord, relative_coord[i]))
+
+    # Assign district names to NSWE
+    for district_obj in map_arr:
+        for i in range(4):
+            if static_coord[i] == district_obj._id.get_id():
+                nswe_districts[i] = district_obj._district_name
+
+    for i in range(4):
+        if nswe_districts[i] is not None:
+            print("To the " + cardinal_dir[i] + " is " + nswe_districts[i] + ".")
+
+    # print(nswe_districts)
+    # nswe_districts = list(map(lambda x: x.lower() if x is not None else x, nswe_districts))
+    # print(nswe_districts)
+
+    return nswe_districts
+
+def general_info(ga, map_arr):
     main_menu.empty_line(2)
     main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Remaining Turns:%s"%ga.turns_remaining))
     main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Current Location:%s"%ga.current_location))
-    main_menu.empty_line(3)
+    main_menu.empty_line(2)
+    nswe_districts = gametext_output(ga, map_arr)
+    main_menu.empty_line(2)
     legendary_status(ga)
     main_menu.empty_line(2)
     narration.help_menu()
     main_menu.empty_line(1)
+    return nswe_districts
 
 
 def intro_narration():
@@ -68,21 +108,51 @@ def legendary_status(ga):
 
 def game_play(ga: gameaction.GameAction):
 
-    clear()
+    # TODO: Load in all game data
 
+    # Initializing a small map for TESTING ----------------------------
+    city_hall = city.District(city.DistrictId(2, 3),
+                              "City Hall",
+                              ["an item - key1"],
+                              ["a clue - the eagle has landed1"],
+                              [], # character list
+                              "City Hall short description",
+                              "City Hall long description")
+    hawkins = city.District(city.DistrictId(2, 4),
+                              "Hawkins",
+                              ["an item - key2"],
+                              ["a clue - the eagle has landed2"],
+                              [], # character list
+                              "Hawkins short description",
+                              "Hawkins long description")
+    greenland_grove = city.District(city.DistrictId(1, 3),
+                              "Greenland Grove",
+                              ["an item - key3"],
+                              ["a clue - the eagle has landed3"],
+                              [], # character list
+                              "Greenland Grove short description",
+                              "Greenland Grove long description")
+    oak_square = city.District(city.DistrictId(3, 3),
+                              "Oak Square",
+                              ["an item - key4"],
+                              ["a clue - the eagle has landed4"],
+                              [], # character list
+                              "Oak Square short description",
+                              "Oak Square long description")
+    map_arr = [city_hall, hawkins, greenland_grove, oak_square]
+    # --------------------------------------------------------------------
+
+    # print("Initializing Character Information...")
+    agt_dope = characters.AgentDope(narration.short_for_agt_dope(), narration.long_for_agt_dope())
+    #Dr. Crime needs to be initialized with specified PUZZLE and DIALOGS
+    dr_crime = characters.DrCrime(narration.short_for_dr_crime(), narration.long_for_dr_crime(), 0, 0)
+
+
+    clear()
     # For new games, play intro narration
     if ga.check_visited(STARTING_LOCATION) == False:
         intro_narration()
-    
-    clear()
-    
-    print("Initializing Character Information...")
-    # time.sleep(1)
-
-    agt_dope = characters.AgentDope(narration.short_for_agt_dope(), narration.long_for_agt_dope())
-
-    #Dr. Crime needs to be initialized with specified PUZZLE and DIALOGS
-    dr_crime = characters.DrCrime(narration.short_for_dr_crime(), narration.long_for_dr_crime(), 0, 0)
+        clear()
 
     # Game loop
     while True:
@@ -91,15 +161,15 @@ def game_play(ga: gameaction.GameAction):
 
         # TODO: display game stuff
         main_menu.dotted_line(main_menu.GAME_WIDTH)
-        general_info(ga)
+        nswe_districts = general_info(ga, map_arr)
         main_menu.dotted_line(main_menu.GAME_WIDTH)
 
         # get validated input
-        selection = main_menu.gameplay_selection(input(">>> "))
-        print("TESTING - YOU'VE SELECTED: " + selection)
-        time.sleep(2)
+        selection = main_menu.gameplay_selection(input(">>> "), nswe_districts)
+        # print("TESTING - YOU'VE SELECTED: " + selection)
+        # time.sleep(2)
 
-        # TODO: perform action
+        # TODO: perform action based on key action noun
         # ....
 
         if selection == "exit":
@@ -113,12 +183,16 @@ def game_play(ga: gameaction.GameAction):
             clear()
             narration.help_menu_screen()
         elif selection == "go up":
+            ga.change_location(nswe_districts[0]);
             clear()
         elif selection == "go down":
+            ga.change_location(nswe_districts[1]);
             clear()
         elif selection == "go left":
+            ga.change_location(nswe_districts[2]);
             clear()
         elif selection == "go right":
+            ga.change_location(nswe_districts[3]);
             clear()
         
 

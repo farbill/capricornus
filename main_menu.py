@@ -206,20 +206,41 @@ def exit_selection(the_input) -> int:
     return int(selection)
 
 
-def gameplay_selection(the_input: str) -> str:
+def gameplay_selection(the_input: str, nswe_districts: [str, str, str, str]) -> str:
+
+    # Change nswe_districts to lower case
+    # e.g. ['hawkins', None, 'greenland grove', 'oak square']
+    nswe_districts = list(map(lambda x: x.lower() if x is not None else x, nswe_districts))
 
     # 2D general action array
     #   1st element of each 1D action list is the key action noun
     general_action_array = [
         ["exit", "quit", "q", "exit game", "quit game", "bye", "byebye", "main", "main menu"],
-        ["go up", "go north","go to north", "north", "up"],
-        ["go down", "go south", "go to south", "south", "down"],
-        ["go left", "go west", "go to west", "west", "left"],
-        ["go right", "go east", "go to east", "east", "right"],
         ["inventory", "bag", "open inventory", "open bag", "see inventory", "check inventory"],
         ["help", "help me", "manual", "guide", "q&a", "open help"],
         # ....
     ]
+
+    # 2D NSWE movement array
+    #   1st element of each 1D action list is the key action noun
+    nswe_actions = [    ["go up", "go north", "go to north", "north", "up"],
+                        ["go down", "go south", "go to south", "south", "down"],
+                        ["go left", "go west", "go to west", "west", "left"],
+                        ["go right", "go east", "go to east", "east", "right"]      ]
+
+    # Add additional word parsing for each NSEW movement based on district name
+    for i in range(4):
+        if nswe_districts[i] is not None:
+            arr = nswe_actions[i]
+            whole_name = nswe_districts[i]                  # ex: 'greenland grove'
+            first_word = whole_name.split()[0]              # ex: 'greenland'
+            arr.append(whole_name)                          # ex: greenland grove
+            arr.append(first_word)                          # ex: greenland
+            arr.append("go " + whole_name)                  # ex: go greenland grove
+            arr.append("go to " + whole_name)               # ex: go to greenland grove
+            arr.append("go " + first_word)                  # ex: go greenland
+            arr.append("go to " + first_word)               # ex: go to greenland
+            general_action_array.append(arr)
 
     selection = None
     the_input = str(the_input).lower()  # to make the input case insensitive

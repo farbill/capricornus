@@ -28,12 +28,14 @@ class DistrictId(object):
 class District(object):
     def __init__(self,
                  id: DistrictId,
+                 district_name: str,
                  items: List,
                  clues: List,
                  characters: List[Character],
                  short_description,
                  long_description):
         self._id = id
+        self._district_name = district_name
         self._items = items
         self._clues = clues
         self._characters = characters
