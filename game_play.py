@@ -25,6 +25,7 @@ def clear():
 # Work in progress --------------------------
 def gametext_output(ga, map_arr) -> [str, str, str, str]:
     # Current x,y coord
+    this_district = None
     xy_coord = (None, None)
 
     # North, South, West, East -- district info
@@ -36,6 +37,7 @@ def gametext_output(ga, map_arr) -> [str, str, str, str]:
     # Get x,y coords of current location
     for district_obj in map_arr:
         if ga.current_location == district_obj._district_name:
+            this_district = district_obj
             xy_coord = district_obj._id.get_id()
 
     # get N, S, W, E districts
@@ -48,6 +50,14 @@ def gametext_output(ga, map_arr) -> [str, str, str, str]:
         for i in range(4):
             if static_coord[i] == district_obj._id.get_id():
                 nswe_districts[i] = district_obj._district_name
+
+    # main_menu.empty_line(1)
+    if ga.check_visited(ga.current_location) == False:
+        print(this_district._long_description)
+        ga.change_visited(ga.current_location)
+    else:
+        print(this_district._short_description)
+    main_menu.empty_line(3)
 
     for i in range(4):
         if nswe_districts[i] is not None:
@@ -63,7 +73,7 @@ def general_info(ga, map_arr):
     main_menu.empty_line(2)
     main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Remaining Turns:%s"%ga.turns_remaining))
     main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Current Location:%s"%ga.current_location))
-    main_menu.empty_line(2)
+    main_menu.empty_line(3)
     nswe_districts = gametext_output(ga, map_arr)
     main_menu.empty_line(2)
     legendary_status(ga)
@@ -183,16 +193,20 @@ def game_play(ga: gameaction.GameAction):
             clear()
             narration.help_menu_screen()
         elif selection == "go up":
-            ga.change_location(nswe_districts[0]);
+            ga.change_location(nswe_districts[0])
+            ga.decrement_turns_remaining()
             clear()
         elif selection == "go down":
-            ga.change_location(nswe_districts[1]);
+            ga.change_location(nswe_districts[1])
+            ga.decrement_turns_remaining()
             clear()
         elif selection == "go left":
-            ga.change_location(nswe_districts[2]);
+            ga.change_location(nswe_districts[2])
+            ga.decrement_turns_remaining()
             clear()
         elif selection == "go right":
-            ga.change_location(nswe_districts[3]);
+            ga.change_location(nswe_districts[3])
+            ga.decrement_turns_remaining()
             clear()
         
 
