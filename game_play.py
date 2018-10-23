@@ -62,10 +62,10 @@ def gametext_output(ga, map_arr) -> [str, str, str, str]:
     for i in range(4):
         if nswe_districts[i] is not None:
             print("To the " + cardinal_dir[i] + " is " + nswe_districts[i] + ".")
-
-    # print(nswe_districts)
-    # nswe_districts = list(map(lambda x: x.lower() if x is not None else x, nswe_districts))
-    # print(nswe_districts)
+     
+    #print(nswe_districts)
+    #swe_districts = list(map(lambda x: x.lower() if x is not None else x, nswe_districts))
+    #print(nswe_districts)
 
     return nswe_districts
 
@@ -149,7 +149,44 @@ def game_play(ga: gameaction.GameAction):
                               [], # character list
                               "Oak Square short description",
                               "Oak Square long description")
-    map_arr = [city_hall, hawkins, greenland_grove, oak_square]
+    
+    #Hyoung's portion:
+    washington_heights = city.District(city.DistrictId(1, 2),
+                              "Washington Heights",
+                              ["an item - key5"],
+                              ["a clue - the eagle has landed5"],
+                              [], # character list
+                              "Washington Heights short description",
+                              "Wahsington Heights long description")
+    gato_springs = city.District(city.DistrictId(1, 1),
+                              "Gato Springs",
+                              ["an item - key6"],
+                              ["a clue - the eagle has landed6"],
+                              [], # character list
+                              "Gato Springs short description",
+                              "Gato Springs long description")
+    webster_mountain = city.District(city.DistrictId(2, 1),
+                              "Webster Mountain",
+                              ["an item - key7"],
+                              ["a clue - the eagle has landed7"],
+                              [], # character list
+                              "Webster Mountain short description",
+                              "Webster Mountain long description")
+    lemon_field = city.District(city.DistrictId(3, 1),
+                              "Lemon Field",
+                              ["an item - key8"],
+                              ["a clue - the eagle has landed8"],
+                              [], # character list
+                              "Lemon Field short description",
+                              "Lemon Field long description")
+    colt_wood = city.District(city.DistrictId(3, 0),
+                              "Coltwood",
+                              ["an item - key9"],
+                              ["a clue - the eagle has landed9"],
+                              [], # character list
+                              "Coltwood short description",
+                              "Coltwood long description")
+    map_arr = [city_hall, hawkins, greenland_grove, oak_square, washington_heights, gato_springs, webster_mountain, lemon_field, colt_wood]
     # --------------------------------------------------------------------
 
     # print("Initializing Character Information...")
