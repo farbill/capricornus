@@ -2,8 +2,10 @@ from enum import Enum
 from functools import reduce
 
 class ItemType(Enum):
-    CRITICAL = 1
-    NONCRITICAL = 2
+    LEGENDARY = 1       # Critical to storyline, CANNOT be dropped. Once acquired, the corresponding boolean value is permenantly changed
+    CRITICAL = 2        # Critical to storyline, can be dropped, i.e. the user must need it for main quests
+    NONCRITICAL = 3     # Non-critical to storyline, can be dropped, i.e. the user can use it for optional side quests
+    FEATURE = 4         # Part of district, cannot be placed into inventory
 
 
 class Item(object):

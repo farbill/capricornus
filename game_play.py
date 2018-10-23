@@ -8,6 +8,10 @@ from os import system, name
 import narration
 import main_menu
 import time
+from typing import Tuple, List
+
+#for stub data
+import stub_map
 
 STARTING_LOCATION = "City Hall"
 
@@ -23,9 +27,11 @@ def clear():
         _ = system('clear')
 
 # Work in progress --------------------------
-def gametext_output(ga, map_arr) -> [str, str, str, str]:
+def gametext_output(ga, map_arr) -> Tuple[ Tuple[str, str, str, str],
+                                            Tuple[str, str, str, str] ]:
     # Current x,y coord
     this_district = None
+    district_exits = None
     xy_coord = (None, None)
 
     # North, South, West, East -- district info
@@ -38,7 +44,9 @@ def gametext_output(ga, map_arr) -> [str, str, str, str]:
     for district_obj in map_arr:
         if ga.current_location == district_obj._district_name:
             this_district = district_obj
+            district_exits = district_obj._district_exits.get_exits()
             xy_coord = district_obj._id.get_id()
+            break
 
     # get N, S, W, E districts
     # https://stackoverflow.com/questions/1169725/adding-values-from-tuples-of-same-length
@@ -61,26 +69,30 @@ def gametext_output(ga, map_arr) -> [str, str, str, str]:
 
     for i in range(4):
         if nswe_districts[i] is not None:
-            print("To the " + cardinal_dir[i] + " is " + nswe_districts[i] + ".")
+            print("To the " + cardinal_dir[i] + " is " + nswe_districts[i] + ".", end=" ")
+            if(district_exits[i] != ""):
+                print(district_exits[i] + " is in that direction.")
+            else:
+                print("")
      
     #print(nswe_districts)
     #swe_districts = list(map(lambda x: x.lower() if x is not None else x, nswe_districts))
     #print(nswe_districts)
 
-    return nswe_districts
+    return nswe_districts, district_exits
 
 def general_info(ga, map_arr):
     main_menu.empty_line(2)
     main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Remaining Turns:%s"%ga.turns_remaining))
     main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Current Location:%s"%ga.current_location))
     main_menu.empty_line(2)
-    nswe_districts = gametext_output(ga, map_arr)
+    nswe_districts, district_exits = gametext_output(ga, map_arr)
     main_menu.empty_line(2)
     legendary_status(ga)
     main_menu.empty_line(2)
     narration.help_menu()
     main_menu.empty_line(1)
-    return nswe_districts
+    return nswe_districts, district_exits
 
 
 def intro_narration():
@@ -120,74 +132,8 @@ def game_play(ga: gameaction.GameAction):
 
     # TODO: Load in all game data
 
-    # Initializing a small map for TESTING ----------------------------
-    city_hall = city.District(city.DistrictId(2, 3),
-                              "City Hall",
-                              ["an item - key1"],
-                              ["a clue - the eagle has landed1"],
-                              [], # character list
-                              "City Hall short description",
-                              "City Hall long description")
-    hawkins = city.District(city.DistrictId(2, 4),
-                              "Hawkins",
-                              ["an item - key2"],
-                              ["a clue - the eagle has landed2"],
-                              [], # character list
-                              "Hawkins short description",
-                              "Hawkins long description")
-    greenland_grove = city.District(city.DistrictId(1, 3),
-                              "Greenland Grove",
-                              ["an item - key3"],
-                              ["a clue - the eagle has landed3"],
-                              [], # character list
-                              "Greenland Grove short description",
-                              "Greenland Grove long description")
-    oak_square = city.District(city.DistrictId(3, 3),
-                              "Oak Square",
-                              ["an item - key4"],
-                              ["a clue - the eagle has landed4"],
-                              [], # character list
-                              "Oak Square short description",
-                              "Oak Square long description")
-    
-    #Hyoung's portion:
-    washington_heights = city.District(city.DistrictId(1, 2),
-                              "Washington Heights",
-                              ["an item - key5"],
-                              ["a clue - the eagle has landed5"],
-                              [], # character list
-                              "Washington Heights short description",
-                              "Wahsington Heights long description")
-    gato_springs = city.District(city.DistrictId(1, 1),
-                              "Gato Springs",
-                              ["an item - key6"],
-                              ["a clue - the eagle has landed6"],
-                              [], # character list
-                              "Gato Springs short description",
-                              "Gato Springs long description")
-    webster_mountain = city.District(city.DistrictId(2, 1),
-                              "Webster Mountain",
-                              ["an item - key7"],
-                              ["a clue - the eagle has landed7"],
-                              [], # character list
-                              "Webster Mountain short description",
-                              "Webster Mountain long description")
-    lemon_field = city.District(city.DistrictId(3, 1),
-                              "Lemon Field",
-                              ["an item - key8"],
-                              ["a clue - the eagle has landed8"],
-                              [], # character list
-                              "Lemon Field short description",
-                              "Lemon Field long description")
-    colt_wood = city.District(city.DistrictId(3, 0),
-                              "Coltwood",
-                              ["an item - key9"],
-                              ["a clue - the eagle has landed9"],
-                              [], # character list
-                              "Coltwood short description",
-                              "Coltwood long description")
-    map_arr = [city_hall, hawkins, greenland_grove, oak_square, washington_heights, gato_springs, webster_mountain, lemon_field, colt_wood]
-    # --------------------------------------------------------------------
+    # Getting map stud data
+    map_arr = stub_map.get_map_stub()
 
     # print("Initializing Character Information...")
     agt_dope = characters.AgentDope(narration.short_for_agt_dope(), narration.long_for_agt_dope())
@@ -208,11 +154,11 @@ def game_play(ga: gameaction.GameAction):
 
         # TODO: display game stuff
         main_menu.dotted_line(main_menu.GAME_WIDTH)
-        nswe_districts = general_info(ga, map_arr)
+        nswe_districts, district_exits = general_info(ga, map_arr)
         main_menu.dotted_line(main_menu.GAME_WIDTH)
 
         # get validated input
-        selection = main_menu.gameplay_selection(input(">>> "), nswe_districts)
+        selection = main_menu.gameplay_selection(input(">>> "), nswe_districts, district_exits)
         # print("TESTING - YOU'VE SELECTED: " + selection)
         # time.sleep(2)
 

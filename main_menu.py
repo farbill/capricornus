@@ -3,6 +3,7 @@ import time
 from command_parsing import command_parsing
 import os
 import game_play
+from typing import Tuple, List
 
 TIME_TO_WAIT_FOR_WRITE_OVER = 1
 
@@ -206,11 +207,17 @@ def exit_selection(the_input) -> int:
     return int(selection)
 
 
-def gameplay_selection(the_input: str, nswe_districts: [str, str, str, str]) -> str:
+def gameplay_selection(the_input: str,
+                       nswe_districts: Tuple[str, str, str, str],
+                       district_exits: Tuple[str, str, str, str]) -> str:
 
     # Change nswe_districts to lower case
     # e.g. ['hawkins', None, 'greenland grove', 'oak square']
     nswe_districts = list(map(lambda x: x.lower() if x is not None else x, nswe_districts))
+
+    # Change district_exits to lower case
+    # e.g. ['dayton dr', '', 'summer ln', 'shore blvd']
+    district_exits = list(map(lambda x: x.lower() if x is not None else x, district_exits))
 
     # 2D general action array
     #   1st element of each 1D action list is the key action noun
@@ -240,6 +247,26 @@ def gameplay_selection(the_input: str, nswe_districts: [str, str, str, str]) -> 
             arr.append("go to " + whole_name)               # ex: go to greenland grove
             arr.append("go " + first_word)                  # ex: go greenland
             arr.append("go to " + first_word)               # ex: go to greenland
+            arr.append("travel " + whole_name)              # ex: travel greenland grove
+            arr.append("travel to " + whole_name)           # ex: travel to greenland grove
+            arr.append("travel " + first_word)              # ex: travel greenland
+            arr.append("travel to " + first_word)           # ex: travel to greenland
+            general_action_array.append(arr)
+
+            if district_exits[i] != "":
+                whole_exit_name = district_exits[i]             # ex: 'shore blvd'
+                first_exit_word = whole_exit_name.split()[0]    # ex: 'shore'
+                arr.append(whole_exit_name)                     # ex: shore blvd
+                arr.append(first_exit_word)                     # ex: shore
+                arr.append("go " + whole_exit_name)             # ex: go shore blvd
+                arr.append("go to " + whole_exit_name)          # ex: go to shore blvd
+                arr.append("go " + first_exit_word)             # ex: go shore
+                arr.append("go to " + first_exit_word)          # ex: go to shore
+                arr.append("travel " + whole_exit_name)              # ex: travel shore blvd
+                arr.append("travel on " + whole_exit_name)           # ex: travel on shore blvd
+                arr.append("travel " + first_exit_word)              # ex: travel shore
+                arr.append("travel on " + first_exit_word)           # ex: travel on shore
+
             general_action_array.append(arr)
 
     selection = None
