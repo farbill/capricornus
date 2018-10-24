@@ -29,7 +29,7 @@ _DISTRICTS = {
     7: ["River Gardens", "river gardens", "river_gardens", "rivergardens"],
     8: ["Bayrock", "bayrock"],
     9: ["Sunset Hills", "sunset hills", "sunset_hills", "sunsethills"],
-    10: ["Lemon Field", "lemon field"],
+    10: ["Lemonfield", "lemonfield"],
     11: ["Gato Springs", "gato springs", "gato_springs", "gatosprings"],
     12: ["Webster Mountain", "webster mountain", "webster_mountain", "webstermountain"],
     13: ["Paradise Creek", "paradise creek" ,"paradise_creek", "paradisecreek"],
