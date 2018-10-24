@@ -1,6 +1,12 @@
 from characters import Character
 from typing import Tuple, List
+from enum import Enum
 
+class CARDINAL(Enum):
+    NORTH = 0
+    SOUTH = 1
+    WEST = 2
+    EAST = 3
 
 class City(object):
     def __init__(self,
@@ -58,3 +64,58 @@ class District(object):
         self._short_description = short_description
         self._long_description = long_description
         self._district_exits = district_exits
+
+def assign_street_name(map_arr: [District]):
+    name_arr = ["Dayton Dr", "Fallbrook Way", "Summer Ln",
+                "Shore Blvd", "Abby Ave", "Ironside St",
+                "A St", "B St", "C St", "D St",
+                "E St", "F St", "G St", "H St",
+                "I St", "J St", "K St", "L St",
+                "M St", "N St", "O St", "P St",
+                "Q St", "R St", "S St", "T St",
+                "U St", "V St", "W St", "X St" ]
+
+    name_index = 0
+
+    for district in map_arr:
+
+        this_district_xy = district._id.get_id()
+
+        # North, South, West, East -- district info
+        relative_coord = [(0, 1), (0, -1), (-1, 0), (1, 0)]
+        static_coord = [None, None, None, None]
+        nswe_districts_obj = [None, None, None, None]
+
+        # get N, S, W, E districts
+        # https://stackoverflow.com/questions/1169725/adding-values-from-tuples-of-same-length
+        for i in range(4):
+            static_coord[i] = tuple(sum(x) for x in zip(this_district_xy, relative_coord[i]))
+
+        # Assign district obj to NSWE
+        for district_obj in map_arr:
+            for i in range(4):
+                if static_coord[i] == district_obj._id.get_id():
+                    nswe_districts_obj[i] = district_obj
+
+
+        if district._district_exits._north_exit == "" and nswe_districts_obj[CARDINAL.NORTH.value] is not None:
+            district._district_exits._north_exit = name_arr[name_index]
+            nswe_districts_obj[CARDINAL.NORTH.value]._district_exits._south_exit = name_arr[name_index]
+            name_index += 1
+
+        if district._district_exits._south_exit == "" and nswe_districts_obj[CARDINAL.SOUTH.value] is not None:
+            district._district_exits._south_exit = name_arr[name_index]
+            nswe_districts_obj[CARDINAL.SOUTH.value]._district_exits._north_exit = name_arr[name_index]
+            name_index += 1
+
+        if district._district_exits._west_exit == "" and nswe_districts_obj[CARDINAL.WEST.value] is not None:
+            district._district_exits._west_exit = name_arr[name_index]
+            nswe_districts_obj[CARDINAL.WEST.value]._district_exits._east_exit = name_arr[name_index]
+            name_index += 1
+
+        if district._district_exits._east_exit == "" and nswe_districts_obj[CARDINAL.EAST.value] is not None:
+            district._district_exits._east_exit = name_arr[name_index]
+            nswe_districts_obj[CARDINAL.EAST.value]._district_exits._west_exit = name_arr[name_index]
+            name_index += 1
+
+    return map_arr

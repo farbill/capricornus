@@ -10,10 +10,10 @@ def get_map_stub():
                               [],  # character list
                               "City Hall short description",
                               "City Hall long description",
-                              city.DistrictExits("Dayton Dr",
-                                                 "Fallbrook Way",
-                                                 "Summer Ln",
-                                                 "Shore Blvd"))
+                              city.DistrictExits("",
+                                                 "",
+                                                 "",
+                                                 ""))
     hawkins = city.District(city.DistrictId(2, 4),
                             "Hawkins",
                             ["an item - key2"],
@@ -179,5 +179,7 @@ def get_map_stub():
     map_arr = [city_hall, hawkins, greenland_grove, bayrock, river_gardens,
                oak_square, paradise_creek, northtown, lake_cypress, sunset_hills,
                washington_heights, gato_springs, webster_mountain, lemon_field, colt_wood]
+
+    map_arr = city.assign_street_name(map_arr)
 
     return map_arr
