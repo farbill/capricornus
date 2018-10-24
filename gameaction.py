@@ -3,11 +3,20 @@ import json
 import gamestate
 from enum import Enum
 from typing import List, Dict
-
+import city
 
 class GameAction(gamestate.GameState):
     def __init__(self, game_state: gamestate.GameState):
         self.game_state = game_state
+
+    @property
+    # Get map_arr
+    def map_arr(self) -> [city.District]:
+        return self.game_state._map_arr
+
+    # Set map_arr
+    def set_map_arr(self, map_arr: [city.District]):
+        self.game_state._map_arr = map_arr
 
     @property
     # Return turns remaining
@@ -28,7 +37,7 @@ class GameAction(gamestate.GameState):
         valid_location = False
 
         new_location = new_location.lower()
-        if new_location in gamestate.District.__dict__:
+        if new_location in gamestate.District.__members__:
             valid_location = True
 
         if valid_location:
@@ -137,7 +146,8 @@ class GameAction(gamestate.GameState):
     # Check if district has been visited
     def check_visited(self, district_name: str) -> bool:
         district_name = district_name.lower()
-        if district_name in gamestate.District.__dict__:
+
+        if district_name in gamestate.District.__members__:
             proper_name = gamestate.District[district_name].name
 
             return self.game_state._visited[proper_name]
@@ -147,7 +157,7 @@ class GameAction(gamestate.GameState):
     # Change district to visited
     def change_visited(self, district_name: str) -> int:
         district_name = district_name.lower()
-        if district_name in gamestate.District.__dict__:
+        if district_name in gamestate.District.__members__:
             proper_name = gamestate.District[district_name].name
             self.game_state._visited[proper_name] = True
             return 0

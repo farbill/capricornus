@@ -135,10 +135,18 @@ def game_play(ga: gameaction.GameAction):
     # Getting map stud data
     map_arr = stub_map.get_map_stub()
 
+    # Save map data to gamestate
+    ga.set_map_arr(map_arr)
+
+    # ga.game_state.save_game_state(1)
+    # ga.game_state.load_game_state(1)
+
     # print("Initializing Character Information...")
     agt_dope = characters.AgentDope(narration.short_for_agt_dope(), narration.long_for_agt_dope())
     #Dr. Crime needs to be initialized with specified PUZZLE and DIALOGS
     dr_crime = characters.DrCrime(narration.short_for_dr_crime(), narration.long_for_dr_crime(), 0, 0)
+
+
 
 
     clear()
