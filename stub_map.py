@@ -155,12 +155,12 @@ def get_map_stub():
                                                          "",
                                                          ""))
     lemon_field = city.District(city.DistrictId(3, 1),
-                                "Lemon Field",
+                                "Lemonfield",
                                 ["an item - key8"],
                                 ["a clue - the eagle has landed8"],
                                 [],  # character list
-                                "Lemon Field short description",
-                                "Lemon Field long description",
+                                "Lemonfield short description",
+                                "Lemonfield long description",
                                 city.DistrictExits("",
                                                      "",
                                                      "",
