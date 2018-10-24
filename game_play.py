@@ -61,10 +61,10 @@ def gametext_output(ga, map_arr) -> Tuple[ Tuple[str, str, str, str],
 
     # main_menu.empty_line(1)
     if ga.check_visited(ga.current_location) == False:
-        print(this_district._long_description)
+        narration.left_narration(this_district._long_description, main_menu.GAME_WIDTH)
         ga.change_visited(ga.current_location)
     else:
-        print(this_district._short_description)
+        narration.left_narration(this_district._long_description, main_menu.GAME_WIDTH)
     main_menu.empty_line(3)
 
     for i in range(4):
