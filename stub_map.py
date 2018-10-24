@@ -126,8 +126,9 @@ def get_map_stub():
                                        ["an item - key5"],
                                        ["a clue - the eagle has landed5"],
                                        [],  # character list
-                                       "Washington Heights short description",
-                                       "Washington Heights long description",
+                                       "Washington Heights is a neighborhood in the middle portion of the New San Diego City.",
+                                       "Washington Heights is a neighborhood in the middle portion of the New San Diego City. "\
+                                       "The area, with over 150,000 inhabitants as of 2010, is named for Fort Washington.",
                                         city.DistrictExits("",
                                                              "",
                                                              "",
@@ -137,8 +138,9 @@ def get_map_stub():
                                  ["an item - key6"],
                                  ["a clue - the eagle has landed6"],
                                  [],  # character list
-                                 "Gato Springs short description",
-                                 "Gato Springs long description",
+                                 "Gato Springs is a neighborhood in the south western portion of the New San Diego City.",
+                                 "Gato Springs is a neighborhood in the south western portion of the New San Diego City. "\
+                                 "It is known for its hot springs, stylish hotels, golf courses and spas.",
                                 city.DistrictExits("",
                                                      "",
                                                      "",
@@ -148,8 +150,9 @@ def get_map_stub():
                                      ["an item - key7"],
                                      ["a clue - the eagle has landed7"],
                                      [],  # character list
-                                     "Webster Mountain short description",
-                                     "Webster Mountain long description",
+                                     "Webster Mountain is a neighborhood in the southern portion of the New San Diego City.",
+                                     "Webster Mountain is a neighborhood in the southern portion of the New San Diego City. "\
+                                     "The mountain, formerly called Notch Mountain, is named after Daniel Webster.",
                                     city.DistrictExits("",
                                                          "",
                                                          "",
@@ -159,8 +162,9 @@ def get_map_stub():
                                 ["an item - key8"],
                                 ["a clue - the eagle has landed8"],
                                 [],  # character list
-                                "Lemonfield short description",
-                                "Lemonfield long description",
+                                "Lemonfield is a neighborhood in the south eastern portion of the New San Diego City.",
+                                "Lemonfield is a neighborhood in the south eastern portion of the New San Diego City. "\
+                                "A 3,000-pound civic lemon statue sits in the center of Lemonfield.",
                                 city.DistrictExits("",
                                                      "",
                                                      "",
@@ -170,8 +174,9 @@ def get_map_stub():
                               ["an item - key9"],
                               ["a clue - the eagle has landed9"],
                               [],  # character list
-                              "Coltwood short description",
-                              "Coltwood long description",
+                              "Coltwood is a neighborhood in the south eastern portion of the New San Diego City.",
+                              "Coltwood is a neighborhood in the south eastern portion of the New San Diego City. "\
+                              "The district is well-known for its beautiful forest. ",
                                 city.DistrictExits("",
                                                      "",
                                                      "",

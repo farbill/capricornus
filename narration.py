@@ -95,6 +95,27 @@ def narration(the_string, line_length):
         print(to_print)
 
 
+def left_narration(the_string, line_length):
+    counter = 0
+
+    to_print = ""
+    last_line_indicator = 0
+
+    for i in the_string:
+        to_print += i
+        counter += 1
+        last_line_indicator += 1
+
+        if counter > (int(line_length * 2/3)):
+            if i != " ":
+                continue
+            print(to_print)
+            counter = 0
+            to_print = ""
+
+    if last_line_indicator <= len(the_string):
+        print(to_print)
+
 def help_menu_screen():
     back_to_game = False
     while back_to_game == False:
