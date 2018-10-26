@@ -1,6 +1,8 @@
 from characters import Character
 from typing import Tuple, List
 from enum import Enum
+import items
+import clues
 
 class CARDINAL(Enum):
     NORTH = 0
@@ -50,15 +52,17 @@ class District(object):
     def __init__(self,
                  id: DistrictId,
                  district_name: str,
-                 items: List,
-                 clues: List,
+                 district_items: List[items.Item],
+                 dropped_items: List[items.Item],
+                 clues: List[clues.Clue],
                  characters: List[Character],
-                 short_description,
-                 long_description,
+                 short_description: str,
+                 long_description: str,
                  district_exits: DistrictExits = DistrictExits()):
         self._id = id
         self._district_name = district_name
-        self._items = items
+        self._district_items = district_items
+        self._dropped_items = dropped_items
         self._clues = clues
         self._characters = characters
         self._short_description = short_description

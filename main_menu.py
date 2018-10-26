@@ -4,6 +4,8 @@ from command_parsing import command_parsing
 import os
 import game_play
 from typing import Tuple, List
+import city
+from items import ActionType
 
 TIME_TO_WAIT_FOR_WRITE_OVER = 1
 
@@ -209,7 +211,8 @@ def exit_selection(the_input) -> int:
 
 def gameplay_selection(the_input: str,
                        nswe_districts: Tuple[str, str, str, str],
-                       district_exits: Tuple[str, str, str, str]) -> str:
+                       district_exits: Tuple[str, str, str, str],
+                       this_district: city.District) -> str:
 
     # Change nswe_districts to lower case
     # e.g. ['hawkins', None, 'greenland grove', 'oak square']
@@ -269,6 +272,13 @@ def gameplay_selection(the_input: str,
 
             general_action_array.append(arr)
 
+    # Build district_items_action array for items in district
+    district_items_action = []
+    for item in this_district._district_items:
+        for action in item.action:
+            for command in action.commands:
+                district_items_action.append(command)
+
     selection = None
     the_input = str(the_input).lower()  # to make the input case insensitive
 
@@ -282,6 +292,18 @@ def gameplay_selection(the_input: str,
 
         # TODO: Check for district-specific action
         # ...
+        if the_input in district_items_action:
+            for item in this_district._district_items:
+                for action in item.action:
+                    if the_input in action.commands:
+                        if action.response_type == ActionType.DISPLAY:
+                            sys.stdout.write("\033[K")  # clear line
+                            print(action.response)
+            sys.stdout.write("\033[F")      # go up one line
+            sys.stdout.write("\033[F")          # go up one line
+            sys.stdout.write("\033[K")      # clear line
+            the_input = str(input(">>> ")).lower()
+            continue
 
         # Else, bad action
         if selection == None:

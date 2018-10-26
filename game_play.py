@@ -28,7 +28,8 @@ def clear():
 
 # Work in progress --------------------------
 def gametext_output(ga, map_arr) -> Tuple[ Tuple[str, str, str, str],
-                                            Tuple[str, str, str, str] ]:
+                                            Tuple[str, str, str, str],
+                                            city.District]:
     # Current x,y coord
     this_district = None
     district_exits = None
@@ -79,20 +80,20 @@ def gametext_output(ga, map_arr) -> Tuple[ Tuple[str, str, str, str],
     #swe_districts = list(map(lambda x: x.lower() if x is not None else x, nswe_districts))
     #print(nswe_districts)
 
-    return nswe_districts, district_exits
+    return (nswe_districts, district_exits, this_district)
 
 def general_info(ga, map_arr):
     main_menu.empty_line(2)
     main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Remaining Turns:%s"%ga.turns_remaining))
     main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Current Location:%s"%ga.current_location))
     main_menu.empty_line(2)
-    nswe_districts, district_exits = gametext_output(ga, map_arr)
+    (nswe_districts, district_exits, this_district) = gametext_output(ga, map_arr)
     main_menu.empty_line(2)
     legendary_status(ga)
     main_menu.empty_line(2)
     narration.help_menu()
     main_menu.empty_line(1)
-    return nswe_districts, district_exits
+    return (nswe_districts, district_exits, this_district)
 
 
 def intro_narration():
@@ -162,11 +163,11 @@ def game_play(ga: gameaction.GameAction):
 
         # TODO: display game stuff
         main_menu.dotted_line(main_menu.GAME_WIDTH)
-        nswe_districts, district_exits = general_info(ga, map_arr)
+        (nswe_districts, district_exits, this_district) = general_info(ga, map_arr)
         main_menu.dotted_line(main_menu.GAME_WIDTH)
 
         # get validated input
-        selection = main_menu.gameplay_selection(input(">>> "), nswe_districts, district_exits)
+        selection = main_menu.gameplay_selection(input(">>> "), nswe_districts, district_exits, this_district)
         # print("TESTING - YOU'VE SELECTED: " + selection)
         # time.sleep(2)
 
@@ -199,6 +200,7 @@ def game_play(ga: gameaction.GameAction):
             ga.change_location(nswe_districts[3])
             ga.decrement_turns_remaining()
             clear()
+
         
 
 # Offers user the load menu and load a game slot
