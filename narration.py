@@ -15,6 +15,12 @@ def command_help(width):
         main_menu.print_in_the_middle(width, ("6. Pick Up                           "))
         main_menu.print_in_the_middle(width, ("7. Help                              "))
 
+def inventory_open(width):
+        main_menu.print_in_the_middle(width, ("1. Clues       "))
+        main_menu.print_in_the_middle(width, ("2. Items       "))
+        main_menu.print_in_the_middle(width, ("3. Legendary   "))
+        main_menu.print_in_the_middle(width, ("4. Resume Game "))
+        
 def help_menu():
         main_menu.print_in_the_middle(main_menu.GAME_WIDTH, "Type \"Help\" for game commands")
 
@@ -192,6 +198,51 @@ def help_menu_screen():
                 game_play.clear()
                 print("#Testing: About game items")
                 time.sleep(1)
+                game_play.clear()
+                break
+            if command_parsing(selection, list_back) == 1:          #Back to the game
+                game_play.clear()
+                print("#Testing: Back")
+                time.sleep(1)
+                game_play.clear()
+                back_to_game = True
+                break
+            main_menu.write_over("Invalid Input.  Try again.")
+            sys.stdout.write("\033[F")      # go up one line
+            sys.stdout.write("\033[K")      # clear line
+            selection = str(input(">>> ")).lower()
+
+def inventory_menu_screen(ga):
+    back_to_game = False
+    while back_to_game == False:
+        main_menu.dotted_line(main_menu.GAME_WIDTH)
+        main_menu.empty_line(2)
+        main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("HELP"))
+        main_menu.empty_line(2)
+        inventory_open(main_menu.GAME_WIDTH)
+        main_menu.empty_line(3)
+        main_menu.dotted_line(main_menu.GAME_WIDTH)
+
+        list_clues = ["1", "clue", "clues", "gameclue", "hints", "hint", "1. clues"]
+        list_items = ["2", "item", "items", "about items", "2. items"]
+        list_legendary = ["3", "legendary", "legendary items", "legendary orbs", "orbs", "3. legendary", "legendary item"]
+        list_back = ["4", "exit", "return", "back", "resume", "resume game", "4. resume game"]
+
+        selection = input(">>> ")
+
+        while True:
+            if command_parsing(selection, list_clues) == 1: #Help for game story
+                game_play.clear()
+                main_menu.dotted_line(main_menu.GAME_WIDTH)
+                main_menu.empty_line(2)
+                if(len(ga.obtained_clues) == 0):
+                    nothing_string = "There is no clue obtained."
+                    narration(nothing_string, main_menu.GAME_WIDTH)
+                else:
+                    print("Need to display clues obtained")
+                main_menu.empty_line(2)
+                main_menu.dotted_line(main_menu.GAME_WIDTH)
+                input("Press [Enter] to continue...")
                 game_play.clear()
                 break
             if command_parsing(selection, list_back) == 1:          #Back to the game
