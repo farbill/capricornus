@@ -239,7 +239,10 @@ def inventory_menu_screen(ga):
                     nothing_string = "There is no clue obtained."
                     narration(nothing_string, main_menu.GAME_WIDTH)
                 else:
-                    print("Need to display clues obtained")
+                    narration_clues = "There are following clues obtained:"
+                    for key in ga.obtained_clues:
+                        print("- %s"%ga.obtained_clues[key])
+
                 main_menu.empty_line(2)
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 input("Press [Enter] to continue...")
