@@ -300,6 +300,7 @@ def gameplay_selection(ga, the_input: str,
                         if action.response_type == ActionType.DISPLAY:
                             sys.stdout.write("\033[K")  # clear line
                             print(action.response)
+                            screen_refresh = False
                         if action.response_type == ActionType.ACTION:
                             if action.more_response_type == ActionType.TAKE_LEGENDARY:
                                 sys.stdout.write("\033[K")  # clear line
@@ -310,6 +311,11 @@ def gameplay_selection(ga, the_input: str,
                                 elif item.name == "Magic Sword":
                                     ga.game_state._magic_sword = True
                                 screen_refresh = True
+                            elif action.more_response_type == ActionType.TAKE_ITEM:
+                                sys.stdout.write("\033[K")  # clear line
+                                print(action.response)
+                                ga.add_to_inventory(item.name)
+                                screen_refresh = False
                 if screen_refresh == True:
                     break
             if screen_refresh == True: 
