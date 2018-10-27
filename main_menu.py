@@ -308,7 +308,9 @@ def gameplay_selection(the_input: str,
         # Else, bad action
         if selection == None:
             if len(the_input) > 99:
+                sys.stdout.write("\033[K")  # clear line
                 write_over("Your input is too long.")
+            sys.stdout.write("\033[K")  # clear line
             write_over("Invalid Input.  Try again.")
             sys.stdout.write("\033[F")      # go up one line
             sys.stdout.write("\033[K")      # clear line
