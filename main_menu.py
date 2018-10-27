@@ -209,11 +209,12 @@ def exit_selection(the_input) -> int:
     return int(selection)
 
 
-def gameplay_selection(the_input: str,
+def gameplay_selection(ga, the_input: str,
                        nswe_districts: Tuple[str, str, str, str],
                        district_exits: Tuple[str, str, str, str],
                        this_district: city.District) -> str:
 
+    screen_refresh = False
     # Change nswe_districts to lower case
     # e.g. ['hawkins', None, 'greenland grove', 'oak square']
     nswe_districts = list(map(lambda x: x.lower() if x is not None else x, nswe_districts))
@@ -299,6 +300,21 @@ def gameplay_selection(the_input: str,
                         if action.response_type == ActionType.DISPLAY:
                             sys.stdout.write("\033[K")  # clear line
                             print(action.response)
+                        if action.response_type == ActionType.ACTION:
+                            if action.more_response_type == ActionType.TAKE_LEGENDARY:
+                                sys.stdout.write("\033[K")  # clear line
+                                print(action.response)
+                                ga.add_to_inventory(item.name)
+                                ga.game_state._vision_orb = True
+                                screen_refresh = True
+                if screen_refresh == True:
+                    break
+            if screen_refresh == True: 
+                break
+        if screen_refresh == True:
+            screen_refresh == False
+            break
+                            
             sys.stdout.write("\033[F")      # go up one line
             sys.stdout.write("\033[F")          # go up one line
             sys.stdout.write("\033[K")      # clear line
