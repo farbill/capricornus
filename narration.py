@@ -243,6 +243,24 @@ def inventory_menu_screen(ga):
                 input("Press [Enter] to continue...")
                 game_play.clear()
                 break
+            if command_parsing(selection, list_items) == 1:
+                game_play.clear()
+                main_menu.dotted_line(main_menu.GAME_WIDTH)
+                main_menu.empty_line(2)
+                if(len(ga.current_inventory) == 0):
+                    nothing_string = "There is no items obtained."
+                    narration(nothing_string, main_menu.GAME_WIDTH)
+                else:
+                    narration_items = "There are following items obtained:"
+                    for i in range(0,len(ga.current_inventory)):
+                        itemString = "- " + ga.current_inventory[i].name
+                        narration(itemString, main_menu.GAME_WIDTH)
+
+                main_menu.empty_line(2)
+                main_menu.dotted_line(main_menu.GAME_WIDTH)
+                input("Press [Enter] to continue...")
+                game_play.clear()
+                break
             if command_parsing(selection, list_legendary) == 1:
                 game_play.clear()
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
