@@ -10,6 +10,7 @@ def get_map_stub():
                               [
                                   Item("Statue",
                                      ItemType.FEATURE,
+                                     "A Statue sits in the center of the park.",
                                      "A giant bronze statue of the city's founder. It's reflecting the sun's blinding light.",
                                      [
                                            Action(["view statue", "look at statue"], ActionType.DISPLAY, "A giant bronze statue of the city's founder. It's reflecting the sun's blinding light."),
@@ -18,7 +19,7 @@ def get_map_stub():
                                   ),
                                   Item("Lotto Ticket",
                                        ItemType.CRITICAL,
-                                       "",
+                                       "You see a Lotto Ticket on the ground.",
                                        "A Lotto Ticket with the numbers '23 57 12' on it.",
                                        [
                                            Action(["view lotto ticket", "look at lotto ticket", "view lotto", "look at lotto"], ActionType.DISPLAY, "A Lotto Ticket with the numbers '23 57 12' on it."),
