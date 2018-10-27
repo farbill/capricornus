@@ -191,9 +191,6 @@ def game_play(ga: gameaction.GameAction):
             confirmation = main_menu.exit_to_main_confirmation()
             if confirmation == 1:
                 break
-        elif selection == "look":
-            clear()
-            narration.location_items(ga)
         elif selection == "inventory":
             clear()
             narration.inventory_menu_screen(ga)
