@@ -202,9 +202,6 @@ def help_menu_screen():
                 break
             if command_parsing(selection, list_back) == 1:          #Back to the game
                 game_play.clear()
-                print("#Testing: Back")
-                time.sleep(1)
-                game_play.clear()
                 back_to_game = True
                 break
             main_menu.write_over("Invalid Input.  Try again.")
