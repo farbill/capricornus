@@ -21,21 +21,7 @@ def get_map_stub():
     hawkins = city.District(city.DistrictId(2, 4),
                             "Hawkins",
                             [
-                                  Item("Magic Sword",
-                                     ItemType.LEGENDARY,
-                                     "There is a sword stuck in the ground at the center of the town's square. ",
-                                     "As I get closer, the sword starts glowing and making humming sound.",
-                                     [
-                                           Action(["view the sword", 
-                                                "look at the sword", 
-                                                "inspect the sword"], ActionType.DISPLAY, "As I get closer, the sword starts glowing and making humming sound."),
-                                           Action(["take the sword",
-                                                "grab the sword",
-                                                "take sword",
-                                                "grab sword",
-                                                "obtain the sword"], ActionType.ACTION, "You have obtained the magic sword!", ActionType.TAKE_LEGENDARY)
-                                       ]
-                                  )
+                                item_instances.magic_sword,
                             ],  # district_items
                             [],  # dropped_items
                             [],  # clues
@@ -126,17 +112,7 @@ def get_map_stub():
     washington_heights = city.District(city.DistrictId(1, 2),
                                        "Washington Heights",
                                        [
-                                            Item("Old silver coin",
-                                                ItemType.NONCRITICAL,
-                                                "There is a silver coin dropped on the steet.",
-                                                "It's a tiny silver coin.  It has number 50 on the front side.",
-                                                [
-                                                        Action(["look at the coin",
-                                                        "see the coin",
-                                                        "check out the coin"], ActionType.DISPLAY, "It's a tiny silver coin.  It has number 50 on the front side."),
-                                                        Action(["eat the coin"], ActionType.DISPLAY, "Don't be silly - you will get sick!")
-                                                ]
-                                            ),
+                                            item_instances.old_siver_coin
                                        ],  # district_items
                                        [],  # dropped_items
                                        [],  # clues
@@ -148,20 +124,7 @@ def get_map_stub():
     gato_springs = city.District(city.DistrictId(1, 1),
                                  "Gato Springs",
                                  [
-                                            Item("Vision Orb",
-                                                ItemType.LEGENDARY,
-                                                "There is an orb glowing in blue in the spring!",
-                                                "It's the legendary vision orb I was looking for!",
-                                                [
-                                                        Action(["look at the orb",
-                                                        "see the orb",
-                                                        "check out the orb"], ActionType.DISPLAY, "It's the legendary vision orb I was looking for!"),
-                                                        Action(["take the orb",
-                                                        "grab the orb",
-                                                        "acquire the orb",
-                                                        "pick up the orb"], ActionType.ACTION, "The vision orb is in my inventory now.", ActionType.TAKE_LEGENDARY)
-                                                ]
-                                            ),                                    
+                                    item_instances.vision_orb                                  
                                  ],  # district_items
                                  [],  # dropped_items
                                  [],  # clues
