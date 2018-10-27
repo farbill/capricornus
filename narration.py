@@ -305,37 +305,3 @@ def standard_title_display(string):
     main_menu.empty_line(2)
 
     
-def location_items(ga):
-    back_to_game = False
-    while back_to_game == False:
-        standard_title_display("Items found in " + ga.current_location)
-        map_arr = stub_map.get_map_stub()
-
-        for district_obj in map_arr:
-            if ga.current_location == district_obj._district_name:
-                this_district = district_obj
-                if (len(this_district._district_items) == 0):
-                    narration("There is no item in this district.", main_menu.GAME_WIDTH)
-                else:
-                    for i in this_district._district_items:
-                        narration("- " + i.name, main_menu.GAME_WIDTH)
-                    break
-        main_menu.empty_line(3)
-        narration("*You can inspect or pick up if any item exists in this location.", main_menu.GAME_WIDTH)
-        main_menu.empty_line(3)
-        main_menu.dotted_line(main_menu.GAME_WIDTH)
-
-        list_inspect = ["1", "inspect", "look", "take a look", "see"]
-        list_pickup = ["2", "pick up", "take", "grab", "pick"]
-        list_drop = ["3", "drop", "trash", "throw away", "remove"]
-        list_back = ["4", "exit", "return", "back", "resume", "resume game"]
-        selection = input(">>> ")
-        while True:
-            if command_parsing(selection, list_back) == 1:          #Back to the game
-                game_play.clear()
-                back_to_game = True
-                break
-            main_menu.write_over("Invalid Input.  Try again.")
-            sys.stdout.write("\033[F")      # go up one line
-            sys.stdout.write("\033[K")      # clear line
-            selection = str(input(">>> ")).lower()
