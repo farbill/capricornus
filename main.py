@@ -6,11 +6,12 @@ import sys
 
 def main():
 
-    # Global gamestate and gameaction instances
-    gs = gamestate.GameState()
-    ga = gameaction.GameAction(gs)
-
     while True:
+
+        # Global gamestate and gameaction instances
+        gs = gamestate.GameState()
+        ga = gameaction.GameAction(gs)
+
         game_play.clear()
         main_menu_choice = main_menu.main_menu()
 

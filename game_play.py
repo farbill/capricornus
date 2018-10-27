@@ -137,7 +137,7 @@ def game_play(ga: gameaction.GameAction):
     map_arr = stub_map.get_map_stub()
 
     # Save map data to gamestate
-    ga.set_map_arr(map_arr)
+    # ga.set_map_arr(map_arr)
 
     # ga.game_state.save_game_state(1)
     # ga.game_state.load_game_state(1)

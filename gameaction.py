@@ -4,6 +4,7 @@ import gamestate
 from enum import Enum
 from typing import List, Dict
 import city
+import items
 
 class GameAction(gamestate.GameState):
     def __init__(self, game_state: gamestate.GameState):
@@ -46,11 +47,6 @@ class GameAction(gamestate.GameState):
         else:
             return 1
 
-    @property
-    # Return inventory
-    def current_inventory(self) -> List[str]:
-        return self.game_state._current_inventory
-    
     # Check lengendary items collected
     def check_legendary(self) -> list:
         legendary_list = [None] * 4
@@ -59,9 +55,14 @@ class GameAction(gamestate.GameState):
         legendary_list[2] = self.game_state._vitality_orb
         legendary_list[3] = self.game_state._magic_sword
         return legendary_list
+
+    @property
+    # Return inventory
+    def current_inventory(self) -> List[items.Item]:
+        return self.game_state._current_inventory
     
     # Add item to inventory
-    def add_to_inventory(self, new_item: str) -> int:
+    def add_to_inventory(self, new_item: items.Item) -> int:
         valid_item = True
 
         if len(self.game_state._current_inventory) >= gamestate.MAX_INVENTORY:
@@ -76,7 +77,7 @@ class GameAction(gamestate.GameState):
             return 1
 
     # Remove item from inventory
-    def remove_from_inventory(self, item_to_remove: str) -> int:
+    def remove_from_inventory(self, item_to_remove: items.Item) -> int:
         if item_to_remove in self.game_state._current_inventory:
             self.game_state._current_inventory.remove(item_to_remove)
             return 0
@@ -84,7 +85,7 @@ class GameAction(gamestate.GameState):
             return 1
 
     # Check if item exists in inventory
-    def check_inventory(self, item) -> bool:
+    def check_inventory(self, item: items.Item) -> bool:
         item_exists = False
         if item in self.game_state._current_inventory:
             item_exists = True
