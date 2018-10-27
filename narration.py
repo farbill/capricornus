@@ -214,7 +214,7 @@ def inventory_menu_screen(ga):
     while back_to_game == False:
         main_menu.dotted_line(main_menu.GAME_WIDTH)
         main_menu.empty_line(2)
-        main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("HELP"))
+        main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Inventory"))
         main_menu.empty_line(2)
         inventory_open(main_menu.GAME_WIDTH)
         main_menu.empty_line(3)
@@ -228,7 +228,7 @@ def inventory_menu_screen(ga):
         selection = input(">>> ")
 
         while True:
-            if command_parsing(selection, list_clues) == 1: #Help for game story
+            if command_parsing(selection, list_clues) == 1:
                 game_play.clear()
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 main_menu.empty_line(2)
@@ -246,9 +246,6 @@ def inventory_menu_screen(ga):
                 game_play.clear()
                 break
             if command_parsing(selection, list_back) == 1:          #Back to the game
-                game_play.clear()
-                print("#Testing: Back")
-                time.sleep(1)
                 game_play.clear()
                 back_to_game = True
                 break
