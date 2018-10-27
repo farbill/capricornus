@@ -27,8 +27,14 @@ def get_map_stub():
                                            "view the lotto", 
                                            "look at the lotto", 
                                            "look at the ticket"], ActionType.DISPLAY, "A Lotto Ticket with the numbers '23 57 12' on it."),
-                                           Action(["eat lotto", 
-                                           "eat lotto ticket"], ActionType.DISPLAY, "There must be a better way to get fiber in your system.")
+                                           Action(["eat the lotto", 
+                                           "eat the lotto ticket"], ActionType.DISPLAY, "There must be a better way to get fiber in your system."),
+                                           Action(["take the lotto", 
+                                           "pick up the lotto",
+                                           "take the ticket",
+                                           "pick up the ticket",
+                                           "pick up the lotto ticket",
+                                           "take the lotto ticket"], ActionType.ACTION, "The lotto ticket is in my inventory now.", ActionType.TAKE_ITEM)
                                        ]
                                   )
                               ], # district_items
