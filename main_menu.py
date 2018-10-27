@@ -228,7 +228,6 @@ def gameplay_selection(the_input: str,
         ["exit", "quit", "q", "exit game", "quit game", "bye", "byebye", "main", "main menu"],
         ["inventory", "bag", "open inventory", "open bag", "see inventory", "check inventory"],
         ["help", "help me", "manual", "guide", "q&a", "open help"],
-        ["look", "look around", "inspect", "see", "check"],
         # ....
     ]
 
