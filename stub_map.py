@@ -40,7 +40,23 @@ def get_map_stub():
                               city.DistrictExits())
     hawkins = city.District(city.DistrictId(2, 4),
                             "Hawkins",
-                            [],  # district_items
+                            [
+                                  Item("Magic Sword",
+                                     ItemType.LEGENDARY,
+                                     "There is a sword stuck in the ground at the center of the town's square. ",
+                                     "As I get closer, the sword starts glowing and making humming sound.",
+                                     [
+                                           Action(["view the sword", 
+                                                "look at the sword", 
+                                                "inspect the sword"], ActionType.DISPLAY, "As I get closer, the sword starts glowing and making humming sound."),
+                                           Action(["take the sword",
+                                                "grab the sword",
+                                                "take sword",
+                                                "grab sword",
+                                                "obtain the sword"], ActionType.ACTION, "You have obtained the magic sword!", ActionType.TAKE_LEGENDARY)
+                                       ]
+                                  )
+                            ],  # district_items
                             [],  # dropped_items
                             [],  # clues
                             [],  # character list
@@ -152,7 +168,7 @@ def get_map_stub():
     gato_springs = city.District(city.DistrictId(1, 1),
                                  "Gato Springs",
                                  [
-                                            Item("vision_orb",
+                                            Item("Vision Orb",
                                                 ItemType.LEGENDARY,
                                                 "There is an orb glowing in blue in the spring!",
                                                 "It's the legendary vision orb I was looking for!",
