@@ -60,12 +60,25 @@ def gametext_output(ga, map_arr) -> Tuple[ Tuple[str, str, str, str],
             if static_coord[i] == district_obj._id.get_id():
                 nswe_districts[i] = district_obj._district_name
 
-    # main_menu.empty_line(1)
+    # String to print
+    str_to_print = None
+
+    # Concat either long or short description
     if ga.check_visited(ga.current_location) == False:
-        narration.left_narration(this_district._long_description, main_menu.GAME_WIDTH)
+        str_to_print = this_district._long_description
         ga.change_visited(ga.current_location)
     else:
-        narration.left_narration(this_district._short_description, main_menu.GAME_WIDTH)
+        str_to_print = this_district._short_description
+
+    # Print relevant item narration
+    for item in this_district._district_items:
+        str_to_print += " " + item.narration
+
+    # Print narration
+    narration.left_narration(str_to_print, main_menu.GAME_WIDTH)
+
+    # Print dropped items
+
     main_menu.empty_line(3)
 
     for i in range(4):

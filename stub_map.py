@@ -30,8 +30,8 @@ def get_map_stub():
                               [], # dropped_items
                               [], # clues
                               [],  # character list
-                              "City Hall short description - there's a statue and lotto ticket",
-                              "City Hall long description - there's a statue and lotto ticket",
+                              "City Hall short description --",
+                              "City Hall long description --",
                               city.DistrictExits())
     hawkins = city.District(city.DistrictId(2, 4),
                             "Hawkins",
