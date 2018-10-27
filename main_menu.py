@@ -305,31 +305,36 @@ def gameplay_selection(ga, the_input: str,
                                 sys.stdout.write("\033[K")  # clear line
                                 print(action.response)
                                 ga.add_to_inventory(item.name)
-                                ga.game_state._vision_orb = True
+                                if item.name == "Vision Orb":
+                                    ga.game_state._vision_orb = True
+                                elif item.name == "Magic Sword":
+                                    ga.game_state._magic_sword = True
                                 screen_refresh = True
                 if screen_refresh == True:
                     break
             if screen_refresh == True: 
                 break
-        if screen_refresh == True:
-            screen_refresh == False
-            break
+            
                             
             sys.stdout.write("\033[F")      # go up one line
-            sys.stdout.write("\033[F")          # go up one line
+            sys.stdout.write("\033[F")      # go up one line
             sys.stdout.write("\033[K")      # clear line
             the_input = str(input(">>> ")).lower()
             continue
 
         # Else, bad action
-        if selection == None:
-            if len(the_input) > 99:
-                write_over("Your input is too long.")
-            write_over("Invalid Input.  Try again.")
-            sys.stdout.write("\033[K")      # clear line
-            sys.stdout.write("\033[F")      # go up one line
-            sys.stdout.write("\033[K")      # clear line
-            the_input = str(input(">>> ")).lower()
+        if screen_refresh == True:
+            screen_refresh == False
+            continue
+        else:
+            if selection == None:
+                if len(the_input) > 99:
+                    write_over("Your input is too long.")
+                write_over("Invalid Input.  Try again.")
+                sys.stdout.write("\033[K")      # clear line
+                sys.stdout.write("\033[F")      # go up one line
+                sys.stdout.write("\033[K")      # clear line
+                the_input = str(input(">>> ")).lower()
 
     return selection
 
