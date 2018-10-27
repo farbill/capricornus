@@ -222,7 +222,7 @@ def inventory_menu_screen(ga):
 
         list_clues = ["1", "clue", "clues", "gameclue", "hints", "hint", "1. clues"]
         list_items = ["2", "item", "items", "about items", "2. items"]
-        list_legendary = ["3", "legendary", "legendary items", "legendary orbs", "orbs", "3. legendary", "legendary item"]
+        list_legendary = ["3", "legendary", "legendary items", "legendary orbs", "orbs", "3. legendary", "legendary item", "legendary sword"]
         list_back = ["4", "exit", "return", "back", "resume", "resume game", "4. resume game"]
 
         selection = input(">>> ")
@@ -238,7 +238,54 @@ def inventory_menu_screen(ga):
                 else:
                     narration_clues = "There are following clues obtained:"
                     for key in ga.obtained_clues:
-                        print("- %s"%ga.obtained_clues[key])
+                        clueString = "- " + ga.obtained_clues[key]
+                        narration(clueString, main_menu.GAME_WIDTH)
+
+                main_menu.empty_line(2)
+                main_menu.dotted_line(main_menu.GAME_WIDTH)
+                input("Press [Enter] to continue...")
+                game_play.clear()
+                break
+            if command_parsing(selection, list_legendary) == 1:
+                game_play.clear()
+                main_menu.dotted_line(main_menu.GAME_WIDTH)
+                main_menu.empty_line(2)
+                if(len(ga.check_legendary()) == 0):
+                    nothing_string = "There is no lendary orbs obtained."
+                    narration(nothing_string, main_menu.GAME_WIDTH)
+                else:
+                    legendCounter = 0
+                    narration_clues = "There are following legendary items obtained:"
+                    for key in ga.check_legendary():
+                        if legendCounter == 0:
+                            if key == False:
+                                lengendaryString = "- Vision orb hasn't been obtained yet."
+                                narration(lengendaryString, main_menu.GAME_WIDTH)
+                            else:
+                                lengendaryString = "- Vision orb is in inventory."
+                                narration(lengendaryString, main_menu.GAME_WIDTH)
+                        if legendCounter == 1:
+                            if key == False:
+                                lengendaryString = "- Strength orb hasn't been obtained yet."
+                                narration(lengendaryString, main_menu.GAME_WIDTH)
+                            else:
+                                lengendaryString = "- Strength orb is in inventory."
+                                narration(lengendaryString, main_menu.GAME_WIDTH)
+                        if legendCounter == 2:
+                            if key == False:
+                                lengendaryString = "- Vitality orb hasn't been obtained yet."
+                                narration(lengendaryString, main_menu.GAME_WIDTH)
+                            else:
+                                lengendaryString = "- Vitality orb is in inventory."
+                                narration(lengendaryString, main_menu.GAME_WIDTH)
+                        if legendCounter == 3:
+                            if key == False:
+                                lengendaryString = "- Magic sword hasn't been obtained yet."
+                                narration(lengendaryString, main_menu.GAME_WIDTH)
+                            else:
+                                lengendaryString = "- Magic sword is in inventory."
+                                narration(lengendaryString, main_menu.GAME_WIDTH)
+                        legendCounter = legendCounter + 1
 
                 main_menu.empty_line(2)
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
