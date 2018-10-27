@@ -14,6 +14,7 @@ class ActionType(Enum):
     ACTION = 2
     TRIGGER = 3
     EVENT = 4 # Not sure this will be used
+    TAKE_LEGENDARY = 5
 
 class Action(object):
     def __init__(self,
