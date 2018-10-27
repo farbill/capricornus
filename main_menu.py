@@ -307,9 +307,13 @@ def gameplay_selection(ga, the_input: str,
                                 print(action.response)
                                 ga.add_to_inventory(item.name)
                                 if item.name == "Vision Orb":
+                                    ga.add_to_inventory(item)
                                     ga.game_state._vision_orb = True
+                                    time.sleep(2)
                                 elif item.name == "Magic Sword":
+                                    ga.add_to_inventory(item)
                                     ga.game_state._magic_sword = True
+                                    time.sleep(2)
                                 screen_refresh = True
                             elif action.more_response_type == ActionType.TAKE_ITEM:
                                 sys.stdout.write("\033[K")  # clear line
