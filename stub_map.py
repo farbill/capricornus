@@ -13,7 +13,7 @@ def get_map_stub():
                                      "A Statue sits in the center of the park.",
                                      "A giant bronze statue of the city's founder. It's reflecting the sun's blinding light.",
                                      [
-                                           Action(["view statue", "look at statue"], ActionType.DISPLAY, "A giant bronze statue of the city's founder. It's reflecting the sun's blinding light."),
+                                           Action(["view the statue", "look at the statue"], ActionType.DISPLAY, "A giant bronze statue of the city's founder. It's reflecting the sun's blinding light."),
                                            Action(["eat statue"], ActionType.DISPLAY, "Don't be silly - you can't eat that.")
                                        ]
                                   ),
@@ -22,8 +22,13 @@ def get_map_stub():
                                        "You see a Lotto Ticket on the ground.",
                                        "A Lotto Ticket with the numbers '23 57 12' on it.",
                                        [
-                                           Action(["view lotto ticket", "look at lotto ticket", "view lotto", "look at lotto"], ActionType.DISPLAY, "A Lotto Ticket with the numbers '23 57 12' on it."),
-                                           Action(["eat lotto", "eat lotto ticket"], ActionType.DISPLAY, "There must be a better way to get fiber in your system.")
+                                           Action(["view the lotto ticket", 
+                                           "look at the lotto ticket", 
+                                           "view the lotto", 
+                                           "look at the lotto", 
+                                           "look at the ticket"], ActionType.DISPLAY, "A Lotto Ticket with the numbers '23 57 12' on it."),
+                                           Action(["eat lotto", 
+                                           "eat lotto ticket"], ActionType.DISPLAY, "There must be a better way to get fiber in your system.")
                                        ]
                                   )
                               ], # district_items
@@ -124,7 +129,19 @@ def get_map_stub():
     # Hyoung's portion:
     washington_heights = city.District(city.DistrictId(1, 2),
                                        "Washington Heights",
-                                       [],  # district_items
+                                       [
+                                            Item("Old silver coin",
+                                                ItemType.NONCRITICAL,
+                                                "There is a silver coin dropped on the steet.",
+                                                "It's a tiny silver coin.  It has number 50 on the front side.",
+                                                [
+                                                        Action(["look at the coin",
+                                                        "see the coin",
+                                                        "check out the coin"], ActionType.DISPLAY, "It's a tiny silver coin.  It has number 50 on the front side."),
+                                                        Action(["eat the coin"], ActionType.DISPLAY, "Don't be silly - you will get sick!")
+                                                ]
+                                            ),
+                                       ],  # district_items
                                        [],  # dropped_items
                                        [],  # clues
                                        [],  # character list
@@ -134,7 +151,22 @@ def get_map_stub():
                                         city.DistrictExits())
     gato_springs = city.District(city.DistrictId(1, 1),
                                  "Gato Springs",
-                                 [],  # district_items
+                                 [
+                                            Item("vision_orb",
+                                                ItemType.LEGENDARY,
+                                                "There is an orb glowing in blue in the spring!",
+                                                "It's the legendary vision orb I was looking for!",
+                                                [
+                                                        Action(["look at the orb",
+                                                        "see the orb",
+                                                        "check out the orb"], ActionType.DISPLAY, "It's the legendary vision orb I was looking for!"),
+                                                        Action(["take the orb",
+                                                        "grab the orb",
+                                                        "acquire the orb",
+                                                        "pick up the orb"], ActionType.ACTION, "The vision orb is in my inventory now.", ActionType.TAKE_LEGENDARY)
+                                                ]
+                                            ),                                    
+                                 ],  # district_items
                                  [],  # dropped_items
                                  [],  # clues
                                  [],  # character list
