@@ -18,6 +18,7 @@ def get_map_stub():
                                   ),
                                   Item("Lotto Ticket",
                                        ItemType.CRITICAL,
+                                       "",
                                        "A Lotto Ticket with the numbers '23 57 12' on it.",
                                        [
                                            Action(["view lotto ticket", "look at lotto ticket", "view lotto", "look at lotto"], ActionType.DISPLAY, "A Lotto Ticket with the numbers '23 57 12' on it."),

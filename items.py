@@ -36,10 +36,12 @@ class Item(object):
                  name: str,
                  item_type: ItemType,
                  narration: str,
+                 description: str,
                  action: List[Action]):
         self.name = name
         self.item_type = item_type
         self.narration = narration
+        self.description = description
         self.action = action
 
     def __eq__(self, other):
