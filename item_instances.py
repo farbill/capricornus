@@ -1,3 +1,4 @@
+
 from items import *
 
 statue = Item("Statue",
@@ -30,5 +31,49 @@ lotto_ticket = Item("Lotto Ticket",
         "pick up the ticket",
         "pick up the lotto ticket",
         "take the lotto ticket"], ActionType.ACTION, "The lotto ticket is in my inventory now.", ActionType.TAKE_ITEM)
+    ]
+)
+
+old_siver_coin =Item("Old silver coin",
+    ItemType.NONCRITICAL,
+    "There is a silver coin dropped on the steet.",
+    "It's a tiny silver coin.  It has number 50 on the front side.",
+    [
+        Action(["look at the coin",
+        "see the coin",
+        "check out the coin"], ActionType.DISPLAY, "It's a tiny silver coin.  It has number 50 on the front side."),
+        Action(["eat the coin"], ActionType.DISPLAY, "Don't be silly - you will get sick!")
+    ]
+)
+
+#LEGENDARY ITEMS
+magic_sword = Item("Magic Sword",
+    ItemType.LEGENDARY,
+    "There is a sword stuck in the ground at the center of the town's square. ",
+    "As I get closer, the sword starts glowing and making humming sound.",
+    [
+        Action(["view the sword", 
+        "look at the sword", 
+        "inspect the sword"], ActionType.DISPLAY, "As I get closer, the sword starts glowing and making humming sound."),
+        Action(["take the sword",
+        "grab the sword",
+        "take sword",
+        "grab sword",
+        "obtain the sword"], ActionType.ACTION, "You have obtained the magic sword!", ActionType.TAKE_LEGENDARY)
+    ]
+)
+
+vision_orb = Item("Vision Orb",
+    ItemType.LEGENDARY,
+    "There is an orb glowing in blue in the spring!",
+    "It's the legendary vision orb I was looking for!",
+    [
+        Action(["look at the orb",
+        "see the orb",
+        "check out the orb"], ActionType.DISPLAY, "It's the legendary vision orb I was looking for!"),
+        Action(["take the orb",
+        "grab the orb",
+        "acquire the orb",
+        "pick up the orb"], ActionType.ACTION, "The vision orb is in my inventory now.", ActionType.TAKE_LEGENDARY)
     ]
 )
