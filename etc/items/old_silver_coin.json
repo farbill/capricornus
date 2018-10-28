@@ -1,0 +1,8 @@
+{
+  "name": "Old silver coin",
+  "item_type": "NONCRITICAL",
+  "narration": "There is a silver coin dropped on the steet.",
+  "description": "It's a tiny silver coin.  It has number 50 on the front side.",
+  "actions":["etc/items/actions/look_at_coin.json",
+             "etc/items/actions/eat_the_coin.json"]
+}

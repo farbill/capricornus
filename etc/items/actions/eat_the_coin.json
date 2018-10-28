@@ -1,0 +1,6 @@
+{
+  "commands": ["eat the coin",
+        "eat coin"],
+  "response_type": "display",
+  "response": "Don't be silly - you will get sick!"
+}

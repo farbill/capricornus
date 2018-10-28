@@ -1,0 +1,10 @@
+{
+  "commands": ["take the sword",
+        "grab the sword",
+        "take sword",
+        "grab sword",
+        "obtain the sword"],
+  "response_type": "action",
+  "response": "You have obtained the magic sword!",
+  "more_response_type": "take_legendary"
+}

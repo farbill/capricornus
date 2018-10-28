@@ -1,0 +1,9 @@
+{
+  "commands": ["view sword",
+        "look at sword",
+        "view the sword",
+        "look at the sword",
+        "inspect the sword"],
+  "response_type": "display",
+  "response": "As I get closer, the sword starts glowing and making humming sound."
+}

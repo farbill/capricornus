@@ -1,0 +1,8 @@
+{
+  "name": "Statue",
+  "item_type": "FEATURE",
+  "narration": "A Statue sits in the center of the park.",
+  "description": "A giant bronze statue of the city's founder. It's reflecting the sun's blinding light.",
+  "actions":["etc/items/actions/view_statue.json",
+             "etc/items/actions/eat_statue.json"]
+}

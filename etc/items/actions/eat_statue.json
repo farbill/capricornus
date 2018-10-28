@@ -1,0 +1,7 @@
+{
+  "commands": ["eat statue",
+               "eat the statue"],
+  "response_type": "display",
+  "response": "Don't be silly - you can't eat that."
+}
+
