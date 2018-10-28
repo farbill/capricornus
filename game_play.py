@@ -140,6 +140,11 @@ def legendary_status(ga):
     main_menu.print_in_the_middle(main_menu.GAME_WIDTH, vision_and_strength)
     main_menu.print_in_the_middle(main_menu.GAME_WIDTH, vitality_and_magic)
 
+def location_change(ga, loc):
+    ga.change_location(loc)
+    ga.decrement_turns_remaining()
+    clear()        
+    
 
 def game_play(ga: gameaction.GameAction):
 
@@ -198,23 +203,15 @@ def game_play(ga: gameaction.GameAction):
             clear()
             narration.help_menu_screen()
         elif selection == "go up":
-            ga.change_location(nswe_districts[0])
-            ga.decrement_turns_remaining()
-            clear()
+            location_change(ga, nswe_districts[0])
         elif selection == "go down":
-            ga.change_location(nswe_districts[1])
-            ga.decrement_turns_remaining()
-            clear()
+            location_change(ga, nswe_districts[1])
         elif selection == "go left":
-            ga.change_location(nswe_districts[2])
-            ga.decrement_turns_remaining()
-            clear()
+            location_change(ga, nswe_districts[2])
         elif selection == "go right":
-            ga.change_location(nswe_districts[3])
-            ga.decrement_turns_remaining()
-            clear()
+            location_change(ga, nswe_districts[3])
 
-        
+
 
 # Offers user the load menu and load a game slot
 def load_game(ga: gameaction.GameAction) -> (gameaction.GameAction, int):
