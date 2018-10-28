@@ -72,7 +72,7 @@ class District(object):
 def assign_street_name(map_arr: [District]):
     name_arr = ["Dayton Dr", "Fallbrook Way", "Summer Ln",
                 "Shore Blvd", "Abby Ave", "Ironside St",
-                "Elm Ct", "Park Blvd", "Main St", "Spruce Dr",
+                "Elm Ct", "Park Blvd", "Rose St", "Spruce Dr",
                 "Cedar Ave", "Maple Way", "Ridge Ln", "Pine Blvd",
                 "Lincoln St", "Walnut Dr", "Cloud St", "Penny Ln",
                 "Troy Ave", "Misson Blvd", "Ash St", "Gene Way",
