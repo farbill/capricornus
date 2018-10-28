@@ -29,7 +29,7 @@ def help_menu():
 
 def start_narration1():
 	title_narration_part1 = "Agent Dope, who is tasked with the mission of finding and appending " \
-                  "Dr. Crime – a once renowned scientist from the affluent Crime family, " \
+                  "Dr. Crime - a once renowned scientist from the affluent Crime family, " \
                   "known for their charity and philanthropy. After spending nearly a decade " \
                   "working on the theory of Dark Magic to restore Life, Dr. Crime’s work was " \
                   "met with great criticism and disapproval from the scientific community, and " \

@@ -1,8 +1,9 @@
 import json
 from characters import AgentDope, NonPlayableCharacter
+from clues import Clue
 from puzzles import PuzzleData, PuzzleType, PuzzleDifficulty
 from city import District, DistrictId
-from items import Item, ItemType
+from items import Item, ItemType, Action, ActionType
 
 
 class CharacterDataLoader(object):
@@ -20,15 +21,21 @@ class CharacterDataLoader(object):
 class DistrictLoader(object):
     @staticmethod
     def parse_json(filename) -> District:
-        config = json.load(filename)
+        with open(filename, 'r') as f:
+            config = json.load(f)
         id = DistrictId(x=config['x'],
                         y=config['y'])
         characters = []
+        items = []
         for character_file in config['characters']:
             characters.append(CharacterDataLoader.parse_json(character_file))
 
+        for item_file in config['district_items']:
+            items.append(ItemLoader.parse_json(item_file))
         return District(id=id,
-                        items=config['items'],
+                        district_name=config['name'],
+                        district_items=items,
+                        dropped_items=[],
                         clues=config['clues'],
                         characters=characters,
                         short_description=config['short_description'],
@@ -46,14 +53,30 @@ class ItemLoader(object):
             item_type = ItemType.CRITICAL
         elif item_type == 'NONCRITICAL':
             item_type = ItemType.NONCRITICAL
+        elif item_type == 'LEGENDARY':
+            item_type == ItemType.LEGENDARY
+        elif item_type == 'FEATURE':
+            item_type == ItemType.FEATURE
         else:
             error_message = "Encountered incorrect value in ItemLoader while loading json file{filename}"\
-                            "item_type:{item_type}, item_type should be CRITICAL or NONCRITICAL"\
+                            "item_type:{item_type}, item_type should be CRITICAL.LEGENDARY, FEATURE or NONCRITICAL"\
                             .format(filename=filename, item_type=item_type)
             raise ValueError(error_message)
+        actions = list(map(ActionLoader.parse_json, config['actions']))
         return Item(name=config['name'],
                     item_type=item_type,
-                    narration=config['narration'])
+                    narration=config['narration'],
+                    description=config['description'],
+                    action=actions)
+
+
+class ClueLoader(object):
+    @staticmethod
+    def parse_json(filename) -> Clue:
+        with open(filename, 'r') as f:
+            config = json.load(f)
+        return Clue(name=config['name'],
+                    contents=config['contents'])
 
 
 class PuzzleDataLoader(object):
@@ -91,3 +114,44 @@ class PuzzleDataLoader(object):
         elif puzzle_type == 'word':
             return PuzzleType.WORD
 
+
+class ActionLoader(object):
+
+    @staticmethod
+    def parse_json(filename) -> Action:
+        with open(filename, 'r') as f:
+            config = json.load(f)
+        response_type = ActionLoader._get_response_type(config['response_type'])
+        more_response = config['more_response'] if 'more_response' in config.keys() else None
+        if 'more_response_type' in config.keys():
+            more_response_type = ActionLoader._get_response_type(config['more_response_type'])
+        else:
+            more_response_type = None
+        if 'more_action' in config.keys():
+            more_action = list(map(ActionLoader.parse_json, config['more_action']))
+        else:
+            more_action = None
+        return Action(commands=config['commands'],
+                      response_type=response_type,
+                      response=config['response'],
+                      more_response_type=more_response_type,
+                      more_response=more_response,
+                      more_action=more_action)
+
+    @staticmethod
+    def _get_response_type(response_type: str) -> ActionType:
+        response_type = response_type.lower()
+        if response_type == 'none':
+            return ActionType.NONE
+        elif response_type == 'display':
+            return ActionType.DISPLAY
+        elif response_type == 'action':
+            return ActionType.ACTION
+        elif response_type == 'trigger':
+            return ActionType.TRIGGER
+        elif response_type == 'event':
+            return ActionType.EVENT
+        elif response_type == 'take_legendary':
+            return ActionType.TAKE_LEGENDARY
+        elif response_type == 'take_item':
+            return ActionType.TAKE_ITEM
