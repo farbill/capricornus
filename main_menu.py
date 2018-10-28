@@ -20,6 +20,9 @@ TIME_TO_WAIT_FOR_WRITE_OVER = 1
 
 GAME_WIDTH = 100
 
+def go_up_and_clear():
+    sys.stdout.write("\033[F")      # go up one line
+    sys.stdout.write("\033[K")      # clear line
 
 def dotted_line(count):
     print("-" * count)
@@ -95,8 +98,7 @@ def main_selection(the_input):
             if len(the_input) > 99:
                 write_over("Your input is too long.")
             write_over("Invalid Input.  Try again.")
-            sys.stdout.write("\033[F")      # go up one line
-            sys.stdout.write("\033[K")      # clear line
+            go_up_and_clear()
             command_line = "Make your selection >>> "
             the_input = input(command_line)
             the_input = str(the_input)
@@ -122,8 +124,7 @@ def load_selection(the_input: str, slot_tracker: []) -> int:
             selection = 1
             if slot_tracker[0] == False:
                 write_over("Invalid choice. Save file does not exists.")
-                sys.stdout.write("\033[F")  # go up one line
-                sys.stdout.write("\033[K")  # clear line
+                go_up_and_clear()
                 command_line = "Make your selection >>> "
                 the_input = input(command_line)
                 the_input = str(the_input)
@@ -135,8 +136,7 @@ def load_selection(the_input: str, slot_tracker: []) -> int:
             selection = 2
             if slot_tracker[1] == False:
                 write_over("Invalid choice. Save file does not exists.")
-                sys.stdout.write("\033[F")  # go up one line
-                sys.stdout.write("\033[K")  # clear line
+                go_up_and_clear()
                 command_line = "Make your selection >>> "
                 the_input = input(command_line)
                 the_input = str(the_input)
@@ -148,8 +148,7 @@ def load_selection(the_input: str, slot_tracker: []) -> int:
             selection = 3
             if slot_tracker[2] == False:
                 write_over("Invalid choice. Save file does not exists.")
-                sys.stdout.write("\033[F")  # go up one line
-                sys.stdout.write("\033[K")  # clear line
+                go_up_and_clear()
                 command_line = "Make your selection >>> "
                 the_input = input(command_line)
                 the_input = str(the_input)
@@ -165,8 +164,7 @@ def load_selection(the_input: str, slot_tracker: []) -> int:
             if len(the_input) > 99:
                 write_over("Your input is too long.")
             write_over("Invalid Input.  Try again.")
-            sys.stdout.write("\033[F")      # go up one line
-            sys.stdout.write("\033[K")      # clear line
+            go_up_and_clear()
             command_line = "Make your selection >>> "
             the_input = input(command_line)
             the_input = str(the_input)
@@ -199,8 +197,7 @@ def exit_selection(the_input) -> int:
             if len(the_input) > 99:
                 write_over("Your input is too long.")
             write_over("Invalid Input.  Try again.")
-            sys.stdout.write("\033[F")      # go up one line
-            sys.stdout.write("\033[K")      # clear line
+            go_up_and_clear()
             command_line = "Yes/No >>> "
             the_input = input(command_line)
             the_input = str(the_input)
@@ -325,8 +322,7 @@ def gameplay_selection(ga, the_input: str,
             
                             
             sys.stdout.write("\033[F")      # go up one line
-            sys.stdout.write("\033[F")      # go up one line
-            sys.stdout.write("\033[K")      # clear line
+            go_up_and_clear()
             the_input = str(input(">>> ")).lower()
             continue
 
@@ -341,8 +337,7 @@ def gameplay_selection(ga, the_input: str,
                     write_over("Your input is too long.")
                 sys.stdout.write("\033[K")  # clear line
                 write_over("Invalid Input.  Try again.")
-                sys.stdout.write("\033[F")      # go up one line
-                sys.stdout.write("\033[K")      # clear line
+                go_up_and_clear()
                 the_input = str(input(">>> ")).lower()
 
     return selection
