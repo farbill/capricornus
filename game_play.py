@@ -140,6 +140,7 @@ def legendary_status(ga):
     main_menu.print_in_the_middle(main_menu.GAME_WIDTH, vision_and_strength)
     main_menu.print_in_the_middle(main_menu.GAME_WIDTH, vitality_and_magic)
 
+#changes to different location and update the remaining turns
 def location_change(ga, loc):
     ga.change_location(loc)
     ga.decrement_turns_remaining()
