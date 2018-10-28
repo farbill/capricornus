@@ -2,7 +2,7 @@ import json
 from characters import AgentDope, NonPlayableCharacter
 from clues import Clue
 from puzzles import PuzzleData, PuzzleType, PuzzleDifficulty
-from city import District, DistrictId
+from city import District, DistrictId, DistrictExits
 from items import Item, ItemType, Action, ActionType
 
 
@@ -39,7 +39,8 @@ class DistrictLoader(object):
                         clues=config['clues'],
                         characters=characters,
                         short_description=config['short_description'],
-                        long_description=config['long_description']
+                        long_description=config['long_description'],
+                        district_exits = DistrictExits()
                         )
 
 
