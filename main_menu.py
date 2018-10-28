@@ -209,11 +209,12 @@ def exit_selection(the_input) -> int:
     return int(selection)
 
 
-def gameplay_selection(the_input: str,
+def gameplay_selection(ga, the_input: str,
                        nswe_districts: Tuple[str, str, str, str],
                        district_exits: Tuple[str, str, str, str],
                        this_district: city.District) -> str:
 
+    screen_refresh = False
     # Change nswe_districts to lower case
     # e.g. ['hawkins', None, 'greenland grove', 'oak square']
     nswe_districts = list(map(lambda x: x.lower() if x is not None else x, nswe_districts))
@@ -299,22 +300,52 @@ def gameplay_selection(the_input: str,
                         if action.response_type == ActionType.DISPLAY:
                             sys.stdout.write("\033[K")  # clear line
                             print(action.response)
+                            screen_refresh = False
+                        if action.response_type == ActionType.ACTION:
+                            if action.more_response_type == ActionType.TAKE_LEGENDARY:
+                                sys.stdout.write("\033[K")  # clear line
+                                print(action.response)
+                                ga.add_to_inventory(item.name)
+                                if item.name == "Vision Orb":
+                                    ga.add_to_inventory(item)
+                                    ga.game_state._vision_orb = True
+                                    time.sleep(2)
+                                elif item.name == "Magic Sword":
+                                    ga.add_to_inventory(item)
+                                    ga.game_state._magic_sword = True
+                                    time.sleep(2)
+                                screen_refresh = True
+                            elif action.more_response_type == ActionType.TAKE_ITEM:
+                                sys.stdout.write("\033[K")  # clear line
+                                print(action.response)
+                                ga.add_to_inventory(item.name)
+                                screen_refresh = False
+                if screen_refresh == True:
+                    break
+            if screen_refresh == True: 
+                break
+            
+                            
             sys.stdout.write("\033[F")      # go up one line
-            sys.stdout.write("\033[F")          # go up one line
+            sys.stdout.write("\033[F")      # go up one line
             sys.stdout.write("\033[K")      # clear line
             the_input = str(input(">>> ")).lower()
             continue
 
         # Else, bad action
-        if selection == None:
-            if len(the_input) > 99:
+        if screen_refresh == True:
+            screen_refresh == False
+            continue
+        else:
+            if selection == None:
+                if len(the_input) > 99:
+                    sys.stdout.write("\033[K")  # clear line
+                    write_over("Your input is too long.")
                 sys.stdout.write("\033[K")  # clear line
-                write_over("Your input is too long.")
-            sys.stdout.write("\033[K")  # clear line
-            write_over("Invalid Input.  Try again.")
-            sys.stdout.write("\033[F")      # go up one line
-            sys.stdout.write("\033[K")      # clear line
-            the_input = str(input(">>> ")).lower()
+                write_over("Invalid Input.  Try again.")
+                sys.stdout.write("\033[F")      # go up one line
+                sys.stdout.write("\033[K")      # clear line
+                the_input = str(input(">>> ")).lower()
 
     return selection
 

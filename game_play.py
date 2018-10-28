@@ -179,7 +179,7 @@ def game_play(ga: gameaction.GameAction):
         main_menu.dotted_line(main_menu.GAME_WIDTH)
 
         # get validated input
-        selection = main_menu.gameplay_selection(input(">>> "), nswe_districts, district_exits, this_district)
+        selection = main_menu.gameplay_selection(ga, input(">>> "), nswe_districts, district_exits, this_district)
         # print("TESTING - YOU'VE SELECTED: " + selection)
         # time.sleep(2)
 
