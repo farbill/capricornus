@@ -177,8 +177,8 @@ def load_selection(the_input: str, slot_tracker: []) -> int:
 def exit_selection(the_input) -> int:
 
     # inputs to be recognized as valid
-    list_one =      ["y", "yes", "yep", "true"]
-    list_two =      ["n", "no", "nope", "false"]
+    list_one =      ["y", "yes", "yep", "true", "ye", "yse", "1"]
+    list_two =      ["n", "no", "nope", "false", "nah", "0"]
 
     selection = 0
     wrong_input = True

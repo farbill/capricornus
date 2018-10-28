@@ -72,12 +72,12 @@ class District(object):
 def assign_street_name(map_arr: [District]):
     name_arr = ["Dayton Dr", "Fallbrook Way", "Summer Ln",
                 "Shore Blvd", "Abby Ave", "Ironside St",
-                "A St", "B St", "C St", "D St",
-                "E St", "F St", "G St", "H St",
-                "I St", "J St", "K St", "L St",
-                "M St", "N St", "O St", "P St",
-                "Q St", "R St", "S St", "T St",
-                "U St", "V St", "W St", "X St" ]
+                "Elm Ct", "Park Blvd", "Main St", "Spruce Dr",
+                "Cedar Ave", "Maple Way", "Ridge Ln", "Pine Blvd",
+                "Lincoln St", "Walnut Dr", "Cloud St", "Penny Ln",
+                "Troy Ave", "Misson Blvd", "Ash St", "Gene Way",
+                "Pearl Ct", "Tundra St", "Muir Dr", "Keyes Ave",
+                "Java Blvd", "Front St", "Ocean Rd", "Baker Ct" ]
 
     name_index = 0
 
