@@ -2,7 +2,7 @@
   "x":1,
   "y":2,
   "name": "Washington Heights",
-  "district_items": [],
+  "district_items": ["etc/items/old_silver_coin.json"],
   "clues": [],
   "characters": [],
   "short_description": "Washington Heights is a neighborhood in the middle portion of the New San Diego City.",
