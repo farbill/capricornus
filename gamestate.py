@@ -51,7 +51,6 @@ class GameState(object):
         # Track user status
         self._turns_remaining = INITIAL_NUMBER_OF_TURNS  # type: int
         self._current_location = "City Hall"             # type: str
-        # self._current_inventory = []                     # type: List[str]
         self._current_inventory = []                     # type: List[items.Item]
         self._solved_puzzles = {}                        # type: Dict[int, str]
         self._obtained_clues = {}                        # type: Dict[int, str]

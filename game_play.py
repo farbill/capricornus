@@ -1,3 +1,4 @@
+import game_play_selection
 import gamestate
 import gameaction
 import characters
@@ -5,6 +6,8 @@ import city
 
 # import only system from os
 from os import system, name
+
+import load_save_menu
 import narration
 import main_menu
 import time
@@ -185,7 +188,7 @@ def game_play(ga: gameaction.GameAction):
         main_menu.dotted_line(main_menu.GAME_WIDTH)
 
         # get validated input
-        selection = main_menu.gameplay_selection(ga, input(">>> "), nswe_districts, district_exits, this_district)
+        selection = game_play_selection.gameplay_selection(ga, input(">>> "), nswe_districts, district_exits, this_district)
         # print("TESTING - YOU'VE SELECTED: " + selection)
         # time.sleep(2)
 
@@ -211,12 +214,18 @@ def game_play(ga: gameaction.GameAction):
             location_change(ga, nswe_districts[2])
         elif selection == "go right":
             location_change(ga, nswe_districts[3])
+        elif selection == "savegame":
+            print("savegame here")
+            time.sleep(1)
+        elif selection == "loadgame":
+            print("load game here")
+            time.sleep(2)
 
 
 
 # Offers user the load menu and load a game slot
 def load_game(ga: gameaction.GameAction) -> (gameaction.GameAction, int):
-    load_menu_choice = main_menu.load_menu()
+    load_menu_choice = load_save_menu.load_menu()
     if (1 <= load_menu_choice <= 3):
         ga.game_state.load_game_state(load_menu_choice)
     return (ga, load_menu_choice)

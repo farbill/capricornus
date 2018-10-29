@@ -1,5 +1,6 @@
 from unittest import TestCase
 
+import load_save_menu
 import main_menu
 import os
 
@@ -13,5 +14,5 @@ class LoadMenuTestCase(TestCase):
     #     print("teardown -- ")
 
     def test_1(self):
-        main_menu.load_menu()
+        load_save_menu.load_menu()
         pass

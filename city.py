@@ -44,7 +44,7 @@ class DistrictExits(object):
         self._west_exit = west_exit
         self._east_exit = east_exit
 
-    def get_exits(self) -> Tuple[str, str, str, str]:
+    def get_exits(self) -> [str, str, str, str]:
         return [self._north_exit, self._south_exit,
                 self._west_exit, self._east_exit]
 

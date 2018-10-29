@@ -55,12 +55,12 @@ class ItemLoader(object):
         elif item_type == 'NONCRITICAL':
             item_type = ItemType.NONCRITICAL
         elif item_type == 'LEGENDARY':
-            item_type == ItemType.LEGENDARY
+            item_type = ItemType.LEGENDARY
         elif item_type == 'FEATURE':
-            item_type == ItemType.FEATURE
+            item_type = ItemType.FEATURE
         else:
             error_message = "Encountered incorrect value in ItemLoader while loading json file{filename}"\
-                            "item_type:{item_type}, item_type should be CRITICAL.LEGENDARY, FEATURE or NONCRITICAL"\
+                            "item_type:{item_type}, item_type should be CRITICAL, LEGENDARY, FEATURE or NONCRITICAL"\
                             .format(filename=filename, item_type=item_type)
             raise ValueError(error_message)
         actions = list(map(ActionLoader.parse_json, config['actions']))
