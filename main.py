@@ -1,3 +1,4 @@
+import load_save_menu
 import main_menu
 import game_play
 import gamestate
@@ -19,7 +20,7 @@ def main():
             game_play.game_play(ga)
         elif main_menu_choice == 2:
             game_play.clear()
-            ga, load_menu_choice = game_play.load_game(ga)
+            ga, load_menu_choice = load_save_menu.load_game(ga)
             if load_menu_choice == 4:
                 continue
             game_play.game_play(ga)

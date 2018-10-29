@@ -75,7 +75,7 @@ def assign_street_name(map_arr: [District]):
                 "Elm Ct", "Park Blvd", "Rose St", "Spruce Dr",
                 "Cedar Ave", "Maple Way", "Ridge Ln", "Pine Blvd",
                 "Lincoln St", "Walnut Dr", "Cloud St", "Penny Ln",
-                "Troy Ave", "Misson Blvd", "Ash St", "Gene Way",
+                "Troy Ave", "Mission Blvd", "Ash St", "Gene Way",
                 "Pearl Ct", "Tundra St", "Muir Dr", "Keyes Ave",
                 "Java Blvd", "Front St", "Ocean Rd", "Baker Ct" ]
 

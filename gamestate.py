@@ -154,7 +154,8 @@ class GameState(object):
 
         try:
             with open(fullpath, 'wb') as outputfile:
-                pickle.dump(self, outputfile)
+                # pickle.dump(self, outputfile)
+                pickle.dump(self.__dict__, outputfile)
         except IOError:
             return 2
         return 0
@@ -176,7 +177,8 @@ class GameState(object):
         # Load savedgame file
         try:
             with open(fullpath, 'rb') as inputfile:
-                self = pickle.load(inputfile)
+                # self = pickle.load(inputfile)
+                self.__dict__ = pickle.load(inputfile)
         except IOError:
             return 2
 

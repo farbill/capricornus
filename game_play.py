@@ -1,17 +1,16 @@
 import game_play_selection
-import gamestate
 import gameaction
 import characters
 import city
+import load_save_menu
 
 # import only system from os
 from os import system, name
 
-import load_save_menu
 import narration
 import main_menu
 import time
-from typing import Tuple, List
+from typing import Tuple
 
 #for stub data
 import stub_map
@@ -80,7 +79,7 @@ def gametext_output(ga, map_arr) -> Tuple[ Tuple[str, str, str, str],
     # Print narration
     narration.left_narration(str_to_print, main_menu.GAME_WIDTH)
 
-    # Print dropped items
+    # TODO: Print dropped items
 
     main_menu.empty_line(3)
 
@@ -154,47 +153,34 @@ def game_play(ga: gameaction.GameAction):
 
     # TODO: Load in all game data
 
-    # Getting map stud data
-    map_arr = stub_map.get_map_stub()
-
-    # Save map data to gamestate
-    # ga.set_map_arr(map_arr)
-
-    # ga.game_state.save_game_state(1)
-    # ga.game_state.load_game_state(1)
-
     # print("Initializing Character Information...")
     agt_dope = characters.AgentDope(narration.short_for_agt_dope(), narration.long_for_agt_dope())
     #Dr. Crime needs to be initialized with specified PUZZLE and DIALOGS
     dr_crime = characters.DrCrime(narration.short_for_dr_crime(), narration.long_for_dr_crime(), 0, 0)
 
-
-
-
     clear()
-    # For new games, play intro narration
+    # For new games, load in game data and play intro narration
     if ga.check_visited(STARTING_LOCATION) == False:
+        map_arr = stub_map.get_map_stub()
         intro_narration()
         clear()
+    else: # For load game, load stored map data into map_arr
+        map_arr = ga.map_arr
 
     # Game loop
     while True:
 
         clear()
 
-        # TODO: display game stuff
+        # Display game stuff
         main_menu.dotted_line(main_menu.GAME_WIDTH)
         (nswe_districts, district_exits, this_district) = general_info(ga, map_arr)
         main_menu.dotted_line(main_menu.GAME_WIDTH)
 
-        # get validated input
+        # Get validated input
         selection = game_play_selection.gameplay_selection(ga, input(">>> "), nswe_districts, district_exits, this_district)
-        # print("TESTING - YOU'VE SELECTED: " + selection)
-        # time.sleep(2)
 
-        # TODO: perform action based on key action noun
-        # ....
-
+        # Perform action based on key action noun
         if selection == "exit":
             clear()
             confirmation = main_menu.exit_to_main_confirmation()
@@ -215,17 +201,18 @@ def game_play(ga: gameaction.GameAction):
         elif selection == "go right":
             location_change(ga, nswe_districts[3])
         elif selection == "savegame":
-            print("savegame here")
-            time.sleep(1)
+            clear()
+            ga.set_map_arr(map_arr)
+            ga, save_menu_choice = load_save_menu.ingame_save_game(ga)
+            map_arr = ga.map_arr
         elif selection == "loadgame":
-            print("load game here")
-            time.sleep(2)
+            clear()
+            ga.set_map_arr(map_arr)
+            ga, load_menu_choice = load_save_menu.ingame_load_game(ga)
+            map_arr = ga.map_arr
 
 
 
-# Offers user the load menu and load a game slot
-def load_game(ga: gameaction.GameAction) -> (gameaction.GameAction, int):
-    load_menu_choice = load_save_menu.load_menu()
-    if (1 <= load_menu_choice <= 3):
-        ga.game_state.load_game_state(load_menu_choice)
-    return (ga, load_menu_choice)
+
+
+

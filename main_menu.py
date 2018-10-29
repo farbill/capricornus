@@ -113,11 +113,11 @@ def exit_selection(the_input) -> int:
 
     while wrong_input:
 
-        if command_parsing(lowered_input, list_one):
+        if command_parsing(lowered_input, list_one):  # yes
             selection = 1
             break
 
-        if command_parsing(lowered_input, list_two):
+        if command_parsing(lowered_input, list_two): # no
             selection = 2
             break
 
