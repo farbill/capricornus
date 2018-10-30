@@ -8,6 +8,12 @@ from main_menu import GAME_WIDTH, dotted_line, empty_line, print_in_the_middle, 
 
 from game_play import clear
 
+from enum import Enum
+
+class SaveLoad(Enum):
+    SAVE = 0
+    LOAD = 1
+
 def load_menu():
     game_version = "1.0"
     title = "Load Game"
@@ -220,6 +226,7 @@ def ingame_load_game(ga: gameaction.GameAction) -> (gameaction.GameAction, int):
         if load_game_confirmation(load_menu_choice) == 2: # user chooses 'no'
             return (ga, 4)
         ga.game_state.load_game_state(load_menu_choice)
+        load_save_success_screen(SaveLoad.LOAD)
     return (ga, load_menu_choice)
 
 def load_game_confirmation(slot_num: int):
@@ -248,6 +255,7 @@ def ingame_save_game(ga: gameaction.GameAction) -> (gameaction.GameAction, int):
             if save_game_confirmation(save_menu_choice) == 2: # user chooses 'no':
                 return (ga, 4)
         ga.game_state.save_game_state(save_menu_choice)
+        load_save_success_screen(SaveLoad.SAVE)
     return (ga, save_menu_choice)
 
 def save_game_confirmation(slot_num: int):
@@ -264,3 +272,20 @@ def save_game_confirmation(slot_num: int):
     selection = exit_selection(input("Yes/No >>> "))
 
     return selection
+
+def load_save_success_screen(choice: SaveLoad):
+    clear()
+    msg1 = "Game SUCCESSFULLY "
+    if choice == SaveLoad.SAVE:
+        msg1 += "saved."
+    elif choice == SaveLoad.LOAD:
+        msg1 += "loaded."
+
+    dotted_line_length = GAME_WIDTH
+    dotted_line(dotted_line_length)
+    empty_line(1)
+    print_in_the_middle(dotted_line_length, msg1)
+    empty_line(1)
+    dotted_line(dotted_line_length)
+
+    input("Press [Enter] to continue...")
