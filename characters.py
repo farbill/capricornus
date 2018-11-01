@@ -6,7 +6,7 @@ import time
 from main_menu import GAME_WIDTH, dotted_line, empty_line, print_in_the_middle, print_left_indented, write_over, \
     go_up_and_clear, yes_no_selection, clear_screen, informScreen
 
-import load_save_menu
+
 
 class CharacterState(Enum):
     UNSPOKEN = 0
@@ -114,7 +114,6 @@ class NonPlayableCharacter(Character):
         dotted_line(dotted_line_length)
 
         if(self._puzzle.state == PuzzleState.SOLVED):
-            empty_line(1)
             input("Press [Enter] to continue...")
         else:
             selection = yes_no_selection(input("Yes/No >>> "))
