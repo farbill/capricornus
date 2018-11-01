@@ -75,9 +75,10 @@ def gameplay_selection(ga, the_input: str,
     # Build district_items_action array for items in district
     district_items_action = []
     for item in this_district._district_items:
-        for action in item.action:
-            for command in action.commands:
-                district_items_action.append(command)
+        if item:
+            for action in item.action:
+                for command in action.commands:
+                    district_items_action.append(command)
 
     selection = None
     the_input = str(the_input).lower()  # to make the input case insensitive
