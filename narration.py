@@ -28,7 +28,8 @@ def help_menu():
         main_menu.print_in_the_middle(main_menu.GAME_WIDTH, "Type \"Help\" for game commands")
 
 def start_narration1():
-	title_narration_part1 = "Agent Dope, who is tasked with the mission of finding and appending " \
+	title_narration_part1 = \
+                  "You are Agent Dope, who is tasked with the mission of finding and apprehending " \
                   "Dr. Crime - a once renowned scientist from the affluent Crime family, " \
                   "known for their charity and philanthropy. After spending nearly a decade " \
                   "working on the theory of Dark Magic to restore Life, Dr. Crime’s work was " \

@@ -76,6 +76,10 @@ def gametext_output(ga, map_arr) -> Tuple[ Tuple[str, str, str, str],
     for item in this_district._district_items:
         str_to_print += " " + item.narration
 
+    # Print relevant character narration
+    for character in this_district._characters:
+        str_to_print += " " + character._narration
+
     # Print narration
     narration.left_narration(str_to_print, main_menu.GAME_WIDTH)
 
@@ -98,8 +102,8 @@ def gametext_output(ga, map_arr) -> Tuple[ Tuple[str, str, str, str],
 
 def general_info(ga, map_arr):
     main_menu.empty_line(2)
-    main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Remaining Turns:%s"%ga.turns_remaining))
-    main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Current Location:%s"%ga.current_location))
+    main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Remaining Turns: %s"%ga.turns_remaining))
+    main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Current Location: %s"%ga.current_location))
     main_menu.empty_line(2)
     (nswe_districts, district_exits, this_district) = gametext_output(ga, map_arr)
     main_menu.empty_line(2)
@@ -210,9 +214,3 @@ def game_play(ga: gameaction.GameAction):
             ga.set_map_arr(map_arr)
             ga, load_menu_choice = load_save_menu.ingame_load_game(ga)
             map_arr = ga.map_arr
-
-
-
-
-
-

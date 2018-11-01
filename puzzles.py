@@ -1,5 +1,6 @@
 from functools import reduce
 from enum import Enum
+from typing import List
 
 
 class PuzzleType(Enum):
@@ -16,34 +17,34 @@ class PuzzleDifficulty(Enum):
 
 
 class PuzzleState(Enum):
-    UNTAKEN = 1
-    TAKEN = 2
+    NEW = 1
+    FOUND = 2
     SOLVED = 3
 
 
 class PuzzleData(object):
     def __init__(self,
                  question: str,
-                 puzzle_type: PuzzleType,
-                 difficulty: PuzzleDifficulty,
-                 answer: str):
+                 # puzzle_type: PuzzleType,
+                 # difficulty: PuzzleDifficulty,
+                 answers: List[str]):
         self.question = question
-        self.puzzle_type = puzzle_type
-        self.difficulty = difficulty
-        self.answer = answer.lower()
+        # self.puzzle_type = puzzle_type
+        # self.difficulty = difficulty
+        # self.answer = answer.lower()
+        self.answers = map(lambda x: x.lower(), answers)
 
     def __eq__(self, other):
-        properties = [self.question == other.question,
-                      self.puzzle_type == other.puzzle_type,
-                      self.difficulty == other.difficulty,
-                      self.answer == other.answer]
+        properties = [self.question == other.question]
+                      # self.puzzle_type == other.puzzle_type,
+                      # self.difficulty == other.difficulty,
         return reduce(lambda x, y: x and y, properties)
 
 
 class Puzzle(object):
     def __init__(self,
                  data: PuzzleData,
-                 state: PuzzleState = PuzzleState.UNTAKEN):
+                 state: PuzzleState = PuzzleState.NEW):
         self._data = data
         self.state = state
         self.attempted = 0
@@ -54,11 +55,11 @@ class Puzzle(object):
     def attempt_answer(self, answer: str) -> bool:
         self.attempted += 1
         answer = answer.lower()
-        if answer == self._data.answer:
+        if answer in self._data.answers:
             self.state = PuzzleState.SOLVED
             return True
         else:
-            self.state = PuzzleState.TAKEN
+            self.state = PuzzleState.FOUND
             return False
 
 

@@ -11,9 +11,9 @@ class ItemType(Enum):
 class ActionType(Enum):
     NONE = 0
     DISPLAY = 1
-    ACTION = 2
+    ACTION = 2  # Pick up item
     TRIGGER = 3
-    EVENT = 4 # Not sure this will be used
+    EVENT = 4   # Talk to character
     TAKE_LEGENDARY = 5
     TAKE_ITEM = 6
 

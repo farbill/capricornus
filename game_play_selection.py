@@ -4,8 +4,11 @@ from typing import Tuple
 
 import city
 from items import ActionType
-from main_menu import go_up_and_clear, write_over
 
+from main_menu import GAME_WIDTH, dotted_line, empty_line, print_in_the_middle, print_left_indented, write_over, \
+    go_up_and_clear, exit_selection, write_over
+
+import game_play
 
 def gameplay_selection(ga, the_input: str,
                        nswe_districts: Tuple[str, str, str, str],
@@ -13,6 +16,7 @@ def gameplay_selection(ga, the_input: str,
                        this_district: city.District) -> str:
 
     screen_refresh = False
+
     # Change nswe_districts to lower case
     # e.g. ['hawkins', None, 'greenland grove', 'oak square']
     nswe_districts = list(map(lambda x: x.lower() if x is not None else x, nswe_districts))
@@ -79,6 +83,13 @@ def gameplay_selection(ga, the_input: str,
             for command in action.commands:
                 district_items_action.append(command)
 
+    # Build district_characters_action array for characters in district
+    district_characters_action = []
+    for character in this_district._characters:
+        for action in character._action:
+            for command in action.commands:
+                district_characters_action.append(command)
+
     selection = None
     the_input = str(the_input).lower()  # to make the input case insensitive
 
@@ -90,8 +101,7 @@ def gameplay_selection(ga, the_input: str,
                 selection = action_list[0]
                 break
 
-        # TODO: Check for district-specific action
-        # ...
+        # TODO: Check for district-specific action, items
         if the_input in district_items_action:
             for item in this_district._district_items:
                 for action in item.action:
@@ -103,26 +113,26 @@ def gameplay_selection(ga, the_input: str,
                         if action.response_type == ActionType.ACTION:
                             if action.more_response_type == ActionType.TAKE_LEGENDARY:
                                 sys.stdout.write("\033[K")  # clear line
-                                print(action.response)
                                 ga.add_to_inventory(item)
+                                informScreen(action.response)
                                 if item.name == "Vision Orb":
                                     ga.game_state._vision_orb = True
-                                    time.sleep(1)
+                                    #time.sleep(1)
                                 elif item.name == "Magic Sword":
                                     ga.game_state._magic_sword = True
-                                    time.sleep(1)
+                                    #time.sleep(1)
                                 elif item.name == "Strength Orb":
                                     ga.game_state._strength_orb = True
-                                    time.sleep(1)
+                                    #time.sleep(1)
                                 elif item.name == "Vitality Orb":
                                     ga.game_state._vitality_orb = True
-                                    time.sleep(1)
+                                    #time.sleep(1)
                                 screen_refresh = True
                             elif action.more_response_type == ActionType.TAKE_ITEM:
                                 sys.stdout.write("\033[K")  # clear line
-                                print(action.response)
                                 ga.add_to_inventory(item)
-                                screen_refresh = False
+                                informScreen(action.response)
+                                screen_refresh = True
                 if screen_refresh == True:
                     break
             if screen_refresh == True:
@@ -133,6 +143,9 @@ def gameplay_selection(ga, the_input: str,
             go_up_and_clear()
             the_input = str(input(">>> ")).lower()
             continue
+
+        # TODO: Check for district-specific action, characters
+        # ...
 
         # Else, bad action
         if screen_refresh == True:
@@ -149,3 +162,14 @@ def gameplay_selection(ga, the_input: str,
                 the_input = str(input(">>> ")).lower()
 
     return selection
+
+def informScreen(msg:str):
+    game_play.clear()
+    #msg1 = itemname + " has been successfully added to inventory."
+    dotted_line_length = GAME_WIDTH
+    dotted_line(dotted_line_length)
+    empty_line(1)
+    print_in_the_middle(dotted_line_length, msg)
+    empty_line(1)
+    dotted_line(dotted_line_length)
+    input("Press [Enter] to continue...")
