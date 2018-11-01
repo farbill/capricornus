@@ -107,15 +107,31 @@ def gameplay_selection(ga, the_input: str,
                                 ga.add_to_inventory(item)
                                 if item.name == "Vision Orb":
                                     ga.game_state._vision_orb = True
+                                    itemsInCityList = this_district._district_items
+                                    for i in range(len(this_district._district_items)):
+                                        if itemsInCityList[i].name == "Vision Orb":
+                                            itemsInCityList[i] = None
                                     time.sleep(1)
                                 elif item.name == "Magic Sword":
                                     ga.game_state._magic_sword = True
+                                    itemsInCityList = this_district._district_items
+                                    for i in range(len(this_district._district_items)):
+                                        if itemsInCityList[i].name == "Magic Sword":
+                                            itemsInCityList[i] = None
                                     time.sleep(1)
                                 elif item.name == "Strength Orb":
                                     ga.game_state._strength_orb = True
+                                    itemsInCityList = this_district._district_items
+                                    for i in range(len(this_district._district_items)):
+                                        if itemsInCityList[i].name == "Strength Orb":
+                                            itemsInCityList[i] = None
                                     time.sleep(1)
                                 elif item.name == "Vitality Orb":
                                     ga.game_state._vitality_orb = True
+                                    itemsInCityList = this_district._district_items
+                                    for i in range(len(this_district._district_items)):
+                                        if itemsInCityList[i].name == "Vitality Orb":
+                                            itemsInCityList[i] = None
                                     time.sleep(1)
                                 screen_refresh = True
                             elif action.more_response_type == ActionType.TAKE_ITEM:
