@@ -4,9 +4,7 @@ import time
 import gameaction
 from command_parsing import command_parsing
 from main_menu import GAME_WIDTH, dotted_line, empty_line, print_in_the_middle, print_left_indented, write_over, \
-    go_up_and_clear, exit_selection
-
-from game_play import clear
+    go_up_and_clear, yes_no_selection, clear_screen
 
 from enum import Enum
 
@@ -222,7 +220,7 @@ def load_game(ga: gameaction.GameAction) -> (gameaction.GameAction, int):
 def ingame_load_game(ga: gameaction.GameAction) -> (gameaction.GameAction, int):
     load_menu_choice = load_menu()
     if (1 <= load_menu_choice <= 3):
-        clear()
+        clear_screen()
         if load_game_confirmation(load_menu_choice) == 2: # user chooses 'no'
             return (ga, 4)
         ga.game_state.load_game_state(load_menu_choice)
@@ -242,7 +240,7 @@ def load_game_confirmation(slot_num: int):
     empty_line(1)
     dotted_line(dotted_line_length)
 
-    selection = exit_selection(input("Yes/No >>> "))
+    selection = yes_no_selection(input("Yes/No >>> "))
 
     return selection
 
@@ -250,7 +248,7 @@ def load_game_confirmation(slot_num: int):
 def ingame_save_game(ga: gameaction.GameAction) -> (gameaction.GameAction, int):
     save_menu_choice, slot_tracker = save_menu()
     if (1 <= save_menu_choice <= 3):
-        clear()
+        clear_screen()
         if slot_tracker[save_menu_choice - 1] is True: # if existing slot, confirm overwrite
             if save_game_confirmation(save_menu_choice) == 2: # user chooses 'no':
                 return (ga, 4)
@@ -269,12 +267,12 @@ def save_game_confirmation(slot_num: int):
     empty_line(1)
     dotted_line(dotted_line_length)
 
-    selection = exit_selection(input("Yes/No >>> "))
+    selection = yes_no_selection(input("Yes/No >>> "))
 
     return selection
 
 def load_save_success_screen(choice: SaveLoad):
-    clear()
+    clear_screen()
     msg1 = "Game SUCCESSFULLY "
     if choice == SaveLoad.SAVE:
         msg1 += "saved."

@@ -1,4 +1,6 @@
 import sys
+from os import name, system
+
 from command_parsing import command_parsing
 
 TIME_TO_WAIT_FOR_WRITE_OVER = 1
@@ -13,6 +15,17 @@ TIME_TO_WAIT_FOR_WRITE_OVER = 1
 # GLOBAL VARIABLE
 
 GAME_WIDTH = 100
+
+# define our clear function
+# Ref: https://www.geeksforgeeks.org/clear-screen-python/
+def clear_screen():
+    # for windows
+    if name == 'nt':
+        _ = system('cls')
+
+        # for mac and linux(here, os.name is 'posix')
+    else:
+        _ = system('clear')
 
 def go_up_and_clear():
     sys.stdout.write("\033[F")      # go up one line
@@ -100,7 +113,7 @@ def main_selection(the_input):
     return int(selection)
 
 
-def exit_selection(the_input) -> int:
+def yes_no_selection(the_input) -> int:
 
     # inputs to be recognized as valid
     list_one =      ["y", "yes", "yep", "true", "ye", "yse", "1"]
@@ -180,7 +193,7 @@ def exit_game_confirmation():
     empty_line(1)
     dotted_line(dotted_line_length)
 
-    selection = exit_selection(input("Yes/No >>> "))
+    selection = yes_no_selection(input("Yes/No >>> "))
 
     return selection
 
@@ -197,6 +210,18 @@ def exit_to_main_confirmation():
     empty_line(1)
     dotted_line(dotted_line_length)
 
-    selection = exit_selection(input("Yes/No >>> "))
+    selection = yes_no_selection(input("Yes/No >>> "))
 
     return selection
+
+
+def informScreen(msg:str):
+    clear_screen()
+    #msg1 = itemname + " has been successfully added to inventory."
+    dotted_line_length = GAME_WIDTH
+    dotted_line(dotted_line_length)
+    empty_line(1)
+    print_in_the_middle(dotted_line_length, msg)
+    empty_line(1)
+    dotted_line(dotted_line_length)
+    input("Press [Enter] to continue...")

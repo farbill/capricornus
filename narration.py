@@ -1,5 +1,7 @@
+# import command_parsing
 import main_menu
 from command_parsing import command_parsing
+from main_menu import clear_screen
 import sys
 import game_play
 import time
@@ -148,24 +150,24 @@ def help_menu_screen():
 
         while True:
             if command_parsing(selection, list_game_story) == 1: #Help for game story
-                game_play.clear()
+                clear_screen()
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 main_menu.empty_line(2)
                 narration(start_narration1(), main_menu.GAME_WIDTH)
                 main_menu.empty_line(2)
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 input("Press [Enter] to continue...")
-                game_play.clear()
+                clear_screen()
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 main_menu.empty_line(2)
                 narration(start_narration2(), main_menu.GAME_WIDTH)
                 main_menu.empty_line(2)
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 input("Press [Enter] to continue...")
-                game_play.clear()
+                clear_screen()
                 break
             if command_parsing(selection, list_characters) == 1: #Help for game characters
-                game_play.clear()
+                clear_screen()
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 main_menu.empty_line(2)
                 narration("Agent Dope", main_menu.GAME_WIDTH)
@@ -174,7 +176,7 @@ def help_menu_screen():
                 main_menu.empty_line(2)
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 input("Press [Enter] to continue...")
-                game_play.clear()
+                clear_screen()
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 main_menu.empty_line(2)
                 narration("Dr. Crime", main_menu.GAME_WIDTH)
@@ -183,26 +185,26 @@ def help_menu_screen():
                 main_menu.empty_line(2)
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 input("Press [Enter] to continue...")
-                game_play.clear()
+                clear_screen()
                 break
             if command_parsing(selection, list_game_commands) == 1: #Help for game commands
-                game_play.clear()
+                clear_screen()
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 main_menu.empty_line(2)
                 command_help(main_menu.GAME_WIDTH)
                 main_menu.empty_line(2)
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 input("Press [Enter] to continue...")
-                game_play.clear()
+                clear_screen()
                 break
             if command_parsing(selection, list_items) == 1:         #Help for game items
-                game_play.clear()
+                clear_screen()
                 print("#Testing: About game items")
                 time.sleep(1)
-                game_play.clear()
+                clear_screen()
                 break
             if command_parsing(selection, list_back) == 1:          #Back to the game
-                game_play.clear()
+                clear_screen()
                 back_to_game = True
                 break
             main_menu.write_over("Invalid Input.  Try again.")
@@ -227,7 +229,7 @@ def inventory_menu_screen(ga):
 
         while True:
             if command_parsing(selection, list_clues) == 1:
-                game_play.clear()
+                clear_screen()
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 main_menu.empty_line(2)
                 if(len(ga.obtained_clues) == 0):
@@ -242,10 +244,10 @@ def inventory_menu_screen(ga):
                 main_menu.empty_line(2)
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 input("Press [Enter] to continue...")
-                game_play.clear()
+                clear_screen()
                 break
             if command_parsing(selection, list_items) == 1:
-                game_play.clear()
+                clear_screen()
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 main_menu.empty_line(2)
                 if(len(ga.current_inventory) == 0):
@@ -260,10 +262,10 @@ def inventory_menu_screen(ga):
                 main_menu.empty_line(2)
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 input("Press [Enter] to continue...")
-                game_play.clear()
+                clear_screen()
                 break
             if command_parsing(selection, list_legendary) == 1:
-                game_play.clear()
+                clear_screen()
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 main_menu.empty_line(2)
                 if(len(ga.check_legendary()) == 0):
@@ -306,10 +308,10 @@ def inventory_menu_screen(ga):
                 main_menu.empty_line(2)
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 input("Press [Enter] to continue...")
-                game_play.clear()
+                clear_screen()
                 break
             if command_parsing(selection, list_back) == 1:          #Back to the game
-                game_play.clear()
+                clear_screen()
                 back_to_game = True
                 break
             main_menu.write_over("Invalid Input.  Try again.")

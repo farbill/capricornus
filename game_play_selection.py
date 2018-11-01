@@ -1,14 +1,11 @@
 import sys
-import time
 from typing import Tuple
 
 import city
 from items import ActionType
 
-from main_menu import GAME_WIDTH, dotted_line, empty_line, print_in_the_middle, print_left_indented, write_over, \
-    go_up_and_clear, exit_selection, write_over
+from main_menu import go_up_and_clear, write_over, informScreen
 
-import game_play
 
 def gameplay_selection(ga, the_input: str,
                        nswe_districts: Tuple[str, str, str, str],
@@ -81,15 +78,15 @@ def gameplay_selection(ga, the_input: str,
     for item in this_district._district_items:
         if item:
             for action in item.action:
-                for command in action.commands:
-                    district_items_action.append(command)
+                for commands in action.commands:
+                    district_items_action.append(commands)
 
     # Build district_characters_action array for characters in district
     district_characters_action = []
     for character in this_district._characters:
         for action in character._action:
-            for command in action.commands:
-                district_characters_action.append(command)
+            for commands in action.commands:
+                district_characters_action.append(commands)
 
     selection = None
     the_input = str(the_input).lower()  # to make the input case insensitive
@@ -162,7 +159,21 @@ def gameplay_selection(ga, the_input: str,
             continue
 
         # TODO: Check for district-specific action, characters
-        # ...
+        if the_input in district_characters_action:
+            for character in this_district._characters:
+                for action in character._action:
+                    if the_input in action.commands:
+                        if action.response_type == ActionType.DISPLAY:
+                            sys.stdout.write("\033[K")  # clear line
+                            print(action.response)
+                        if action.response_type == ActionType.EVENT:
+                            character.play_char_puzzle(ga)
+                            return ""
+            sys.stdout.write("\033[F")      # go up one line
+            go_up_and_clear()
+            the_input = str(input(">>> ")).lower()
+            continue
+
 
         # Else, bad action
         if screen_refresh == True:
@@ -179,16 +190,3 @@ def gameplay_selection(ga, the_input: str,
                 the_input = str(input(">>> ")).lower()
 
     return selection
-
-
-def informScreen(msg:str):
-    game_play.clear()
-    #msg1 = itemname + " has been successfully added to inventory."
-    dotted_line_length = GAME_WIDTH
-    dotted_line(dotted_line_length)
-    empty_line(1)
-    print_in_the_middle(dotted_line_length, msg)
-    empty_line(1)
-    dotted_line(dotted_line_length)
-    input("Press [Enter] to continue...")
-

@@ -1,7 +1,16 @@
 from typing import List
 from enum import Enum
-import puzzles
-import items
+from puzzles import Puzzle, PuzzleState
+from items import Item, Action
+import time
+from main_menu import GAME_WIDTH, dotted_line, empty_line, print_in_the_middle, print_left_indented, write_over, \
+    go_up_and_clear, yes_no_selection, clear_screen, informScreen
+
+import load_save_menu
+
+class CharacterState(Enum):
+    UNSPOKEN = 0
+    SPOKEN = 1
 
 class DialogCategory(Enum): #corresponds to index of dialogs list
     INITIAL = 0
@@ -62,17 +71,71 @@ class NonPlayableCharacter(Character):
                  short_description: str,
                  long_description: str,
                  narration: str,
-                 puzzle: puzzles.Puzzle,
-                 dialogs: List[str],
-                 item: items.Item,
-                 action: List[items.Action]):
+                 puzzle: Puzzle,
+                 dialogs: [str],
+                 item: Item,
+                 action: List[Action]):
         self._puzzle = puzzle
         self._dialogs = dialogs
         self._item = item
         self._narration = narration
         self._action = action
+        self._character_state = CharacterState.UNSPOKEN
 
         super().__init__(short_description=short_description,
                          long_description=long_description)
 
+    def get_greeting(self) -> str:
+        r_str = None
+        if self._character_state == CharacterState.UNSPOKEN:
+            r_str = self._dialogs[DialogCategory.INITIAL.value]
+            # self._character_state = CharacterState.SPOKEN
+        elif self._character_state == CharacterState.SPOKEN and self._puzzle.state != PuzzleState.SOLVED:
+            r_str = self._dialogs[DialogCategory.RETRY.value]
+        elif self._character_state == CharacterState.SPOKEN and self._puzzle.state == PuzzleState.SOLVED:
+            r_str = self._dialogs[DialogCategory.ALREADY_SOLVED.value]
+        return r_str
 
+    def get_success_fail_msg(self, msg_type:str) -> str:
+        if msg_type == "success":
+            return self._dialogs[DialogCategory.SUCCESS.value]
+        elif msg_type == "fail":
+            return self._dialogs[DialogCategory.FAIL.value]
+
+    def play_char_puzzle(self, ga):
+        clear_screen()
+        msg = self.get_greeting()
+
+        dotted_line_length = GAME_WIDTH
+        dotted_line(dotted_line_length)
+        empty_line(1)
+        print_in_the_middle(dotted_line_length, msg)
+        empty_line(1)
+        dotted_line(dotted_line_length)
+
+        if(self._puzzle.state == PuzzleState.SOLVED):
+            empty_line(1)
+            input("Press [Enter] to continue...")
+        else:
+            selection = yes_no_selection(input("Yes/No >>> "))
+            if selection == 1:  #yes
+                clear_screen()
+                self._character_state = CharacterState.SPOKEN
+                if self._puzzle.play_puzzle(self._dialogs[DialogCategory.FAIL.value]) is True:
+                    self.success_screen()
+                    ga.add_to_inventory(self._item)
+                    informScreen(self._item.name + " added to inventory.")
+                    self._item = None
+
+
+    def success_screen(self):
+        clear_screen()
+        msg = self._dialogs[DialogCategory.SUCCESS.value]
+
+        dotted_line_length = GAME_WIDTH
+        dotted_line(dotted_line_length)
+        empty_line(1)
+        print_in_the_middle(dotted_line_length, msg)
+        empty_line(1)
+        dotted_line(dotted_line_length)
+        input("Press [Enter] to continue...")

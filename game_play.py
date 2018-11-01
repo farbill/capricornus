@@ -5,28 +5,16 @@ import city
 import load_save_menu
 
 # import only system from os
-from os import system, name
 
 import narration
 import main_menu
-import time
 from typing import Tuple
 
 #for stub data
 import stub_map
+from main_menu import clear_screen
 
 STARTING_LOCATION = "City Hall"
-
-# define our clear function
-# Ref: https://www.geeksforgeeks.org/clear-screen-python/
-def clear():
-    # for windows
-    if name == 'nt':
-        _ = system('cls')
-
-        # for mac and linux(here, os.name is 'posix')
-    else:
-        _ = system('clear')
 
 # Work in progress --------------------------
 def gametext_output(ga, map_arr) -> Tuple[ Tuple[str, str, str, str],
@@ -124,7 +112,7 @@ def intro_narration():
     main_menu.dotted_line(main_menu.GAME_WIDTH)
     input("\nPress [Enter] to continue...\n")
 
-    clear()
+    clear_screen()
 
     main_menu.dotted_line(main_menu.GAME_WIDTH)
     main_menu.empty_line(2)
@@ -151,7 +139,7 @@ def legendary_status(ga):
 def location_change(ga, loc):
     ga.change_location(loc)
     ga.decrement_turns_remaining()
-    clear()        
+    clear_screen()
     
 
 def game_play(ga: gameaction.GameAction):
@@ -163,19 +151,19 @@ def game_play(ga: gameaction.GameAction):
     #Dr. Crime needs to be initialized with specified PUZZLE and DIALOGS
     dr_crime = characters.DrCrime(narration.short_for_dr_crime(), narration.long_for_dr_crime(), 0, 0)
 
-    clear()
+    clear_screen()
     # For new games, load in game data and play intro narration
     if ga.check_visited(STARTING_LOCATION) == False:
         map_arr = stub_map.get_map_stub()
         intro_narration()
-        clear()
+        clear_screen()
     else: # For load game, load stored map data into map_arr
         map_arr = ga.map_arr
 
     # Game loop
     while True:
 
-        clear()
+        clear_screen()
 
         # Display game stuff
         main_menu.dotted_line(main_menu.GAME_WIDTH)
@@ -187,15 +175,15 @@ def game_play(ga: gameaction.GameAction):
 
         # Perform action based on key action noun
         if selection == "exit":
-            clear()
+            clear_screen()
             confirmation = main_menu.exit_to_main_confirmation()
             if confirmation == 1:
                 break
         elif selection == "inventory":
-            clear()
+            clear_screen()
             narration.inventory_menu_screen(ga)
         elif selection == "help":
-            clear()
+            clear_screen()
             narration.help_menu_screen()
         elif selection == "go up":
             location_change(ga, nswe_districts[0])
@@ -206,12 +194,12 @@ def game_play(ga: gameaction.GameAction):
         elif selection == "go right":
             location_change(ga, nswe_districts[3])
         elif selection == "savegame":
-            clear()
+            clear_screen()
             ga.set_map_arr(map_arr)
             ga, save_menu_choice = load_save_menu.ingame_save_game(ga)
             map_arr = ga.map_arr
         elif selection == "loadgame":
-            clear()
+            clear_screen()
             ga.set_map_arr(map_arr)
             ga, load_menu_choice = load_save_menu.ingame_load_game(ga)
             map_arr = ga.map_arr

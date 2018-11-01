@@ -61,11 +61,11 @@ def get_map_stub():
         puzzle = a_puzzle,
         item = a_item,
         dialogs = [
-            "I got a puzzle for you.",
-            "You want another try at it?",
-            "Sorry kid, that aint it.",
-            "Good job kid, here - you can have this.",
-            "You already solved my puzzle. Now scram."
+            "You approach the Hobo. He says: 'I got a puzzle for you. Want to solve it?'",                  # initial
+            "You want another try at my puzzle?",       # retry
+            "Sorry kid, that aint it.",                 # fail
+            "Good job kid, here - you can have this.",  # success
+            "You already solved my puzzle. Now scram."  # already_solved
         ],
         action = [
             Action(
@@ -77,6 +77,21 @@ def get_map_stub():
                 ],
                 response_type = ActionType.EVENT,
                 response = ""
+            ),
+            Action(
+                commands=[
+                    "view hobo",
+                    "look at hobo"
+                ],
+                response_type=ActionType.DISPLAY,
+                response="Just your regular hobo sitting on the ground."
+            ),
+            Action(
+                commands=[
+                    "eat hobo"
+                ],
+                response_type=ActionType.DISPLAY,
+                response="Ummm... no."
             )
         ]
 
