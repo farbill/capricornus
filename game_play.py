@@ -74,7 +74,8 @@ def gametext_output(ga, map_arr) -> Tuple[ Tuple[str, str, str, str],
 
     # Print relevant item narration
     for item in this_district._district_items:
-        str_to_print += " " + item.narration
+        if(item):
+            str_to_print += " " + item.narration
 
     # Print relevant character narration
     for character in this_district._characters:

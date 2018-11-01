@@ -79,9 +79,10 @@ def gameplay_selection(ga, the_input: str,
     # Build district_items_action array for items in district
     district_items_action = []
     for item in this_district._district_items:
-        for action in item.action:
-            for command in action.commands:
-                district_items_action.append(command)
+        if item:
+            for action in item.action:
+                for command in action.commands:
+                    district_items_action.append(command)
 
     # Build district_characters_action array for characters in district
     district_characters_action = []
@@ -117,15 +118,31 @@ def gameplay_selection(ga, the_input: str,
                                 informScreen(action.response)
                                 if item.name == "Vision Orb":
                                     ga.game_state._vision_orb = True
+                                    itemsInCityList = this_district._district_items
+                                    for i in range(len(this_district._district_items)):
+                                        if itemsInCityList[i].name == "Vision Orb":
+                                            itemsInCityList[i] = None
                                     #time.sleep(1)
                                 elif item.name == "Magic Sword":
                                     ga.game_state._magic_sword = True
+                                    itemsInCityList = this_district._district_items
+                                    for i in range(len(this_district._district_items)):
+                                        if itemsInCityList[i].name == "Magic Sword":
+                                            itemsInCityList[i] = None
                                     #time.sleep(1)
                                 elif item.name == "Strength Orb":
                                     ga.game_state._strength_orb = True
+                                    itemsInCityList = this_district._district_items
+                                    for i in range(len(this_district._district_items)):
+                                        if itemsInCityList[i].name == "Strength Orb":
+                                            itemsInCityList[i] = None
                                     #time.sleep(1)
                                 elif item.name == "Vitality Orb":
                                     ga.game_state._vitality_orb = True
+                                    itemsInCityList = this_district._district_items
+                                    for i in range(len(this_district._district_items)):
+                                        if itemsInCityList[i].name == "Vitality Orb":
+                                            itemsInCityList[i] = None
                                     #time.sleep(1)
                                 screen_refresh = True
                             elif action.more_response_type == ActionType.TAKE_ITEM:
@@ -163,6 +180,7 @@ def gameplay_selection(ga, the_input: str,
 
     return selection
 
+
 def informScreen(msg:str):
     game_play.clear()
     #msg1 = itemname + " has been successfully added to inventory."
@@ -173,3 +191,4 @@ def informScreen(msg:str):
     empty_line(1)
     dotted_line(dotted_line_length)
     input("Press [Enter] to continue...")
+
