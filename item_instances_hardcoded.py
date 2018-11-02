@@ -59,9 +59,15 @@ old_siver_coin =Item("Old silver coin",
         "look at coin",
         "look at the coin",
         "see the coin",
-        "check out the coin"], ActionType.DISPLAY, "It's a tiny silver coin.  It has number 50 on the front side."),
+        "check out the coin"], ActionType.DISPLAY, "It's a tiny silver coin.  It says 'Strength' on the front side."),
         Action(["eat the coin",
-        "eat coin"], ActionType.DISPLAY, "Don't be silly - you will get sick!")
+        "eat coin"], ActionType.DISPLAY, "Don't be silly - you will get sick!"),
+        Action(["take the coin",
+        "take coin",
+        "pick up the coin",
+        "pick up the silver coin",
+        "grab the coin", 
+        "pick up silver coin"], ActionType.ACTION, "The silver coin is in my inventory now.", ActionType.TAKE_ITEM)
     ]
 )
 
