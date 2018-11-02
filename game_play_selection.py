@@ -6,6 +6,10 @@ from items import ActionType
 
 from main_menu import go_up_and_clear, write_over, informScreen
 
+def checkForItem(districtItems, itemsInCityList, targetItem):
+    for i in range(len(districtItems)):
+        if itemsInCityList[i].name == targetItem:
+            itemsInCityList[i] = None
 
 def gameplay_selection(ga, the_input: str,
                        nswe_districts: List[str],
@@ -116,31 +120,19 @@ def gameplay_selection(ga, the_input: str,
                                 if item.name == "Vision Orb":
                                     ga.game_state._vision_orb = True
                                     itemsInCityList = this_district._district_items
-                                    for i in range(len(this_district._district_items)):
-                                        if itemsInCityList[i].name == "Vision Orb":
-                                            itemsInCityList[i] = None
-                                    #time.sleep(1)
+                                    checkForItem(this_district._district_items, itemsInCityList, item.name)
                                 elif item.name == "Magic Sword":
                                     ga.game_state._magic_sword = True
                                     itemsInCityList = this_district._district_items
-                                    for i in range(len(this_district._district_items)):
-                                        if itemsInCityList[i].name == "Magic Sword":
-                                            itemsInCityList[i] = None
-                                    #time.sleep(1)
+                                    checkForItem(this_district._district_items, itemsInCityList, item.name)
                                 elif item.name == "Strength Orb":
                                     ga.game_state._strength_orb = True
                                     itemsInCityList = this_district._district_items
-                                    for i in range(len(this_district._district_items)):
-                                        if itemsInCityList[i].name == "Strength Orb":
-                                            itemsInCityList[i] = None
-                                    #time.sleep(1)
+                                    checkForItem(this_district._district_items, itemsInCityList, item.name)
                                 elif item.name == "Vitality Orb":
                                     ga.game_state._vitality_orb = True
                                     itemsInCityList = this_district._district_items
-                                    for i in range(len(this_district._district_items)):
-                                        if itemsInCityList[i].name == "Vitality Orb":
-                                            itemsInCityList[i] = None
-                                    #time.sleep(1)
+                                    checkForItem(this_district._district_items, itemsInCityList, item.name)
                                 screen_refresh = True
                             elif action.more_response_type == ActionType.TAKE_ITEM:
                                 sys.stdout.write("\033[K")  # clear line
@@ -148,14 +140,11 @@ def gameplay_selection(ga, the_input: str,
                                 informScreen(action.response)
                                 screen_refresh = True
                                 itemsInCityList = this_district._district_items
-                                for i in range(len(this_district._district_items)):
-                                    if itemsInCityList[i].name == item.name:
-                                        itemsInCityList[i] = None
+                                checkForItem(this_district._district_items, itemsInCityList, item.name)
                 if screen_refresh == True:
                     break
             if screen_refresh == True:
                 break
-
 
             sys.stdout.write("\033[F")      # go up one line
             go_up_and_clear()
