@@ -147,6 +147,10 @@ def gameplay_selection(ga, the_input: str,
                                 ga.add_to_inventory(item)
                                 informScreen(action.response)
                                 screen_refresh = True
+                                itemsInCityList = this_district._district_items
+                                for i in range(len(this_district._district_items)):
+                                    if itemsInCityList[i].name == item.name:
+                                        itemsInCityList[i] = None
                 if screen_refresh == True:
                     break
             if screen_refresh == True:
