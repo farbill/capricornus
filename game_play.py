@@ -3,22 +3,18 @@ import gameaction
 import characters
 import city
 import load_save_menu
-
-# import only system from os
-
+from main_menu import clear_screen, empty_line
 import narration
 import main_menu
-from typing import Tuple
+from typing import Tuple, List
+import stub_map     #for stub data
 
-#for stub data
-import stub_map
-from main_menu import clear_screen
 
 STARTING_LOCATION = "City Hall"
 
 # Work in progress --------------------------
-def gametext_output(ga, map_arr) -> Tuple[ Tuple[str, str, str, str],
-                                            Tuple[str, str, str, str],
+def gametext_output(ga, map_arr) -> Tuple[ List[str],
+                                            List[str],
                                             city.District]:
     # Current x,y coord
     this_district = None
@@ -60,19 +56,32 @@ def gametext_output(ga, map_arr) -> Tuple[ Tuple[str, str, str, str],
     else:
         str_to_print = this_district._short_description
 
-    # Print relevant item narration
+    # Append relevant item narration
     for item in this_district._district_items:
         if(item):
             str_to_print += " " + item.narration
 
-    # Print relevant character narration
+    # Append relevant character narration
     for character in this_district._characters:
         str_to_print += " " + character._narration
 
     # Print narration
     narration.left_narration(str_to_print, main_menu.GAME_WIDTH)
 
-    # TODO: Print dropped items
+    # Print dropped items if any
+    num_of_dropped_items = len(this_district._dropped_items)
+    if num_of_dropped_items > 0:
+        empty_line(1)
+        dropped_items_str = "The following items were dropped in this district: "
+        for i in range(num_of_dropped_items):
+            if i == 0:
+                dropped_items_str += this_district._dropped_items[i].name
+            elif i == num_of_dropped_items - 1:
+                dropped_items_str += (", and " + this_district._dropped_items[i].name)
+            else:
+                dropped_items_str += (", " + this_district._dropped_items[i].name)
+        dropped_items_str += "."
+        narration.left_narration(dropped_items_str, main_menu.GAME_WIDTH)
 
     main_menu.empty_line(3)
 
@@ -83,10 +92,7 @@ def gametext_output(ga, map_arr) -> Tuple[ Tuple[str, str, str, str],
                 print(district_exits[i] + " is in that direction.")
             else:
                 print("")
-     
-    #print(nswe_districts)
-    #swe_districts = list(map(lambda x: x.lower() if x is not None else x, nswe_districts))
-    #print(nswe_districts)
+
     return (nswe_districts, district_exits, this_district)
 
 def general_info(ga, map_arr):

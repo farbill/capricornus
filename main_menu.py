@@ -67,13 +67,7 @@ def print_left_indented(indentation, the_string):
 def write_over(the_string):
     sys.stdout.write(the_string)
     sys.stdout.flush()
-    # time.sleep(TIME_TO_WAIT_FOR_WRITE_OVER)
-    # sys.stdout.write('\r')
-    # sys.stdout.flush()
-    # sys.stdout.write(" " * 99)
-    # sys.stdout.flush()
-    # sys.stdout.write('\r')
-    # sys.stdout.flush()
+
 
 def main_selection(the_input):
 
@@ -217,7 +211,6 @@ def exit_to_main_confirmation():
 
 def informScreen(msg:str):
     clear_screen()
-    #msg1 = itemname + " has been successfully added to inventory."
     dotted_line_length = GAME_WIDTH
     dotted_line(dotted_line_length)
     empty_line(1)

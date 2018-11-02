@@ -82,59 +82,6 @@ class GameState(object):
     def _randomly_select_lair_location(self) -> str:
         return District(random.randint(RANDOM_DISTRICT_LOWER_LIMIT, RANDOM_DISTRICT_UPPER_LIMIT)).name
 
-
-    # # Save game state - takes save slot as input (1, 2, 3)
-    # def save_game_state(self, save_slot: int) -> int:
-    #     if save_slot < 1 or save_slot > 3:
-    #         return 1
-    #
-    #     # Build save path
-    #     dirname = os.path.join(os.path.realpath('.'), "savedgames")
-    #     filename = "savedgame_" + str(save_slot)
-    #     fullpath = os.path.join(dirname, filename)
-    #
-    #     # Check savedgame folder exists, if not, make it
-    #     try:
-    #         if not os.path.exists(dirname):
-    #             os.makedirs(dirname)
-    #     except OSError:
-    #         return 2
-    #
-    #     try:
-    #         with open(fullpath, 'w') as outputfile:
-    #             json.dump(self.__dict__, outputfile)
-    #     except IOError:
-    #         return 2
-    #     return 0
-    #
-    # # Load game state - takes load slot as input (1, 2, 3)
-    # def load_game_state(self, load_slot: int) -> int:
-    #     if load_slot < 1 or load_slot > 3:
-    #         return 1
-    #
-    #     # Build load path
-    #     dirname = os.path.join(os.path.realpath('.'), "savedgames")
-    #     filename = "savedgame_" + str(load_slot)
-    #     fullpath = os.path.join(dirname, filename)
-    #
-    #     # Check savedgame folder exists,
-    #     if not os.path.exists(dirname):
-    #         return 2
-    #
-    #     # Load savedgame file
-    #     try:
-    #         with open(fullpath, 'r') as inputfile:
-    #             self.__dict__ = json.load(inputfile)
-    #     except IOError:
-    #         return 2
-    #
-    #     # Adjust dictionary variables from "str":"str" to int:"str"
-    #     # https://stackoverflow.com/questions/21193682/convert-a-string-key-to-int-in-a-dictionary
-    #     self._solved_puzzles = {int(k): v for k, v in self._solved_puzzles.items()}
-    #     self._obtained_clues = {int(k): v for k, v in self._obtained_clues.items()}
-    #
-    #     return 0
-
     # Save game state - takes save slot as input (1, 2, 3)
     def save_game_state(self, save_slot: int) -> int:
         if save_slot < 1 or save_slot > 3:
@@ -154,7 +101,6 @@ class GameState(object):
 
         try:
             with open(fullpath, 'wb') as outputfile:
-                # pickle.dump(self, outputfile)
                 pickle.dump(self.__dict__, outputfile)
         except IOError:
             return 2
@@ -177,15 +123,9 @@ class GameState(object):
         # Load savedgame file
         try:
             with open(fullpath, 'rb') as inputfile:
-                # self = pickle.load(inputfile)
                 self.__dict__ = pickle.load(inputfile)
         except IOError:
             return 2
-
-        # Adjust dictionary variables from "str":"str" to int:"str"
-        # https://stackoverflow.com/questions/21193682/convert-a-string-key-to-int-in-a-dictionary
-        # self._solved_puzzles = {int(k): v for k, v in self._solved_puzzles.items()}
-        # self._obtained_clues = {int(k): v for k, v in self._obtained_clues.items()}
 
         return 0
 

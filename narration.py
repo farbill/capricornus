@@ -1,12 +1,12 @@
-# import command_parsing
+import sys
+import time
+
 import main_menu
 from command_parsing import command_parsing
 from main_menu import clear_screen
-import sys
-import game_play
-import time
+
+
 #for stub data
-import stub_map
 
 
 def command_help(width):

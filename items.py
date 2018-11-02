@@ -10,21 +10,21 @@ class ItemType(Enum):
 
 class ActionType(Enum):
     NONE = 0
-    DISPLAY = 1
-    ACTION = 2  # Pick up item
-    TRIGGER = 3
-    EVENT = 4   # Talk to character
-    TAKE_LEGENDARY = 5
-    TAKE_ITEM = 6
+    DISPLAY = 1         # Display some text
+    ACTION = 2          # Pick up item
+    TRIGGER = 3         # Maybe trigger a change in district??? (currently unused)
+    EVENT = 4           # Talk to character
+    TAKE_LEGENDARY = 5  # Pick up legendary item
+    TAKE_ITEM = 6       # Pick up critical or non-critical item
 
 class Action(object):
     def __init__(self,
                 commands: List[str],
                 response_type: ActionType,
                 response: str,
-                more_response_type: ActionType = ActionType.NONE, # Optional, more response
-                more_response: str = "", # Optional, more response
-                more_action = None): # Optional additional actions
+                more_response_type: ActionType = ActionType.NONE,   # Optional, more response
+                more_response: str = "",                            # Optional, more response
+                more_action = None):                                # Optional additional actions
 
         self.commands = commands
         self.response_type = response_type

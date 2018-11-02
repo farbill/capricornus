@@ -101,6 +101,10 @@ def get_map_stub():
         a_npc
     ]
 
+    # # The following is to test that dropped items are properly displayed in game-----
+    # city_hall._dropped_items = [a_item, a_item, a_item, a_item]
+    # # ------------------------------------------------------------------------------
+
     map_arr = [city_hall, hawkins, greenland_grove, bayrock, river_gardens,
                oak_square, paradise_creek, northtown, lake_cypress, sunset_hills,
                washington_heights, gato_springs, webster_mountain, lemon_field, colt_wood]

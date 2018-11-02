@@ -1,5 +1,5 @@
 import sys
-from typing import Tuple
+from typing import Tuple, List
 
 import city
 from items import ActionType
@@ -8,8 +8,8 @@ from main_menu import go_up_and_clear, write_over, informScreen
 
 
 def gameplay_selection(ga, the_input: str,
-                       nswe_districts: Tuple[str, str, str, str],
-                       district_exits: Tuple[str, str, str, str],
+                       nswe_districts: List[str],
+                       district_exits: List[str],
                        this_district: city.District) -> str:
 
     screen_refresh = False
@@ -158,7 +158,7 @@ def gameplay_selection(ga, the_input: str,
             the_input = str(input(">>> ")).lower()
             continue
 
-        # TODO: Check for district-specific action, characters
+        # Check for district-specific action, characters
         if the_input in district_characters_action:
             for character in this_district._characters:
                 for action in character._action:
