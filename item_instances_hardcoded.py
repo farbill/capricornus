@@ -110,3 +110,43 @@ vision_orb = Item("Vision Orb",
         "pick up the orb"], ActionType.ACTION, "The vision orb is in my inventory now.", ActionType.TAKE_LEGENDARY)
     ]
 )
+
+strength_orb = Item("Strength Orb",
+    ItemType.LEGENDARY,
+    "There is an orb glowing in red!",
+    "It's the legendary strength orb I was looking for!",
+    [
+        Action([
+        "look at orb",
+        "look at the orb",
+        "see the orb",
+        "check out the orb"], ActionType.DISPLAY, "It's the legendary strength orb I was looking for!"),
+        Action([
+        "take orb",
+        "grab orb",
+        "take the orb",
+        "grab the orb",
+        "acquire the orb",
+        "pick up the orb"], ActionType.ACTION, "The strength orb is in my inventory now.", ActionType.TAKE_LEGENDARY)
+    ]
+)
+
+vitality_orb = Item("Vitality Orb",
+    ItemType.LEGENDARY,
+    "There is an orb glowing in purple!",
+    "It's the legendary vitality orb I was looking for!",
+    [
+        Action([
+        "look at orb",
+        "look at the orb",
+        "see the orb",
+        "check out the orb"], ActionType.DISPLAY, "It's the legendary vitality orb I was looking for!"),
+        Action([
+        "take orb",
+        "grab orb",
+        "take the orb",
+        "grab the orb",
+        "acquire the orb",
+        "pick up the orb"], ActionType.ACTION, "The vitality orb is in my inventory now.", ActionType.TAKE_LEGENDARY)
+    ]
+)
