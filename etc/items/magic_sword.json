@@ -2,7 +2,7 @@
   "name": "Magic Sword",
   "item_type": "LEGENDARY",
   "narration": "There is a sword stuck in the ground at the center of the town's square. ",
-  "description": "As I get closer, the sword starts glowing and making humming sound.",
+  "description": "Magic sword is one of the legendary items needed to defeat the prime evil!",
   "actions":["etc/items/actions/view_sword.json",
              "etc/items/actions/take_sword.json"]
 }
