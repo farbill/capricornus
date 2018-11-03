@@ -51,7 +51,7 @@ lotto_ticket = Item("Lotto Ticket",
 
 old_siver_coin =Item("Old silver coin",
     ItemType.NONCRITICAL,
-    "There is a silver coin dropped on the steet.",
+    "It's a tiny silver coin.  It says 'Seek your strength in Greenland' on the front side.",
     "It's a tiny silver coin.  It has number 50 on the front side.",
     [
         Action([
@@ -59,7 +59,7 @@ old_siver_coin =Item("Old silver coin",
         "look at coin",
         "look at the coin",
         "see the coin",
-        "check out the coin"], ActionType.DISPLAY, "It's a tiny silver coin.  It says 'Strength' on the front side."),
+        "check out the coin"], ActionType.DISPLAY, "It's a tiny silver coin.  It says 'Seek your strength in Greenland' on the front side."),
         Action(["eat the coin",
         "eat coin"], ActionType.DISPLAY, "Don't be silly - you will get sick!"),
         Action(["take the coin",
