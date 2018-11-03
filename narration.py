@@ -260,6 +260,8 @@ def inventory_menu_screen(ga):
                 else:
                     narration_items = "There are following items obtained:"
                     narration(narration_items, main_menu.GAME_WIDTH)
+                    description_inst = "(Type the item name to see its description)"
+                    narration(description_inst, main_menu.GAME_WIDTH)
                     main_menu.empty_line(2)
                     for i in range(0,len(ga.current_inventory)):
                         itemString = "- " + ga.current_inventory[i].name
