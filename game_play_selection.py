@@ -4,6 +4,8 @@ from typing import Tuple, List
 import city
 from items import ActionType
 
+import time
+import gamestate
 from main_menu import go_up_and_clear, write_over, informScreen
 
 def checkForItem(districtItems, itemsInCityList, targetItem):
@@ -114,33 +116,41 @@ def gameplay_selection(ga, the_input: str,
                             screen_refresh = False
                         if action.response_type == ActionType.ACTION:
                             if action.more_response_type == ActionType.TAKE_LEGENDARY:
-                                sys.stdout.write("\033[K")  # clear line
-                                ga.add_to_inventory(item)
-                                informScreen(action.response)
-                                if item.name == "Vision Orb":
-                                    ga.game_state._vision_orb = True
-                                    itemsInCityList = this_district._district_items
-                                    checkForItem(this_district._district_items, itemsInCityList, item.name)
-                                elif item.name == "Magic Sword":
-                                    ga.game_state._magic_sword = True
-                                    itemsInCityList = this_district._district_items
-                                    checkForItem(this_district._district_items, itemsInCityList, item.name)
-                                elif item.name == "Strength Orb":
-                                    ga.game_state._strength_orb = True
-                                    itemsInCityList = this_district._district_items
-                                    checkForItem(this_district._district_items, itemsInCityList, item.name)
-                                elif item.name == "Vitality Orb":
-                                    ga.game_state._vitality_orb = True
-                                    itemsInCityList = this_district._district_items
-                                    checkForItem(this_district._district_items, itemsInCityList, item.name)
-                                screen_refresh = True
+                                if(len(ga.game_state._current_inventory) < gamestate.MAX_INVENTORY):
+                                    sys.stdout.write("\033[K")  # clear line
+                                    ga.add_to_inventory(item)
+                                    informScreen(action.response)
+                                    if item.name == "Vision Orb":
+                                        ga.game_state._vision_orb = True
+                                        itemsInCityList = this_district._district_items
+                                        checkForItem(this_district._district_items, itemsInCityList, item.name)
+                                    elif item.name == "Magic Sword":
+                                        ga.game_state._magic_sword = True
+                                        itemsInCityList = this_district._district_items
+                                        checkForItem(this_district._district_items, itemsInCityList, item.name)
+                                    elif item.name == "Strength Orb":
+                                        ga.game_state._strength_orb = True
+                                        itemsInCityList = this_district._district_items
+                                        checkForItem(this_district._district_items, itemsInCityList, item.name)
+                                    elif item.name == "Vitality Orb":
+                                        ga.game_state._vitality_orb = True
+                                        itemsInCityList = this_district._district_items
+                                        checkForItem(this_district._district_items, itemsInCityList, item.name)
+                                    screen_refresh = True
+                                else:
+                                    print("You can't carry anymore.  Max inventory is %s."%gamestate.MAX_INVENTORY)
+                                    sys.stdout.write("\033[K")  # clear line
                             elif action.more_response_type == ActionType.TAKE_ITEM:
-                                sys.stdout.write("\033[K")  # clear line
-                                ga.add_to_inventory(item)
-                                informScreen(action.response)
-                                screen_refresh = True
-                                itemsInCityList = this_district._district_items
-                                checkForItem(this_district._district_items, itemsInCityList, item.name)
+                                if(len(ga.game_state._current_inventory) < gamestate.MAX_INVENTORY):
+                                    sys.stdout.write("\033[K")  # clear line
+                                    ga.add_to_inventory(item)
+                                    informScreen(action.response)
+                                    screen_refresh = True
+                                    itemsInCityList = this_district._district_items
+                                    checkForItem(this_district._district_items, itemsInCityList, item.name)
+                                else:
+                                    print("You can't carry anymore.  Max inventory is %s."%gamestate.MAX_INVENTORY)
+                                    sys.stdout.write("\033[K")  # clear line
                 if screen_refresh == True:
                     break
             if screen_refresh == True:
