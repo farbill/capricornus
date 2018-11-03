@@ -2,10 +2,10 @@
   "x":0,
   "y":3,
   "name": "Bayrock",
-  "district_items": [],
+  "district_items": ["etc/items/vitality_orb.json"],
   "clues": [],
   "characters": [],
   "short_description": "Bayrock short description",
   "long_description": "Bayrock long description"
-
+  
 }
