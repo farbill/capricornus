@@ -1,0 +1,11 @@
+{
+  "commands": ["take orb",
+        "grab orb",
+        "take the orb",
+        "grab the orb",
+        "acquire the orb",
+        "pick up the orb"],
+  "response_type": "action",
+  "response": "The vitality orb is in my inventory now.",
+  "more_response_type": "take_legendary"
+}
