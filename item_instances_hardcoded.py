@@ -75,7 +75,7 @@ old_siver_coin =Item("Old silver coin",
 magic_sword = Item("Magic Sword",
     ItemType.LEGENDARY,
     "There is a sword stuck in the ground at the center of the town's square. ",
-    "As I get closer, the sword starts glowing and making humming sound.",
+    "Magic sword is one of the legendary items needed to defeat the prime evil!",
     [
         Action([
         "view sword",
