@@ -266,7 +266,21 @@ def inventory_menu_screen(ga):
                         narration(itemString, main_menu.GAME_WIDTH)
                 main_menu.empty_line(2)
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
-                input("Press [Enter] to continue...")
+                main_menu.empty_line(2)
+                sys.stdout.write("\033[F")      # go up one line
+                sys.stdout.write("\033[K")      # clear line
+                describe_item = str(input(">>> ")).lower()
+                for i in ga.current_inventory:
+                    if (describe_item == i.name.lower()):
+                        clear_screen()
+                        main_menu.dotted_line(main_menu.GAME_WIDTH)
+                        main_menu.empty_line(2)
+                        narration(i.description, main_menu.GAME_WIDTH)
+                        main_menu.empty_line(2)
+                        main_menu.dotted_line(main_menu.GAME_WIDTH)
+                        input("Press [Enter] to continue...")
+                        clear_screen()
+                        break
                 clear_screen()
                 break
             if command_parsing(selection, list_legendary) == 1:
