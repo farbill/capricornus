@@ -24,7 +24,8 @@ def inventory_open(width):
         main_menu.print_in_the_middle(width, ("1. Clues       "))
         main_menu.print_in_the_middle(width, ("2. Items       "))
         main_menu.print_in_the_middle(width, ("3. Legendary   "))
-        main_menu.print_in_the_middle(width, ("4. Resume Game "))
+        main_menu.print_in_the_middle(width, ("4. Drop Item   "))
+        main_menu.print_in_the_middle(width, ("5. Resume Game "))
         
 def help_menu():
         main_menu.print_in_the_middle(main_menu.GAME_WIDTH, "Type \"Help\" for game commands")
@@ -223,7 +224,8 @@ def inventory_menu_screen(ga):
         list_clues = ["1", "clue", "clues", "gameclue", "hints", "hint", "1. clues"]
         list_items = ["2", "item", "items", "about items", "2. items"]
         list_legendary = ["3", "legendary", "legendary items", "legendary orbs", "orbs", "3. legendary", "legendary item", "legendary sword"]
-        list_back = ["4", "exit", "return", "back", "resume", "resume game", "4. resume game"]
+        list_drop = ["4", "drop", "drop an item", "drop items", "drop item", "trash item", "trash an item", "trash items"]
+        list_back = ["5", "exit", "return", "back", "resume", "resume game", "4. resume game"]
 
         selection = input(">>> ")
 
@@ -237,6 +239,8 @@ def inventory_menu_screen(ga):
                     narration(nothing_string, main_menu.GAME_WIDTH)
                 else:
                     narration_clues = "There are following clues obtained:"
+                    narration(narration_clues, main_menu.GAME_WIDTH)
+                    main_menu.empty_line(2)
                     for key in ga.obtained_clues:
                         clueString = "- " + ga.obtained_clues[key]
                         narration(clueString, main_menu.GAME_WIDTH)
@@ -255,10 +259,11 @@ def inventory_menu_screen(ga):
                     narration(nothing_string, main_menu.GAME_WIDTH)
                 else:
                     narration_items = "There are following items obtained:"
+                    narration(narration_items, main_menu.GAME_WIDTH)
+                    main_menu.empty_line(2)
                     for i in range(0,len(ga.current_inventory)):
                         itemString = "- " + ga.current_inventory[i].name
                         narration(itemString, main_menu.GAME_WIDTH)
-
                 main_menu.empty_line(2)
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 input("Press [Enter] to continue...")
@@ -308,6 +313,57 @@ def inventory_menu_screen(ga):
                 main_menu.empty_line(2)
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 input("Press [Enter] to continue...")
+                clear_screen()
+                break
+            if command_parsing(selection, list_drop) == 1:          #Drop an item
+                clear_screen()
+                main_menu.dotted_line(main_menu.GAME_WIDTH)
+                main_menu.empty_line(2)
+                if(len(ga.current_inventory) == 0):
+                    nothing_string = "You have no item to drop."
+                    narration(nothing_string, main_menu.GAME_WIDTH)
+                else:
+                    narration_drop = "Enter name of the item to drop:"
+                    narration(narration_drop, main_menu.GAME_WIDTH)
+                    main_menu.empty_line(2)
+                    for i in range(0, len(ga.current_inventory)):
+                        itemString = "- " + ga.current_inventory[i].name
+                        narration(itemString, main_menu.GAME_WIDTH)
+                main_menu.empty_line(2)
+                main_menu.dotted_line(main_menu.GAME_WIDTH)
+                drop_item_entered = str(input(">>> ")).lower()
+                for i in range(0, len(ga.current_inventory)):
+                    if drop_item_entered == ga.current_inventory[i].name.lower():
+                        if ga.current_inventory[i].item_type.name == "LEGENDARY":
+                            clear_screen()
+                            main_menu.dotted_line(main_menu.GAME_WIDTH)
+                            main_menu.empty_line(2)
+                            narration("You cannot drop a legendary item", main_menu.GAME_WIDTH)
+                            main_menu.empty_line(2)
+                            main_menu.dotted_line(main_menu.GAME_WIDTH)
+                            input("Press [Enter] to continue...")
+                            clear_screen()
+                            break
+                        else:
+                            clear_screen()
+                            main_menu.dotted_line(main_menu.GAME_WIDTH)
+                            main_menu.empty_line(2)
+                            removed_item = "'" + ga.current_inventory[i].name + "' has been dropped"
+                            narration(removed_item, main_menu.GAME_WIDTH)
+                            main_menu.empty_line(2)
+                            main_menu.dotted_line(main_menu.GAME_WIDTH)
+                            ga.current_inventory.remove(ga.current_inventory[i])
+                            input("Press [Enter] to continue...")
+                            clear_screen()
+                            break
+                    elif command_parsing(drop_item_entered, list_back):
+                        break
+                    else:
+                        main_menu.write_over("Invalid Input.  Try again.")
+                        sys.stdout.write("\033[F")      # go up one line
+                        sys.stdout.write("\033[K")      # clear line
+                        selection = str(input(">>> ")).lower()
+
                 clear_screen()
                 break
             if command_parsing(selection, list_back) == 1:          #Back to the game
