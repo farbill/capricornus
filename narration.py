@@ -332,38 +332,42 @@ def inventory_menu_screen(ga):
                 main_menu.empty_line(2)
                 main_menu.dotted_line(main_menu.GAME_WIDTH)
                 drop_item_entered = str(input(">>> ")).lower()
-                for i in range(0, len(ga.current_inventory)):
-                    if drop_item_entered == ga.current_inventory[i].name.lower():
-                        if ga.current_inventory[i].item_type.name == "LEGENDARY":
-                            clear_screen()
-                            main_menu.dotted_line(main_menu.GAME_WIDTH)
-                            main_menu.empty_line(2)
-                            narration("You cannot drop a legendary item", main_menu.GAME_WIDTH)
-                            main_menu.empty_line(2)
-                            main_menu.dotted_line(main_menu.GAME_WIDTH)
-                            input("Press [Enter] to continue...")
-                            clear_screen()
+                drop_done = False
+                while drop_done == False:
+                    for i in range(0, len(ga.current_inventory)):
+                        if drop_item_entered == ga.current_inventory[i].name.lower():
+                            if ga.current_inventory[i].item_type.name == "LEGENDARY":
+                                clear_screen()
+                                main_menu.dotted_line(main_menu.GAME_WIDTH)
+                                main_menu.empty_line(2)
+                                narration("You cannot drop a legendary item", main_menu.GAME_WIDTH)
+                                main_menu.empty_line(2)
+                                main_menu.dotted_line(main_menu.GAME_WIDTH)
+                                input("Press [Enter] to continue...")
+                                clear_screen()
+                                drop_done = True
+                                break
+                            else:
+                                clear_screen()
+                                main_menu.dotted_line(main_menu.GAME_WIDTH)
+                                main_menu.empty_line(2)
+                                removed_item = "'" + ga.current_inventory[i].name + "' has been dropped"
+                                narration(removed_item, main_menu.GAME_WIDTH)
+                                main_menu.empty_line(2)
+                                main_menu.dotted_line(main_menu.GAME_WIDTH)
+                                ga.current_inventory.remove(ga.current_inventory[i])
+                                input("Press [Enter] to continue...")
+                                clear_screen()
+                                drop_done = True
+                                break
+                        elif command_parsing(drop_item_entered, list_back):
+                            drop_done = True
                             break
                         else:
-                            clear_screen()
-                            main_menu.dotted_line(main_menu.GAME_WIDTH)
-                            main_menu.empty_line(2)
-                            removed_item = "'" + ga.current_inventory[i].name + "' has been dropped"
-                            narration(removed_item, main_menu.GAME_WIDTH)
-                            main_menu.empty_line(2)
-                            main_menu.dotted_line(main_menu.GAME_WIDTH)
-                            ga.current_inventory.remove(ga.current_inventory[i])
-                            input("Press [Enter] to continue...")
-                            clear_screen()
-                            break
-                    elif command_parsing(drop_item_entered, list_back):
-                        break
-                    else:
-                        main_menu.write_over("Invalid Input.  Try again.")
-                        sys.stdout.write("\033[F")      # go up one line
-                        sys.stdout.write("\033[K")      # clear line
-                        selection = str(input(">>> ")).lower()
-
+                            main_menu.write_over("There is no such item in your inventory.  Try again.")
+                            sys.stdout.write("\033[F")      # go up one line
+                            sys.stdout.write("\033[K")      # clear line
+                            drop_item_entered = str(input(">>> ")).lower()
                 clear_screen()
                 break
             if command_parsing(selection, list_back) == 1:          #Back to the game
