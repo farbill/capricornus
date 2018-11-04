@@ -1,0 +1,19 @@
+{
+  "short_description": "a hobo",
+  "long_description": "a hobo, a very regular hobo at that.",
+  "narration": "A Hobo is sitting down.",
+  "puzzle": "etc/items/red_key.json",
+  "item": "etc/items/red_key.json",
+  "dialogs": [
+            "You approach the Hobo. He says: 'I got a puzzle for you. Want to solve it?'",                  # initial
+            "You want another try at my puzzle?",
+            "Sorry kid, that aint it.",
+            "Good job kid, here - you can have this.",
+            "You already solved my puzzle. Now scram." ],
+  "action":[
+            "etc/characters/actions/talk_to_hobo.json",
+            "etc/characters/actions/view_hobo.json",
+            "etc/characters/actions/eat_hobo.json"
+        ]
+
+}
