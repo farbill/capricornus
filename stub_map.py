@@ -1,11 +1,7 @@
-import characters
 import city
 from items import Item, ItemType, Action, ActionType
 from loaders import DistrictLoader
-from typing import List, Dict
-import item_instances
-import characters
-from puzzles import Puzzle, PuzzleData, PuzzleState
+
 
 def get_map_stub():
     city_hall = DistrictLoader.parse_json('etc/districts/city_hall.json')
@@ -24,86 +20,6 @@ def get_map_stub():
     lemon_field = DistrictLoader.parse_json('etc/districts/lemon_field.json')
     colt_wood = DistrictLoader.parse_json('etc/districts/colt_wood.json')
 
-    # TEMPORARY hardcode character and puzzle data for stub
-
-    a_puzzle = Puzzle(
-        state = PuzzleState.NEW,
-        data = PuzzleData(
-            question="What is 1 + 1?",
-            answers = [
-                "2",
-                "two"
-            ]
-        )
-    )
-
-    a_item = Item(
-        name = "Red Key",
-        item_type = ItemType.CRITICAL,
-        narration = "",
-        description = "It looks like it can be used to open a door.",
-        action = [
-            Action(
-                commands = [
-                    "use red key on red door",
-                    "use red key on door"
-                ],
-                response_type = ActionType.ACTION,
-                response = "The Red Door opened."
-            )
-        ]
-    )
-
-    a_npc = characters.NonPlayableCharacter(
-        short_description = "npc short description",
-        long_description = "npc long description",
-        narration = "A Hobo is sitting down.",
-        puzzle = a_puzzle,
-        item = a_item,
-        dialogs = [
-            "You approach the Hobo. He says: 'I got a puzzle for you. Want to solve it?'",                  # initial
-            "You want another try at my puzzle?",       # retry
-            "Sorry kid, that aint it.",                 # fail
-            "Good job kid, here - you can have this.",  # success
-            "You already solved my puzzle. Now scram."  # already_solved
-        ],
-        action = [
-            Action(
-                commands = [
-                    "talk to hobo",
-                    "talk hobo",
-                    "speak hobo",
-                    "speak to hobo"
-                ],
-                response_type = ActionType.EVENT,
-                response = ""
-            ),
-            Action(
-                commands=[
-                    "view hobo",
-                    "look at hobo"
-                ],
-                response_type=ActionType.DISPLAY,
-                response="Just your regular hobo sitting on the ground."
-            ),
-            Action(
-                commands=[
-                    "eat hobo"
-                ],
-                response_type=ActionType.DISPLAY,
-                response="Ummm... no."
-            )
-        ]
-
-    )
-
-    city_hall._characters = [
-        a_npc
-    ]
-
-    # # The following is to test that dropped items are properly displayed in game-----
-    # city_hall._dropped_items = [a_item, a_item, a_item, a_item]
-    # # ------------------------------------------------------------------------------
 
     map_arr = [city_hall, hawkins, greenland_grove, bayrock, river_gardens,
                oak_square, paradise_creek, northtown, lake_cypress, sunset_hills,
