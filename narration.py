@@ -5,6 +5,8 @@ import main_menu
 from command_parsing import command_parsing
 from main_menu import clear_screen
 
+import city
+import gamestate
 
 #for stub data
 
@@ -213,7 +215,7 @@ def help_menu_screen():
             sys.stdout.write("\033[K")      # clear line
             selection = str(input(">>> ")).lower()
 
-def inventory_menu_screen(ga):
+def inventory_menu_screen(ga, map_arr):
     back_to_game = False
     while back_to_game == False:
         standard_title_display("Inventory")
@@ -365,12 +367,18 @@ def inventory_menu_screen(ga):
                                 break
                             else:
                                 clear_screen()
-                                main_menu.dotted_line(main_menu.GAME_WIDTH)
-                                main_menu.empty_line(2)
-                                removed_item = "'" + ga.current_inventory[i].name + "' has been dropped"
-                                narration(removed_item, main_menu.GAME_WIDTH)
-                                main_menu.empty_line(2)
-                                main_menu.dotted_line(main_menu.GAME_WIDTH)
+                                #START: added to dropped items for the district
+                                current_location = ga.current_location
+                                for j in map_arr:
+                                    if j._district_name == current_location:
+                                        j._dropped_items.append(ga.current_inventory[i])
+                                        main_menu.dotted_line(main_menu.GAME_WIDTH)
+                                        main_menu.empty_line(2)
+                                        removed_item = "'" + ga.current_inventory[i].name + "' has been dropped in " + current_location
+                                        narration(removed_item, main_menu.GAME_WIDTH)
+                                        main_menu.empty_line(2)
+                                        main_menu.dotted_line(main_menu.GAME_WIDTH)
+                                #END: added to dropped items for the district
                                 ga.current_inventory.remove(ga.current_inventory[i])
                                 input("Press [Enter] to continue...")
                                 clear_screen()
