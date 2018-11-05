@@ -1,21 +1,53 @@
 import json
+import city
 from characters import AgentDope, NonPlayableCharacter
 from clues import Clue
-from puzzles import PuzzleData, PuzzleType, PuzzleDifficulty
+from puzzles import PuzzleData, PuzzleType, PuzzleDifficulty, Puzzle
 from city import District, DistrictId, DistrictExits
 from items import Item, ItemType, Action, ActionType
+
+
+class CityLoader(object):
+    @staticmethod
+    def parse_json(filename):
+        with open(filename, 'r') as f:
+            config = json.load(f)
+        map_arr = list(map(DistrictLoader.parse_json, config['districts']))
+        city.assign_street_name(map_arr, config['street_names'])
+        return map_arr
 
 
 class CharacterDataLoader(object):
     @staticmethod
     def parse_json(filename, agent_dope=False):
-        config = json.load(filename)
+        with open(filename, 'r') as f:
+            config = json.load(f)
+        if 'puzzle' in config.keys():
+            puzzle = PuzzleLoader.parse_json(config['puzzle'])
+        else:
+            puzzle = None
+
+        if 'item' in config.keys():
+            item = ItemLoader.parse_json(config['item'])
+        else:
+            item = None
+
+        if 'action' in config.keys():
+            action = list(map(ActionLoader.parse_json, config['action']))
+        else:
+            action = None
+
         if agent_dope:
             return AgentDope(short_description=config['short_description'],
                              long_description=config['long_description'])
         else:
             return NonPlayableCharacter(short_description=config['short_description'],
-                                        long_description=config['long_description'])
+                                        long_description=config['long_description'],
+                                        narration=config['narration'],
+                                        puzzle=puzzle,
+                                        item=item,
+                                        dialogs=config['dialogs'],
+                                        action=action)
 
 
 class DistrictLoader(object):
@@ -25,13 +57,9 @@ class DistrictLoader(object):
             config = json.load(f)
         id = DistrictId(x=config['x'],
                         y=config['y'])
-        characters = []
-        items = []
-        for character_file in config['characters']:
-            characters.append(CharacterDataLoader.parse_json(character_file))
+        characters = list(map(CharacterDataLoader.parse_json, config['characters']))
+        items = list(map(ItemLoader.parse_json, config['district_items']))
 
-        for item_file in config['district_items']:
-            items.append(ItemLoader.parse_json(item_file))
         return District(id=id,
                         district_name=config['name'],
                         district_items=items,
@@ -80,18 +108,14 @@ class ClueLoader(object):
                     contents=config['contents'])
 
 
-class PuzzleDataLoader(object):
+class PuzzleLoader(object):
 
     @staticmethod
-    def parse_json(filename) -> PuzzleData:
+    def parse_json(filename) -> Puzzle:
         with open(filename, 'r') as f:
             config = json.load(f)
-        difficulty = PuzzleDataLoader._get_puzzle_difficulty(config['difficulty'])
-        puzzle_type = PuzzleDataLoader._get_puzzle_type(config['puzzle_type'])
-        return PuzzleData(question=config['question'],
-                          puzzle_type=puzzle_type,
-                          difficulty=difficulty,
-                          answer=config['answer'])
+        return Puzzle(data=PuzzleData(question=config['question'],
+                                      answers=config['answers']))
 
     @staticmethod
     def _get_puzzle_difficulty(puzzle_difficulty: str) -> PuzzleDifficulty:

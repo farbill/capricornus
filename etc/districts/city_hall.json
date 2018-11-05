@@ -5,7 +5,7 @@
   "district_items": ["etc/items/statue.json",
                      "etc/items/lotto_ticket.json"],
   "clues": [],
-  "characters": [],
+  "characters": ["etc/characters/hobo.json"],
   "short_description": "City Hall short description --",
   "long_description": "City Hall long description --"
 

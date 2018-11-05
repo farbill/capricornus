@@ -1,0 +1,5 @@
+{
+  "commands": [ "view hobo", "look at hobo"],
+  "response_type": "display",
+  "response": "Just your regular hobo sitting on the ground."
+}

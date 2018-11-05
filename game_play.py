@@ -187,7 +187,7 @@ def game_play(ga: gameaction.GameAction):
                 break
         elif selection == "inventory":
             clear_screen()
-            narration.inventory_menu_screen(ga)
+            narration.inventory_menu_screen(ga, map_arr)
         elif selection == "help":
             clear_screen()
             narration.help_menu_screen()

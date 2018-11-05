@@ -1,11 +1,11 @@
 {
   "short_description": "a hobo",
   "long_description": "a hobo, a very regular hobo at that.",
+  "puzzle": "etc/puzzles/one_plus_one.json",
   "narration": "A Hobo is sitting down.",
-  "puzzle": "etc/items/red_key.json",
   "item": "etc/items/red_key.json",
   "dialogs": [
-            "You approach the Hobo. He says: 'I got a puzzle for you. Want to solve it?'",                  # initial
+            "You approach the Hobo. He says: 'I got a puzzle for you. Want to solve it?'",
             "You want another try at my puzzle?",
             "Sorry kid, that aint it.",
             "Good job kid, here - you can have this.",

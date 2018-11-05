@@ -12,6 +12,8 @@ class PuzzleType(Enum):
     MATH = 2
     SCIENCE = 3
     WORD = 4
+
+
 class PuzzleDifficulty(Enum):
     EASY = 1
     MEDIUM = 2

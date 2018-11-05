@@ -69,15 +69,8 @@ class District(object):
         self._long_description = long_description
         self._district_exits = district_exits
 
-def assign_street_name(map_arr: [District]):
-    name_arr = ["Dayton Dr", "Fallbrook Way", "Summer Ln",
-                "Shore Blvd", "Abby Ave", "Ironside St",
-                "Elm Ct", "Park Blvd", "Rose St", "Spruce Dr",
-                "Cedar Ave", "Maple Way", "Ridge Ln", "Pine Blvd",
-                "Lincoln St", "Walnut Dr", "Cloud St", "Penny Ln",
-                "Troy Ave", "Mission Blvd", "Ash St", "Gene Way",
-                "Pearl Ct", "Tundra St", "Muir Dr", "Keyes Ave",
-                "Java Blvd", "Front St", "Ocean Rd", "Baker Ct" ]
+def assign_street_name(map_arr: [District], street_names):
+    name_arr = street_names
 
     name_index = 0
 

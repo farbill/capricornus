@@ -1,0 +1,6 @@
+{
+  "commands": ["use red key on red door",
+    "use red key on door"],
+  "response_type": "action",
+  "response": "The Red Door opened."
+}
