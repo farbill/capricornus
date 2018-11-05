@@ -6,7 +6,7 @@
                      "etc/items/lotto_ticket.json"],
   "clues": [],
   "characters": ["etc/characters/hobo.json"],
-  "short_description": "City Hall short description --",
-  "long_description": "City Hall long description --"
+  "short_description": "City Hall is located at the center of the city of New San Diego.",
+  "long_description": "City Hall is located at the center of the city of New San Diego. The region includes Alvarado Hospital, a 306-bed acute care facility, and the New San Diego Public Library"
 
 }

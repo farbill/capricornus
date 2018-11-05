@@ -5,7 +5,7 @@
   "district_items": ["etc/items/vitality_orb.json"],
   "clues": [],
   "characters": [],
-  "short_description": "Bayrock short description",
-  "long_description": "Bayrock long description"
+  "short_description": "Bayrock is at the edge of New San Diego.",
+  "long_description": "Bayrock is at the edge of New San Diego.  The town has about 50,000 residents and average income of $80,000 per year."
   
 }
