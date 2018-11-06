@@ -142,12 +142,23 @@ def gameplay_selection(ga, the_input: str,
                                     sys.stdout.write("\033[K")  # clear line
                             elif action.more_response_type == ActionType.TAKE_ITEM:
                                 if(len(ga.game_state._current_inventory) < gamestate.MAX_INVENTORY):
+                                    item_remains = True
                                     sys.stdout.write("\033[K")  # clear line
-                                    ga.add_to_inventory(item)
+                                    
+                                    if (item.name == "Time Stone"):
+                                        ga.game_state._turns_remaining = ga.game_state._turns_remaining + 5
+                                    elif (item.name == "Magic Mushroom"):
+                                        ga.game_state._turns_remaining = ga.game_state._turns_remaining - 10
+                                        item_remains = False
+                                    
+                                    if (item_remains == True):
+                                        ga.add_to_inventory(item)
                                     informScreen(action.response)
                                     screen_refresh = True
                                     itemsInCityList = this_district._district_items
                                     checkForItem(this_district._district_items, itemsInCityList, item.name)
+
+                                    
                                 else:
                                     print("You can't carry anymore.  Max inventory is %s."%gamestate.MAX_INVENTORY)
                                     sys.stdout.write("\033[K")  # clear line
