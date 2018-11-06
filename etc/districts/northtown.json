@@ -2,7 +2,7 @@
   "x":4,
   "y":3,
   "name": "Northtown",
-  "district_items": [],
+  "district_items": ["etc/items/magic_mushroom.json"],
   "clues": [],
   "characters": [],
   "short_description": "Northtown is the oldest town in the city of New San Diego.",
