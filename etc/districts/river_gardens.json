@@ -2,7 +2,7 @@
   "x":2,
   "y":5,
   "name": "River Gardens",
-  "district_items": [],
+  "district_items": ["etc/items/time_stone.json"],
   "clues": [],
   "characters": [],
   "short_description": "River Gardens is at the north end of New San Diego.",
