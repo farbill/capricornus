@@ -1,0 +1,12 @@
+{
+  "commands": ["take the stone",
+        "take stone",
+        "pick up the stone",
+        "pick up the stone",
+        "grab the stone", 
+        "pick up time stone",
+        "pick up the time stone"],
+  "response_type": "action",
+  "response": "The time stone is in my inventory now.  Five addtional turns are granted!",
+  "more_response_type": "take_item"
+}
