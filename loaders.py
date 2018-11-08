@@ -29,6 +29,7 @@ class CharacterDataLoader(object):
 
         if 'item' in config.keys():
             item = ItemLoader.parse_json(config['item'])
+
         else:
             item = None
 

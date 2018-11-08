@@ -48,7 +48,7 @@ class Puzzle(object):
         self._data = data
         self.state = state
 
-    def play_puzzle(self, failed_msg: str) -> bool:
+    def play_puzzle(self, failed_msg: str, ga) -> bool:
         self.state = PuzzleState.FOUND
         clear_screen()
         msg1 = self._data.question
@@ -60,15 +60,14 @@ class Puzzle(object):
         empty_line(1)
         print_in_the_middle(dotted_line_length, msg2)
         dotted_line(dotted_line_length)
-
-        selection = self.puzzle_selection(input(">>> "), self._data.answers, failed_msg)
+        selection = self.puzzle_selection(input(">>> "), self._data.answers, failed_msg, ga)
         if selection == 1:  #puzzle solved
             self.state = PuzzleState.SOLVED
             return True
         else:
             return False
 
-    def puzzle_selection(self, the_input: str, possible_answers: [str], failed_msg: str):
+    def puzzle_selection(self, the_input: str, possible_answers: [str], failed_msg: str, ga):
 
         # inputs to be recognized as valid
         list_answers =  possible_answers
@@ -76,6 +75,7 @@ class Puzzle(object):
         lowered_input = str(the_input).lower()  # to make the input case insensitive
 
         while True:
+            ga.game_state._turns_remaining = ga.game_state._turns_remaining - 1
             if command_parsing(lowered_input, list_answers):
                 selection = 1
                 break

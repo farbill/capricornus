@@ -1,0 +1,10 @@
+{
+  "commands": [ "view daniel", 
+                "look at daniel",
+                "view daniel jr. jr.",
+                "view daniel jr jr",
+                "look at daniel jr jr",
+                "look at daniel jr. jr."],
+  "response_type": "display",
+  "response": "Daniel Webster Jr. Jr. is standing.  He is the grandson of Daniel Webster."
+}

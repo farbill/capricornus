@@ -101,7 +101,6 @@ class NonPlayableCharacter(Character):
     def play_char_puzzle(self, ga):
         clear_screen()
         msg = self.get_greeting()
-
         dotted_line_length = GAME_WIDTH
         dotted_line(dotted_line_length)
         empty_line(2)
@@ -116,8 +115,10 @@ class NonPlayableCharacter(Character):
             if selection == 1:  #yes
                 clear_screen()
                 self._character_state = CharacterState.SPOKEN
-                if self._puzzle.play_puzzle(self._dialogs[DialogCategory.FAIL.value]) is True:
+                if self._puzzle.play_puzzle(self._dialogs[DialogCategory.FAIL.value], ga) is True:
                     informScreen(self._dialogs[DialogCategory.SUCCESS.value])
-                    ga.add_to_inventory(self._item)
-                    informScreen(self._item.name + " added to inventory.")
-                    self._item = None
+                    if self._item:
+                        ga.add_to_inventory(self._item)
+                        informScreen(self._item.name + " added to inventory.")
+                        self._item = None
+

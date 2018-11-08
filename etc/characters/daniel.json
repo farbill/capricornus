@@ -1,0 +1,16 @@
+{
+  "short_description": "Daniel Webster Jr. Jr.",
+  "long_description": "Daniel's Webster's grandson",
+  "puzzle": "etc/puzzles/question_daniel.json",
+  "narration": "Daniel Webster Jr. Jr. is standing.",
+  "dialogs": [
+            "You approach Daniel. He says: 'Do you want to challenge my question?'",
+            "You want another try at my puzzle?  It will cost you 5 more turns.",
+            "Sorry.  That's not it.",
+            "Spectacular! Ok, write this down.  These cities are on the same horizon.\n Bay Rock - Greenland - City Hall - Oak Square - Northtown",
+            "You're an intelligent man.  Didn't expect you to solve the problem." ],
+  "action":[
+            "etc/characters/actions/talk_to_daniel.json",
+            "etc/characters/actions/view_daniel.json"
+        ]
+}

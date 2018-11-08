@@ -1,0 +1,12 @@
+{
+  "commands": [ "talk to daniel",
+                "talk daniel",
+                "speak to daniel",
+                "talk to daniel",
+                "talk to daniel webster jr. jr.",
+                "talk to daniel webster jr jr",
+                "speak to daniel webster jr jr",
+                "speak to daniel webster jr. jr."],
+  "response_type": "event",
+  "response": "Hello there!"
+}
