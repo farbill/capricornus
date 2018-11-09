@@ -8,10 +8,16 @@ import time
 import gamestate
 from main_menu import go_up_and_clear, write_over, informScreen
 
+#checks if the city has the target item
 def checkForItem(districtItems, itemsInCityList, targetItem):
     for i in range(len(districtItems)):
         if itemsInCityList[i].name == targetItem:
             itemsInCityList[i] = None
+
+#creats list of items in the district then calss checkForItem function
+def itemCheck(this_district, item):
+    itemsInCityList = this_district._district_items
+    checkForItem(this_district._district_items, itemsInCityList, item.name)
 
 def gameplay_selection(ga, the_input: str,
                        nswe_districts: List[str],
@@ -122,20 +128,16 @@ def gameplay_selection(ga, the_input: str,
                                     informScreen(action.response)
                                     if item.name == "Vision Orb":
                                         ga.game_state._vision_orb = True
-                                        itemsInCityList = this_district._district_items
-                                        checkForItem(this_district._district_items, itemsInCityList, item.name)
+                                        itemCheck(this_district, item)
                                     elif item.name == "Magic Sword":
                                         ga.game_state._magic_sword = True
-                                        itemsInCityList = this_district._district_items
-                                        checkForItem(this_district._district_items, itemsInCityList, item.name)
+                                        itemCheck(this_district, item)
                                     elif item.name == "Strength Orb":
                                         ga.game_state._strength_orb = True
-                                        itemsInCityList = this_district._district_items
-                                        checkForItem(this_district._district_items, itemsInCityList, item.name)
+                                        itemCheck(this_district, item)
                                     elif item.name == "Vitality Orb":
                                         ga.game_state._vitality_orb = True
-                                        itemsInCityList = this_district._district_items
-                                        checkForItem(this_district._district_items, itemsInCityList, item.name)
+                                        itemCheck(this_district, item)
                                     screen_refresh = True
                                 else:
                                     print("You can't carry anymore.  Max inventory is %s."%gamestate.MAX_INVENTORY)
@@ -189,8 +191,7 @@ def gameplay_selection(ga, the_input: str,
             go_up_and_clear()
             the_input = str(input(">>> ")).lower()
             continue
-
-
+            
         # Else, bad action
         if screen_refresh == True:
             screen_refresh = False
