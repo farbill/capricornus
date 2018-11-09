@@ -94,6 +94,8 @@ def gameplay_selection(ga, the_input: str,
             for commands in action.commands:
                 district_characters_action.append(commands)
 
+    #Build user_items_action array for items in user's inventory
+
     selection = None
     the_input = str(the_input).lower()  # to make the input case insensitive
 
@@ -162,6 +164,35 @@ def gameplay_selection(ga, the_input: str,
                                 else:
                                     print("You can't carry anymore.  Max inventory is %s."%gamestate.MAX_INVENTORY)
                                     sys.stdout.write("\033[K")  # clear line
+
+
+
+                        # if action.response_type == ActionType.TRIGGER:
+                        #     target_item_to_interact_with = action.response.lower()
+                        #
+                        #     # search for target_item in district
+                        #     itemInDistrict = None
+                        #     for item in this_district._district_items:
+                        #         if item.name.lower() == target_item_to_interact_with:
+                        #             itemInDistrict = item
+                        #             break
+                        #
+                        #     if itemInDistrict:
+                        #         pass
+                        #     else:
+                        #         sys.stdout.write("\033[K")  # clear line
+                        #         print(item.name + "cannot be found.")
+                        #         screen_refresh = False
+
+
+
+
+
+
+
+
+
+
                 if screen_refresh == True:
                     break
             if screen_refresh == True:

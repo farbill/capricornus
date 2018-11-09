@@ -2,6 +2,6 @@
   "name": "Red Key",
   "item_type": "CRITICAL",
   "narration": "",
-  "description": "It looks like it can be used to open a door.",
+  "description": "It looks like it can be used to open something.",
   "actions":["etc/items/actions/red_key_red_door.json"]
 }
