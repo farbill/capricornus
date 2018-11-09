@@ -150,6 +150,8 @@ def gameplay_selection(ga, the_input: str,
                                     elif (item.name == "Magic Mushroom"):
                                         ga.game_state._turns_remaining = ga.game_state._turns_remaining - 10
                                         item_remains = False
+                                    elif (item.name == "Lotto Ticket"):
+                                        ga.add_to_obtained_clues(2, "The lotto ticket had '23 57 12' on it")
                                     
                                     if (item_remains == True):
                                         ga.add_to_inventory(item)
@@ -157,8 +159,6 @@ def gameplay_selection(ga, the_input: str,
                                     screen_refresh = True
                                     itemsInCityList = this_district._district_items
                                     checkForItem(this_district._district_items, itemsInCityList, item.name)
-
-                                    
                                 else:
                                     print("You can't carry anymore.  Max inventory is %s."%gamestate.MAX_INVENTORY)
                                     sys.stdout.write("\033[K")  # clear line
