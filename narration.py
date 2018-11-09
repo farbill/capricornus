@@ -131,6 +131,61 @@ def left_narration(the_string, line_length):
     if last_line_indicator <= len(the_string):
         print(to_print)
 
+def mainCharNarration(agtD, drC):
+    clear_screen()
+    main_menu.dotted_line(main_menu.GAME_WIDTH)
+    main_menu.empty_line(2)
+    narration("Agent Dope", main_menu.GAME_WIDTH)
+    main_menu.empty_line(1)
+    narration(agtD, main_menu.GAME_WIDTH)
+    main_menu.empty_line(2)
+    main_menu.dotted_line(main_menu.GAME_WIDTH)
+    input("Press [Enter] to continue...")
+    clear_screen()
+    main_menu.dotted_line(main_menu.GAME_WIDTH)
+    main_menu.empty_line(2)
+    narration("Dr. Crime", main_menu.GAME_WIDTH)
+    main_menu.empty_line(1)
+    narration(drC, main_menu.GAME_WIDTH)
+    main_menu.empty_line(2)
+    main_menu.dotted_line(main_menu.GAME_WIDTH)
+    input("Press [Enter] to continue...")
+    clear_screen()
+    
+def gameNarrationHelp(narr1, narr2):
+    clear_screen()
+    main_menu.dotted_line(main_menu.GAME_WIDTH)
+    main_menu.empty_line(2)
+    narration(narr1, main_menu.GAME_WIDTH)
+    main_menu.empty_line(2)
+    main_menu.dotted_line(main_menu.GAME_WIDTH)
+    input("Press [Enter] to continue...")
+    clear_screen()
+    main_menu.dotted_line(main_menu.GAME_WIDTH)
+    main_menu.empty_line(2)
+    narration(narr2, main_menu.GAME_WIDTH)
+    main_menu.empty_line(2)
+    main_menu.dotted_line(main_menu.GAME_WIDTH)
+    input("Press [Enter] to continue...")
+    clear_screen()
+    
+def itemHelp():
+    itemString = "There are regular items and lengenary items.  " \
+                    "While regular items can be picked up and dropped, "\
+                    "legendary items cannot be dropped once obtained. " \
+                    "Legendary items are imperative in order to defeat Dr.Crime." \
+                    "Obtaining certain items can add a clue.  Clue remains " \
+                    "even if the item is dropped, because it's considered " \
+                    "as an intellectual property."
+    clear_screen()
+    main_menu.dotted_line(main_menu.GAME_WIDTH)
+    main_menu.empty_line(2)
+    narration(itemString, main_menu.GAME_WIDTH)
+    main_menu.empty_line(2)
+    main_menu.dotted_line(main_menu.GAME_WIDTH)
+    input("Press [Enter] to continue...")
+    clear_screen()
+        
 def help_menu_screen():
     back_to_game = False
     while back_to_game == False:
@@ -153,42 +208,10 @@ def help_menu_screen():
 
         while True:
             if command_parsing(selection, list_game_story) == 1: #Help for game story
-                clear_screen()
-                main_menu.dotted_line(main_menu.GAME_WIDTH)
-                main_menu.empty_line(2)
-                narration(start_narration1(), main_menu.GAME_WIDTH)
-                main_menu.empty_line(2)
-                main_menu.dotted_line(main_menu.GAME_WIDTH)
-                input("Press [Enter] to continue...")
-                clear_screen()
-                main_menu.dotted_line(main_menu.GAME_WIDTH)
-                main_menu.empty_line(2)
-                narration(start_narration2(), main_menu.GAME_WIDTH)
-                main_menu.empty_line(2)
-                main_menu.dotted_line(main_menu.GAME_WIDTH)
-                input("Press [Enter] to continue...")
-                clear_screen()
+                gameNarrationHelp(start_narration1(), start_narration2())
                 break
             if command_parsing(selection, list_characters) == 1: #Help for game characters
-                clear_screen()
-                main_menu.dotted_line(main_menu.GAME_WIDTH)
-                main_menu.empty_line(2)
-                narration("Agent Dope", main_menu.GAME_WIDTH)
-                main_menu.empty_line(1)
-                narration(long_for_agt_dope(), main_menu.GAME_WIDTH)
-                main_menu.empty_line(2)
-                main_menu.dotted_line(main_menu.GAME_WIDTH)
-                input("Press [Enter] to continue...")
-                clear_screen()
-                main_menu.dotted_line(main_menu.GAME_WIDTH)
-                main_menu.empty_line(2)
-                narration("Dr. Crime", main_menu.GAME_WIDTH)
-                main_menu.empty_line(1)
-                narration(long_for_dr_crime(), main_menu.GAME_WIDTH)
-                main_menu.empty_line(2)
-                main_menu.dotted_line(main_menu.GAME_WIDTH)
-                input("Press [Enter] to continue...")
-                clear_screen()
+                mainCharNarration(long_for_agt_dope(), long_for_dr_crime())
                 break
             if command_parsing(selection, list_game_commands) == 1: #Help for game commands
                 clear_screen()
@@ -201,10 +224,7 @@ def help_menu_screen():
                 clear_screen()
                 break
             if command_parsing(selection, list_items) == 1:         #Help for game items
-                clear_screen()
-                print("#Testing: About game items")
-                time.sleep(1)
-                clear_screen()
+                itemHelp()
                 break
             if command_parsing(selection, list_back) == 1:          #Back to the game
                 clear_screen()
