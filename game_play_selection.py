@@ -182,6 +182,8 @@ def gameplay_selection(ga, the_input: str,
                             print(action.response)
                         if action.response_type == ActionType.EVENT:
                             character.play_char_puzzle(ga)
+                            if(character._short_description == "Daniel Webster Jr. Jr."):
+                                ga.add_to_obtained_clues(1, "These cities are on the same horizon. Bay Rock - Greenland - City Hall - Oak Square - Northtown")
                             return ""
             sys.stdout.write("\033[F")      # go up one line
             go_up_and_clear()
