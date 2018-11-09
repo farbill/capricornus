@@ -8,10 +8,16 @@ import time
 import gamestate
 from main_menu import go_up_and_clear, write_over, informScreen
 
+#checks if the city has the target item
 def checkForItem(districtItems, itemsInCityList, targetItem):
     for i in range(len(districtItems)):
         if itemsInCityList[i].name == targetItem:
             itemsInCityList[i] = None
+
+#creats list of items in the district then calss checkForItem function
+def itemCheck(this_district, item):
+    itemsInCityList = this_district._district_items
+    checkForItem(this_district._district_items, itemsInCityList, item.name)
 
 def gameplay_selection(ga, the_input: str,
                        nswe_districts: List[str],
@@ -124,20 +130,16 @@ def gameplay_selection(ga, the_input: str,
                                     informScreen(action.response)
                                     if item.name == "Vision Orb":
                                         ga.game_state._vision_orb = True
-                                        itemsInCityList = this_district._district_items
-                                        checkForItem(this_district._district_items, itemsInCityList, item.name)
+                                        itemCheck(this_district, item)
                                     elif item.name == "Magic Sword":
                                         ga.game_state._magic_sword = True
-                                        itemsInCityList = this_district._district_items
-                                        checkForItem(this_district._district_items, itemsInCityList, item.name)
+                                        itemCheck(this_district, item)
                                     elif item.name == "Strength Orb":
                                         ga.game_state._strength_orb = True
-                                        itemsInCityList = this_district._district_items
-                                        checkForItem(this_district._district_items, itemsInCityList, item.name)
+                                        itemCheck(this_district, item)
                                     elif item.name == "Vitality Orb":
                                         ga.game_state._vitality_orb = True
-                                        itemsInCityList = this_district._district_items
-                                        checkForItem(this_district._district_items, itemsInCityList, item.name)
+                                        itemCheck(this_district, item)
                                     screen_refresh = True
                                 else:
                                     print("You can't carry anymore.  Max inventory is %s."%gamestate.MAX_INVENTORY)
@@ -152,6 +154,8 @@ def gameplay_selection(ga, the_input: str,
                                     elif (item.name == "Magic Mushroom"):
                                         ga.game_state._turns_remaining = ga.game_state._turns_remaining - 10
                                         item_remains = False
+                                    elif (item.name == "Lotto Ticket"):
+                                        ga.add_to_obtained_clues(2, "The lotto ticket had '23 57 12' on it")
                                     
                                     if (item_remains == True):
                                         ga.add_to_inventory(item)
@@ -159,8 +163,6 @@ def gameplay_selection(ga, the_input: str,
                                     screen_refresh = True
                                     itemsInCityList = this_district._district_items
                                     checkForItem(this_district._district_items, itemsInCityList, item.name)
-
-                                    
                                 else:
                                     print("You can't carry anymore.  Max inventory is %s."%gamestate.MAX_INVENTORY)
                                     sys.stdout.write("\033[K")  # clear line
@@ -213,13 +215,14 @@ def gameplay_selection(ga, the_input: str,
                             print(action.response)
                         if action.response_type == ActionType.EVENT:
                             character.play_char_puzzle(ga)
+                            if(character._short_description == "Daniel Webster Jr. Jr."):
+                                ga.add_to_obtained_clues(1, "These cities are on the same horizon. Bay Rock - Greenland - City Hall - Oak Square - Northtown")
                             return ""
             sys.stdout.write("\033[F")      # go up one line
             go_up_and_clear()
             the_input = str(input(">>> ")).lower()
             continue
-
-
+            
         # Else, bad action
         if screen_refresh == True:
             screen_refresh = False

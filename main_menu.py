@@ -70,7 +70,6 @@ def write_over(the_string):
 
 
 def main_selection(the_input):
-
     # inputs to be recognized as valid
     list_one = [1, "1", "new", "new game", "1. new game", "start", "begin", "go", "play"]
     list_two = [2, "2", "load", "load game", "2. load game", "continue"]
@@ -119,7 +118,6 @@ def yes_no_selection(the_input) -> int:
     lowered_input = the_input.lower()  # to make the input case insensitive
 
     while wrong_input:
-
         if command_parsing(lowered_input, list_one):  # yes
             selection = 1
             break
@@ -154,10 +152,7 @@ def main_menu():
     dotted_line(dotted_line_length)
 
     empty_line(1)
-
     print_in_the_middle(dotted_line_length, title)
-
-
     empty_line(1)
     print_in_the_middle(dotted_line_length, new_game)
     print_in_the_middle(dotted_line_length, load_game)
@@ -168,9 +163,7 @@ def main_menu():
     dotted_line(dotted_line_length)
 
     command_line = "Make your selection >>> "
-
     the_input = input(command_line)
-
     selection = main_selection(the_input)
 
     return selection
@@ -203,7 +196,6 @@ def exit_to_main_confirmation():
     print_in_the_middle(dotted_line_length, msg2)
     empty_line(1)
     dotted_line(dotted_line_length)
-
     selection = yes_no_selection(input("Yes/No >>> "))
 
     return selection
