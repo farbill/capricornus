@@ -101,6 +101,12 @@ def gameplay_selection(ga, the_input: str,
                 district_characters_action.append(commands)
 
     #Build user_items_action array for items in user's inventory
+    user_items_action = []
+    for item in ga.current_inventory:
+        for action in item.action:
+            for commands in action.commands:
+                user_items_action.append(commands)
+
 
     selection = None
     the_input = str(the_input).lower()  # to make the input case insensitive
@@ -113,7 +119,7 @@ def gameplay_selection(ga, the_input: str,
                 selection = action_list[0]
                 break
 
-        # TODO: Check for district-specific action, items
+        # Check for district-specific action, items
         if the_input in district_items_action:
             for item in this_district._district_items:
                 for action in item.action:
@@ -166,35 +172,6 @@ def gameplay_selection(ga, the_input: str,
                                 else:
                                     print("You can't carry anymore.  Max inventory is %s."%gamestate.MAX_INVENTORY)
                                     sys.stdout.write("\033[K")  # clear line
-
-
-
-                        # if action.response_type == ActionType.TRIGGER:
-                        #     target_item_to_interact_with = action.response.lower()
-                        #
-                        #     # search for target_item in district
-                        #     itemInDistrict = None
-                        #     for item in this_district._district_items:
-                        #         if item.name.lower() == target_item_to_interact_with:
-                        #             itemInDistrict = item
-                        #             break
-                        #
-                        #     if itemInDistrict:
-                        #         pass
-                        #     else:
-                        #         sys.stdout.write("\033[K")  # clear line
-                        #         print(item.name + "cannot be found.")
-                        #         screen_refresh = False
-
-
-
-
-
-
-
-
-
-
                 if screen_refresh == True:
                     break
             if screen_refresh == True:
@@ -222,7 +199,49 @@ def gameplay_selection(ga, the_input: str,
             go_up_and_clear()
             the_input = str(input(">>> ")).lower()
             continue
-            
+
+        # Check for user's item action
+        if the_input in user_items_action:
+            for item in ga.current_inventory:
+                for action in item.action:
+                    if the_input in action.commands:
+
+                        # Only respond to userItem-to-districtItem interactions
+                        if action.response_type == ActionType.TRIGGER:
+                            target_item_to_interact_with = action.response.lower()
+
+                            # search for target_item in district
+                            itemInDistrict = None
+                            for d_item in this_district._district_items:
+                                if d_item.name.lower() == target_item_to_interact_with:
+                                    itemInDistrict = d_item
+                                    break
+
+                            if itemInDistrict:
+                                # TODO: All control flows for possible item interactions here
+                                if itemInDistrict.name.lower() == "red chest":
+                                    informScreen("You've opened the Red Chest.")
+                                    if ga.space_in_inventory():
+                                        # informScreen()
+                                        itemInDistrict.description = "An opened Red Chest."
+                                    else:
+                                        informScreen("You don't have enough space in your inventory to acquire the item in it.")
+
+
+                                # TODO: more here ...
+                                return
+                            else:
+                                sys.stdout.write("\033[K")  # clear line
+                                print(target_item_to_interact_with.title() + " cannot be found.")
+                        else:
+                            sys.stdout.write("\033[K")  # clear line
+                            print("Use inventory menu to directly interact with items in your possession.")
+            sys.stdout.write("\033[F")      # go up one line
+            go_up_and_clear()
+            the_input = str(input(">>> ")).lower()
+            continue
+
+
         # Else, bad action
         if screen_refresh == True:
             screen_refresh = False

@@ -60,7 +60,11 @@ class GameAction(gamestate.GameState):
     # Return inventory
     def current_inventory(self) -> List[items.Item]:
         return self.game_state._current_inventory
-    
+
+    # Check if there's space in inventory
+    def space_in_inventory(self) -> bool:
+        return len(self.current_inventory) < gamestate.MAX_INVENTORY
+
     # Add item to inventory
     def add_to_inventory(self, new_item: items.Item) -> int:
         valid_item = True

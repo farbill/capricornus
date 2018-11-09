@@ -130,10 +130,10 @@ class GameState(object):
         return 0
 
 
-if __name__ == "__main__":
-    from gamestate import GameState
-    mygame = GameState()
-    mygame.save_game_state(int(sys.argv[1]))
+# if __name__ == "__main__":
+#     from gamestate import GameState
+#     mygame = GameState()
+#     mygame.save_game_state(int(sys.argv[1]))
 
     # mygame.save_game_state(1)
 

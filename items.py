@@ -12,7 +12,7 @@ class ActionType(Enum):
     NONE = 0
     DISPLAY = 1         # Display some text
     ACTION = 2          # Pick up item
-    TRIGGER = 3         # Maybe trigger a change in district??? (currently unused)
+    TRIGGER = 3         # Item-item interaction
     EVENT = 4           # Talk to character
     TAKE_LEGENDARY = 5  # Pick up legendary item
     TAKE_ITEM = 6       # Pick up critical or non-critical item

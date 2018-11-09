@@ -1,0 +1,9 @@
+{
+  "commands": [
+            "view red chest",
+            "view the red chest",
+            "look at red chest",
+            "look at the red chest"],
+  "response_type": "display",
+  "response": "A Red Chest about the size of a cooler sits on the ground. It looks like it has a keyhole."
+}

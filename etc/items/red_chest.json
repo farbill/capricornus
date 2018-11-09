@@ -3,5 +3,5 @@
   "item_type": "FEATURE",
   "narration": "You can see a Red Chest nearby.",
   "description": "A Red Chest with a keyhole.",
-  "actions":["etc/items/actions/red_key_red_door.json"]
+  "actions":["etc/items/actions/view_red_chest.json"]
 }
