@@ -2,7 +2,7 @@
   "x":1,
   "y":3,
   "name": "Greenland Grove",
-  "district_items": ["etc/items/strength_orb.json"],
+  "district_items": ["etc/items/crystal_chest.json"],
   "clues": [],
   "characters": [],
   "short_description": "Greenland Grove short description",

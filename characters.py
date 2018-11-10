@@ -98,7 +98,7 @@ class NonPlayableCharacter(Character):
             r_str = self._dialogs[DialogCategory.ALREADY_SOLVED.value]
         return r_str
 
-    def play_char_puzzle(self, ga):
+    def play_char_puzzle(self, ga, this_district):
         clear_screen()
         msg = self.get_greeting()
         dotted_line_length = GAME_WIDTH
@@ -118,7 +118,12 @@ class NonPlayableCharacter(Character):
                 if self._puzzle.play_puzzle(self._dialogs[DialogCategory.FAIL.value], ga) is True:
                     informScreen(self._dialogs[DialogCategory.SUCCESS.value])
                     if self._item:
-                        ga.add_to_inventory(self._item)
-                        informScreen(self._item.name + " added to inventory.")
+                        if ga.space_in_inventory():
+                            ga.add_to_inventory(self._item)
+                            informScreen(self._item.name + " added to inventory.")
+                        else:
+                            this_district._dropped_items.append(self._item)
+                            informScreen("You don't have space for " + self._item.name + ". It is dropped in the district instead.")
+
                         self._item = None
 

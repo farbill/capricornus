@@ -2,9 +2,9 @@
   "x":1,
   "y":1,
   "name": "Gato Springs",
-  "district_items": ["etc/items/vision_orb.json"],
+  "district_items": [],
   "clues": [],
-  "characters": [],
+  "characters": ["etc/characters/student.json"],
   "short_description": "Gato Springs is a neighborhood in the south western portion of the New San Diego City.",
   "long_description": "Gato Springs is a neighborhood in the south western portion of the New San Diego City. It is known for its hot springs, stylish hotels, golf courses and spas."
 

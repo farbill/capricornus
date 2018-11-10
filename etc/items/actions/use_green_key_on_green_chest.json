@@ -1,0 +1,8 @@
+{
+  "commands": ["use green key on green chest",
+    "use green key on chest"],
+  "response_type": "trigger",
+  "response": "green chest",
+  "more_response_type": "action",
+  "more response": ""
+}

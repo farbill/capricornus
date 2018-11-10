@@ -1,0 +1,17 @@
+{
+  "short_description": "A student.",
+  "long_description": "A student.",
+  "puzzle": "etc/puzzles/student_puzzle.json",
+  "narration": "A Student is standing.",
+  "item": "etc/items/green_key.json",
+  "dialogs": [
+            "You approach the Student. She says: 'I'm waiting for my bus. In the meanwhile, I'm working on this puzzle but I can't seem to solve it. Want to help me?'",
+            "It's a tough puzzle. Want to help again?",
+            "Hmm... I don't think that's it.",
+            "Nice job. I don't have much, but I found this on the ground earlier. You can have it.",
+            "I hope my bus gets here soon. I have to study." ],
+  "action":[
+            "etc/characters/actions/talk_to_student.json"
+        ]
+
+}

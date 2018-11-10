@@ -191,7 +191,7 @@ def gameplay_selection(ga, the_input: str,
                             sys.stdout.write("\033[K")  # clear line
                             print(action.response)
                         if action.response_type == ActionType.EVENT:
-                            character.play_char_puzzle(ga)
+                            character.play_char_puzzle(ga, this_district)
                             if(character._short_description == "Daniel Webster Jr. Jr."):
                                 ga.add_to_obtained_clues(1, "These cities are on the same horizon. Bay Rock - Greenland - City Hall - Oak Square - Northtown")
                             return ""
@@ -210,26 +210,81 @@ def gameplay_selection(ga, the_input: str,
                         if action.response_type == ActionType.TRIGGER:
                             target_item_to_interact_with = action.response.lower()
 
-                            # search for target_item in district
+                            # Search for target_item in district
                             itemInDistrict = None
                             for d_item in this_district._district_items:
                                 if d_item.name.lower() == target_item_to_interact_with:
                                     itemInDistrict = d_item
                                     break
 
+                            # If target_item in district
                             if itemInDistrict:
                                 # TODO: All control flows for possible item interactions here
+
+                                if itemInDistrict.name.lower() == "green chest":
+                                    informScreen("You've opened the Green Chest.")
+                                    if ga.game_state._vitality_orb == False:
+                                        if ga.space_in_inventory():
+                                            informScreen("You've gained the Vitality Orb!")
+                                            ga.game_state._vitality_orb = True
+                                            ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Vitality Orb"))
+                                            ga.remove_item_from_uncollected_legendary_items("Vitality Orb")
+                                            return ""
+                                        else:
+                                            informScreen("You don't have enough space in your inventory to acquire the item in it.")
+                                            return ""
+                                    else:
+                                        informScreen("Looks like there's nothing here.")
+                                        return ""
+
                                 if itemInDistrict.name.lower() == "red chest":
                                     informScreen("You've opened the Red Chest.")
-                                    if ga.space_in_inventory():
-                                        # informScreen()
-                                        itemInDistrict.description = "An opened Red Chest."
+                                    if ga.game_state._strength_orb == False:
+                                        if ga.space_in_inventory():
+                                            informScreen("You've gained the Strength Orb!")
+                                            ga.game_state._strength_orb = True
+                                            ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Strength Orb"))
+                                            ga.remove_item_from_uncollected_legendary_items("Strength Orb")
+                                            return ""
+                                        else:
+                                            informScreen("You don't have enough space in your inventory to acquire the item in it.")
+                                            return ""
                                     else:
-                                        informScreen("You don't have enough space in your inventory to acquire the item in it.")
+                                        informScreen("Looks like there's nothing here.")
+                                        return ""
 
+                                if itemInDistrict.name.lower() == "yellow chest":
+                                    informScreen("You've opened the Yellow Chest.")
+                                    if ga.game_state._vision_orb == False:
+                                        if ga.space_in_inventory():
+                                            informScreen("You've gained the Vision Orb!")
+                                            ga.game_state._vision_orb = True
+                                            ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Vision Orb"))
+                                            ga.remove_item_from_uncollected_legendary_items("Vision Orb")
+                                            return ""
+                                        else:
+                                            informScreen("You don't have enough space in your inventory to acquire the item in it.")
+                                            return ""
+                                    else:
+                                        informScreen("Looks like there's nothing here.")
+                                        return ""
 
-                                # TODO: more here ...
-                                return
+                                if itemInDistrict.name.lower() == "crystal chest":
+                                    informScreen("You've opened the Crystal Chest.")
+                                    if ga.game_state._magic_sword == False:
+                                        if ga.space_in_inventory():
+                                            informScreen("You've gained the Magic Sword!")
+                                            ga.game_state._magic_sword = True
+                                            ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Magic Sword"))
+                                            ga.remove_item_from_uncollected_legendary_items("Magic Sword")
+                                            return ""
+                                        else:
+                                            informScreen("You don't have enough space in your inventory to acquire the item in it.")
+                                            return ""
+                                    else:
+                                        informScreen("Looks like there's nothing here.")
+                                        return ""
+
                             else:
                                 sys.stdout.write("\033[K")  # clear line
                                 print(target_item_to_interact_with.title() + " cannot be found.")

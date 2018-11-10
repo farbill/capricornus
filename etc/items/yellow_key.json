@@ -1,0 +1,7 @@
+{
+  "name": "Yellow Key",
+  "item_type": "CRITICAL",
+  "narration": "",
+  "description": "A yellow-colored key. It looks like it can be used to open something.",
+  "actions":["etc/items/actions/use_yellow_key_on_yellow_chest.json"]
+}

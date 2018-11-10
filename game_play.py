@@ -132,9 +132,9 @@ def legendary_status(ga):
     status_list = [None] * 4
     for i in range(0, 4):
         if legendary_list[i] == False:
-            status_list[i] = "Empty  "
+            status_list[i] = "Unknown"
         else:
-            status_list[i] = "On hand"
+            status_list[i] = "Found  "
     
     vision_and_strength = "Vision Orb:   %s   Strength Orb: %s"%(status_list[0], status_list[1])
     vitality_and_magic  = "Vitality Orb: %s   Magic Sword:  %s"%(status_list[2], status_list[3])
@@ -160,7 +160,7 @@ def game_play(ga: gameaction.GameAction):
     clear_screen()
     # For new games, load in game data and play intro narration
     if ga.check_visited(STARTING_LOCATION) == False:
-        map_arr = stub_map.get_map_stub()
+        map_arr, ga.game_state.uncollected_legendary_items = stub_map.get_map_stub()
         intro_narration()
         clear_screen()
     else: # For load game, load stored map data into map_arr
@@ -170,6 +170,9 @@ def game_play(ga: gameaction.GameAction):
     while True:
 
         clear_screen()
+
+        # for item in ga.game_state.uncollected_legendary_items:
+        #     print(item.name)
 
         # Display game stuff
         main_menu.dotted_line(main_menu.GAME_WIDTH)

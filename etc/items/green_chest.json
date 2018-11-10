@@ -1,0 +1,7 @@
+{
+  "name": "Green Chest",
+  "item_type": "FEATURE",
+  "narration": "You can see a Green Chest nearby.",
+  "description": "A Green Chest with a keyhole.",
+  "actions":["etc/items/actions/view_green_chest.json"]
+}

@@ -5,6 +5,7 @@ from enum import Enum
 from typing import List, Dict
 import city
 import items
+import time
 
 class GameAction(gamestate.GameState):
     def __init__(self, game_state: gamestate.GameState):
@@ -94,6 +95,19 @@ class GameAction(gamestate.GameState):
         if item in self.game_state._current_inventory:
             item_exists = True
         return item_exists
+
+    def get_item_from_uncollected_legendary_items(self, item_name: str) -> items.Item:
+        for item in self.game_state.uncollected_legendary_items:
+            if item.name == item_name:
+                return item
+
+    def remove_item_from_uncollected_legendary_items(self, item_name: str):
+        item_index = None
+        for i in range(len(self.game_state.uncollected_legendary_items)):
+            if self.game_state.uncollected_legendary_items[i].name == item_name:
+                item_index = i
+                break
+        del self.game_state.uncollected_legendary_items[item_index]
 
     @property
     # Return solved puzzles in an ascending order by puzzle_id

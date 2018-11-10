@@ -4,7 +4,7 @@
   "name": "Lake Cypress",
   "district_items": [],
   "clues": [],
-  "characters": [],
+  "characters": ["etc/characters/wizard.json"],
   "short_description": "Lake Cypress is a reservoir in New San Diego.",
   "long_description": "Lake Cypress is a reservoir in New San Diego.  It is the largest lake in the city."
 

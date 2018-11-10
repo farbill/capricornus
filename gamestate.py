@@ -61,11 +61,13 @@ class GameState(object):
         self._vitality_orb =    False
         self._magic_sword =     False
 
-        #Track game status
+        # Track game status
         self._visited = self._initialize_visited()
         self._lair_location = self._randomly_select_lair_location()
 
-        self._map_arr = None
+        # Data to load in
+        self.uncollected_legendary_items = []
+        self._map_arr = []
 
     # Assign to self._visited =
     #  {'City Hall': False, 'Hawkins': False, 'Washington Heights': False, 'Greenland Grove': False,

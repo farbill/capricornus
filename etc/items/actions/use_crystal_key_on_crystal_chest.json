@@ -1,0 +1,8 @@
+{
+  "commands": ["use crystal key on crystal chest",
+    "use crystal key on chest"],
+  "response_type": "trigger",
+  "response": "crystal chest",
+  "more_response_type": "action",
+  "more response": ""
+}

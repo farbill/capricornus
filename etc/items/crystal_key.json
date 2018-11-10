@@ -1,0 +1,7 @@
+{
+  "name": "Crystal Key",
+  "item_type": "CRITICAL",
+  "narration": "",
+  "description": "A sparkling crystal-colored key. It looks like it can be used to open something.",
+  "actions":["etc/items/actions/use_crystal_key_on_crystal_chest.json"]
+}

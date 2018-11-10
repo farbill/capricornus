@@ -2,7 +2,7 @@
   "x":4,
   "y":4,
   "name": "Paradise Creek",
-  "district_items": [],
+  "district_items": ["etc/items/yellow_chest.json"],
   "clues": [],
   "characters": [],
   "short_description": "Paradise Creek is located at the edge of New San Diego.",

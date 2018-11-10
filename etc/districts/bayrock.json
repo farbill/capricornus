@@ -2,7 +2,7 @@
   "x":0,
   "y":3,
   "name": "Bayrock",
-  "district_items": ["etc/items/vitality_orb.json"],
+  "district_items": ["etc/items/red_chest.json"],
   "clues": [],
   "characters": [],
   "short_description": "Bayrock is at the edge of New San Diego.",

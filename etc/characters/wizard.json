@@ -1,0 +1,17 @@
+{
+  "short_description": "A wizard.",
+  "long_description": "A wizard.",
+  "puzzle": "etc/puzzles/wizard_puzzle.json",
+  "narration": "A Wizard is swaying his arms around with his eyes closed.",
+  "item": "etc/items/crystal_key.json",
+  "dialogs": [
+            "You approach the Wizard. He says: 'Stop right there. You seem to be in dire need of something. Perhaps I can help. But first, you need to solve my puzzle.'",
+            "Back for more?",
+            "I'm afraid that is not correct, my dear mortal.",
+            "I am surprised a mortal such as yourself have solved this. Here, you can have this.",
+            "I need to get back to practicing my spell." ],
+  "action":[
+            "etc/characters/actions/talk_to_wizard.json"
+        ]
+
+}

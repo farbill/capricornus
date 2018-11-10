@@ -1,0 +1,17 @@
+{
+  "short_description": "A businessman.",
+  "long_description": "A businessman.",
+  "puzzle": "etc/puzzles/businessman_puzzle.json",
+  "narration": "A Businessman is sitting down, eating.",
+  "item": "etc/items/yellow_key.json",
+  "dialogs": [
+            "You approach the Businessman. He says: 'It's such a nice day today. I'm glad I decided to eat lunch outside, but I'm stump on this puzzle. Care to take a look?'",
+            "Yep. It sure is tough. Want another stab at it?",
+            "Sorry sir, I don't think that is the right answer.",
+            "Wow, I think that's the answer. Here, it seems like this could be of some value to you.",
+            "I have to finish eating and get back to work. It seems like chewing takes forever." ],
+  "action":[
+            "etc/characters/actions/talk_to_businessman.json"
+        ]
+
+}

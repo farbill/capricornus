@@ -1,7 +1,7 @@
 {
-  "short_description": "a hobo",
-  "long_description": "a hobo, a very regular hobo at that.",
-  "puzzle": "etc/puzzles/one_plus_one.json",
+  "short_description": "A hobo.",
+  "long_description": "A hobo, a very regular hobo at that.",
+  "puzzle": "etc/puzzles/hobo_puzzle.json",
   "narration": "A Hobo is sitting down.",
   "item": "etc/items/red_key.json",
   "dialogs": [
