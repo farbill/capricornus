@@ -8,17 +8,6 @@ import time
 import gamestate
 from main_menu import go_up_and_clear, write_over, informScreen
 
-# #checks if the city has the target item
-# def checkForItem(districtItems, itemsInCityList, targetItem):
-#     for i in range(len(districtItems)):
-#         if itemsInCityList[i].name == targetItem:
-#             itemsInCityList[i] = None
-#
-# #creats list of items in the district then calss checkForItem function
-# def itemCheck(this_district, item):
-#     itemsInCityList = this_district._district_items
-#     checkForItem(this_district._district_items, itemsInCityList, item.name)
-
 def gameplay_selection(ga, the_input: str,
                        nswe_districts: List[str],
                        district_exits: List[str],
@@ -305,8 +294,9 @@ def district_action_function(ga, the_input, action_arr, item_arr):
                                     ga.add_to_obtained_clues(2, "The lotto ticket had '23 57 12' on it")
 
                                 if item_remains == True:
-                                    ga.add_to_inventory(item)         # Add item to inventory
-                                    item_arr.remove(item)             # Remove item from district
+                                    ga.add_to_inventory(item)           # Add item to inventory
+
+                                item_arr.remove(item)                   # Remove item from district
                                 informScreen(action.response)
                                 return "return", the_input
                             else:
