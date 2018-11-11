@@ -3,8 +3,8 @@ from functools import reduce
 from typing import Dict, List
 
 class ItemType(Enum):
-    LEGENDARY = 1       # Critical to storyline, CANNOT be dropped. Once acquired, the corresponding boolean value is permenantly changed
-    CRITICAL = 2        # Critical to storyline, can be dropped, i.e. the user must need it for main quests
+    LEGENDARY = 1       # Critical to storyline, can be dropped. Needed for final game sequence
+    CRITICAL = 2        # Critical to storyline, can be dropped. Needed it for main quests
     NONCRITICAL = 3     # Non-critical to storyline, can be dropped, i.e. the user can use it for optional side quests
     FEATURE = 4         # Part of district (includes landscape), cannot be placed into inventory
 
