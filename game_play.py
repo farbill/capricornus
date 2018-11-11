@@ -2,6 +2,7 @@ import game_play_selection
 import gameaction
 import characters
 import city
+import inventory
 import load_save_menu
 from main_menu import clear_screen, empty_line
 import narration
@@ -128,14 +129,7 @@ def intro_narration():
     input("\nPress [Enter] to continue...\n")
 
 def legendary_status(ga):
-    legendary_list = ga.check_legendary()
-    status_list = [None] * 4
-    for i in range(0, 4):
-        if legendary_list[i] == False:
-            status_list[i] = "Unknown"
-        else:
-            status_list[i] = "Found  "
-    
+    status_list = ga.check_legendary()
     vision_and_strength = "Vision Orb:   %s   Strength Orb: %s"%(status_list[0], status_list[1])
     vitality_and_magic  = "Vitality Orb: %s   Magic Sword:  %s"%(status_list[2], status_list[3])
     main_menu.print_in_the_middle(main_menu.GAME_WIDTH, vision_and_strength)
@@ -190,7 +184,7 @@ def game_play(ga: gameaction.GameAction):
                 break
         elif selection == "inventory":
             clear_screen()
-            narration.inventory_menu_screen(ga, map_arr)
+            inventory.inventory_menu_screen(ga, map_arr, this_district)
         elif selection == "help":
             clear_screen()
             narration.help_menu_screen()

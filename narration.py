@@ -1,14 +1,8 @@
 import sys
-import time
 
 import main_menu
 from command_parsing import command_parsing
 from main_menu import clear_screen
-
-import city
-import gamestate
-
-#for stub data
 
 
 def command_help(width):
@@ -23,12 +17,11 @@ def command_help(width):
         main_menu.print_in_the_middle(width, ("7. Help                              "))
 
 def inventory_open(width):
-        main_menu.print_in_the_middle(width, ("1. Clues       "))
-        main_menu.print_in_the_middle(width, ("2. Items       "))
-        main_menu.print_in_the_middle(width, ("3. Legendary   "))
-        main_menu.print_in_the_middle(width, ("4. Drop Item   "))
-        main_menu.print_in_the_middle(width, ("5. Resume Game "))
-        
+        main_menu.print_in_the_middle(width, "1. Clues       ")
+        main_menu.print_in_the_middle(width, "2. Items       ")
+        main_menu.print_in_the_middle(width, "3. Resume Game ")
+
+
 def help_menu():
         main_menu.print_in_the_middle(main_menu.GAME_WIDTH, "Type \"Help\" for game commands")
 
@@ -235,194 +228,7 @@ def help_menu_screen():
             sys.stdout.write("\033[K")      # clear line
             selection = str(input(">>> ")).lower()
 
-def inventory_menu_screen(ga, map_arr):
-    back_to_game = False
-    while back_to_game == False:
-        standard_title_display("Inventory")
-        inventory_open(main_menu.GAME_WIDTH)
-        main_menu.empty_line(3)
-        
-        main_menu.dotted_line(main_menu.GAME_WIDTH)
-        list_clues = ["1", "clue", "clues", "gameclue", "hints", "hint", "1. clues"]
-        list_items = ["2", "item", "items", "about items", "2. items"]
-        list_legendary = ["3", "legendary", "legendary items", "legendary orbs", "orbs", "3. legendary", "legendary item", "legendary sword"]
-        list_drop = ["4", "drop", "drop an item", "drop items", "drop item", "trash item", "trash an item", "trash items"]
-        list_back = ["5", "exit", "return", "back", "resume", "resume game", "4. resume game"]
 
-        selection = input(">>> ")
-
-        while True:
-            if command_parsing(selection, list_clues) == 1:
-                clear_screen()
-                main_menu.dotted_line(main_menu.GAME_WIDTH)
-                main_menu.empty_line(2)
-                if(len(ga.obtained_clues) == 0):
-                    nothing_string = "There is no clue obtained."
-                    narration(nothing_string, main_menu.GAME_WIDTH)
-                else:
-                    narration_clues = "There are following clues obtained:"
-                    narration(narration_clues, main_menu.GAME_WIDTH)
-                    main_menu.empty_line(2)
-                    for key in ga.obtained_clues:
-                        clueString = "- " + ga.obtained_clues[key]
-                        narration(clueString, main_menu.GAME_WIDTH)
-
-                main_menu.empty_line(2)
-                main_menu.dotted_line(main_menu.GAME_WIDTH)
-                input("Press [Enter] to continue...")
-                clear_screen()
-                break
-            if command_parsing(selection, list_items) == 1:
-                clear_screen()
-                main_menu.dotted_line(main_menu.GAME_WIDTH)
-                main_menu.empty_line(2)
-                if(len(ga.current_inventory) == 0):
-                    nothing_string = "There is no items obtained."
-                    narration(nothing_string, main_menu.GAME_WIDTH)
-                else:
-                    narration_items = "There are following items obtained:"
-                    narration(narration_items, main_menu.GAME_WIDTH)
-                    description_inst = "(Type the item name to see its description)"
-                    narration(description_inst, main_menu.GAME_WIDTH)
-                    main_menu.empty_line(2)
-                    for i in range(0,len(ga.current_inventory)):
-                        itemString = "- " + ga.current_inventory[i].name
-                        narration(itemString, main_menu.GAME_WIDTH)
-                main_menu.empty_line(2)
-                main_menu.dotted_line(main_menu.GAME_WIDTH)
-                main_menu.empty_line(2)
-                sys.stdout.write("\033[F")      # go up one line
-                sys.stdout.write("\033[K")      # clear line
-                describe_item = str(input(">>> ")).lower()
-                for i in ga.current_inventory:
-                    if (describe_item == i.name.lower()):
-                        clear_screen()
-                        main_menu.dotted_line(main_menu.GAME_WIDTH)
-                        main_menu.empty_line(2)
-                        narration(i.description, main_menu.GAME_WIDTH)
-                        main_menu.empty_line(2)
-                        main_menu.dotted_line(main_menu.GAME_WIDTH)
-                        input("Press [Enter] to continue...")
-                        clear_screen()
-                        break
-                clear_screen()
-                break
-            if command_parsing(selection, list_legendary) == 1:
-                clear_screen()
-                main_menu.dotted_line(main_menu.GAME_WIDTH)
-                main_menu.empty_line(2)
-                if(len(ga.check_legendary()) == 0):
-                    nothing_string = "There is no lendary orbs obtained."
-                    narration(nothing_string, main_menu.GAME_WIDTH)
-                else:
-                    legendCounter = 0
-                    narration_clues = "There are following legendary items obtained:"
-                    for key in ga.check_legendary():
-                        if legendCounter == 0:
-                            if key == False:
-                                lengendaryString = "- Vision orb hasn't been obtained yet."
-                                narration(lengendaryString, main_menu.GAME_WIDTH)
-                            else:
-                                lengendaryString = "- Vision orb is in inventory."
-                                narration(lengendaryString, main_menu.GAME_WIDTH)
-                        if legendCounter == 1:
-                            if key == False:
-                                lengendaryString = "- Strength orb hasn't been obtained yet."
-                                narration(lengendaryString, main_menu.GAME_WIDTH)
-                            else:
-                                lengendaryString = "- Strength orb is in inventory."
-                                narration(lengendaryString, main_menu.GAME_WIDTH)
-                        if legendCounter == 2:
-                            if key == False:
-                                lengendaryString = "- Vitality orb hasn't been obtained yet."
-                                narration(lengendaryString, main_menu.GAME_WIDTH)
-                            else:
-                                lengendaryString = "- Vitality orb is in inventory."
-                                narration(lengendaryString, main_menu.GAME_WIDTH)
-                        if legendCounter == 3:
-                            if key == False:
-                                lengendaryString = "- Magic sword hasn't been obtained yet."
-                                narration(lengendaryString, main_menu.GAME_WIDTH)
-                            else:
-                                lengendaryString = "- Magic sword is in inventory."
-                                narration(lengendaryString, main_menu.GAME_WIDTH)
-                        legendCounter = legendCounter + 1
-
-                main_menu.empty_line(2)
-                main_menu.dotted_line(main_menu.GAME_WIDTH)
-                input("Press [Enter] to continue...")
-                clear_screen()
-                break
-            if command_parsing(selection, list_drop) == 1:          #Drop an item
-                clear_screen()
-                main_menu.dotted_line(main_menu.GAME_WIDTH)
-                main_menu.empty_line(2)
-                if(len(ga.current_inventory) == 0):
-                    nothing_string = "You have no item to drop."
-                    narration(nothing_string, main_menu.GAME_WIDTH)
-                else:
-                    narration_drop = "Enter name of the item to drop:"
-                    narration(narration_drop, main_menu.GAME_WIDTH)
-                    main_menu.empty_line(2)
-                    for i in range(0, len(ga.current_inventory)):
-                        itemString = "- " + ga.current_inventory[i].name
-                        narration(itemString, main_menu.GAME_WIDTH)
-                main_menu.empty_line(2)
-                main_menu.dotted_line(main_menu.GAME_WIDTH)
-                drop_item_entered = str(input(">>> ")).lower()
-                drop_done = False
-                while drop_done == False:
-                    for i in range(0, len(ga.current_inventory)):
-                        if drop_item_entered == ga.current_inventory[i].name.lower():
-                            if ga.current_inventory[i].item_type.name == "LEGENDARY":
-                                clear_screen()
-                                main_menu.dotted_line(main_menu.GAME_WIDTH)
-                                main_menu.empty_line(2)
-                                narration("You cannot drop a legendary item", main_menu.GAME_WIDTH)
-                                main_menu.empty_line(2)
-                                main_menu.dotted_line(main_menu.GAME_WIDTH)
-                                input("Press [Enter] to continue...")
-                                clear_screen()
-                                drop_done = True
-                                break
-                            else:
-                                clear_screen()
-                                #START: added to dropped items for the district
-                                current_location = ga.current_location
-                                for j in map_arr:
-                                    if j._district_name == current_location:
-                                        j._dropped_items.append(ga.current_inventory[i])
-                                        main_menu.dotted_line(main_menu.GAME_WIDTH)
-                                        main_menu.empty_line(2)
-                                        removed_item = "'" + ga.current_inventory[i].name + "' has been dropped in " + current_location
-                                        narration(removed_item, main_menu.GAME_WIDTH)
-                                        main_menu.empty_line(2)
-                                        main_menu.dotted_line(main_menu.GAME_WIDTH)
-                                #END: added to dropped items for the district
-                                ga.current_inventory.remove(ga.current_inventory[i])
-                                input("Press [Enter] to continue...")
-                                clear_screen()
-                                drop_done = True
-                                break
-                        elif command_parsing(drop_item_entered, list_back):
-                            drop_done = True
-                            break
-                        else:
-                            main_menu.write_over("There is no such item in your inventory.  Try again.")
-                            sys.stdout.write("\033[F")      # go up one line
-                            sys.stdout.write("\033[K")      # clear line
-                            drop_item_entered = str(input(">>> ")).lower()
-                clear_screen()
-                break
-            if command_parsing(selection, list_back) == 1:          #Back to the game
-                clear_screen()
-                back_to_game = True
-                break
-            main_menu.write_over("Invalid Input.  Try again.")
-            sys.stdout.write("\033[F")      # go up one line
-            sys.stdout.write("\033[K")      # clear line
-            selection = str(input(">>> ")).lower()
-            
 def standard_title_display(string):
     main_menu.dotted_line(main_menu.GAME_WIDTH)
     main_menu.empty_line(2)

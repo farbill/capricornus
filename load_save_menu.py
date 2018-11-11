@@ -114,7 +114,7 @@ def load_selection(the_input: str, slot_tracker: []) -> int:
         if wrong_input:
             if len(the_input) > 99:
                 write_over("Your input is too long.")
-            write_over("Invalid Input.  Try again.")
+            write_over("Invalid Input. Try again.")
             go_up_and_clear()
             command_line = "Make your selection >>> "
             the_input = input(command_line)
@@ -200,7 +200,7 @@ def save_selection(the_input: str, slot_tracker: []) -> int:
         if wrong_input:
             if len(the_input) > 99:
                 write_over("Your input is too long.")
-            write_over("Invalid Input.  Try again.")
+            write_over("Invalid Input. Try again.")
             go_up_and_clear()
             command_line = "Make your selection >>> "
             the_input = input(command_line)

@@ -3,5 +3,6 @@
   "item_type": "CRITICAL",
   "narration": "",
   "description": "A red-colored key. It looks like it can be used to open something.",
-  "actions":["etc/items/actions/use_red_key_on_red_chest.json"]
+  "actions":["etc/items/actions/use_red_key_on_red_chest.json",
+              "etc/items/actions/take_red_key.json" ]
 }

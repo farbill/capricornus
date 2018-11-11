@@ -170,8 +170,9 @@ def gameplay_selection(ga, the_input: str,
                                     itemsInCityList = this_district._district_items
                                     checkForItem(this_district._district_items, itemsInCityList, item.name)
                                 else:
-                                    print("You can't carry anymore.  Max inventory is %s."%gamestate.MAX_INVENTORY)
                                     sys.stdout.write("\033[K")  # clear line
+                                    print("You can't carry anymore.  Max inventory is %s."%gamestate.MAX_INVENTORY)
+
                 if screen_refresh == True:
                     break
             if screen_refresh == True:

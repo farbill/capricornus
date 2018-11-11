@@ -48,14 +48,26 @@ class GameAction(gamestate.GameState):
         else:
             return 1
 
-    # Check lengendary items collected
-    def check_legendary(self) -> list:
-        legendary_list = [None] * 4
-        legendary_list[0] = self.game_state._vision_orb
-        legendary_list[1] = self.game_state._strength_orb
-        legendary_list[2] = self.game_state._vitality_orb
-        legendary_list[3] = self.game_state._magic_sword
-        return legendary_list
+    # Check legendary items collected
+    def check_legendary(self) -> [str]:
+
+        legendary_status = [None] * 4
+
+        legend_list = [ (self.game_state._vision_orb, "Vision Orb"),
+                        (self.game_state._strength_orb, "Strength Orb"),
+                        (self.game_state._vitality_orb, "Vitality Orb"),
+                        (self.game_state._magic_sword, "Magic Sword")       ]
+
+        for i in range(len(legend_list)):
+            if legend_list[i][0]:
+                if self.check_inventory_by_name(legend_list[i][1]):
+                    legendary_status[i] =   "On Hand"
+                else:
+                    legendary_status[i] =   "Found  "
+            else:
+                legendary_status[i] =       "Unknown"
+
+        return legendary_status
 
     @property
     # Return inventory
@@ -91,16 +103,44 @@ class GameAction(gamestate.GameState):
 
     # Check if item exists in inventory
     def check_inventory(self, item: items.Item) -> bool:
-        item_exists = False
         if item in self.game_state._current_inventory:
-            item_exists = True
-        return item_exists
+            return True
+        return False
 
+    # Check if item exists in inventory by name
+    def check_inventory_by_name(self, item_name: str) -> bool:
+        for i in range(len(self.game_state._current_inventory)):
+            if item_name == self.game_state._current_inventory[i].name:
+                return True
+        return False
+
+    # Get item from inventory by name
+    def get_item_from_inventory_by_name(self, item_name: str) -> items.Item:
+        for item in self.game_state._current_inventory:
+            if item.name.lower() == item_name.lower():
+                return item
+
+    # Remove item from inventory
+    def remove_item_from_inventory(self, item: items.Item):
+        self.game_state._current_inventory.remove(item)
+
+    # Remove item from inventory by name
+    def remove_item_from_inventory_by_name(self, item_name: str):
+        item_index = None
+        for i in range(len(self.game_state._current_inventory)):
+            if self.game_state._current_inventory[i].name.lower() == item_name.lower():
+                item_index = i
+                break
+        del self.game_state._current_inventory[item_index]
+
+
+    # Get item from uncollected_legendary_items array by name
     def get_item_from_uncollected_legendary_items(self, item_name: str) -> items.Item:
         for item in self.game_state.uncollected_legendary_items:
             if item.name == item_name:
                 return item
 
+    # Remove item from uncollected_legendary_items array by name
     def remove_item_from_uncollected_legendary_items(self, item_name: str):
         item_index = None
         for i in range(len(self.game_state.uncollected_legendary_items)):
