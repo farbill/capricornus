@@ -8,23 +8,21 @@ import time
 import gamestate
 from main_menu import go_up_and_clear, write_over, informScreen
 
-#checks if the city has the target item
-def checkForItem(districtItems, itemsInCityList, targetItem):
-    for i in range(len(districtItems)):
-        if itemsInCityList[i].name == targetItem:
-            itemsInCityList[i] = None
-
-#creats list of items in the district then calss checkForItem function
-def itemCheck(this_district, item):
-    itemsInCityList = this_district._district_items
-    checkForItem(this_district._district_items, itemsInCityList, item.name)
+# #checks if the city has the target item
+# def checkForItem(districtItems, itemsInCityList, targetItem):
+#     for i in range(len(districtItems)):
+#         if itemsInCityList[i].name == targetItem:
+#             itemsInCityList[i] = None
+#
+# #creats list of items in the district then calss checkForItem function
+# def itemCheck(this_district, item):
+#     itemsInCityList = this_district._district_items
+#     checkForItem(this_district._district_items, itemsInCityList, item.name)
 
 def gameplay_selection(ga, the_input: str,
                        nswe_districts: List[str],
                        district_exits: List[str],
                        this_district: city.District) -> str:
-
-    screen_refresh = False
 
     # Change nswe_districts to lower case
     # e.g. ['hawkins', None, 'greenland grove', 'oak square']
@@ -85,33 +83,45 @@ def gameplay_selection(ga, the_input: str,
 
             general_action_array.append(arr)
 
-    # Build district_items_action array for items in district
-    district_items_action = []
-    for item in this_district._district_items:
-        if item:
-            for action in item.action:
-                for commands in action.commands:
-                    district_items_action.append(commands)
-
-    # Build district_characters_action array for characters in district
-    district_characters_action = []
-    for character in this_district._characters:
-        for action in character._action:
-            for commands in action.commands:
-                district_characters_action.append(commands)
-
-    #Build user_items_action array for items in user's inventory
-    user_items_action = []
-    for item in ga.current_inventory:
-        for action in item.action:
-            for commands in action.commands:
-                user_items_action.append(commands)
-
-
     selection = None
     the_input = str(the_input).lower()  # to make the input case insensitive
 
     while selection == None:
+
+        # Build action arrays on screen refresh: START ------------------------------------------------------
+
+        # Build district_items_action array for items in district
+        district_items_action = []
+        for item in this_district._district_items:
+            for action in item.action:
+                for commands in action.commands:
+                    district_items_action.append(commands)
+
+        # Build dropped_items_action array for dropped items in district, exclude item-item interactions
+        dropped_items_action = []
+        for item in this_district._dropped_items:
+            for action in item.action:
+                if action.response_type != ActionType.TRIGGER:
+                    for commands in action.commands:
+                        dropped_items_action.append(commands)
+
+        # Build district_characters_action array for characters in district
+        district_characters_action = []
+        for character in this_district._characters:
+            for action in character._action:
+                for commands in action.commands:
+                    district_characters_action.append(commands)
+
+        #Build user_items_action array for items in user's inventory
+        user_items_action = []
+        for item in ga.current_inventory:
+            for action in item.action:
+                for commands in action.commands:
+                    user_items_action.append(commands)
+
+        # Rebuild action arrays on screen refresh: END -------------------------------------------------------------
+
+        # Check for command in action arrays: START --------------------------------------------------------------
 
         # Check for valid action in general action array
         for action_list in general_action_array:
@@ -119,69 +129,17 @@ def gameplay_selection(ga, the_input: str,
                 selection = action_list[0]
                 break
 
-        # Check for district-specific action, items
-        if the_input in district_items_action:
-            for item in this_district._district_items:
-                for action in item.action:
-                    if the_input in action.commands:
-                        if action.response_type == ActionType.DISPLAY:
-                            sys.stdout.write("\033[K")  # clear line
-                            print(action.response)
-                            screen_refresh = False
-                        if action.response_type == ActionType.ACTION:
-                            if action.more_response_type == ActionType.TAKE_LEGENDARY:
-                                if(len(ga.game_state._current_inventory) < gamestate.MAX_INVENTORY):
-                                    sys.stdout.write("\033[K")  # clear line
-                                    ga.add_to_inventory(item)
-                                    informScreen(action.response)
-                                    if item.name == "Vision Orb":
-                                        ga.game_state._vision_orb = True
-                                        itemCheck(this_district, item)
-                                    elif item.name == "Magic Sword":
-                                        ga.game_state._magic_sword = True
-                                        itemCheck(this_district, item)
-                                    elif item.name == "Strength Orb":
-                                        ga.game_state._strength_orb = True
-                                        itemCheck(this_district, item)
-                                    elif item.name == "Vitality Orb":
-                                        ga.game_state._vitality_orb = True
-                                        itemCheck(this_district, item)
-                                    screen_refresh = True
-                                else:
-                                    print("You can't carry anymore.  Max inventory is %s."%gamestate.MAX_INVENTORY)
-                                    sys.stdout.write("\033[K")  # clear line
-                            elif action.more_response_type == ActionType.TAKE_ITEM:
-                                if(len(ga.game_state._current_inventory) < gamestate.MAX_INVENTORY):
-                                    item_remains = True
-                                    sys.stdout.write("\033[K")  # clear line
-                                    
-                                    if (item.name == "Time Stone"):
-                                        ga.game_state._turns_remaining = ga.game_state._turns_remaining + 5
-                                    elif (item.name == "Magic Mushroom"):
-                                        ga.game_state._turns_remaining = ga.game_state._turns_remaining - 10
-                                        item_remains = False
-                                    elif (item.name == "Lotto Ticket"):
-                                        ga.add_to_obtained_clues(2, "The lotto ticket had '23 57 12' on it")
-                                    
-                                    if (item_remains == True):
-                                        ga.add_to_inventory(item)
-                                    informScreen(action.response)
-                                    screen_refresh = True
-                                    itemsInCityList = this_district._district_items
-                                    checkForItem(this_district._district_items, itemsInCityList, item.name)
-                                else:
-                                    sys.stdout.write("\033[K")  # clear line
-                                    print("You can't carry anymore.  Max inventory is %s."%gamestate.MAX_INVENTORY)
-
-                if screen_refresh == True:
-                    break
-            if screen_refresh == True:
-                break
-
-            sys.stdout.write("\033[F")      # go up one line
-            go_up_and_clear()
-            the_input = str(input(">>> ")).lower()
+        status, the_input = district_action_function(ga, the_input, district_items_action, this_district._district_items)
+        if status == "continue":
             continue
+        elif status == "return":
+            return ""
+
+        status, the_input = district_action_function(ga, the_input, dropped_items_action, this_district._dropped_items)
+        if status == "continue":
+            continue
+        elif status == "return":
+            return ""
 
         # Check for district-specific action, characters
         if the_input in district_characters_action:
@@ -220,8 +178,8 @@ def gameplay_selection(ga, the_input: str,
 
                             # If target_item in district
                             if itemInDistrict:
-                                # TODO: All control flows for possible item interactions here
 
+                                # Green Chest -- Vitality Orb
                                 if itemInDistrict.name.lower() == "green chest":
                                     informScreen("You've opened the Green Chest.")
                                     if ga.game_state._vitality_orb == False:
@@ -238,6 +196,7 @@ def gameplay_selection(ga, the_input: str,
                                         informScreen("Looks like there's nothing here.")
                                         return ""
 
+                                # Red Chest -- Strength Orb
                                 if itemInDistrict.name.lower() == "red chest":
                                     informScreen("You've opened the Red Chest.")
                                     if ga.game_state._strength_orb == False:
@@ -254,6 +213,7 @@ def gameplay_selection(ga, the_input: str,
                                         informScreen("Looks like there's nothing here.")
                                         return ""
 
+                                # Yellow Chest -- Vision Orb
                                 if itemInDistrict.name.lower() == "yellow chest":
                                     informScreen("You've opened the Yellow Chest.")
                                     if ga.game_state._vision_orb == False:
@@ -270,6 +230,7 @@ def gameplay_selection(ga, the_input: str,
                                         informScreen("Looks like there's nothing here.")
                                         return ""
 
+                                # Crystal Chest -- Magic Sword
                                 if itemInDistrict.name.lower() == "crystal chest":
                                     informScreen("You've opened the Crystal Chest.")
                                     if ga.game_state._magic_sword == False:
@@ -297,19 +258,63 @@ def gameplay_selection(ga, the_input: str,
             the_input = str(input(">>> ")).lower()
             continue
 
+        # Check for command in action arrays: END --------------------------------------------------------------
 
-        # Else, bad action
-        if screen_refresh == True:
-            screen_refresh = False
-            continue
-        else:
-            if selection == None:
-                if len(the_input) > 99:
-                    sys.stdout.write("\033[K")  # clear line
-                    write_over("Your input is too long.")
+        # Else, bad action: START -----------------------------------------------------------------------------
+
+        if selection == None:
+            if len(the_input) > 99:
                 sys.stdout.write("\033[K")  # clear line
-                write_over("Invalid Input.  Try again.")
-                go_up_and_clear()
-                the_input = str(input(">>> ")).lower()
+                write_over("Your input is too long.")
+            sys.stdout.write("\033[K")  # clear line
+            write_over("Invalid Input.  Try again.")
+            go_up_and_clear()
+            the_input = str(input(">>> ")).lower()
+
+        # Else, bad action: END -----------------------------------------------------------------------------
 
     return selection
+
+
+# Deals with items in district: district_items and dropped_items
+def district_action_function(ga, the_input, action_arr, item_arr):
+
+    if the_input in action_arr:
+        for item in item_arr:
+            for action in item.action:
+                if the_input in action.commands:
+
+                    # Action: display
+                    if action.response_type == ActionType.DISPLAY:
+                        sys.stdout.write("\033[K")  # clear line
+                        print(action.response)
+
+                    # Action: pick up item
+                    if action.response_type == ActionType.ACTION:
+                        if action.more_response_type == ActionType.TAKE_LEGENDARY or action.more_response_type == ActionType.TAKE_ITEM:
+                            if ga.space_in_inventory():
+                                item_remains = True
+
+                                # Special items
+                                if item.name == "Time Stone":
+                                    ga.game_state._turns_remaining = ga.game_state._turns_remaining + 5
+                                elif item.name == "Magic Mushroom":
+                                    ga.game_state._turns_remaining = ga.game_state._turns_remaining - 10
+                                    item_remains = False
+                                elif item.name == "Lotto Ticket":
+                                    ga.add_to_obtained_clues(2, "The lotto ticket had '23 57 12' on it")
+
+                                if item_remains == True:
+                                    ga.add_to_inventory(item)         # Add item to inventory
+                                    item_arr.remove(item)             # Remove item from district
+                                informScreen(action.response)
+                                return "return", the_input
+                            else:
+                                sys.stdout.write("\033[K")  # clear line
+                                print("You can't carry anymore.  Max inventory is %s." % gamestate.MAX_INVENTORY)
+        sys.stdout.write("\033[F")  # go up one line
+        go_up_and_clear()
+        the_input = str(input(">>> ")).lower()
+        return "continue", the_input
+    else:
+        return "pass", the_input

@@ -2,6 +2,8 @@
   "commands": ["take lotto",
         "take ticket",
         "take the lotto",
+        "pick up lotto",
+        "pick up lotto ticket",
         "pick up the lotto",
         "take the ticket",
         "pick up the ticket",
