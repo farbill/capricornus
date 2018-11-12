@@ -2,7 +2,7 @@ import json
 import city
 from characters import AgentDope, NonPlayableCharacter
 from clues import Clue
-from puzzles import PuzzleData, PuzzleType, PuzzleDifficulty, Puzzle
+from puzzles import PuzzleData, Puzzle
 from city import District, DistrictId, DistrictExits
 from items import Item, ItemType, Action, ActionType
 
@@ -118,28 +118,6 @@ class PuzzleLoader(object):
             config = json.load(f)
         return Puzzle(data=PuzzleData(question=config['question'],
                                       answers=config['answers']))
-
-    @staticmethod
-    def _get_puzzle_difficulty(puzzle_difficulty: str) -> PuzzleDifficulty:
-        puzzle_difficulty = puzzle_difficulty.lower()
-        if puzzle_difficulty == 'easy':
-            return PuzzleDifficulty.EASY
-        elif puzzle_difficulty == 'medium':
-            return PuzzleDifficulty.MEDIUM
-        elif puzzle_difficulty == 'hard':
-            return PuzzleDifficulty.HARD
-        
-    @staticmethod
-    def _get_puzzle_type(puzzle_type: str) -> PuzzleType:
-        puzzle_type = puzzle_type.lower()
-        if puzzle_type == 'riddle':
-            return PuzzleType.RIDDLE
-        elif puzzle_type == 'math':
-            return PuzzleType.MATH
-        elif puzzle_type == 'science':
-            return PuzzleType.SCIENCE
-        elif puzzle_type == 'word':
-            return PuzzleType.WORD
 
 
 class ActionLoader(object):
