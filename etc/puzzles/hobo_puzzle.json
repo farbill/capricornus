@@ -1,4 +1,4 @@
 {
-  "question": "What is 1 + 1?",
-  "answers": ["2","two"]
+  "question": "This purely functional programming language is named after a logician. While their last names are the same he is of no relation to Steph Curry.",
+  "answers": ["Haskell","haskell"]
 }

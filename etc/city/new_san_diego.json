@@ -21,5 +21,9 @@
      "Lincoln St", "Walnut Dr", "Cloud St", "Penny Ln",
      "Troy Ave", "Mission Blvd", "Ash St", "Gene Way",
      "Pearl Ct", "Tundra St", "Muir Dr", "Keyes Ave",
-     "Java Blvd", "Front St", "Ocean Rd", "Baker Ct"]
+     "Java Blvd", "Front St", "Ocean Rd", "Baker Ct"],
+  "legendary_items": ["etc/items/vitality_orb.json",
+                         "etc/items/vision_orb.json",
+                         "etc/items/strength_orb.json",
+                         "etc/items/magic_sword.json"]
 }

@@ -1,0 +1,9 @@
+{
+"eat": ["snack", "chew", "devour"],
+"check": ["check out"],
+"look": ["gaze", "view"],
+"take": ["grab", "steal"],
+"use": ["activate"],
+  "talk": ["chat", "converse"]
+
+}

@@ -1,4 +1,4 @@
 {
-  "question": "Place holder for question. Type '1' for correct ans.",
-  "answers": ["1","one"]
+  "question": "This computer famously beat Chess Champion Gary Kasparov",
+  "answers": ["Deep blue","deep blue", "Deep Blue"]
 }

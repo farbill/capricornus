@@ -14,7 +14,8 @@ class CityLoader(object):
             config = json.load(f)
         map_arr = list(map(DistrictLoader.parse_json, config['districts']))
         city.assign_street_name(map_arr, config['street_names'])
-        return map_arr
+        legendary_items = list(map(ItemLoader.parse_json, config['legendary_items']))
+        return map_arr, legendary_items
 
 
 class CharacterDataLoader(object):
