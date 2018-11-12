@@ -6,20 +6,6 @@ from main_menu import GAME_WIDTH, dotted_line, empty_line, print_in_the_middle, 
     go_up_and_clear, clear_screen
 
 
-# Unused---------------------------------
-class PuzzleType(Enum):
-    RIDDLE = 1
-    MATH = 2
-    SCIENCE = 3
-    WORD = 4
-
-
-class PuzzleDifficulty(Enum):
-    EASY = 1
-    MEDIUM = 2
-    HARD = 3
-#---------------------------------------------
-
 
 class PuzzleState(Enum):
     NEW = 1
