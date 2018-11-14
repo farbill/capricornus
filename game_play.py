@@ -9,7 +9,7 @@ import narration
 import main_menu
 from typing import Tuple, List
 import stub_map     #for stub data
-
+from colorama import init, Fore, Back, Style
 
 STARTING_LOCATION = "City Hall"
 
@@ -99,7 +99,9 @@ def gametext_output(ga, map_arr) -> Tuple[ List[str],
 def general_info(ga, map_arr):
     main_menu.empty_line(2)
     main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Remaining Turns: %s"%ga.turns_remaining))
-    main_menu.print_in_the_middle(main_menu.GAME_WIDTH, ("Current Location: %s"%ga.current_location))
+    print(Fore.YELLOW + Style.BRIGHT)
+    main_menu.print_in_the_middle(main_menu.GAME_WIDTH, (ga.current_location))
+    print(Style.RESET_ALL)
     main_menu.empty_line(2)
     (nswe_districts, district_exits, this_district) = gametext_output(ga, map_arr)
     main_menu.empty_line(2)
