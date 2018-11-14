@@ -143,6 +143,7 @@ def yes_no_selection(the_input) -> int:
 
 def main_menu():
     game_version = "1.0"
+
     title = "New San Diego Saga"
 
     # Main Menu Options
@@ -154,7 +155,9 @@ def main_menu():
     dotted_line(dotted_line_length)
 
     empty_line(1)
+    print(Fore.YELLOW)
     print_in_the_middle(dotted_line_length, title)
+    print(Style.RESET_ALL)
     empty_line(1)
     print_in_the_middle(dotted_line_length, new_game)
     print_in_the_middle(dotted_line_length, load_game)
