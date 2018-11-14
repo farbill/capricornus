@@ -155,7 +155,7 @@ def main_menu():
     dotted_line(dotted_line_length)
 
     empty_line(1)
-    print(Fore.YELLOW)
+    print(Fore.YELLOW + Style.BRIGHT)
     print_in_the_middle(dotted_line_length, title)
     print(Style.RESET_ALL)
     empty_line(1)
