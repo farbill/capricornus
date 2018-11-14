@@ -32,7 +32,7 @@ def go_up_and_clear():
     sys.stdout.write("\033[K")      # clear line
 
 def dotted_line(count):
-    print(Fore.YELLOW + "-" * count)
+    print(Fore.CYAN + "-" * count)
     print(Style.RESET_ALL)
 
 
