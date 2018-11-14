@@ -1,6 +1,6 @@
 import sys
 from os import name, system
-
+from colorama import init, Fore, Back, Style
 from command_parsing import command_parsing
 
 TIME_TO_WAIT_FOR_WRITE_OVER = 1
@@ -32,7 +32,8 @@ def go_up_and_clear():
     sys.stdout.write("\033[K")      # clear line
 
 def dotted_line(count):
-    print("-" * count)
+    print(Fore.YELLOW + "-" * count)
+    print(Style.RESET_ALL)
 
 
 def empty_line(count):
@@ -70,6 +71,7 @@ def write_over(the_string):
 
 
 def main_selection(the_input):
+    init()
     # inputs to be recognized as valid
     list_one = [1, "1", "new", "new game", "1. new game", "start", "begin", "go", "play"]
     list_two = [2, "2", "load", "load game", "2. load game", "continue"]
