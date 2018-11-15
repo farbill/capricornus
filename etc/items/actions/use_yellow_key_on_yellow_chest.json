@@ -1,6 +1,15 @@
 {
   "commands": ["use yellow key on yellow chest",
-    "use yellow key on chest"],
+    "use yellow key on chest",
+    "use the yellow key on the chest",
+    "use the yellow key to open the chest",
+    "use the yellow key to open the yellow chest",
+    "insert the yellow key to open the chest",
+    "insert the yellow key to open the yellow chest",
+    "insert yellow key to open the chest",
+    "insert yellow key to oepn yellow chest",
+    "use yellow key to open yellow chest"
+   ],
   "response_type": "trigger",
   "response": "yellow chest",
   "more_response_type": "action",
