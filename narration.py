@@ -6,15 +6,19 @@ from main_menu import clear_screen
 
 
 def command_help(width):
-        main_menu.print_in_the_middle(width, ("1. Go to North, South, East, or West "))
-        main_menu.print_in_the_middle(width, ("2. Check Inventory                   "))
-        main_menu.print_in_the_middle(width, ("   i.   Inspect                      "))
-        main_menu.print_in_the_middle(width, ("   ii.  Drop                         "))
-        main_menu.print_in_the_middle(width, ("3. Check Visited                     "))
-        main_menu.print_in_the_middle(width, ("4. Look                              "))
-        main_menu.print_in_the_middle(width, ("5. Inspect                           "))
-        main_menu.print_in_the_middle(width, ("6. Pick Up                           "))
-        main_menu.print_in_the_middle(width, ("7. Help                              "))
+        main_menu.print_in_the_middle(width, ("1. Go to North, South, East, or West           "))
+        main_menu.print_in_the_middle(width, ("2. Check Inventory                             "))
+        main_menu.print_in_the_middle(width, ("   i.   Clues: check collected clues           "))
+        main_menu.print_in_the_middle(width, ("   ii.  Items: list all obtained items         "))
+        main_menu.print_in_the_middle(width, ("        a.  Drop: drop an item                 "))
+        main_menu.print_in_the_middle(width, ("3. Check Visited                               "))
+        main_menu.print_in_the_middle(width, ("4. Interact with items or characters           "))
+        main_menu.print_in_the_middle(width, ("   Examples:                                   "))
+        main_menu.print_in_the_middle(width, ("        \"Talk to Hobo\"                       "))
+        main_menu.print_in_the_middle(width, ("        \"Look at the red chest\"              "))
+        main_menu.print_in_the_middle(width, ("        \"Pick up the coin\"                   "))
+        main_menu.print_in_the_middle(width, ("          And MANY more!                       "))
+        main_menu.print_in_the_middle(width, ("5. Help                                        "))
 
 def inventory_open(width):
         main_menu.print_in_the_middle(width, "1. Clues       ")
