@@ -162,7 +162,7 @@ def game_play(ga: gameaction.GameAction):
     clear_screen()
     # For new games, load in game data and play intro narration
     if ga.check_visited(STARTING_LOCATION) == False:
-        map_arr, ga.game_state.uncollected_legendary_items = stub_map.get_map_stub()
+        map_arr, ga.game_state.uncollected_legendary_items, ga.game_state.boss_puzzles = stub_map.get_map_stub()
         intro_narration()
         clear_screen()
     else: # For load game, load stored map data into map_arr
@@ -181,6 +181,9 @@ def game_play(ga: gameaction.GameAction):
 
         # for item in ga.game_state.uncollected_legendary_items:
         #     print(item.name)
+
+        # for puzzle in ga.game_state.boss_puzzles:
+        #     print(puzzle._data.question + " -- " + puzzle._data.answers[0])
 
         # Display game stuff
         main_menu.dotted_line(main_menu.GAME_WIDTH)

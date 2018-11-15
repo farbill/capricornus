@@ -68,6 +68,7 @@ class GameState(object):
         # Data to load in
         self.uncollected_legendary_items = []
         self._map_arr = []
+        self.boss_puzzles = []
 
     # Assign to self._visited =
     #  {'City Hall': False, 'Hawkins': False, 'Washington Heights': False, 'Greenland Grove': False,

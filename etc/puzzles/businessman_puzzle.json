@@ -1,4 +1,4 @@
 {
-  "question": "This type of error correction code can correct single bit errors in data transmission. It was created after it's author grew frustrated with his programs not running successfully over the weekends.",
-  "answers": ["Hamming Code", "hamming code", "hamming", "Hamming"]
+  "question": "This type of error correction code can correct single bit errors in data transmission.",
+  "answers": ["hamming code", "hamming"]
 }

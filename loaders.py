@@ -15,7 +15,8 @@ class CityLoader(object):
         map_arr = list(map(DistrictLoader.parse_json, config['districts']))
         city.assign_street_name(map_arr, config['street_names'])
         legendary_items = list(map(ItemLoader.parse_json, config['legendary_items']))
-        return map_arr, legendary_items
+        boss_puzzles = list(map(PuzzleLoader.parse_json, config['boss_puzzles']))
+        return map_arr, legendary_items, boss_puzzles
 
 
 class CharacterDataLoader(object):

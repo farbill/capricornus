@@ -25,5 +25,9 @@
   "legendary_items": ["etc/items/vitality_orb.json",
                          "etc/items/vision_orb.json",
                          "etc/items/strength_orb.json",
-                         "etc/items/magic_sword.json"]
+                         "etc/items/magic_sword.json"],
+  "boss_puzzles": ["etc/puzzles/boss_puzzle1.json",
+                    "etc/puzzles/boss_puzzle2.json",
+                    "etc/puzzles/boss_puzzle3.json",
+                    "etc/puzzles/boss_puzzle4.json"]
 }
