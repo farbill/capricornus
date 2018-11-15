@@ -20,6 +20,7 @@ def main():
 
         if main_menu_choice == 1:
             game_play.game_play(ga)
+            game_play.game_over()
         elif main_menu_choice == 2:
             main_menu.clear_screen()
             ga, load_menu_choice = load_save_menu.load_game(ga)

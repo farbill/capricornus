@@ -139,12 +139,21 @@ def location_change(ga, loc):
     ga.change_location(loc)
     ga.decrement_turns_remaining()
     clear_screen()
-    
+
+def game_over():
+    clear_screen()
+    main_menu.dotted_line(main_menu.GAME_WIDTH)
+    main_menu.empty_line(2)
+    narration.narration(" < G A M E   O V E R >", main_menu.GAME_WIDTH)
+    main_menu.empty_line(2)
+    main_menu.dotted_line(main_menu.GAME_WIDTH)
+    input("\nPress [Enter] to continue...\n")
+    clear_screen()
 
 def game_play(ga: gameaction.GameAction):
 
     # TODO: Load in all game data
-
+    
     # print("Initializing Character Information...")
     agt_dope = characters.AgentDope(narration.short_for_agt_dope(), narration.long_for_agt_dope())
     #Dr. Crime needs to be initialized with specified PUZZLE and DIALOGS
@@ -158,10 +167,16 @@ def game_play(ga: gameaction.GameAction):
         clear_screen()
     else: # For load game, load stored map data into map_arr
         map_arr = ga.map_arr
-
+    
+    #becomes false when the remaining turn becomes 1
+    still_playing = True
+    
     # Game loop
-    while True:
+    while still_playing:
 
+        if(ga.turns_remaining == 1):
+            still_playing = False
+        
         clear_screen()
 
         # for item in ga.game_state.uncollected_legendary_items:
