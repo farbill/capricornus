@@ -72,6 +72,11 @@ def gameplay_selection(ga, the_input: str,
 
             general_action_array.append(arr)
 
+    lair_action_array = [
+        ["view lair", "look at lair"],
+        ["enter lair", "enter the lair"]
+    ]
+
     selection = None
     the_input = str(the_input).lower()  # to make the input case insensitive
 
@@ -118,12 +123,28 @@ def gameplay_selection(ga, the_input: str,
                 selection = action_list[0]
                 break
 
+        # Check for valid action in lair action, if applicable
+        if ga.lair_discovered():
+            for action_list in lair_action_array:
+                if the_input in action_list:
+                    if action_list[0] == "view lair":
+                        sys.stdout.write("\033[K")  # clear line
+                        print("This must be Dr. Crime's Lair. Now is your chance to stop his madness!")
+                    if action_list[0] == "enter lair":
+                        return ga.final_game_sequence()
+                    sys.stdout.write("\033[F")  # go up one line
+                    go_up_and_clear()
+                    the_input = str(input(">>> ")).lower()
+                    continue
+
+        # Check for valid actions for district items
         status, the_input = district_action_function(ga, the_input, district_items_action, this_district._district_items)
         if status == "continue":
             continue
         elif status == "return":
             return ""
 
+        # Check for valid actions for dropped items
         status, the_input = district_action_function(ga, the_input, dropped_items_action, this_district._dropped_items)
         if status == "continue":
             continue
@@ -208,6 +229,7 @@ def gameplay_selection(ga, the_input: str,
                                     if ga.game_state._vision_orb == False:
                                         if ga.space_in_inventory():
                                             informScreen("You've gained the Vision Orb!")
+                                            informScreen("A darkness can be seen in the distance. It seems to be coming from " + ga.game_state._lair_location + ".")
                                             ga.game_state._vision_orb = True
                                             ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Vision Orb"))
                                             ga.remove_item_from_uncollected_legendary_items("Vision Orb")

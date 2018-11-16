@@ -68,6 +68,11 @@ def gametext_output(ga, map_arr) -> Tuple[ List[str],
     # Print narration
     narration.left_narration(str_to_print, main_menu.GAME_WIDTH)
 
+    # Print lair if lair_location w/ vision orb found
+    if ga.lair_discovered():
+        empty_line(1)
+        narration.left_narration("A Lair can be seen shrouded in a dark cloud. There's appears to be an entrance.", main_menu.GAME_WIDTH)
+
     # Print dropped items if any
     num_of_dropped_items = len(this_district._dropped_items)
     if num_of_dropped_items > 0:
@@ -83,7 +88,7 @@ def gametext_output(ga, map_arr) -> Tuple[ List[str],
         dropped_items_str += "."
         narration.left_narration(dropped_items_str, main_menu.GAME_WIDTH)
 
-    main_menu.empty_line(3)
+    empty_line(3)
 
     for i in range(4):
         if nswe_districts[i] is not None:
@@ -140,11 +145,13 @@ def location_change(ga, loc):
     ga.decrement_turns_remaining()
     clear_screen()
 
-def game_over():
+def end_game_screen(msg1, msg2):
     clear_screen()
     main_menu.dotted_line(main_menu.GAME_WIDTH)
     main_menu.empty_line(2)
-    narration.narration(" < G A M E   O V E R >", main_menu.GAME_WIDTH)
+    narration.narration(msg1, main_menu.GAME_WIDTH)
+    main_menu.empty_line(1)
+    narration.narration(msg2, main_menu.GAME_WIDTH)
     main_menu.empty_line(2)
     main_menu.dotted_line(main_menu.GAME_WIDTH)
     input("\nPress [Enter] to continue...\n")
@@ -172,18 +179,18 @@ def game_play(ga: gameaction.GameAction):
     still_playing = True
     
     # Game loop
-    while still_playing:
+    while True:
 
-        if(ga.turns_remaining == 1):
-            still_playing = False
+        if ga.turns_remaining == 0:
+            end_game_screen("< G A M E   O V E R >", "You've ran out of turns.")
+            break
         
         clear_screen()
 
-        # for item in ga.game_state.uncollected_legendary_items:
-        #     print(item.name)
-
-        # for puzzle in ga.game_state.boss_puzzles:
-        #     print(puzzle._data.question + " -- " + puzzle._data.answers[0])
+        # For testing -----------------------------------
+        # ga.game_state._lair_location = "City Hall"
+        # ga.game_state._vision_orb = True
+        # ------------------------------------------------
 
         # Display game stuff
         main_menu.dotted_line(main_menu.GAME_WIDTH)
@@ -223,3 +230,9 @@ def game_play(ga: gameaction.GameAction):
             ga.set_map_arr(map_arr)
             ga, load_menu_choice = load_save_menu.ingame_load_game(ga)
             map_arr = ga.map_arr
+        elif selection == "wingame":
+            end_game_screen("< Y O U   W I N >", "You've defeated Dr. Crime and saved the City of New San Diego!")
+            break
+        elif selection == "losegame":
+            end_game_screen("< G A M E   O V E R >", "You weren't able to defeat Dr. Crime!")
+            break

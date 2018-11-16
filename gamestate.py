@@ -10,10 +10,10 @@ import os
 import pickle
 
 
-RANDOM_DISTRICT_LOWER_LIMIT = 12
-RANDOM_DISTRICT_UPPER_LIMIT = 15
+RANDOM_DISTRICT_LOWER_LIMIT = 7
+RANDOM_DISTRICT_UPPER_LIMIT = 12
 
-INITIAL_NUMBER_OF_TURNS = 10
+INITIAL_NUMBER_OF_TURNS = 50
 MAX_INVENTORY = 8
 
 
@@ -81,7 +81,7 @@ class GameState(object):
             visited[district.name] = False
         return visited
 
-    # Assign to self._lair_location one of the following: 'Webster Mountain', 'Paradise Creek', 'Coltwood', or 'Lake Cypress'
+    # Assign to self._lair_location: [7:'River Gardens', 12:'Webster Mountain']
     def _randomly_select_lair_location(self) -> str:
         return District(random.randint(RANDOM_DISTRICT_LOWER_LIMIT, RANDOM_DISTRICT_UPPER_LIMIT)).name
 

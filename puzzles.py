@@ -77,3 +77,47 @@ class Puzzle(object):
             lowered_input = str(input(">>> ")).lower()
 
         return int(selection)
+
+    def play_boss_puzzle(self, number_of_tries) -> (bool, int):
+        clear_screen()
+        msg1 = self._data.question
+        msg2 = "(You must solve the puzzle! If you exit or use up your tries, you lose the game!)"
+        dotted_line_length = GAME_WIDTH
+        dotted_line(dotted_line_length)
+        empty_line(1)
+        narration(msg1, dotted_line_length)
+        empty_line(1)
+        narration(msg2, dotted_line_length)
+        dotted_line(dotted_line_length)
+        selection, number_of_tries = self.boss_puzzle_selection(input(">>> "), self._data.answers, number_of_tries)
+        if selection == 1:  #puzzle solved
+            return True, number_of_tries
+        else:
+            return False, number_of_tries
+
+    def boss_puzzle_selection(self, the_input: str, possible_answers: [str], number_of_tries: int):
+
+        # inputs to be recognized as valid
+        list_answers =  possible_answers
+        list_exit = ["exit", "quit", "back", "go back"]
+        lowered_input = str(the_input).lower()  # to make the input case insensitive
+
+        while True:
+            if command_parsing(lowered_input, list_answers):
+                selection = 1
+                break
+
+            if command_parsing(lowered_input, list_exit):
+                selection = 2
+                break
+
+            number_of_tries -= 1
+            if number_of_tries == 0:
+                selection = 2
+                break
+
+            write_over("That is incorrect. You have " + str(number_of_tries) + " remaining.")
+            go_up_and_clear()
+            lowered_input = str(input(">>> ")).lower()
+
+        return int(selection), number_of_tries

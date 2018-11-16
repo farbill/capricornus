@@ -6,6 +6,10 @@ from typing import List, Dict
 import city
 import items
 import time
+from main_menu import GAME_WIDTH, dotted_line, empty_line, print_in_the_middle, print_left_indented, write_over, \
+    go_up_and_clear, yes_no_selection, clear_screen, informScreen
+from narration import narration, left_narration
+import puzzles
 
 class GameAction(gamestate.GameState):
     def __init__(self, game_state: gamestate.GameState):
@@ -33,6 +37,10 @@ class GameAction(gamestate.GameState):
     # Return current location
     def current_location(self) -> str:
         return self.game_state._current_location
+
+    # Check if lair has been discovered
+    def lair_discovered(self) -> bool:
+        return self.game_state._current_location == self.game_state._lair_location and self.game_state._vision_orb == True
 
     # Change location
     def change_location(self, new_location: str) -> int:
@@ -222,6 +230,85 @@ class GameAction(gamestate.GameState):
             return 0
         else:
             return 1
+
+    def enter_lair_confirmation(self) -> int:
+        msg1 = "Are you sure you want to continue into the Lair?"
+        msg2 = "Once you've entered, there's no going back!"
+
+        clear_screen()
+        dotted_line(GAME_WIDTH)
+        empty_line(1)
+        print_in_the_middle(GAME_WIDTH, msg1)
+        print_in_the_middle(GAME_WIDTH, msg2)
+        empty_line(1)
+        dotted_line(GAME_WIDTH)
+
+        selection = yes_no_selection(input("Yes/No >>> "))
+        return selection
+
+    def narration_screen(self, narr):
+        clear_screen()
+        dotted_line(GAME_WIDTH)
+        empty_line(2)
+        narration(narr, GAME_WIDTH)
+        empty_line(2)
+        dotted_line(GAME_WIDTH)
+        input("Press [Enter] to continue...")
+        clear_screen()
+
+    # Dr. Crime's lair final game sequence
+    def final_game_sequence(self) -> str:
+        number_of_tries = 8
+        story1 = "You've entered the lair and encountered Dr. Crime. There are " + str(len(self.game_state.boss_puzzles))+ " puzzles " \
+                    "you must solve. You must answer all puzzles correctly in order to defeat Dr. Crime and win the game. " \
+                    "And you are only be allowed " + str(number_of_tries) + " wrong answer tries."
+        wrong_narr = "Dr. Crime says, 'You are foolish to think you can outsmart me.'"
+
+        right1 = "Dr. Crime says, 'That was a lucky guess. Let's see how you do on this next one.'"
+        right2 = "Dr. Crime says, 'Well, you're smarter than you look. Fine, you won't be able to solve this next one.'"
+        right3 = "Dr. Crime says, 'Arghhhh, who do you think you are?! You most definitely will not get this next one.'"
+        right4 = "As you raise up your Magic Sword, Dr. Crime's eyes glisten with fear. You quickly drop the sword, letting" \
+                 " the weight cut Dr. Crime. You rest easy knowing Dr. Crime can no longer poison the city."
+
+
+        # Check all legendary items are in user's inventory to allow user to proceed
+        legendary_items_status = self.check_legendary()
+        for status in legendary_items_status:
+            if status != "On Hand":
+                informScreen("You need all 4 Legendary items in your inventory to proceed!")
+                return ""
+
+        # Check if user wishes to proceed
+        if self.enter_lair_confirmation() == 2: # User chooses 'no'
+            return ""
+
+        # working here......
+        self.narration_screen(story1)
+        status, number_of_tries = self.game_state.boss_puzzles[0].play_boss_puzzle(number_of_tries)
+        if status == False:
+            self.narration_screen(wrong_narr)
+            return "losegame"
+
+        self.narration_screen(right1)
+        status, number_of_tries = self.game_state.boss_puzzles[1].play_boss_puzzle(number_of_tries)
+        if status == False:
+            self.narration_screen(wrong_narr)
+            return "losegame"
+
+        self.narration_screen(right2)
+        status, number_of_tries = self.game_state.boss_puzzles[2].play_boss_puzzle(number_of_tries)
+        if status == False:
+            self.narration_screen(wrong_narr)
+            return "losegame"
+
+        self.narration_screen(right3)
+        status, number_of_tries = self.game_state.boss_puzzles[3].play_boss_puzzle(number_of_tries)
+        if status == False:
+            self.narration_screen(wrong_narr)
+            return "losegame"
+
+        self.narration_screen(right4)
+        return "wingame"
 
 if __name__ == "__main__":
     game_state = gamestate.GameState()
