@@ -9,6 +9,7 @@ import narration
 import main_menu
 from typing import Tuple, List
 import stub_map     #for stub data
+import sys
 
 STARTING_LOCATION = "City Hall"
 
@@ -145,6 +146,16 @@ def location_change(ga, loc):
     ga.decrement_turns_remaining()
     clear_screen()
 
+def look_feature(location):
+    clear_screen()
+    main_menu.dotted_line(main_menu.GAME_WIDTH)
+    main_menu.empty_line(2)
+    narration.narration(location._long_description, main_menu.GAME_WIDTH)
+    main_menu.empty_line(2)
+    main_menu.dotted_line(main_menu.GAME_WIDTH)
+    input("\nPress [Enter] to continue...\n")
+
+
 def end_game_screen(msg1, msg2):
     clear_screen()
     main_menu.dotted_line(main_menu.GAME_WIDTH)
@@ -180,11 +191,10 @@ def game_play(ga: gameaction.GameAction):
     
     # Game loop
     while True:
-
+        # When game over condition is met
         if ga.turns_remaining == 0:
             end_game_screen("< G A M E   O V E R >", "You've ran out of turns.")
             break
-        
         clear_screen()
 
         # For testing -----------------------------------
@@ -236,3 +246,8 @@ def game_play(ga: gameaction.GameAction):
         elif selection == "losegame":
             end_game_screen("< G A M E   O V E R >", "You weren't able to defeat Dr. Crime!")
             break
+        elif selection == "look":
+            look_feature(this_district)
+
+            
+            

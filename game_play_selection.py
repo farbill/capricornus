@@ -28,7 +28,8 @@ def gameplay_selection(ga, the_input: str,
         ["inventory", "bag", "open inventory", "open bag", "see inventory", "check inventory"],
         ["help", "help me", "manual", "guide", "q&a", "open help"],
         ["savegame", "save game", "save"],
-        ["loadgame", "load game", "load"]
+        ["loadgame", "load game", "load"],
+        ["look", "look around", "look around the district", "take a look at the district"]
         # ....
     ]
 
