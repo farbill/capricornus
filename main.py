@@ -22,6 +22,10 @@ def main():
                                   "Please try again.")
         return
 
+    game_play.end_game_screen("Your window size must be a minimum of "
+                              "{0} (width) x {1} (height) to play the game.".format(MINIMUM_WIDTH, MINIMUM_HEIGHT),
+                              "Your window size currently satisfies this requirement. Remember to not change the window size during game play. Thank you!")
+
     while True:
 
         # Global gamestate and gameaction instances
