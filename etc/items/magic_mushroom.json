@@ -1,8 +1,0 @@
-{
-  "name": "Magic Mushroom",
-  "item_type": "NONCRITICAL",
-  "narration": "There is a tasty looking mushroom.",
-  "description": "Looks delicious, but could be poisonous. I'd better not eat this.",
-  "actions":["etc/items/actions/look_at_mushroom.json",
-             "etc/items/actions/eat_mushroom.json"]
-}

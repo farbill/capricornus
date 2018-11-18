@@ -1,9 +1,0 @@
-{
-  "commands": ["look stone",
-        "look at stone",
-        "look at the stone",
-        "see the stone",
-        "check out the stone"],
-  "response_type": "display",
-  "response": "It's the magical time stone. Holding this stone will replenish 5 turns."
-}

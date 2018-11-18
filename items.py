@@ -20,7 +20,7 @@ class ActionType(Enum):
     HIT = 8
     CLIMB = 9
     MOVE = 10
-    TOUCH = 11
+    SWIM = 11
     STEAL = 12
     FEED = 13
 

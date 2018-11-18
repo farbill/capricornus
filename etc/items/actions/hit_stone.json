@@ -1,0 +1,7 @@
+{
+  "commands": ["hit stone",
+                "hit the stone"],
+  "response_type": "action",
+  "response": "",
+  "more_response_type": "hit"
+}

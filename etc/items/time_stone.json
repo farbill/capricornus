@@ -1,8 +1,0 @@
-{
-  "name": "Time Stone",
-  "item_type": "NONCRITICAL",
-  "narration": "There is a stone making...ticking sound?!.",
-  "description": "It's the magical time stone. Holding this stone will replenish 5 turns.",
-  "actions":["etc/items/actions/look_at_time_stone.json",
-             "etc/items/actions/take_time_stone.json"]
-}

@@ -1,5 +1,6 @@
 import sys
 from typing import Tuple, List
+from random import choice, randint
 
 import city
 from items import ActionType
@@ -147,6 +148,8 @@ def gameplay_selection(ga, the_input: str,
             continue
         elif status == "return":
             return ""
+        elif status == "brokestone":
+            return "brokestone"
 
         # Check for valid actions for dropped items
         status, the_input = district_action_function(ga, the_input, dropped_items_action, this_district._dropped_items)
@@ -154,6 +157,8 @@ def gameplay_selection(ga, the_input: str,
             continue
         elif status == "return":
             return ""
+        elif status == "brokestone":
+            return "brokestone"
 
         # Check for district-specific action, characters
         if the_input in district_characters_action:
@@ -310,21 +315,15 @@ def district_action_function(ga, the_input, action_arr, item_arr):
 
                         if action.more_response_type == ActionType.TAKE_ITEM:
                             if ga.space_in_inventory():
-                                item_remains = True
+
 
                                 # Special items
-                                if item.name == "Time Stone":
-                                    ga.game_state._turns_remaining = ga.game_state._turns_remaining + 5
-                                elif item.name == "Magic Mushroom":
-                                    ga.game_state._turns_remaining = ga.game_state._turns_remaining - 10
-                                    item_remains = False
-                                elif item.name == "Lotto Ticket":
+                                if item.name == "Lotto Ticket":
                                     ga.add_to_obtained_clues("The lotto ticket had '23 57 12' on it")
 
-                                if item_remains == True:
-                                    ga.add_to_inventory(item)           # Add item to inventory
 
-                                item_arr.remove(item)                   # Remove item from district
+                                ga.add_to_inventory(item)           # Add item to inventory
+                                item_arr.remove(item)               # Remove item from district
                                 informScreen(action.response)
                                 return "return", the_input
                             else:
@@ -332,41 +331,68 @@ def district_action_function(ga, the_input, action_arr, item_arr):
                                 print("You can't carry anymore.  Max inventory is %s." % gamestate.MAX_INVENTORY)
 
                         if action.more_response_type == ActionType.EAT:
-                            if item.name == "Magic Mushroom":
-                                parsed_selection = action.response.split(" ", 1)
-                                action_word = parsed_selection[0]
-                                qty = int(parsed_selection[1])
-
-                                if action_word == "reduce":
-                                    ga.game_state._turns_remaining -= qty
-                                    informScreen("Uh-oh, you ate that and didn't feel so well. You've lost {} turns.".format(qty))
-                                elif action_word == "increase":
+                            if item.name == "Mushroom":
+                                if randint(0, 1):
+                                    qty = choice([10, 15])
                                     ga.game_state._turns_remaining += qty
                                     informScreen("Wow, after you ate that you felt great. You've gained {} turns.".format(qty))
-
+                                else:
+                                    qty = choice([5, 10])
+                                    ga.game_state._turns_remaining -= qty
+                                    informScreen("Uh-oh, you ate that and didn't feel so well. You've lost {} turns.".format(qty))
                                 item_arr.remove(item)  # Remove item from district
-                                return "return", the_input
                             else:
-                                informScreen()
+                                informScreen("INTERNAL ERROR: YOU SHOULDN'T SEE THIS SCREEN")
+                            return "return", the_input
 
                         if action.more_response_type == ActionType.HIT:
-                            pass
+                            if item.name == "Stone":
+                                informScreen("You striked the Stone hard. It cracks and spews a blinding light!")
+                                return "brokestone", the_input
+                            else:
+                                informScreen("INTERNAL ERROR: YOU SHOULDN'T SEE THIS SCREEN")
+                            return "return", the_input
 
                         if action.more_response_type == ActionType.CLIMB:
-
-                            pass
+                            if item.name == "Statue":
+                                if action.response == "":
+                                    action.response = "climbed"
+                                    qty = 9000
+                                    ga.game_state._turns_remaining += qty
+                                    informScreen("Congratulations! You found an easter egg. Your level is now over {}!".format(qty))
+                                else:
+                                    informScreen("Enjoy you easter egg!")
+                            else:
+                                informScreen("INTERNAL ERROR: YOU SHOULDN'T SEE THIS SCREEN")
+                            return "return", the_input
 
                         if action.more_response_type == ActionType.MOVE:
-                            pass
+                            if item.name == "":
+                                pass
+                            else:
+                                informScreen("INTERNAL ERROR: YOU SHOULDN'T SEE THIS SCREEN")
+                            return "return", the_input
 
                         if action.more_response_type == ActionType.TOUCH:
-                            pass
+                            if item.name == "":
+                                pass
+                            else:
+                                informScreen("INTERNAL ERROR: YOU SHOULDN'T SEE THIS SCREEN")
+                            return "return", the_input
 
                         if action.more_response_type == ActionType.STEAL:
-                            pass
+                            if item.name == "":
+                                pass
+                            else:
+                                informScreen("INTERNAL ERROR: YOU SHOULDN'T SEE THIS SCREEN")
+                            return "return", the_input
 
                         if action.more_response_type == ActionType.FEED:
-                            pass
+                            if item.name == "":
+                                pass
+                            else:
+                                informScreen("INTERNAL ERROR: YOU SHOULDN'T SEE THIS SCREEN")
+                            return "return", the_input
 
 
         sys.stdout.write("\033[F")  # go up one line

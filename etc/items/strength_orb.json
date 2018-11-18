@@ -3,6 +3,6 @@
   "item_type": "LEGENDARY",
   "narration": "There is an orb glowing in red!",
   "description": "It's the legendary strength orb I was looking for!  Just by looking at it, I can feel its power.",
-  "actions":["etc/items/actions/look_at_str_orb.json",
-             "etc/items/actions/take_str_orb.json"]
+  "actions":["etc/items/actions/look_at_strength_orb.json",
+             "etc/items/actions/take_strength_orb.json"]
 }

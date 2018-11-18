@@ -3,7 +3,7 @@
   "y":3,
   "name": "Bayrock",
   "district_items": ["etc/items/red_chest.json",
-                      "etc/items/magic_mushroom.json"],
+                      "etc/items/mushroom.json"],
   "clues": [],
   "characters": [],
   "short_description": "Bayrock is at the edge of New San Diego.",

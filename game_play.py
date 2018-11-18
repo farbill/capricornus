@@ -246,6 +246,9 @@ def game_play(ga: gameaction.GameAction):
         elif selection == "losegame":
             end_game_screen("< G A M E   O V E R >", "You weren't able to defeat Dr. Crime!")
             break
+        elif selection == "brokestone":
+            end_game_screen("< G A M E   O V E R >", "The Stone held together the fabric of Time and Space, and you broke it! Everyone died.")
+            break
         elif selection == "look":
             look_feature(this_district)
 
