@@ -425,20 +425,25 @@ def district_action_function(ga, the_input, action_arr, item_arr):
                                                     "you are rewarded with all the Orbs and the Magic Sword. Go fight Dr. Crime now. "
                                                     "He over at {}.".format(ga.game_state._lair_location))
 
-                                    ga.game_state._strength_orb = True
-                                    ga.game_state._vitality_orb = True
-                                    ga.game_state._vision_orb = True
-                                    ga.game_state._magic_sword = True
+                                    if not ga.game_state._strength_orb:
+                                        ga.game_state._strength_orb = True
+                                        ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Strength Orb"))
+                                        ga.remove_item_from_uncollected_legendary_items("Strength Orb")
 
-                                    ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Strength Orb"))
-                                    ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Vitality Orb"))
-                                    ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Vision Orb"))
-                                    ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Magic Sword"))
+                                    if not ga.game_state._vitality_orb:
+                                        ga.game_state._vitality_orb = True
+                                        ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Vitality Orb"))
+                                        ga.remove_item_from_uncollected_legendary_items("Vitality Orb")
 
-                                    ga.remove_item_from_uncollected_legendary_items("Strength Orb")
-                                    ga.remove_item_from_uncollected_legendary_items("Vision Orb")
-                                    ga.remove_item_from_uncollected_legendary_items("Vitality Orb")
-                                    ga.remove_item_from_uncollected_legendary_items("Magic Sword")
+                                    if not ga.game_state._vision_orb:
+                                        ga.game_state._vision_orb = True
+                                        ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Vision Orb"))
+                                        ga.remove_item_from_uncollected_legendary_items("Vision Orb")
+
+                                    if not ga.game_state._magic_sword:
+                                        ga.game_state._magic_sword = True
+                                        ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Magic Sword"))
+                                        ga.remove_item_from_uncollected_legendary_items("Magic Sword")
 
                                     ga.add_to_obtained_clues("Dr. Crime is at " + ga.game_state._lair_location + ".")
 
