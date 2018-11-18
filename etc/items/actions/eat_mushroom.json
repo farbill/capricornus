@@ -5,6 +5,6 @@
         "swallow the mushroom",
         "consume the mushroom"],
   "response_type": "action",
-  "response": "Eeekkkk!",
-  "more_response_type": "take_item"
+  "response": "reduce 10",
+  "more_response_type": "eat"
 }

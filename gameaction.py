@@ -157,58 +157,48 @@ class GameAction(gamestate.GameState):
                 break
         del self.game_state.uncollected_legendary_items[item_index]
 
-    @property
-    # Return solved puzzles in an ascending order by puzzle_id
-    def solved_puzzles(self) -> Dict[int, str]:
-        # return self.game_state._solved_puzzles
-        return dict(sorted(self.game_state._solved_puzzles.items()))
+    # @property
+    # # Return solved puzzles in an ascending order by puzzle_id
+    # def solved_puzzles(self) -> Dict[int, str]:
+    #     # return self.game_state._solved_puzzles
+    #     return dict(sorted(self.game_state._solved_puzzles.items()))
 
-    # Add puzzle to solved puzzle
-    def add_to_solved_puzzles(self, puzzle_id: int, puzzle_name: str) -> int:
-        valid_puzzle = True
-
-        # TODO: validate puzzle_id and puzzle_name
-        if (True):
-            pass
-
-        if valid_puzzle:
-            self.game_state._solved_puzzles[puzzle_id] = puzzle_name
-            return 0
-        else:
-            return 1
-
-    # Check if puzzle is solved
-    def check_for_solved_puzzle(self, puzzle_id: int) -> bool:
-        solved_puzzle = False
-        if int(puzzle_id) in self.game_state._solved_puzzles:
-            solved_puzzle = True
-        return solved_puzzle
+    # # Add puzzle to solved puzzle
+    # def add_to_solved_puzzles(self, puzzle_id: int, puzzle_name: str) -> int:
+    #     valid_puzzle = True
+    #
+    #     # TODO: validate puzzle_id and puzzle_name
+    #     if (True):
+    #         pass
+    #
+    #     if valid_puzzle:
+    #         self.game_state._solved_puzzles[puzzle_id] = puzzle_name
+    #         return 0
+    #     else:
+    #         return 1
+    #
+    # # Check if puzzle is solved
+    # def check_for_solved_puzzle(self, puzzle_id: int) -> bool:
+    #     solved_puzzle = False
+    #     if int(puzzle_id) in self.game_state._solved_puzzles:
+    #         solved_puzzle = True
+    #     return solved_puzzle
 
     @property
     # Return obtained clues in an ascending order by clue_id
-    def obtained_clues(self) -> Dict[int, str]:
-        return dict(sorted(self.game_state._obtained_clues.items()))
+    def obtained_clues(self) -> [str]:
+        return self.game_state._obtained_clues
 
     # Add clue to obtained clues
-    def add_to_obtained_clues(self, clue_id: int, clue_text: str) -> int:
-        valid_clue = True
+    def add_to_obtained_clues(self, clue_text: str):
+        self.game_state._obtained_clues.append(clue_text)
 
-        # TODO: validate clue_id and clue_text
-        if (True):
-            pass
-
-        if valid_clue:
-            self.game_state._obtained_clues[clue_id] = clue_text
-            return 0
-        else:
-            return 1
-
-    # Check if clue has been obtained
-    def check_for_obtained_clue(self, clue_id: int) -> bool:
-        obtained_clue = False
-        if int(clue_id) in self.game_state._obtained_clues:
-            obtained_clue = True
-        return obtained_clue
+    # # Check if clue has been obtained
+    # def check_for_obtained_clue(self, clue_id: int) -> bool:
+    #     obtained_clue = False
+    #     if int(clue_id) in self.game_state._obtained_clues:
+    #         obtained_clue = True
+    #     return obtained_clue
 
     # Check if district has been visited
     def check_visited(self, district_name: str) -> bool:

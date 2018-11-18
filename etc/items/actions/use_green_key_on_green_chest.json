@@ -10,7 +10,5 @@
     "insert green key to oepn green chest",
     "use green key to open green chest"],
   "response_type": "trigger",
-  "response": "green chest",
-  "more_response_type": "action",
-  "more response": ""
+  "response": "green chest"
 }

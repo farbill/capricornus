@@ -10,7 +10,5 @@
     "insert red key to open red chest",
     "use red key to open red chest"],
   "response_type": "trigger",
-  "response": "red chest",
-  "more_response_type": "action",
-  "more response": ""
+  "response": "red chest"
 }

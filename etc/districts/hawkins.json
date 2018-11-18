@@ -2,7 +2,7 @@
   "x":2,
   "y":4,
   "name": "Hawkins",
-  "district_items": [],
+  "district_items": ["etc/items/magic_mushroom.json"],
   "clues": [],
   "characters": [],
   "short_description": "Hawkins is a community wintin the city  of New San Diego witn about 81,600 residents.",

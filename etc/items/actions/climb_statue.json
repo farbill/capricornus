@@ -1,0 +1,7 @@
+{
+  "commands": ["climb statue",
+                "climb the statue"],
+  "response_type": "action",
+  "response": "",
+  "more_response_type": "climb"
+}

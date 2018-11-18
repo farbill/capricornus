@@ -186,9 +186,8 @@ def gameNarrationHelp(narr1, narr2):
     clear_screen()
     
 def itemHelp():
-    itemString = "There are regular items and lengenary items.  " \
-                    "While regular items can be picked up and dropped, "\
-                    "legendary items cannot be dropped once obtained. " \
+    itemString = "There are regular items and legendary items. " \
+                    "Both can be picked up and dropped. But "\
                     "Legendary items are imperative in order to defeat Dr.Crime." \
                     "Obtaining certain items can add a clue.  Clue remains " \
                     "even if the item is dropped, because it's considered " \

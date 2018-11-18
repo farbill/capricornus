@@ -76,6 +76,9 @@ def gameplay_selection(ga, the_input: str,
     lair_action_array = [
         ["view lair", "look at lair"],
         ["enter lair", "enter the lair"]
+
+        # TODO: need to apply all verbs to lair
+        # ...
     ]
 
     selection = None
@@ -163,7 +166,7 @@ def gameplay_selection(ga, the_input: str,
                         if action.response_type == ActionType.EVENT:
                             character.play_char_puzzle(ga, this_district)
                             if(character._short_description == "Daniel Webster Jr. Jr."):
-                                ga.add_to_obtained_clues(1, "These cities are on the same horizon. Bay Rock - Greenland - City Hall - Oak Square - Northtown")
+                                ga.add_to_obtained_clues("These cities are on the same horizon. Bay Rock - Greenland - City Hall - Oak Square - Northtown")
                             return ""
             sys.stdout.write("\033[F")      # go up one line
             go_up_and_clear()
@@ -231,6 +234,7 @@ def gameplay_selection(ga, the_input: str,
                                         if ga.space_in_inventory():
                                             informScreen("You've gained the Vision Orb!")
                                             informScreen("A darkness can be seen in the distance. It seems to be coming from " + ga.game_state._lair_location + ".")
+                                            ga.add_to_obtained_clues("A darkness can be seen in the distance. It seems to be coming from " + ga.game_state._lair_location + ".")
                                             ga.game_state._vision_orb = True
                                             ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Vision Orb"))
                                             ga.remove_item_from_uncollected_legendary_items("Vision Orb")
@@ -301,9 +305,10 @@ def district_action_function(ga, the_input, action_arr, item_arr):
                         sys.stdout.write("\033[K")  # clear line
                         print(action.response)
 
-                    # Action: pick up item
+                    # Action: single item interaction
                     if action.response_type == ActionType.ACTION:
-                        if action.more_response_type == ActionType.TAKE_LEGENDARY or action.more_response_type == ActionType.TAKE_ITEM:
+
+                        if action.more_response_type == ActionType.TAKE_ITEM:
                             if ga.space_in_inventory():
                                 item_remains = True
 
@@ -314,7 +319,7 @@ def district_action_function(ga, the_input, action_arr, item_arr):
                                     ga.game_state._turns_remaining = ga.game_state._turns_remaining - 10
                                     item_remains = False
                                 elif item.name == "Lotto Ticket":
-                                    ga.add_to_obtained_clues(2, "The lotto ticket had '23 57 12' on it")
+                                    ga.add_to_obtained_clues("The lotto ticket had '23 57 12' on it")
 
                                 if item_remains == True:
                                     ga.add_to_inventory(item)           # Add item to inventory
@@ -325,6 +330,45 @@ def district_action_function(ga, the_input, action_arr, item_arr):
                             else:
                                 sys.stdout.write("\033[K")  # clear line
                                 print("You can't carry anymore.  Max inventory is %s." % gamestate.MAX_INVENTORY)
+
+                        if action.more_response_type == ActionType.EAT:
+                            if item.name == "Magic Mushroom":
+                                parsed_selection = action.response.split(" ", 1)
+                                action_word = parsed_selection[0]
+                                qty = int(parsed_selection[1])
+
+                                if action_word == "reduce":
+                                    ga.game_state._turns_remaining -= qty
+                                    informScreen("Uh-oh, you ate that and didn't feel so well. You've lost {} turns.".format(qty))
+                                elif action_word == "increase":
+                                    ga.game_state._turns_remaining += qty
+                                    informScreen("Wow, after you ate that you felt great. You've gained {} turns.".format(qty))
+
+                                item_arr.remove(item)  # Remove item from district
+                                return "return", the_input
+                            else:
+                                informScreen()
+
+                        if action.more_response_type == ActionType.HIT:
+                            pass
+
+                        if action.more_response_type == ActionType.CLIMB:
+
+                            pass
+
+                        if action.more_response_type == ActionType.MOVE:
+                            pass
+
+                        if action.more_response_type == ActionType.TOUCH:
+                            pass
+
+                        if action.more_response_type == ActionType.STEAL:
+                            pass
+
+                        if action.more_response_type == ActionType.FEED:
+                            pass
+
+
         sys.stdout.write("\033[F")  # go up one line
         go_up_and_clear()
         the_input = str(input(">>> ")).lower()

@@ -11,7 +11,5 @@
     "use yellow key to open yellow chest"
    ],
   "response_type": "trigger",
-  "response": "yellow chest",
-  "more_response_type": "action",
-  "more response": ""
+  "response": "yellow chest"
 }

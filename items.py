@@ -11,11 +11,20 @@ class ItemType(Enum):
 class ActionType(Enum):
     NONE = 0
     DISPLAY = 1         # Display some text
-    ACTION = 2          # Pick up item
+    ACTION = 2          # Single item interaction, combines with Enum 5 onwards
     TRIGGER = 3         # Item-item interaction
     EVENT = 4           # Talk to character
-    TAKE_LEGENDARY = 5  # Pick up legendary item
+
     TAKE_ITEM = 6       # Pick up critical or non-critical item
+    EAT = 7
+    HIT = 8
+    CLIMB = 9
+    MOVE = 10
+    TOUCH = 11
+    STEAL = 12
+    FEED = 13
+
+
 
 class Action(object):
     def __init__(self,

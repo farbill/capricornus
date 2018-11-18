@@ -5,5 +5,5 @@
         "see the mushroom",
         "check out the mushroom"],
   "response_type": "display",
-  "response": "It's a poison mushroom.  I'd better not eat this."
+  "response": "Looks delicious, but could be poisonous. I'd better not eat this."
 }

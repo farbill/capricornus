@@ -2,7 +2,7 @@
   "x":2,
   "y":1,
   "name": "Webster Mountain",
-  "district_items": [],
+  "district_items": ["etc/items/magic_mushroom.json"],
   "clues": [],
   "characters": ["etc/characters/daniel.json"],
   "short_description": "Webster Mountain is a neighborhood in the southern portion of the New San Diego City.",

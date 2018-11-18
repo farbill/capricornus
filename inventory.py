@@ -17,8 +17,8 @@ def clues_screen(ga):
         narration_clues = "These are following clues obtained:"
         narration(narration_clues, main_menu.GAME_WIDTH)
         main_menu.empty_line(2)
-        for key in ga.obtained_clues:
-            clueString = "- " + ga.obtained_clues[key]
+        for clue in ga.obtained_clues:
+            clueString = "- " + clue
             narration(clueString, main_menu.GAME_WIDTH)
 
     main_menu.empty_line(2)
@@ -71,6 +71,7 @@ def view_drop_inventory_item(ga, map_arr, this_district):
                         break
                     else:
                         cline_print_up_cline("That item is not in your inventory.")
+
                 elif action_word == "drop":
                     if retrieved_item is not None:
                         ga.remove_item_from_inventory(retrieved_item)
@@ -79,6 +80,7 @@ def view_drop_inventory_item(ga, map_arr, this_district):
                         break
                     else:
                         cline_print_up_cline("That item is not in your inventory.")
+
                 else:
                     cline_print_up_cline("Invalid Input. Try again.")
             else:

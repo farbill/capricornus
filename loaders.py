@@ -157,7 +157,19 @@ class ActionLoader(object):
             return ActionType.TRIGGER
         elif response_type == 'event':
             return ActionType.EVENT
-        elif response_type == 'take_legendary':
-            return ActionType.TAKE_LEGENDARY
         elif response_type == 'take_item':
             return ActionType.TAKE_ITEM
+        elif response_type == 'eat':
+            return ActionType.EAT
+        elif response_type == 'hit':
+            return ActionType.HIT
+        elif response_type == 'climb':
+            return ActionType.CLIMB
+        elif response_type == 'move':
+            return ActionType.MOVE
+        elif response_type == 'touch':
+            return ActionType.TOUCH
+        elif response_type == 'steal':
+            return ActionType.STEAL
+        elif response_type == 'FEED':
+            return ActionType.FEED

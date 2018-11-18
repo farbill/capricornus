@@ -10,7 +10,5 @@
     "insert crystal key to open crystal chest",
     "use crystal key to open crystal chest"],
   "response_type": "trigger",
-  "response": "crystal chest",
-  "more_response_type": "action",
-  "more response": ""
+  "response": "crystal chest"
 }
