@@ -323,8 +323,8 @@ def district_action_function(ga, the_input, action_arr, item_arr):
 
 
                                 # Special items
-                                if item.name == "Lotto Ticket":
-                                    ga.add_to_obtained_clues("The lotto ticket had '23 57 12' on it")
+                                # if item.name == "Lotto Ticket":
+                                #     ga.add_to_obtained_clues("The lotto ticket had '23 57 12' on it")
 
 
                                 ga.add_to_inventory(item)           # Add item to inventory
