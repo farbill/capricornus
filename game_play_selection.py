@@ -8,6 +8,7 @@ from items import ActionType
 import time
 import gamestate
 from main_menu import go_up_and_clear, write_over, informScreen
+from narration import narrationScreen
 
 def gameplay_selection(ga, the_input: str,
                        nswe_districts: List[str],
@@ -170,8 +171,12 @@ def gameplay_selection(ga, the_input: str,
                             print(action.response)
                         if action.response_type == ActionType.EVENT:
                             character.play_char_puzzle(ga, this_district)
-                            if(character._short_description == "Daniel Webster Jr. Jr."):
-                                ga.add_to_obtained_clues("These cities are on the same horizon. Bay Rock - Greenland - City Hall - Oak Square - Northtown")
+
+                            if character._short_description == "Daniel Webster Jr. Jr.":
+                                clue_str = "Daniel Webster Jr. Jr. says not to mess with the Stone."
+                                if clue_str not in ga.obtained_clues:
+                                    ga.add_to_obtained_clues(clue_str)
+
                             return ""
             sys.stdout.write("\033[F")      # go up one line
             go_up_and_clear()
@@ -367,29 +372,79 @@ def district_action_function(ga, the_input, action_arr, item_arr):
                             return "return", the_input
 
                         if action.more_response_type == ActionType.MOVE:
-                            if item.name == "":
-                                pass
+                            if item.name == "Tree":
+                                if action.response == "":
+                                    action.response = "moved"
+                                    item.narration = "A Tree on the side of the road - no longer blocking traffic."
+                                    ga.add_to_obtained_clues("There's a rumor that there's something atop the Statue.")
+                                    narrationScreen("You moved the Tree out of traffic. A store owner comes out and "
+                                                    "thanks you. They add, 'I've heard there's something atop the Statue. But that's just a rumor.'")
+                                else:
+                                    informScreen("There's no point to moving the Tree any further. It's safely out the way.")
                             else:
                                 informScreen("INTERNAL ERROR: YOU SHOULDN'T SEE THIS SCREEN")
                             return "return", the_input
 
-                        if action.more_response_type == ActionType.TOUCH:
-                            if item.name == "":
-                                pass
+                        if action.more_response_type == ActionType.SWIM:
+                            if item.name == "Lake":
+                                if action.response == "":
+                                    action.response = "swam"
+                                    qty = 30
+                                    ga.game_state._turns_remaining += qty
+                                    informScreen("During your swim, you found some peace. You've gained {} turns!".format(qty))
+                                else:
+                                    informScreen("You had a relaxing swim, but time to get back to stopping Dr. Crime.")
                             else:
                                 informScreen("INTERNAL ERROR: YOU SHOULDN'T SEE THIS SCREEN")
                             return "return", the_input
 
-                        if action.more_response_type == ActionType.STEAL:
-                            if item.name == "":
-                                pass
+                        if action.more_response_type == ActionType.LIFT:
+                            if item.name == "Barbell":
+                                if action.response == "":
+                                    action.response = "lifted"
+                                    qty = 35
+                                    ga.game_state._turns_remaining -= qty
+                                    narrationScreen(
+                                        "You go over and dead-lift the Barbell a few times. A trainer is impressed by your technique and comes over and talks to you. "
+                                        "You engage in lengthy discussion about lifting. This caused you to lose track of time "
+                                        "and you've ended up losing {} turns!".format(qty))
+                                else:
+                                    informScreen("You've wasted too much time talking about lifting! You have to find Dr. Crime!")
                             else:
                                 informScreen("INTERNAL ERROR: YOU SHOULDN'T SEE THIS SCREEN")
                             return "return", the_input
 
                         if action.more_response_type == ActionType.FEED:
-                            if item.name == "":
-                                pass
+                            if item.name == "Dog":
+                                if action.response == "":
+                                    action.response = "fed"
+                                    item.narration = "A Dog is sitting and staring intently at you."
+                                    narrationScreen("You rummage through you pockets and find a piece dried jerky. You "
+                                                    "feed it to the Dog. The Dog eats it rapidly and then stares at you waiting for more.")
+                                    narrationScreen("Congratulations! You've found an easter egg. For your love of animals, "
+                                                    "you are rewarded with all the Orbs and the Magic Sword. Go fight Dr. Crime now. "
+                                                    "He over at {}.".format(ga.game_state._lair_location))
+
+                                    ga.game_state._strength_orb = True
+                                    ga.game_state._vitality_orb = True
+                                    ga.game_state._vision_orb = True
+                                    ga.game_state._magic_sword = True
+
+                                    ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Strength Orb"))
+                                    ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Vitality Orb"))
+                                    ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Vision Orb"))
+                                    ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Magic Sword"))
+
+                                    ga.remove_item_from_uncollected_legendary_items("Strength Orb")
+                                    ga.remove_item_from_uncollected_legendary_items("Vision Orb")
+                                    ga.remove_item_from_uncollected_legendary_items("Vitality Orb")
+                                    ga.remove_item_from_uncollected_legendary_items("Magic Sword")
+
+                                    ga.add_to_obtained_clues("Dr. Crime is at " + ga.game_state._lair_location + ".")
+
+                                else:
+                                    narrationScreen("You again rummage through your pockets but couldn't find anything to feed the Dog with. Still, enjoy your easter egg.")
+
                             else:
                                 informScreen("INTERNAL ERROR: YOU SHOULDN'T SEE THIS SCREEN")
                             return "return", the_input

@@ -257,4 +257,12 @@ def standard_title_display(string):
     main_menu.print_in_the_middle(main_menu.GAME_WIDTH, (string))
     main_menu.empty_line(2)
 
-    
+def narrationScreen(msg: str):
+    clear_screen()
+    dotted_line_length = main_menu.GAME_WIDTH
+    main_menu.dotted_line(dotted_line_length)
+    main_menu.empty_line(1)
+    narration(msg, main_menu.GAME_WIDTH)
+    main_menu.empty_line(1)
+    main_menu.dotted_line(dotted_line_length)
+    input("Press [Enter] to continue...")

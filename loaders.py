@@ -167,9 +167,9 @@ class ActionLoader(object):
             return ActionType.CLIMB
         elif response_type == 'move':
             return ActionType.MOVE
-        elif response_type == 'touch':
-            return ActionType.TOUCH
-        elif response_type == 'steal':
-            return ActionType.STEAL
-        elif response_type == 'FEED':
+        elif response_type == 'swim':
+            return ActionType.SWIM
+        elif response_type == 'lift':
+            return ActionType.LIFT
+        elif response_type == 'feed':
             return ActionType.FEED

@@ -21,7 +21,7 @@ class ActionType(Enum):
     CLIMB = 9
     MOVE = 10
     SWIM = 11
-    STEAL = 12
+    LIFT = 12
     FEED = 13
 
 

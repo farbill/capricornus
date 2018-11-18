@@ -2,7 +2,7 @@
   "x":3,
   "y":0,
   "name": "Coltwood",
-  "district_items": [],
+  "district_items": ["etc/items/barbell.json"],
   "clues": [],
   "characters": [],
   "short_description": "Coltwood is a neighborhood in the south eastern portion of the New San Diego City.",

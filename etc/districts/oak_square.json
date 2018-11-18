@@ -2,7 +2,7 @@
   "x":3,
   "y":3,
   "name": "Oak Square",
-  "district_items": [],
+  "district_items": ["etc/items/dog.json"],
   "clues": [],
   "characters": [],
   "short_description": "Oak Square is considered one of the major historic urban communities of New San Diego.",

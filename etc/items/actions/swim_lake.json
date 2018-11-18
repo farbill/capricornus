@@ -1,0 +1,7 @@
+{
+  "commands": ["swim lake",
+                "swim the lake"],
+  "response_type": "action",
+  "response": "",
+  "more_response_type": "swim"
+}

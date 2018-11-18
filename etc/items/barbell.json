@@ -1,0 +1,8 @@
+{
+  "name": "Barbell",
+  "item_type": "FEATURE",
+  "narration": "A loaded Barbell is sitting on the ground.",
+  "description": "The Barbell is loaded with about 200 kg.",
+  "actions":["etc/items/actions/look_at_barbell.json",
+              "etc/items/actions/lift_barbell.json"]
+}

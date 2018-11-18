@@ -1,0 +1,9 @@
+{
+  "commands": ["move tree",
+                "move the tree",
+                "push tree",
+                "push the tree"],
+  "response_type": "action",
+  "response": "",
+  "more_response_type": "move"
+}

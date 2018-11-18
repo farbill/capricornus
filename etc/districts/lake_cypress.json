@@ -2,7 +2,7 @@
   "x":4,
   "y":2,
   "name": "Lake Cypress",
-  "district_items": [],
+  "district_items": ["etc/items/lake.json"],
   "clues": [],
   "characters": ["etc/characters/wizard.json"],
   "short_description": "Lake Cypress is a reservoir in New San Diego.",

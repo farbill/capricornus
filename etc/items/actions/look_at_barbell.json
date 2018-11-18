@@ -1,0 +1,7 @@
+{
+  "commands": ["look barbell",
+        "look at barbell",
+        "look at the barbell"],
+  "response_type": "display",
+  "response": "The Barbell is loaded with about 200 kg."
+}

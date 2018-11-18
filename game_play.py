@@ -192,7 +192,7 @@ def game_play(ga: gameaction.GameAction):
     # Game loop
     while True:
         # When game over condition is met
-        if ga.turns_remaining == 0:
+        if ga.turns_remaining <= 0:
             end_game_screen("< G A M E   O V E R >", "You've ran out of turns.")
             break
         clear_screen()

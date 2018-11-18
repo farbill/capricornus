@@ -1,0 +1,8 @@
+{
+  "name": "Lake",
+  "item_type": "FEATURE",
+  "narration": "There's a vast, beautiful Lake here.",
+  "description": "The Lake has some nice calming water. Perfect for a dip.",
+  "actions":["etc/items/actions/look_at_lake.json",
+              "etc/items/actions/swim_lake.json"]
+}
