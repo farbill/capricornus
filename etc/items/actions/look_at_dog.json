@@ -3,5 +3,5 @@
         "look at dog",
         "look at the dog"],
   "response_type": "display",
-  "response": "The Dog appears to be homeless."
+  "response": "The Dog appears to be homeless and wants to be fed."
 }
