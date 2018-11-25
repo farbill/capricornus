@@ -55,7 +55,7 @@ if __name__ == '__main__':
             action_filename = verb + '_' + file
             afp = action_path + action_filename
             with open(afp, 'w') as fo:
-                json.dump(get_display_dict(verb, item_name), fo)
+                json.dump(get_display_dict(verb, without_us), fo)
             if 'actions' in d.keys():
                 if afp in d['actions']:
                     print('file already exists')

@@ -1,1 +1,7 @@
-{"commands": ["feed dog"], "response_type": "display", "response": "the dog is not hungry right now"}
+{
+  "commands": ["feed dog",
+                "feed the dog"],
+  "response_type": "action",
+  "response": "",
+  "more_response_type": "feed"
+}

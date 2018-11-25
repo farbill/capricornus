@@ -1,1 +1,1 @@
-{"commands": ["lift lotto_ticket"], "response_type": "display", "response": "Lifting a lotto_ticket is no job for you"}
+{"commands": ["lift lotto ticket"], "response_type": "display", "response": "Lifting a lotto ticket is no job for you"}

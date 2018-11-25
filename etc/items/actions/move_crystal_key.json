@@ -1,1 +1,1 @@
-{"commands": ["move crystal_key"], "response_type": "display", "response": "You can't move a crystal_key"}
+{"commands": ["move crystal key"], "response_type": "display", "response": "You can't move a crystal key"}

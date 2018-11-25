@@ -1,1 +1,1 @@
-{"commands": ["feed strength_orb"], "response_type": "display", "response": "the strength_orb is not hungry right now"}
+{"commands": ["feed strength orb"], "response_type": "display", "response": "the strength orb is not hungry right now"}

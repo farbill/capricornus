@@ -1,1 +1,1 @@
-{"commands": ["climb green_key"], "response_type": "display", "response": "Stop trying to climb on the green_key"}
+{"commands": ["climb green key"], "response_type": "display", "response": "Stop trying to climb on the green key"}

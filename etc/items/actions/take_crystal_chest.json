@@ -1,1 +1,1 @@
-{"commands": ["take crystal_chest"], "response_type": "display", "response": "you cant take the crystal_chest"}
+{"commands": ["take crystal chest"], "response_type": "display", "response": "you cant take the crystal chest"}

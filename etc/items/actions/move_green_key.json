@@ -1,1 +1,1 @@
-{"commands": ["move green_key"], "response_type": "display", "response": "You can't move a green_key"}
+{"commands": ["move green key"], "response_type": "display", "response": "You can't move a green key"}

@@ -1,1 +1,1 @@
-{"commands": ["hit lotto_ticket"], "response_type": "display", "response": "Ouch, the lotto_ticket hit you first"}
+{"commands": ["hit lotto ticket"], "response_type": "display", "response": "Ouch, the lotto ticket hit you first"}

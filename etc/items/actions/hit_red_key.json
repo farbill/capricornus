@@ -1,1 +1,1 @@
-{"commands": ["hit red_key"], "response_type": "display", "response": "Ouch, the red_key hit you first"}
+{"commands": ["hit red key"], "response_type": "display", "response": "Ouch, the red key hit you first"}

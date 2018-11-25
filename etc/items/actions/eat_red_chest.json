@@ -1,1 +1,1 @@
-{"commands": ["eat red_chest"], "response_type": "display", "response": "I just gave up red_chest last week"}
+{"commands": ["eat red chest"], "response_type": "display", "response": "I just gave up red chest last week"}

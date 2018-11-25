@@ -1,1 +1,1 @@
-{"commands": ["move lotto_ticket"], "response_type": "display", "response": "You can't move a lotto_ticket"}
+{"commands": ["move lotto ticket"], "response_type": "display", "response": "You can't move a lotto ticket"}

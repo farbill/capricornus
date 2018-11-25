@@ -1,1 +1,1 @@
-{"commands": ["hit crystal_chest"], "response_type": "display", "response": "Ouch, the crystal_chest hit you first"}
+{"commands": ["hit crystal chest"], "response_type": "display", "response": "Ouch, the crystal chest hit you first"}

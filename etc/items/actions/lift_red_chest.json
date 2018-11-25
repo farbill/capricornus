@@ -1,1 +1,1 @@
-{"commands": ["lift red_chest"], "response_type": "display", "response": "Lifting a red_chest is no job for you"}
+{"commands": ["lift red chest"], "response_type": "display", "response": "Lifting a red chest is no job for you"}

@@ -1,1 +1,10 @@
-{"commands": ["eat mushroom"], "response_type": "display", "response": "I just gave up mushroom last week"}
+{
+  "commands": ["eat mushroom",
+        "eat the mushroom",
+        "eat the poison mushroom",
+        "swallow the mushroom",
+        "consume the mushroom"],
+  "response_type": "action",
+  "response": "",
+  "more_response_type": "eat"
+}

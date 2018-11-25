@@ -1,1 +1,1 @@
-{"commands": ["use red_key"], "response_type": "display", "response": "The red_key is not usable"}
+{"commands": ["use red key"], "response_type": "display", "response": "The red key is not usable"}

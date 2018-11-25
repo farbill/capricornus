@@ -1,1 +1,1 @@
-{"commands": ["move vision_orb"], "response_type": "display", "response": "You can't move a vision_orb"}
+{"commands": ["move vision orb"], "response_type": "display", "response": "You can't move a vision orb"}

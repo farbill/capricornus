@@ -1,1 +1,1 @@
-{"commands": ["move vitality_orb"], "response_type": "display", "response": "You can't move a vitality_orb"}
+{"commands": ["move vitality orb"], "response_type": "display", "response": "You can't move a vitality orb"}

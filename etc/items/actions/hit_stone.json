@@ -1,1 +1,11 @@
-{"commands": ["hit stone"], "response_type": "display", "response": "Ouch, the stone hit you first"}
+{
+  "commands": ["hit stone",
+                "hit the stone",
+                "damage the stone",
+                "attack the stone",
+                "try to break the stone",
+                "try to damage the stone"],
+  "response_type": "action",
+  "response": "",
+  "more_response_type": "hit"
+}

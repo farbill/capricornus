@@ -1,1 +1,1 @@
-{"commands": ["use crystal_key"], "response_type": "display", "response": "The crystal_key is not usable"}
+{"commands": ["use crystal key"], "response_type": "display", "response": "The crystal key is not usable"}

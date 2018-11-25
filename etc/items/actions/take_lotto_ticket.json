@@ -1,1 +1,1 @@
-{"commands": ["take lotto_ticket"], "response_type": "display", "response": "you cant take the lotto_ticket"}
+{"commands": ["take lotto ticket"], "response_type": "display", "response": "you cant take the lotto ticket"}

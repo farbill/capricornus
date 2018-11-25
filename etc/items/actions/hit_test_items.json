@@ -1,1 +1,1 @@
-{"commands": ["hit test_items"], "response_type": "display", "response": "Ouch, the test_items hit you first"}
+{"commands": ["hit test items"], "response_type": "display", "response": "Ouch, the test items hit you first"}

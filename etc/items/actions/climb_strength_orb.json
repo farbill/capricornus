@@ -1,1 +1,1 @@
-{"commands": ["climb strength_orb"], "response_type": "display", "response": "Stop trying to climb on the strength_orb"}
+{"commands": ["climb strength orb"], "response_type": "display", "response": "Stop trying to climb on the strength orb"}

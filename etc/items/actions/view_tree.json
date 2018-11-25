@@ -1,1 +1,10 @@
-{"commands": ["view tree"], "response_type": "display", "response": "Ahh, what a gorgeous tree"}
+{
+  "commands": ["look tree",
+        "look at tree",
+        "look at the tree",
+        "check out the tree",
+        "take a look at the tree",
+  "view tree"],
+  "response_type": "display",
+  "response": "A small redwood Tree. About as big as you.  Maybe I can try to move it."
+}
