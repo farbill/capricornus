@@ -340,6 +340,23 @@ def district_action_function(ga, the_input, action_arr, item_arr):
                                     ga.game_state._turns_remaining -= qty
                                     informScreen("Uh-oh, you ate that and didn't feel so well. You've lost {} turns.".format(qty))
                                 item_arr.remove(item)  # Remove item from district
+
+                            elif item.name == "Apple":
+                                qty = 20
+                                ga.game_state._turns_remaining += qty
+                                informScreen("Good choice! Eating the Apple gave you {} additional turns!".format(qty))
+                                item_arr.remove(item)  # Remove item from district
+
+                            elif item.name == "Grapes":
+                                qty = 3
+                                if ga.game_state._turns_remaining > qty:
+                                    ga.game_state._turns_remaining = qty
+                                    informScreen("You ate some bad Grapes! You turns have reduced down to {}!".format(qty))
+                                else:
+                                    ga.game_state._turns_remaining = 0
+                                    informScreen("You ate some bad Grapes! Unfortuately, you didn't survive the bout of food poisoning.")
+                                item_arr.remove(item)  # Remove item from district
+
                             else:
                                 informScreen("INTERNAL ERROR: YOU SHOULDN'T SEE THIS SCREEN")
                             return "return", the_input

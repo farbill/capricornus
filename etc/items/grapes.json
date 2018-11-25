@@ -1,0 +1,8 @@
+{
+  "name": "Grapes",
+  "item_type": "NONCRITICAL",
+  "narration": "There are some colorful Grapes growing from a vine.",
+  "description": "An assortment of colorful Grapes. My mouth waters as I stare at these.",
+  "actions":["etc/items/actions/look_at_grapes.json",
+             "etc/items/actions/eat_grapes.json"]
+}

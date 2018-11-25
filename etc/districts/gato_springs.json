@@ -2,7 +2,7 @@
   "x":1,
   "y":1,
   "name": "Gato Springs",
-  "district_items": ["etc/items/coin.json"],
+  "district_items": ["etc/items/apple.json"],
   "clues": [],
   "characters": ["etc/characters/student.json"],
   "short_description": "Gato Springs is a neighborhood in the south western portion of the New San Diego City.",
