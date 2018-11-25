@@ -1,5 +1,5 @@
 {
-  "commands": [ "view hobo", "look at hobo"],
+  "commands": [ "eat hobo"],
   "response_type": "display",
-  "response": "Just your regular hobo sitting on the ground."
+  "response": "You go to eat the hobo, but realize that you gave up cannablism last tuesday."
 }

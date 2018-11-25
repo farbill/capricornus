@@ -6,19 +6,21 @@ from main_menu import clear_screen
 
 
 def command_help(width):
+        main_menu.print_in_the_middle(width, ("------ Examples of Available Commands -------- "))
+        print()
         main_menu.print_in_the_middle(width, ("1. Go to North, South, East, or West           "))
-        main_menu.print_in_the_middle(width, ("2. Check Inventory                             "))
-        main_menu.print_in_the_middle(width, ("   i.   Clues: check collected clues           "))
-        main_menu.print_in_the_middle(width, ("   ii.  Items: list all obtained items         "))
-        main_menu.print_in_the_middle(width, ("        a.  Drop: drop an item                 "))
-        main_menu.print_in_the_middle(width, ("3. Check Visited                               "))
-        main_menu.print_in_the_middle(width, ("4. Interact with items or characters           "))
+        main_menu.print_in_the_middle(width, ("2. Interact with items or characters           "))
         main_menu.print_in_the_middle(width, ("   Examples:                                   "))
-        main_menu.print_in_the_middle(width, ("        \"Talk to Hobo\"                       "))
-        main_menu.print_in_the_middle(width, ("        \"Look at the red chest\"              "))
-        main_menu.print_in_the_middle(width, ("        \"Pick up the coin\"                   "))
+        main_menu.print_in_the_middle(width, ("        \"talk to hobo\"                       "))
+        main_menu.print_in_the_middle(width, ("        \"look at red chest\"                  "))
+        main_menu.print_in_the_middle(width, ("        \"pick up coin\"                       "))
         main_menu.print_in_the_middle(width, ("          And MANY more!                       "))
-        main_menu.print_in_the_middle(width, ("5. Help                                        "))
+        main_menu.print_in_the_middle(width, ("3. Inventory                                   "))
+        main_menu.print_in_the_middle(width, ("   i.   Clues: Check collected clues           "))
+        main_menu.print_in_the_middle(width, ("   ii.  Items: View/drop all obtained items    "))
+        main_menu.print_in_the_middle(width, ("4. Help                                        "))
+        main_menu.print_in_the_middle(width, ("5. Savegame                                    "))
+        main_menu.print_in_the_middle(width, ("6. Loadgame                                    "))
 
 def inventory_open(width):
         main_menu.print_in_the_middle(width, "1. Clues       ")
@@ -147,25 +149,24 @@ def mainCharNarration(agtD, drC):
     main_menu.empty_line(2)
     main_menu.dotted_line(main_menu.GAME_WIDTH)
     input("Press [Enter] to continue...")
-    
-    clear_screen()
-    main_menu.dotted_line(main_menu.GAME_WIDTH)
-    main_menu.empty_line(2)
-    narration("Hobo: A hobo, a very regular hobo at that.", main_menu.GAME_WIDTH)
-    main_menu.empty_line(1)
-    narration("Business man: literally, a businessman", main_menu.GAME_WIDTH)
-    main_menu.empty_line(1)
-    narration("Daneil Webers Jr. Jr.: Daniel's Webster's grandson", main_menu.GAME_WIDTH)
-    main_menu.empty_line(1)
-    narration("Skateboarder: card carrying thrasher subscription holder.", main_menu.GAME_WIDTH)
-    main_menu.empty_line(1)
-    narration("Wizard: a wizard who can cast magics", main_menu.GAME_WIDTH)
-    main_menu.empty_line(1)
-    narration("Student: literally, a student standing around", main_menu.GAME_WIDTH)
-    main_menu.empty_line(2)
-    main_menu.dotted_line(main_menu.GAME_WIDTH)
-    input("Press [Enter] to continue...")
-    
+    #
+    # clear_screen()
+    # main_menu.dotted_line(main_menu.GAME_WIDTH)
+    # main_menu.empty_line(2)
+    # narration("Hobo: A hobo, a very regular hobo at that.", main_menu.GAME_WIDTH)
+    # main_menu.empty_line(1)
+    # narration("Business man: literally, a businessman", main_menu.GAME_WIDTH)
+    # main_menu.empty_line(1)
+    # narration("Daneil Webers Jr. Jr.: Daniel's Webster's grandson", main_menu.GAME_WIDTH)
+    # main_menu.empty_line(1)
+    # narration("Skateboarder: card carrying thrasher subscription holder.", main_menu.GAME_WIDTH)
+    # main_menu.empty_line(1)
+    # narration("Wizard: a wizard who can cast magics", main_menu.GAME_WIDTH)
+    # main_menu.empty_line(1)
+    # narration("Student: literally, a student standing around", main_menu.GAME_WIDTH)
+    # main_menu.empty_line(2)
+    # main_menu.dotted_line(main_menu.GAME_WIDTH)
+    # input("Press [Enter] to continue...")
     clear_screen()
     
 def gameNarrationHelp(narr1, narr2):
@@ -191,7 +192,7 @@ def itemHelp():
                     "Legendary items are imperative in order to defeat Dr.Crime." \
                     "Obtaining certain items can add a clue.  Clue remains " \
                     "even if the item is dropped, because it's considered " \
-                    "as an intellectual property."
+                    "an intellectual property."
     clear_screen()
     main_menu.dotted_line(main_menu.GAME_WIDTH)
     main_menu.empty_line(2)
