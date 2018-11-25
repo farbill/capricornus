@@ -4,7 +4,8 @@
         "look at the lake",
         "see the lake",
         "take a look at the lake",
-        "view the lake"],
+        "view the lake",
+  "view lake"],
   "response_type": "display",
   "response": "The Lake has some nice calming water. Perfect for a dip."
 }

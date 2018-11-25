@@ -3,6 +3,6 @@
   "item_type": "NONCRITICAL",
   "narration": "There's a shiny, red Apple.",
   "description": "It's growing off a tree. Looks juicy. I don't know if I should eat this.",
-  "actions":["etc/items/actions/look_at_apple.json",
+  "actions":["etc/items/actions/view_apple.json",
              "etc/items/actions/eat_apple.json"]
 }

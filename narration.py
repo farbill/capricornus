@@ -36,7 +36,7 @@ def start_narration1():
                   "You are Agent Dope, who is tasked with the mission of finding and apprehending " \
                   "Dr. Crime - a once renowned scientist from the affluent Crime family, " \
                   "known for their charity and philanthropy. After spending nearly a decade " \
-                  "working on the theory of Dark Magic to restore Life, Dr. Crime’s work was " \
+                  "working on the theory of Dark Magic to restore Life, Dr. Crime's work was " \
                   "met with great criticism and disapproval from the scientific community, and " \
                   "was ridiculed for such preposterous ideas. Dr. Crime went down a terrible " \
                   "spiral and started to use Dark Magic for mischief and evil. He vowed to " \

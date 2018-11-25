@@ -3,7 +3,7 @@
   "item_type": "FEATURE",
   "narration": "There's is a large Stone making... a ticking sound?!.",
   "description": "An ancient-looking Stone as big as a house. I shouldn't try to damage it.",
-  "actions":["etc/items/actions/look_at_stone.json",
+  "actions":["etc/items/actions/view_stone.json",
               "etc/items/actions/take_stone.json",
               "etc/items/actions/hit_stone.json"]
 }

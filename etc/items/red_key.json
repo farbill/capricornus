@@ -4,5 +4,6 @@
   "narration": "",
   "description": "A red-colored key. It looks like it can be used to open something.",
   "actions":["etc/items/actions/use_red_key_on_red_chest.json",
-              "etc/items/actions/take_red_key.json" ]
+              "etc/items/actions/take_red_key.json",
+  "etc/items/actions/view_red_key.json"]
 }

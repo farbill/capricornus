@@ -3,6 +3,6 @@
   "item_type": "LEGENDARY",
   "narration": "There is an orb glowing in blue in the spring!",
   "description": "It's the legendary vision orb I was looking for!",
-  "actions":["etc/items/actions/look_at_vision_orb.json",
+  "actions":["etc/items/actions/view_vision_orb.json",
              "etc/items/actions/take_vision_orb.json"]
 }

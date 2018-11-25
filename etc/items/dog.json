@@ -3,6 +3,6 @@
   "item_type": "FEATURE",
   "narration": "A Dog is close-by, sniffing around.",
   "description": "The Dog appears to be homeless.",
-  "actions":["etc/items/actions/look_at_dog.json",
+  "actions":["etc/items/actions/view_dog.json",
               "etc/items/actions/feed_dog.json"]
 }
