@@ -6,6 +6,6 @@
         "grab the coin", 
         "pick up silver coin"],
   "response_type": "action",
-  "response": "The silver coin is in my inventory now.",
+  "response": "The Coin is in my inventory now.",
   "more_response_type": "take_item"
 }

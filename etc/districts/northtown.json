@@ -4,7 +4,7 @@
   "name": "Northtown",
   "district_items": ["etc/items/mushroom.json"],
   "clues": [],
-  "characters": [],
+  "characters": ["etc/characters/driver.json"],
   "short_description": "Northtown is the oldest town in the city of New San Diego.",
   "long_description": "Northtown is the oldest town in the city of New San Diego. It's famous for the New San Diego Historic State Park."
 

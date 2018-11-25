@@ -1,0 +1,17 @@
+{
+  "commands": [ "talk to construction worker",
+    "talk to worker",
+    "talk to construction",
+    "talk construction worker",
+    "talk worker",
+    "talk construction",
+  "speak to construction worker",
+    "speak to worker",
+    "speak to construction",
+    "speak construction worker",
+    "speak worker",
+    "speak construction "
+  ],
+  "response_type": "event",
+  "response": ""
+}

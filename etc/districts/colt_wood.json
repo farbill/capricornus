@@ -4,8 +4,7 @@
   "name": "Coltwood",
   "district_items": ["etc/items/barbell.json"],
   "clues": [],
-  "characters": [],
+  "characters": ["etc/characters/florist.json"],
   "short_description": "Coltwood is a neighborhood in the south eastern portion of the New San Diego City.",
   "long_description": "Coltwood is a neighborhood in the south eastern portion of the New San Diego City. The district is well-known for its beautiful parks."
-
 }

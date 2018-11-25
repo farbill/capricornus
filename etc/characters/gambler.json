@@ -1,0 +1,16 @@
+{
+  "short_description": "A gambler.",
+  "long_description": "A gambler looking anxious.",
+  "puzzle": "etc/puzzles/gambler_puzzle.json",
+  "narration": "A Gambler is looks fidgety and anxious.",
+  "dialogs": [
+            "You approach the Gambler. Before you can speak, he looks at you and says: 'You! You look like a man with answers! I need to win this weekend's lottery. Can you help a brother out?'",
+            "Man o' man, I really need to win. You got some numbers man?",
+            "No! That ain't right. Get your head outta the gutters man. I need to win!",
+            "Dear Lord, this must be it! Alright alright, if I win, you'll get a cut, but really I'm the one taking all the risk.",
+            "I hope I win, I hope I win." ],
+  "action":[
+            "etc/characters/actions/talk_to_gambler.json"
+        ]
+
+}

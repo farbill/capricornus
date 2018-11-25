@@ -1,0 +1,16 @@
+{
+  "short_description": "A driver.",
+  "long_description": "A driver is waiting for a passenger.",
+  "puzzle": "etc/puzzles/driver_puzzle.json",
+  "narration": "A Driver is waiting for a passenger.",
+  "dialogs": [
+            "You approach the Driver. He says: 'I've got lots of time waiting for my client. Hey, I have a puzzle, want to solve it?'",
+            "Want another try?",
+            "Nah, that's not right. Take your time.",
+            "Nice job. I don't have anything to offer, but thanks for the company.",
+            "I'm thinking of taking a nice nap. My client is taking a long time." ],
+  "action":[
+            "etc/characters/actions/talk_to_driver.json"
+        ]
+
+}

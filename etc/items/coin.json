@@ -1,0 +1,9 @@
+{
+  "name": "Coin",
+  "item_type": "NONCRITICAL",
+  "narration": "There is Coin dropped on the street.",
+  "description": "It's a silver Coin.  It says 'IN DOG WE TRUST' on the front side. Huh? Is this a typo?",
+  "actions":["etc/items/actions/look_at_coin.json",
+             "etc/items/actions/eat_coin.json",
+             "etc/items/actions/take_coin.json"]
+}

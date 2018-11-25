@@ -1,0 +1,8 @@
+{
+  "commands": [ "talk to gambler",
+                        "talk gambler",
+                        "speak gambler",
+                        "speak to gambler"],
+  "response_type": "event",
+  "response": ""
+}

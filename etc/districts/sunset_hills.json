@@ -4,7 +4,7 @@
   "name": "Sunset Hills",
   "district_items": [],
   "clues": [],
-  "characters": [],
+  "characters": ["etc/characters/gambler.json"],
   "short_description": "Sunset Hills is urban-industrial area of New San Diego.",
   "long_description": "Sunset Hills is urban-industrial area of New San Diego. A once pleasant town but has been ruin by decade-long drug wars."
 }

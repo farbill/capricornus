@@ -1,0 +1,16 @@
+{
+  "short_description": "A jogger.",
+  "long_description": "A jogger is running in place.",
+  "puzzle": "etc/puzzles/jogger_puzzle.json",
+  "narration": "A Jogger is running in place.",
+  "dialogs": [
+            "You approach the Jogger. She says: 'I'm waiting for the light to change. Want to solve a puzzle in the meanwhile?'",
+            "Want another try?",
+            "Nope. That's not correct.",
+            "Good job. I don't have anything to offer, but I just gave your brain an exercise. You're welcome!",
+            "This traffic light is taking forever." ],
+  "action":[
+            "etc/characters/actions/talk_to_jogger.json"
+        ]
+
+}
