@@ -1,7 +1,1 @@
-{
-  "commands": ["climb statue",
-                "climb the statue"],
-  "response_type": "action",
-  "response": "",
-  "more_response_type": "climb"
-}
+{"commands": ["climb statue"], "response_type": "display", "response": "Stop trying to climb on the statue"}

@@ -1,11 +1,1 @@
-{
-  "commands": ["lift barbell",
-                "lift the barbell",
-                "carry the barbell",
-                "lift up the barbell",
-                "use the barbell to workout",
-                "use the barbell"],
-  "response_type": "action",
-  "response": "",
-  "more_response_type": "lift"
-}
+{"commands": ["lift barbell"], "response_type": "display", "response": "Lifting a barbell is no job for you"}

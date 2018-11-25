@@ -1,15 +1,1 @@
-{
-  "commands": [
-            "view yellow chest",
-            "view the yellow chest",
-            "look at yellow chest",
-            "look at the yellow chest",
-            "see the yellow chest",
-            "see yellow chest",
-            "look at the chest",
-            "see the chest",
-            "view the chest",
-            "take a look at the chest"],
-  "response_type": "display",
-  "response": "A Yellow Chest about the size of a cooler sits on the ground. It looks like it has a keyhole."
-}
+{"commands": ["view yellow_chest"], "response_type": "display", "response": "Ahh, what a gorgeous yellow_chest"}

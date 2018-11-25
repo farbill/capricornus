@@ -1,9 +1,1 @@
-{
-  "commands": ["look apple",
-        "look at apple",
-        "look at the apple",
-    "view apple"
-  ],
-  "response_type": "display",
-  "response": "It's growing off a tree. Looks juicy. I don't know if I should eat this."
-}
+{"commands": ["view apple"], "response_type": "display", "response": "Ahh, what a gorgeous apple"}

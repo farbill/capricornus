@@ -1,9 +1,1 @@
-{
-  "name": "Tree",
-  "item_type": "FEATURE",
-  "narration": "A Tree seems to have fallen and is blocking traffic - seems like no one has gotten around to moving it yet.",
-  "description": "A small redwood Tree. About as big as you.",
-  "actions":["etc/items/actions/look_at_tree.json",
-    "etc/items/actions/view_tree.json",
-              "etc/items/actions/move_tree.json"]
-}
+{"name": "Tree", "item_type": "FEATURE", "narration": "A Tree seems to have fallen and is blocking traffic - seems like no one has gotten around to moving it yet.", "description": "A small redwood Tree. About as big as you.", "actions": ["etc/items/actions/look_at_tree.json", "etc/items/actions/view_tree.json", "etc/items/actions/move_tree.json", "etc/items/actions/talk_tree.json", "etc/items/actions/eat_tree.json", "etc/items/actions/climb_tree.json", "etc/items/actions/feed_tree.json", "etc/items/actions/hit_tree.json", "etc/items/actions/lift_tree.json", "etc/items/actions/take_tree.json", "etc/items/actions/use_tree.json"]}

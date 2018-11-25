@@ -1,11 +1,1 @@
-{
-  "commands": ["take the coin",
-        "take coin",
-        "pick up the coin",
-        "pick up the silver coin",
-        "grab the coin", 
-        "pick up silver coin"],
-  "response_type": "action",
-  "response": "The Coin is in my inventory now.",
-  "more_response_type": "take_item"
-}
+{"commands": ["take coin"], "response_type": "display", "response": "you cant take the coin"}

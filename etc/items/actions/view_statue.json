@@ -1,9 +1,1 @@
-{
-  "commands": [
-            "view statue",
-            "view the statue",
-            "look at statue",
-            "look at the statue"],
-  "response_type": "display",
-  "response": "A giant bronze statue of the city's founder. It's reflecting the sun's blinding light."
-}
+{"commands": ["view statue"], "response_type": "display", "response": "Ahh, what a gorgeous statue"}

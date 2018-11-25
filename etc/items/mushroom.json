@@ -1,8 +1,1 @@
-{
-  "name": "Mushroom",
-  "item_type": "NONCRITICAL",
-  "narration": "There is a tasty looking Mushroom.",
-  "description": "Looks delicious, but could be poisonous. I'd better not eat this.",
-  "actions":["etc/items/actions/view_mushroom.json",
-             "etc/items/actions/eat_mushroom.json"]
-}
+{"name": "Mushroom", "item_type": "NONCRITICAL", "narration": "There is a tasty looking Mushroom.", "description": "Looks delicious, but could be poisonous. I'd better not eat this.", "actions": ["etc/items/actions/view_mushroom.json", "etc/items/actions/eat_mushroom.json", "etc/items/actions/talk_mushroom.json", "etc/items/actions/move_mushroom.json", "etc/items/actions/climb_mushroom.json", "etc/items/actions/feed_mushroom.json", "etc/items/actions/hit_mushroom.json", "etc/items/actions/lift_mushroom.json", "etc/items/actions/take_mushroom.json", "etc/items/actions/use_mushroom.json"]}

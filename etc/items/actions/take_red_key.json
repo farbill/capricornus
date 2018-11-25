@@ -1,11 +1,1 @@
-{
-  "commands": ["take red key",
-        "take the red key",
-        "pick red key",
-        "pick the red key",
-        "pick up red key",
-        "pick up the red key" ],
-  "response_type": "action",
-  "response": "The Red Key is in my inventory now.",
-  "more_response_type": "take_item"
-}
+{"commands": ["take red_key"], "response_type": "display", "response": "you cant take the red_key"}

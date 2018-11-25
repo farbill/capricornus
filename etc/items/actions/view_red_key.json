@@ -1,6 +1,1 @@
-{
-  "commands": [
-  "view red key"],
-  "response_type": "display",
-  "response": "A red-colored key. It looks like it can be used to open something."
-}
+{"commands": ["view red_key"], "response_type": "display", "response": "Ahh, what a gorgeous red_key"}

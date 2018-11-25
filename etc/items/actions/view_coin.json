@@ -1,10 +1,1 @@
-{
-  "commands": ["look coin",
-        "look at coin",
-        "look at the coin",
-        "see the coin",
-        "check out the coin",
-  "view coin"],
-  "response_type": "display",
-  "response": "It's a silver Coin.  It says 'IN DOG WE TRUST' on the front side. Huh? Is this a typo?"
-}
+{"commands": ["view coin"], "response_type": "display", "response": "Ahh, what a gorgeous coin"}

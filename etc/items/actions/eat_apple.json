@@ -1,7 +1,1 @@
-{
-  "commands": ["eat apple",
-        "eat the apple" ],
-  "response_type": "action",
-  "response": "",
-  "more_response_type": "eat"
-}
+{"commands": ["eat apple"], "response_type": "display", "response": "I just gave up apple last week"}

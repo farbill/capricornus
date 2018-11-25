@@ -1,7 +1,1 @@
-{
-  "name": "Green Chest",
-  "item_type": "FEATURE",
-  "narration": "You can see a Green Chest nearby.",
-  "description": "A Green Chest with a keyhole.",
-  "actions":["etc/items/actions/view_green_chest.json"]
-}
+{"name": "Green Chest", "item_type": "FEATURE", "narration": "You can see a Green Chest nearby.", "description": "A Green Chest with a keyhole.", "actions": ["etc/items/actions/view_green_chest.json", "etc/items/actions/talk_green_chest.json", "etc/items/actions/eat_green_chest.json", "etc/items/actions/move_green_chest.json", "etc/items/actions/climb_green_chest.json", "etc/items/actions/feed_green_chest.json", "etc/items/actions/hit_green_chest.json", "etc/items/actions/lift_green_chest.json", "etc/items/actions/take_green_chest.json", "etc/items/actions/use_green_chest.json"]}
