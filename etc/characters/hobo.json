@@ -2,7 +2,7 @@
   "short_description": "A hobo.",
   "long_description": "A hobo, a very regular hobo at that.",
   "puzzle": "etc/puzzles/hobo_puzzle.json",
-  "narration": "A Hobo is sitting down.",
+  "narration": "A Hobo is sitting down on the ground.",
   "item": "etc/items/red_key.json",
   "dialogs": [
             "You approach the Hobo. He says: 'I got a puzzle for you. Want to solve it?'",
@@ -11,9 +11,18 @@
             "Good job kid, here - you can have this.",
             "You already solved my puzzle. Now scram." ],
   "action":[
-            "etc/characters/actions/talk_to_hobo.json",
-            "etc/characters/actions/view_hobo.json",
-            "etc/characters/actions/eat_hobo.json"
-        ]
+    "etc/characters/actions/look_at_hobo.json",
+    "etc/characters/actions/take_hobo.json",
+    "etc/characters/actions/use_hobo.json",
+    "etc/characters/actions/talk_to_hobo.json",
+    "etc/characters/actions/enter_hobo.json",
+    "etc/characters/actions/eat_hobo.json",
+    "etc/characters/actions/hit_hobo.json",
+    "etc/characters/actions/climb_hobo.json",
+    "etc/characters/actions/move_hobo.json",
+    "etc/characters/actions/swim_hobo.json",
+    "etc/characters/actions/lift_hobo.json",
+    "etc/characters/actions/feed_hobo.json"
+  ]
 
 }

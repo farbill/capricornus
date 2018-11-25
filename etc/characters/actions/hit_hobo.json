@@ -1,0 +1,9 @@
+{
+  "commands": [
+    "hit hobo",
+    "attack hobo",
+    "strike hobo"
+  ],
+  "response_type": "display",
+  "response": "Better not. You're an officer of the law after all."
+}

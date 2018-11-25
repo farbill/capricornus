@@ -1,5 +1,8 @@
 {
-  "commands": [ "eat hobo"],
+  "commands": [
+    "eat hobo",
+    "eat the hobo"
+  ],
   "response_type": "display",
-  "response": "You go to eat the hobo, but realize that you gave up cannablism last tuesday."
+  "response": "You probably shouldn't do that. You're not a cannibal - are you?"
 }
