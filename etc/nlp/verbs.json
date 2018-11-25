@@ -1,7 +1,7 @@
 {
 "eat": ["snack", "chew", "devour"],
 "check": ["check out"],
-"look": ["gaze", "view"],
+"view": ["gaze", "look"],
 "take": ["grab", "steal"],
 "use": ["activate"],
   "talk": ["chat", "converse"]
