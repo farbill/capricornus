@@ -1,0 +1,10 @@
+{
+  "commands": ["look at orb",
+        "look at the orb",
+        "see the orb",
+        "check out the orb",
+  "view orb",
+  "view vitality orb"],
+  "response_type": "display",
+  "response": "It's the legendary vitality orb I was looking for!"
+}

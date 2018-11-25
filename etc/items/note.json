@@ -3,6 +3,6 @@
   "item_type": "CRITICAL",
   "narration": "A Note is pin to a street light.",
   "description": "The Note reads, 'Hobo, Student, Businessman, Wizard'.",
-  "actions":["etc/items/actions/look_at_note.json",
+  "actions":["etc/items/actions/view_note.json",
              "etc/items/actions/take_note.json"]
 }

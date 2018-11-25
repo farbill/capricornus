@@ -3,6 +3,6 @@
   "item_type": "LEGENDARY",
   "narration": "There is an orb glowing in purple!",
   "description": "It's the legendary vitality orb I was looking for!",
-  "actions":["etc/items/actions/look_at_vitality_orb.json",
+  "actions":["etc/items/actions/view_vitality_orb.json",
              "etc/items/actions/take_vitality_orb.json"]
 }
