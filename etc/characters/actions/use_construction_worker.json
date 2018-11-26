@@ -1,6 +1,8 @@
 {
   "commands": [
-    "use construction_worker"
+    "use construction worker",
+        "use worker",
+        "use construction"
   ],
   "response_type": "display",
   "response": "You shouldn't abuse your authority to control the Construction Worker!"
