@@ -1,5 +1,8 @@
 {
-  "commands": ["use crystal key on crystal chest",
+  "commands": [
+    "use crystal key crystal chest",
+    "use crystal key chest",
+    "use crystal key on crystal chest",
     "use crystal key on chest",
     "use the crystal key on the chest",
     "use the crystal key to open the chest",

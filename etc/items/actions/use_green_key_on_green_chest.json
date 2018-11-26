@@ -1,5 +1,8 @@
 {
-  "commands": ["use green key on green chest",
+  "commands": [
+    "use green key green chest",
+    "use green key chest",
+    "use green key on green chest",
     "use green key on chest",
     "use the green key on the chest",
     "use the green key to open the chest",
