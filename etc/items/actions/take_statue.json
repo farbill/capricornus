@@ -1,1 +1,1 @@
-{"commands": ["take statue"], "response_type": "display", "response": "you cant take the statue"}
+{"commands": ["take statue", "take up statue"], "response_type": "display", "response": "Are you nuts?! The Statue is enormous! You can't carry that."}

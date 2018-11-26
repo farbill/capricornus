@@ -1,10 +1,8 @@
 {
-  "commands": ["take the note",
+  "commands": [
         "take note",
-        "pick up note",
-        "pick up the note",
-        "grab the note",
-        "grab note"],
+        "take up note"
+  ],
   "response_type": "action",
   "response": "The Note is in my inventory now.",
   "more_response_type": "take_item"

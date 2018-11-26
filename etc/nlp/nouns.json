@@ -1,12 +1,15 @@
 {
-  "lotto":["lotto ticket", "lottery", "lottery ticket"],
-"statue": ["sculpture", "figure"],
-"coin": ["currency"],
-"orb": [],
-"red key": ["ruby key"],
-"red door": ["red lock", "lock"],
-"sword": ["sabre"],
-"hobo": ["homeless man"],
-"daniel": ["danny", "dan", "danzo"],
-"mushroom": ["shrooms", "mushies"]
+  "lotto":["lottery"],
+  "ticket": ["tix", "tick"],
+  "statue": ["sculpture", "figure"],
+  "coin": ["currency", "money"],
+  "sword": ["sabre"],
+  "hobo": ["homeless"],
+  "daniel": ["danny", "dan", "danzo"],
+  "mushroom": ["shrooms", "mushies", "mushrooms"],
+  "grapes": ["grape"],
+  "stone": ["rock"],
+  "barbell": ["weight", "weights", "bar"],
+  "lake": ["water"],
+  "kid": ["child", "minor"]
 }

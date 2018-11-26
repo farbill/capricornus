@@ -1,8 +1,9 @@
 {
   "commands": [
+  	"take key",
+  	"take up key",
     "take red key",
-    "pick up red key",
-    "grab red key"
+    "take up red key"
   ],
   "response_type": "action",
   "response": "The Red Key is in my inventory now.",

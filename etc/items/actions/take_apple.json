@@ -1,1 +1,1 @@
-{"commands": ["take apple"], "response_type": "display", "response": "you cant take the apple"}
+{"commands": ["take apple", "take up apple"], "response_type": "display", "response": "You can't take the Apple, but you can eat it instead."}

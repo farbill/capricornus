@@ -1,8 +1,9 @@
 {
   "commands": [
+  	"take key",
+  	"take up key",
     "take crystal key",
-    "pick up crystal key",
-    "grab crystal key"
+    "take up crystal key"
   ],
   "response_type": "action",
   "response": "The Crystal Key is in my inventory now.",

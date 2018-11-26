@@ -1,1 +1,1 @@
-{"commands": ["take tree"], "response_type": "display", "response": "you cant take the tree"}
+{"commands": ["take tree", "take up tree"], "response_type": "display", "response": "You can't fit a Tree in your inventory!"}

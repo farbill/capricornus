@@ -1,1 +1,8 @@
-{"commands": ["take crystal chest"], "response_type": "display", "response": "you cant take the crystal chest"}
+{"commands": [
+	"take crystal chest",
+	"take up crystal chest",
+	"take chest",
+	"take up chest"
+],
+"response_type": "display",
+"response": "You can't take the Crystal Chest. It's too heavy."}

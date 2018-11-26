@@ -1,9 +1,7 @@
 {
-  "commands": ["take the stone",
-        "take stone",
-        "pick up stone",
-        "pick up the stone",
-        "grab the stone"],
+  "commands": ["take stone",
+        "take up stone"
+    ],
   "response_type": "display",
   "response": "Are you nuts?! The Stone is enormous! You can't carry that."
 }

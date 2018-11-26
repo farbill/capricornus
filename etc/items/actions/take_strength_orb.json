@@ -1,11 +1,13 @@
 {
-  "commands": ["take orb",
-        "grab orb",
-        "take the orb",
-        "grab the orb",
-        "acquire the orb",
-        "pick up the orb"],
+  "commands": [
+    	"take orb",
+        "take up orb",
+        "take strength orb",
+        "take up strength orb",
+        "take strength",
+        "take up strength"
+    ],
   "response_type": "action",
-  "response": "The strength orb is in my inventory now.",
+  "response": "The Strength Orb is in my inventory now.",
   "more_response_type": "take_item"
 }

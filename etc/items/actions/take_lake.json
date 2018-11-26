@@ -1,1 +1,1 @@
-{"commands": ["take lake"], "response_type": "display", "response": "You can't put the Lake in your inventory!"}
+{"commands": ["take lake", "take up lake"], "response_type": "display", "response": "You can't put the Lake in your inventory!"}
