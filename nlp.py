@@ -49,8 +49,6 @@ class NLP(object):
                 command = replace(command, synonym, base_noun)
         command = " ".join(command)
         command = " ".join(command.split())
-        print(command)
-        time.sleep(0.5)
         #remove whitespace https://stackoverflow.com/questions/1546226/simple-way-to-remove-multiple-spaces-in-a-string
 
         return command
