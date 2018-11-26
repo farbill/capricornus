@@ -4,6 +4,6 @@
 "view": ["gaze", "look"],
 "take": ["grab", "steal"],
 "use": ["activate"],
-  "talk": ["chat", "converse"]
+  "talk": ["chat", "converse", "speak"]
 
 }

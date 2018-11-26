@@ -1,1 +1,16 @@
-{"name": "Stone", "item_type": "FEATURE", "narration": "There's is a large Stone making... a ticking sound?!.", "description": "An ancient-looking Stone as big as a house. I shouldn't try to damage it.", "actions": ["etc/items/actions/view_stone.json", "etc/items/actions/take_stone.json", "etc/items/actions/hit_stone.json", "etc/items/actions/talk_stone.json", "etc/items/actions/eat_stone.json", "etc/items/actions/move_stone.json", "etc/items/actions/climb_stone.json", "etc/items/actions/feed_stone.json", "etc/items/actions/lift_stone.json", "etc/items/actions/use_stone.json", "etc/items/actions/enter_stone.json", "etc/items/actions/swim_stone.json"]}
+{"name": "Stone",
+ "item_type": "FEATURE",
+ "narration": "There's is a large Stone making... a ticking sound?!.",
+ "description": "An ancient-looking Stone as big as a house. I shouldn't try to damage it.",
+ "actions": ["etc/items/actions/view_stone.json",
+ "etc/items/actions/take_stone.json",
+ "etc/items/actions/hit_stone.json",
+ "etc/items/actions/talk_stone.json",
+ "etc/items/actions/eat_stone.json",
+ "etc/items/actions/move_stone.json",
+ "etc/items/actions/climb_stone.json",
+ "etc/items/actions/feed_stone.json",
+ "etc/items/actions/lift_stone.json",
+ "etc/items/actions/use_stone.json",
+ "etc/items/actions/enter_stone.json",
+ "etc/items/actions/swim_stone.json"]}
