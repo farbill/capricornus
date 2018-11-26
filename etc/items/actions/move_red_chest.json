@@ -1,1 +1,1 @@
-{"commands": ["move red chest"], "response_type": "display", "response": "You can't move a red chest"}
+{"commands": ["move red chest"], "response_type": "display", "response": "The Red Chest is too heavy to move."}

@@ -1,1 +1,1 @@
-{"commands": ["move magic sword"], "response_type": "display", "response": "You can't move a magic sword"}
+{"commands": ["move magic sword"], "response_type": "display", "response": "You moved the Magic Sword, but it didn't do much."}

@@ -1,1 +1,1 @@
-{"commands": ["use lake"], "response_type": "display", "response": "The lake is not usable"}
+{"commands": ["use lake"], "response_type": "display", "response": "The Lake is not usable, do you mean swim instead?"}

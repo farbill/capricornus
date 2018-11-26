@@ -1,1 +1,1 @@
-{"commands": ["lift note"], "response_type": "display", "response": "Lifting a note is no job for you"}
+{"commands": ["lift note"], "response_type": "display", "response": "Cool. You've lifted the Note. Did you mean to pick up instead?"}

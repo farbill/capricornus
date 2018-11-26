@@ -3,19 +3,7 @@
   "item_type": "CRITICAL",
   "narration": "",
   "description": "A yellow-colored key. It looks like it can be used to open something.",
-  "actions":[
-    "etc/items/actions/use_yellow_key_on_yellow_chest.json",
-    "etc/items/actions/take_yellow_key.json",
-    "etc/items/actions/look_at_yellow_key.json",
-    "etc/items/actions/use_yellow_key.json",
-    "etc/items/actions/talk_to_yellow_key.json",
-    "etc/items/actions/enter_yellow_key.json",
-    "etc/items/actions/eat_yellow_key.json",
-    "etc/items/actions/hit_yellow_key.json",
-    "etc/items/actions/climb_yellow_key.json",
-    "etc/items/actions/move_yellow_key.json",
-    "etc/items/actions/swim_yellow_key.json",
-    "etc/items/actions/lift_yellow_key.json",
-    "etc/items/actions/feed_yellow_key.json"
-  ]
+  "actions":["etc/items/actions/use_yellow_key_on_yellow_chest.json",
+              "etc/items/actions/take_yellow_key.json",
+  "etc/items/actions/view_yellow_key.json"]
 }

@@ -1,1 +1,1 @@
-{"commands": ["take red chest"], "response_type": "display", "response": "you cant take the red chest"}
+{"commands": ["take red chest"], "response_type": "display", "response": "The Red Chest is too big and heavy to put in your inventory."}
