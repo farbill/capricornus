@@ -1,1 +1,16 @@
-{"name": "Lotto Ticket", "item_type": "CRITICAL", "narration": "You see a Lotto Ticket on the ground.", "description": "A Lotto Ticket with the numbers '23 57 12' on it.", "actions": ["etc/items/actions/view_lotto.json", "etc/items/actions/eat_lotto.json", "etc/items/actions/take_lotto.json",  "etc/items/actions/eat_lotto_ticket.json",  "etc/items/actions/move_lotto_ticket.json", "etc/items/actions/climb_lotto_ticket.json", "etc/items/actions/feed_lotto_ticket.json", "etc/items/actions/hit_lotto_ticket.json", "etc/items/actions/lift_lotto_ticket.json", "etc/items/actions/use_lotto_ticket.json", "etc/items/actions/enter_lotto_ticket.json", "etc/items/actions/swim_lotto_ticket.json"]}
+{"name": "Lotto Ticket",
+  "item_type": "CRITICAL",
+  "narration": "You see a Lotto Ticket on the ground.",
+  "description": "A Lotto Ticket with the numbers '23 57 12' on it.",
+  "actions": ["etc/items/actions/view_lotto_ticket.json",
+    "etc/items/actions/eat_lotto_ticket.json",
+    "etc/items/actions/take_lotto_ticket.json",
+    "etc/items/actions/talk_lotto_ticket.json",
+    "etc/items/actions/move_lotto_ticket.json",
+    "etc/items/actions/climb_lotto_ticket.json",
+    "etc/items/actions/feed_lotto_ticket.json",
+    "etc/items/actions/hit_lotto_ticket.json",
+    "etc/items/actions/lift_lotto_ticket.json",
+    "etc/items/actions/use_lotto_ticket.json",
+    "etc/items/actions/enter_lotto_ticket.json",
+    "etc/items/actions/swim_lotto_ticket.json"]}

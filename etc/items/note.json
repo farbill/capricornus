@@ -1,1 +1,16 @@
-{"name": "Note", "item_type": "CRITICAL", "narration": "A Note is pin to a street light.", "description": "The Note reads, 'Hobo, Student, Businessman, Wizard'.", "actions": ["etc/items/actions/view_note.json", "etc/items/actions/take_note.json", "etc/items/actions/talk_note.json", "etc/items/actions/eat_note.json", "etc/items/actions/move_note.json", "etc/items/actions/climb_note.json", "etc/items/actions/feed_note.json", "etc/items/actions/hit_note.json", "etc/items/actions/lift_note.json", "etc/items/actions/use_note.json", "etc/items/actions/enter_note.json", "etc/items/actions/swim_note.json"]}
+{"name": "Note",
+  "item_type": "CRITICAL",
+  "narration": "A Note is pin to a street light.",
+  "description": "The Note reads, 'Hobo, Student, Businessman, Wizard'.",
+  "actions": ["etc/items/actions/view_note.json",
+    "etc/items/actions/take_note.json",
+    "etc/items/actions/talk_note.json",
+    "etc/items/actions/eat_note.json",
+    "etc/items/actions/move_note.json",
+    "etc/items/actions/climb_note.json",
+    "etc/items/actions/feed_note.json",
+    "etc/items/actions/hit_note.json",
+    "etc/items/actions/lift_note.json",
+    "etc/items/actions/use_note.json",
+    "etc/items/actions/enter_note.json",
+    "etc/items/actions/swim_note.json"]}
