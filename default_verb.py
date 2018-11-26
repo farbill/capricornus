@@ -52,10 +52,10 @@ if __name__ == '__main__':
         for verb in verbs:
             print(get_default_display_action(verb, without_us))
             action_path = mypath + 'actions/'
-            action_filename =  verb + '_' + file
+            action_filename = verb + '_' + file
             afp = action_path + action_filename
             with open(afp, 'w') as fo:
-                json.dump(get_display_dict(verb, item_name), fo)
+                json.dump(get_display_dict(verb, without_us), fo)
             if 'actions' in d.keys():
                 if afp in d['actions']:
                     print('file already exists')
@@ -63,6 +63,10 @@ if __name__ == '__main__':
                     d['actions'].append(afp)
             else:
                 d['actions'] = [afp]
+        with open(mypath + file, 'w') as outer:
+            json.dump(d, outer)
+
+
 
 
         print(item_name)
