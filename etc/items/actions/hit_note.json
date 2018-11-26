@@ -1,1 +1,1 @@
-{"commands": ["hit note"], "response_type": "display", "response": "Ouch, the note hit you first"}
+{"commands": ["hit note"], "response_type": "display", "response": "You smacked the Note and it did nothing."}

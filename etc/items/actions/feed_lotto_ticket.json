@@ -1,1 +1,1 @@
-{"commands": ["feed lotto ticket"], "response_type": "display", "response": "the lotto ticket is not hungry right now"}
+{"commands": ["feed lotto ticket"], "response_type": "display", "response": "You can't feed an inanimate object."}
