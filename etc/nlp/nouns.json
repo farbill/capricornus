@@ -11,5 +11,9 @@
   "stone": ["rock"],
   "barbell": ["weight", "weights", "bar"],
   "lake": ["water"],
-  "kid": ["child", "minor"]
+  "kid": ["child", "minor"],
+  "tree": ["plant"],
+  "jogger": ["runner"],
+  "wizard": ["mage"],
+  "dog": ["canine", "puppy", "pup"]
 }
