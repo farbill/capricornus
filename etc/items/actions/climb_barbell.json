@@ -1,1 +1,1 @@
-{"commands": ["climb barbell"], "response_type": "display", "response": "Stop trying to climb on the barbell"}
+{"commands": ["climb barbell"], "response_type": "display", "response": "The Barbell is too unstable to climb."}

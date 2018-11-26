@@ -1,1 +1,1 @@
-{"commands": ["climb note"], "response_type": "display", "response": "Stop trying to climb on the note"}
+{"commands": ["climb note"], "response_type": "display", "response": "You can't climb a piece of paper."}

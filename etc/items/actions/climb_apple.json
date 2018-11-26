@@ -1,1 +1,1 @@
-{"commands": ["climb apple"], "response_type": "display", "response": "Stop trying to climb on the apple"}
+{"commands": ["climb apple"], "response_type": "display", "response": "The Apple is too small to climb."}
