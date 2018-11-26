@@ -1,1 +1,1 @@
-{"commands": ["enter note"], "response_type": "display", "response": "You can't just enter a note"}
+{"commands": ["enter note"], "response_type": "display", "response": "This isn't magic. You can't enter a Note."}

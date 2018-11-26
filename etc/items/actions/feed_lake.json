@@ -1,1 +1,1 @@
-{"commands": ["feed lake"], "response_type": "display", "response": "the lake is not hungry right now"}
+{"commands": ["feed lake"], "response_type": "display", "response": "You didn't have food to feed the fishes in the Lake."}

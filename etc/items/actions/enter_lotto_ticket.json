@@ -1,1 +1,1 @@
-{"commands": ["enter lotto ticket"], "response_type": "display", "response": "You can't just enter a lotto ticket"}
+{"commands": ["enter lotto ticket"], "response_type": "display", "response": "You can't enter the Lotto Ticket. This isn't magic!"}

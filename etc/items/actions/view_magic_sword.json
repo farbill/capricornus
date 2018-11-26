@@ -1,1 +1,13 @@
-{"commands": ["view magic sword"], "response_type": "display", "response": "Ahh, what a gorgeous magic sword"}
+{
+  "commands": [
+    "view magic sword",
+    "view sword",
+        "look at sword",
+        "view the sword",
+        "look at the sword",
+        "inspect the sword",
+        "see the sword",
+        "take a look at the sword"],
+  "response_type": "display",
+  "response": "As I get closer, the sword starts glowing and making humming sound.  Maybe I can pull it out."
+}
