@@ -1,0 +1,8 @@
+{
+  "commands": [
+    "move yellow key",
+    "push yellow key"
+  ],
+  "response_type": "display",
+  "response": "You moved the Yellow Key around. That didn't do much."
+}

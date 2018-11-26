@@ -1,0 +1,8 @@
+{
+  "commands": [
+    "look at crystal key",
+    "view crystal key"
+  ],
+  "response_type": "display",
+  "response": "A sparkling crystal-colored key. It looks like it can be used to open something."
+}

@@ -1,0 +1,7 @@
+{
+  "commands": [
+    "use yellow key"
+  ],
+  "response_type": "display",
+  "response": "Use Yellow Key how?"
+}

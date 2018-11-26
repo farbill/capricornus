@@ -1,0 +1,7 @@
+{
+  "commands": [
+    "lift green key"
+  ],
+  "response_type": "display",
+  "response": "Cool. You've lifted the Green Key. Did you mean to pick up instead?"
+}

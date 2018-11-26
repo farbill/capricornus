@@ -1,0 +1,7 @@
+{
+  "commands": [
+    "feed green key"
+  ],
+  "response_type": "display",
+  "response": "You can't feed an inanimate object."
+}

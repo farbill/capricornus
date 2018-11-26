@@ -1,0 +1,9 @@
+{
+  "commands": [
+    "hit red key",
+    "attack red key",
+    "strike red key"
+  ],
+  "response_type": "display",
+  "response": "You hit the Red Key. But that didn't do anything."
+}

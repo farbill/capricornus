@@ -3,6 +3,19 @@
   "item_type": "CRITICAL",
   "narration": "",
   "description": "A green-colored key. It looks like it can be used to open something.",
-  "actions":["etc/items/actions/use_green_key_on_green_chest.json",
-              "etc/items/actions/take_green_key.json" ]
+  "actions":[
+    "etc/items/actions/use_green_key_on_green_chest.json",
+    "etc/items/actions/take_green_key.json",
+    "etc/items/actions/look_at_green_key.json",
+    "etc/items/actions/use_green_key.json",
+    "etc/items/actions/talk_to_green_key.json",
+    "etc/items/actions/enter_green_key.json",
+    "etc/items/actions/eat_green_key.json",
+    "etc/items/actions/hit_green_key.json",
+    "etc/items/actions/climb_green_key.json",
+    "etc/items/actions/move_green_key.json",
+    "etc/items/actions/swim_green_key.json",
+    "etc/items/actions/lift_green_key.json",
+    "etc/items/actions/feed_green_key.json"
+  ]
 }

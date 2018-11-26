@@ -1,0 +1,9 @@
+{
+  "commands": [
+    "hit green key",
+    "attack green key",
+    "strike green key"
+  ],
+  "response_type": "display",
+  "response": "You hit the Green Key. But that didn't do anything."
+}

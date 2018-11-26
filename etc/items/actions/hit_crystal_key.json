@@ -1,0 +1,9 @@
+{
+  "commands": [
+    "hit crystal key",
+    "attack crystal key",
+    "strike crystal key"
+  ],
+  "response_type": "display",
+  "response": "You hit the Crystal Key. But that didn't do anything."
+}

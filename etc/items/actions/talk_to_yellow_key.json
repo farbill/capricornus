@@ -1,0 +1,10 @@
+{
+  "commands": [ "talk to yellow key",
+                        "talk yellow key",
+                        "speak yellow key",
+                        "speak to yellow key",
+                        "talk to the yellow key",
+                        "speak to the yellow key"],
+  "response_type": "display",
+  "response": "Talking to a Key? That seems a bit crazy."
+}

@@ -1,0 +1,8 @@
+{
+  "commands": [
+    "eat yellow key",
+    "eat the yellow key"
+  ],
+  "response_type": "display",
+  "response": "You shouldn't do that! The Yellow Key is very important and you need it!"
+}
