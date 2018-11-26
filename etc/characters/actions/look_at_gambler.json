@@ -1,0 +1,8 @@
+{
+  "commands": [
+    "look at gambler",
+    "view gambler"
+  ],
+  "response_type": "display",
+  "response": "A Gambler looks fidgety and anxious. Is this guy up to something?"
+}

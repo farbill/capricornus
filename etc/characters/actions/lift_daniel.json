@@ -1,0 +1,7 @@
+{
+  "commands": [
+    "lift daniel"
+  ],
+  "response_type": "display",
+  "response": "Daniel has a slim physique - you can probably lift him. But don't you have better things to do?"
+}

@@ -1,0 +1,8 @@
+{
+  "commands": [
+    "move businessman",
+    "push businessman"
+  ],
+  "response_type": "display",
+  "response": "The Businessman isn't breaking any law. Best not touch him."
+}

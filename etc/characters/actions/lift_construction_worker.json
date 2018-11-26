@@ -1,0 +1,7 @@
+{
+  "commands": [
+    "lift construction_worker"
+  ],
+  "response_type": "display",
+  "response": "The Construction Worker looks heavy. Probably not worth the risk of injury."
+}

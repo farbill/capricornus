@@ -1,0 +1,7 @@
+{
+  "commands": [
+    "use student"
+  ],
+  "response_type": "display",
+  "response": "You shouldn't abuse your authority to control the Student!"
+}

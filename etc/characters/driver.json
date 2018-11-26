@@ -10,7 +10,18 @@
             "Nice job. I don't have anything to offer, but thanks for the company.",
             "I'm thinking of taking a nice nap. My client is taking a long time." ],
   "action":[
-            "etc/characters/actions/talk_to_driver.json"
-        ]
+    "etc/characters/actions/look_at_driver.json",
+    "etc/characters/actions/take_driver.json",
+    "etc/characters/actions/use_driver.json",
+    "etc/characters/actions/talk_to_driver.json",
+    "etc/characters/actions/enter_driver.json",
+    "etc/characters/actions/eat_driver.json",
+    "etc/characters/actions/hit_driver.json",
+    "etc/characters/actions/climb_driver.json",
+    "etc/characters/actions/move_driver.json",
+    "etc/characters/actions/swim_driver.json",
+    "etc/characters/actions/lift_driver.json",
+    "etc/characters/actions/feed_driver.json"
+  ]
 
 }

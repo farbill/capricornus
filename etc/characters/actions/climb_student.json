@@ -1,0 +1,7 @@
+{
+  "commands": [
+    "climb student"
+  ],
+  "response_type": "display",
+  "response": "I'm pretty sure the Student won't appreciate that."
+}

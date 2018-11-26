@@ -1,0 +1,7 @@
+{
+  "commands": [
+    "lift wizard"
+  ],
+  "response_type": "display",
+  "response": "You attempt to lift the Wizard, but a spell is keeping you from touching him."
+}

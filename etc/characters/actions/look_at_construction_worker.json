@@ -1,0 +1,8 @@
+{
+  "commands": [
+    "look at construction_worker",
+    "view construction_worker"
+  ],
+  "response_type": "display",
+  "response": "A Construction Worker is surveying the area. Probably for the new high-rises."
+}

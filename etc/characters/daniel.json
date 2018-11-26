@@ -1,8 +1,8 @@
 {
-  "short_description": "Daniel Webster Jr. Jr.",
-  "long_description": "Daniel's Webster's grandson",
+  "short_description": "Daniel Webster",
+  "long_description": "Daniel Webster. Benjamin Webster's grandson.",
   "puzzle": "etc/puzzles/question_daniel.json",
-  "narration": "Daniel Webster Jr. Jr. is standing.",
+  "narration": "Daniel is standing, staring afar. He is the grandson of Benjamin Webster.",
   "dialogs": [
             "You approach Daniel. He says: 'Do you want to challenge my problem?'",
             "You want another try at my problem?",
@@ -10,7 +10,17 @@
             "Spectacular! Hey, you know that ticking Stone. Yeah, I wouldn't mess with it. It creepies me out.",
             "You're an intelligent man. Didn't expect you to solve my problem." ],
   "action":[
-            "etc/characters/actions/talk_to_daniel.json",
-            "etc/characters/actions/view_daniel.json"
-        ]
+    "etc/characters/actions/look_at_daniel.json",
+    "etc/characters/actions/take_daniel.json",
+    "etc/characters/actions/use_daniel.json",
+    "etc/characters/actions/talk_to_daniel.json",
+    "etc/characters/actions/enter_daniel.json",
+    "etc/characters/actions/eat_daniel.json",
+    "etc/characters/actions/hit_daniel.json",
+    "etc/characters/actions/climb_daniel.json",
+    "etc/characters/actions/move_daniel.json",
+    "etc/characters/actions/swim_daniel.json",
+    "etc/characters/actions/lift_daniel.json",
+    "etc/characters/actions/feed_daniel.json"
+  ]
 }

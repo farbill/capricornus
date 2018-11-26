@@ -1,0 +1,7 @@
+{
+  "commands": [
+    "lift gambler"
+  ],
+  "response_type": "display",
+  "response": "You attempt to lift the Gambler, but the smell of cigars stops you in your tracks."
+}

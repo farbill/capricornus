@@ -1,0 +1,8 @@
+{
+  "commands": [
+    "move jogger",
+    "push jogger"
+  ],
+  "response_type": "display",
+  "response": "You move the Jogger and she stares at you funny."
+}

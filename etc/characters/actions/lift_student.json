@@ -1,0 +1,7 @@
+{
+  "commands": [
+    "lift student"
+  ],
+  "response_type": "display",
+  "response": "There isn't a reason to lift the Student."
+}

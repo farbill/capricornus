@@ -3,7 +3,7 @@
   "item_type": "FEATURE",
   "narration": "A Tree seems to have fallen and is blocking traffic - seems like no one has gotten around to moving it yet.",
   "description": "A small redwood Tree. About as big as you.",
-  "actions":["etc/items/actions/look_at_tree.json",
+  "actions":[
     "etc/items/actions/view_tree.json",
-              "etc/items/actions/move_tree.json"]
+    "etc/items/actions/move_tree.json"]
 }

@@ -1,0 +1,7 @@
+{
+  "commands": [
+    "climb businessman"
+  ],
+  "response_type": "display",
+  "response": "I'm pretty sure the Businessman won't appreciate that."
+}

@@ -1,0 +1,8 @@
+{
+  "commands": [
+    "look at businessman",
+    "view businessman"
+  ],
+  "response_type": "display",
+  "response": "A Businessman is sitting down, eating in the park."
+}

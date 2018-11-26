@@ -1,0 +1,8 @@
+{
+  "commands": [
+    "move gambler",
+    "push gambler"
+  ],
+  "response_type": "display",
+  "response": "You move the Gambler and he looks at you funny."
+}

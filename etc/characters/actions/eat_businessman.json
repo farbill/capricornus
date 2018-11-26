@@ -1,0 +1,8 @@
+{
+  "commands": [
+    "eat businessman",
+    "eat the businessman"
+  ],
+  "response_type": "display",
+  "response": "You probably shouldn't do that. You're not a cannibal - are you?"
+}

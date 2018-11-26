@@ -1,0 +1,8 @@
+{
+  "commands": [
+    "move kid",
+    "push kid"
+  ],
+  "response_type": "display",
+  "response": "There isn't a reason to move the Kid."
+}

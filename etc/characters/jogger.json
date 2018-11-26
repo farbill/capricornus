@@ -10,7 +10,18 @@
             "Good job. I don't have anything to offer, but I just gave your brain an exercise. You're welcome!",
             "This traffic light is taking forever." ],
   "action":[
-            "etc/characters/actions/talk_to_jogger.json"
+    "etc/characters/actions/look_at_jogger.json",
+    "etc/characters/actions/take_jogger.json",
+    "etc/characters/actions/use_jogger.json",
+    "etc/characters/actions/talk_to_jogger.json",
+    "etc/characters/actions/enter_jogger.json",
+    "etc/characters/actions/eat_jogger.json",
+    "etc/characters/actions/hit_jogger.json",
+    "etc/characters/actions/climb_jogger.json",
+    "etc/characters/actions/move_jogger.json",
+    "etc/characters/actions/swim_jogger.json",
+    "etc/characters/actions/lift_jogger.json",
+    "etc/characters/actions/feed_jogger.json"
         ]
 
 }

@@ -1,0 +1,9 @@
+{
+  "commands": [
+    "take wizard",
+    "grab wizard",
+    "pick up wizard"
+  ],
+  "response_type": "display",
+  "response": "I'm pretty sure you won't be able to fit the Wizard in your inventory."
+}

@@ -11,7 +11,18 @@
             "Nice job. I don't have much, but I found this on the ground earlier. You can have it.",
             "I hope my bus gets here soon. I have to study." ],
   "action":[
-            "etc/characters/actions/talk_to_student.json"
+    "etc/characters/actions/look_at_student.json",
+    "etc/characters/actions/take_student.json",
+    "etc/characters/actions/use_student.json",
+    "etc/characters/actions/talk_to_student.json",
+    "etc/characters/actions/enter_student.json",
+    "etc/characters/actions/eat_student.json",
+    "etc/characters/actions/hit_student.json",
+    "etc/characters/actions/climb_student.json",
+    "etc/characters/actions/move_student.json",
+    "etc/characters/actions/swim_student.json",
+    "etc/characters/actions/lift_student.json",
+    "etc/characters/actions/feed_student.json"
         ]
 
 }

@@ -1,0 +1,7 @@
+{
+  "commands": [
+    "lift jogger"
+  ],
+  "response_type": "display",
+  "response": "The Jogger is quite sweaty. Probably shouldn't try to lift them."
+}

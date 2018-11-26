@@ -1,0 +1,9 @@
+{
+  "commands": [
+    "take driver",
+    "grab driver",
+    "pick up driver"
+  ],
+  "response_type": "display",
+  "response": "I'm pretty sure you won't be able to fit the Driver in your inventory."
+}

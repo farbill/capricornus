@@ -1,0 +1,8 @@
+{
+  "commands": [
+    "look at jogger",
+    "view jogger"
+  ],
+  "response_type": "display",
+  "response": "A Jogger is running in place, waiting for the traffic light."
+}

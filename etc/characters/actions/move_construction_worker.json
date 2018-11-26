@@ -1,0 +1,8 @@
+{
+  "commands": [
+    "move construction_worker",
+    "push construction_worker"
+  ],
+  "response_type": "display",
+  "response": "The Construction Worker is doing his work. Best not disturb him."
+}

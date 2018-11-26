@@ -1,0 +1,8 @@
+{
+  "commands": [
+    "look at student",
+    "view student"
+  ],
+  "response_type": "display",
+  "response": "A Student is standing, waiting for the bus."
+}

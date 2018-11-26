@@ -1,0 +1,7 @@
+{
+  "commands": [
+    "lift businessman"
+  ],
+  "response_type": "display",
+  "response": "That would be rude to do while the guy is eating his lunch."
+}
