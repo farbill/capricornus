@@ -32,11 +32,14 @@ def get_default_display_action(verb, noun):
         return "The {} is not usable".format(noun)
     elif verb == 'enter':
         return "You can't just enter a {}".format(noun)
+    elif verb == 'swim':
+        return "You can't just swim in a {}".format(noun)
+
 
 if __name__ == '__main__':
     mypath = '/Users/williamfargo/etc/items/'
     onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
-    verbs = ['enter']
+    verbs = ['swim', 'enter']
     for file in onlyfiles:
         with open(mypath + file, 'r') as f:
             d = json.load(f)
@@ -47,8 +50,10 @@ if __name__ == '__main__':
             action_path = mypath + 'actions/'
             action_filename = verb + '_' + file
             afp = action_path + action_filename
+            '''
             with open(afp, 'w') as fo:
                 json.dump(get_display_dict(verb, without_us), fo)
+            '''
             if 'actions' in d.keys():
                 if afp in d['actions']:
                     print('file already exists')
