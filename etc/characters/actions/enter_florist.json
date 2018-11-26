@@ -1,0 +1,7 @@
+{
+  "commands": [
+    "enter florist"
+  ],
+  "response_type": "display",
+  "response": "I don't think that'll work."
+}

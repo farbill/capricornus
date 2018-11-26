@@ -1,0 +1,8 @@
+{
+  "commands": [
+    "move florist",
+    "push florist"
+  ],
+  "response_type": "display",
+  "response": "That would be rude - don't you think?"
+}

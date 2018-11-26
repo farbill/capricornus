@@ -1,9 +1,0 @@
-{
-  "commands": ["look coin",
-        "look at coin",
-        "look at the coin",
-        "see the coin",
-        "check out the coin"],
-  "response_type": "display",
-  "response": "It's a tiny silver coin.  It says 'Seek your strength in Greenland' on the front side."
-}

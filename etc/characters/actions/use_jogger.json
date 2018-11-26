@@ -1,0 +1,7 @@
+{
+  "commands": [
+    "use jogger"
+  ],
+  "response_type": "display",
+  "response": "You shouldn't abuse your authority to control the Jogger!"
+}

@@ -1,0 +1,9 @@
+{
+  "commands": [
+    "enter construction worker",
+    "enter worker",
+    "enter construction"
+  ],
+  "response_type": "display",
+  "response": "I don't think that'll work."
+}

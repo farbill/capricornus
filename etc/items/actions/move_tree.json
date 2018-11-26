@@ -2,7 +2,10 @@
   "commands": ["move tree",
                 "move the tree",
                 "push tree",
-                "push the tree"],
+                "push the tree",
+                "try to move the tree",
+                "pull tree",
+                "pull the tree"],
   "response_type": "action",
   "response": "",
   "more_response_type": "move"

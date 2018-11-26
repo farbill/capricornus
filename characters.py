@@ -6,7 +6,7 @@ from main_menu import GAME_WIDTH, dotted_line, empty_line, print_in_the_middle, 
     informScreen
 from puzzles import Puzzle, PuzzleState
 
-from narration import narration, left_narration
+from narration import narration, left_narration, narrationScreen
 
 
 class CharacterState(Enum):
@@ -103,9 +103,9 @@ class NonPlayableCharacter(Character):
         msg = self.get_greeting()
         dotted_line_length = GAME_WIDTH
         dotted_line(dotted_line_length)
-        empty_line(2)
+        empty_line(1)
         narration(msg, dotted_line_length)
-        empty_line(2)
+        empty_line(1)
         dotted_line(dotted_line_length)
 
         if self._puzzle.state == PuzzleState.SOLVED :
@@ -116,14 +116,14 @@ class NonPlayableCharacter(Character):
                 clear_screen()
                 self._character_state = CharacterState.SPOKEN
                 if self._puzzle.play_puzzle(self._dialogs[DialogCategory.FAIL.value], ga) is True:
-                    informScreen(self._dialogs[DialogCategory.SUCCESS.value])
+                    narrationScreen(self._dialogs[DialogCategory.SUCCESS.value])
                     if self._item:
                         if ga.space_in_inventory():
                             ga.add_to_inventory(self._item)
-                            informScreen(self._item.name + " added to inventory.")
+                            narrationScreen(self._item.name + " added to inventory.")
                         else:
                             this_district._dropped_items.append(self._item)
-                            informScreen("You don't have space for " + self._item.name + ". It is dropped in the district instead.")
+                            narrationScreen("You don't have space for " + self._item.name + ". It is dropped in the district instead.")
 
                         self._item = None
 

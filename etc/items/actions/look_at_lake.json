@@ -1,7 +1,0 @@
-{
-  "commands": ["look lake",
-        "look at lake",
-        "look at the lake"],
-  "response_type": "display",
-  "response": "The Lake has some nice calming water. Perfect for a dip."
-}

@@ -1,0 +1,7 @@
+{
+  "commands": ["eat apple",
+        "eat the apple" ],
+  "response_type": "action",
+  "response": "",
+  "more_response_type": "eat"
+}

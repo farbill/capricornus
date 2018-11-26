@@ -1,8 +1,1 @@
-{
-  "name": "Vitality Orb",
-  "item_type": "LEGENDARY",
-  "narration": "There is an orb glowing in purple!",
-  "description": "It's the legendary vitality orb I was looking for!",
-  "actions":["etc/items/actions/look_at_vitality_orb.json",
-             "etc/items/actions/take_vitality_orb.json"]
-}
+{"name": "Vitality Orb", "item_type": "LEGENDARY", "narration": "There is an orb glowing in purple!", "description": "It's the legendary vitality orb I was looking for!", "actions": ["etc/items/actions/view_vitality_orb.json", "etc/items/actions/take_vitality_orb.json", "etc/items/actions/talk_vitality_orb.json", "etc/items/actions/eat_vitality_orb.json", "etc/items/actions/move_vitality_orb.json", "etc/items/actions/climb_vitality_orb.json", "etc/items/actions/feed_vitality_orb.json", "etc/items/actions/hit_vitality_orb.json", "etc/items/actions/lift_vitality_orb.json", "etc/items/actions/use_vitality_orb.json"]}

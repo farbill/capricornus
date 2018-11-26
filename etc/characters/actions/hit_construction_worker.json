@@ -1,0 +1,15 @@
+{
+  "commands": [
+    "hit construction worker",
+    "attack construction worker",
+    "strike construction worker",
+        "hit worker",
+    "attack worker",
+    "strike worker",
+        "hit construction",
+    "attack construction",
+    "strike construction"
+  ],
+  "response_type": "display",
+  "response": "Better not. You're an officer of the law after all."
+}

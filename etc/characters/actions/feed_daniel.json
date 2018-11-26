@@ -1,0 +1,7 @@
+{
+  "commands": [
+    "feed daniel"
+  ],
+  "response_type": "display",
+  "response": "You don't seem to have any food to offer."
+}

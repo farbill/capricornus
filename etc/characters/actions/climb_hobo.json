@@ -1,0 +1,7 @@
+{
+  "commands": [
+    "climb hobo"
+  ],
+  "response_type": "display",
+  "response": "I'm pretty sure the Hobo won't appreciate that."
+}

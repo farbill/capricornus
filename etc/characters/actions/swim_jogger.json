@@ -1,0 +1,7 @@
+{
+  "commands": [
+    "swim jogger"
+  ],
+  "response_type": "display",
+  "response": "That doesn't make any sense."
+}

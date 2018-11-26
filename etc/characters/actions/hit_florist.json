@@ -1,0 +1,9 @@
+{
+  "commands": [
+    "hit florist",
+    "attack florist",
+    "strike florist"
+  ],
+  "response_type": "display",
+  "response": "Better not. You're an officer of the law after all."
+}

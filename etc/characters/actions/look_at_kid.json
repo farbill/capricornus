@@ -1,0 +1,8 @@
+{
+  "commands": [
+    "look at kid",
+    "view kid"
+  ],
+  "response_type": "display",
+  "response": "A Kid is riding around on his tricycle. There doesn't seem to be any parents around."
+}

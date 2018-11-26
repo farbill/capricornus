@@ -2,7 +2,9 @@
   "commands": [ "talk to student",
                         "talk student",
                         "speak student",
-                        "speak to student"],
+                        "speak to student",
+                        "talk to the student",
+                        "speak to the student"],
   "response_type": "event",
   "response": ""
 }

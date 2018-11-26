@@ -1,0 +1,8 @@
+{
+  "commands": [
+    "look at daniel",
+    "view daniel"
+  ],
+  "response_type": "display",
+  "response": "Daniel is standing, staring afar. He is the grandson of Benjamin Webster."
+}

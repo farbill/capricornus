@@ -1,0 +1,9 @@
+{
+  "commands": [
+    "take hobo",
+    "grab hobo",
+    "pick up hobo"
+  ],
+  "response_type": "display",
+  "response": "I'm pretty sure you won't be able to fit the Hobo in your inventory."
+}

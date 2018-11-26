@@ -11,7 +11,18 @@
             "I am surprised a mortal such as yourself have solved this. Here, you can have this.",
             "I need to get back to practicing my spell." ],
   "action":[
-            "etc/characters/actions/talk_to_wizard.json"
-        ]
+    "etc/characters/actions/look_at_wizard.json",
+    "etc/characters/actions/take_wizard.json",
+    "etc/characters/actions/use_wizard.json",
+    "etc/characters/actions/talk_to_wizard.json",
+    "etc/characters/actions/enter_wizard.json",
+    "etc/characters/actions/eat_wizard.json",
+    "etc/characters/actions/hit_wizard.json",
+    "etc/characters/actions/climb_wizard.json",
+    "etc/characters/actions/move_wizard.json",
+    "etc/characters/actions/swim_wizard.json",
+    "etc/characters/actions/lift_wizard.json",
+    "etc/characters/actions/feed_wizard.json"
+  ]
 
 }

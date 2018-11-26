@@ -2,10 +2,10 @@
   "x":3,
   "y":1,
   "name": "Lemonfield",
-  "district_items": [],
+  "district_items": ["etc/items/coin.json"],
   "clues": [],
   "characters": ["etc/characters/businessman.json"],
   "short_description": "Lemonfield is a neighborhood in the south eastern portion of the New San Diego City.",
-  "long_description": "Lemonfield is a neighborhood in the south eastern portion of the New San Diego City. A 3,000-pound civic lemon statue sits in the center of Lemonfield."
+  "long_description": "Lemonfield is a neighborhood in the south eastern portion of the New San Diego City. A 3,000-pound civic lemon statue sits in the center of the town."
 
 }

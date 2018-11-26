@@ -1,0 +1,27 @@
+{
+  "short_description": "A florist.",
+  "long_description": "A florist enjoying the scenery.",
+  "puzzle": "etc/puzzles/florist_puzzle.json",
+  "narration": "A Florist is enjoying the scenery.",
+  "dialogs": [
+            "You approach the Florist. She says: 'I have a puzzle I'm trying to solve. Want to help?'",
+            "Want another try at it?",
+            "Hmm, sorry. I don't think that is the right answer.",
+            "Zero! Right, roosters do not lay eggs! I don't have anything to offer in return, but you know what they say, a good deed is its own reward.",
+            "This scenery is so relaxing, don't you think?" ],
+  "action":[
+    "etc/characters/actions/look_at_florist.json",
+    "etc/characters/actions/take_florist.json",
+    "etc/characters/actions/use_florist.json",
+    "etc/characters/actions/talk_to_florist.json",
+    "etc/characters/actions/enter_florist.json",
+    "etc/characters/actions/eat_florist.json",
+    "etc/characters/actions/hit_florist.json",
+    "etc/characters/actions/climb_florist.json",
+    "etc/characters/actions/move_florist.json",
+    "etc/characters/actions/swim_florist.json",
+    "etc/characters/actions/lift_florist.json",
+    "etc/characters/actions/feed_florist.json"
+        ]
+
+}

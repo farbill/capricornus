@@ -1,0 +1,6 @@
+{
+  "question": "I need 3 lucky winning numbers. What do you have? (Use space to separate numbers.)",
+  "answers": ["23 57 12", "23 12 57",
+              "57 23 12", "57 12 23",
+              "12 23 57", "12 57 23"]
+}

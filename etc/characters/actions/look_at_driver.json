@@ -1,0 +1,8 @@
+{
+  "commands": [
+    "look at driver",
+    "view driver"
+  ],
+  "response_type": "display",
+  "response": "A Driver is waiting for a passenger. His vehicle is a classic town car."
+}

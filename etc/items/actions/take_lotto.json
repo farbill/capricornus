@@ -10,6 +10,6 @@
         "pick up the lotto ticket",
         "take the lotto ticket"],
   "response_type": "action",
-  "response": "The lotto ticket is in my inventory now.",
+  "response": "The Lotto Ticket is in my inventory now.",
   "more_response_type": "take_item"
 }

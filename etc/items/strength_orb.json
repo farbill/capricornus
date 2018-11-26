@@ -1,8 +1,1 @@
-{
-  "name": "Strength Orb",
-  "item_type": "LEGENDARY",
-  "narration": "There is an orb glowing in red!",
-  "description": "It's the legendary strength orb I was looking for!  Just by looking at it, I can feel its power.",
-  "actions":["etc/items/actions/look_at_strength_orb.json",
-             "etc/items/actions/take_strength_orb.json"]
-}
+{"name": "Strength Orb", "item_type": "LEGENDARY", "narration": "There is an orb glowing in red!", "description": "It's the legendary strength orb I was looking for!  Just by looking at it, I can feel its power.", "actions": ["etc/items/actions/view_strength_orb.json", "etc/items/actions/take_strength_orb.json", "etc/items/actions/talk_strength_orb.json", "etc/items/actions/eat_strength_orb.json", "etc/items/actions/move_strength_orb.json", "etc/items/actions/climb_strength_orb.json", "etc/items/actions/feed_strength_orb.json", "etc/items/actions/hit_strength_orb.json", "etc/items/actions/lift_strength_orb.json", "etc/items/actions/use_strength_orb.json"]}

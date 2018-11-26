@@ -1,6 +1,6 @@
 from enum import Enum
 from functools import reduce
-from narration import narration
+from narration import narration, narrationScreen
 from command_parsing import command_parsing
 from main_menu import GAME_WIDTH, dotted_line, empty_line, print_in_the_middle, write_over, \
     go_up_and_clear, clear_screen
@@ -45,6 +45,7 @@ class Puzzle(object):
         narration(msg1, dotted_line_length)
         empty_line(1)
         narration(msg2, dotted_line_length)
+        empty_line(1)
         dotted_line(dotted_line_length)
         selection = self.puzzle_selection(input(">>> "), self._data.answers, failed_msg, ga)
         if selection == 1:  #puzzle solved

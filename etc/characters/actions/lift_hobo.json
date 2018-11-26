@@ -1,0 +1,7 @@
+{
+  "commands": [
+    "lift hobo"
+  ],
+  "response_type": "display",
+  "response": "You attempt to lift the Hobo, but the smell stops you in your tracks."
+}

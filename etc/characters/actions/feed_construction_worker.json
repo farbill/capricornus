@@ -1,0 +1,9 @@
+{
+  "commands": [
+    "feed construction worker",
+    "feed worker",
+    "feed construction"
+  ],
+  "response_type": "display",
+  "response": "You don't seem to have any food to offer."
+}

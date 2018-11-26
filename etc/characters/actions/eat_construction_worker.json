@@ -1,0 +1,9 @@
+{
+  "commands": [
+    "eat construction worker",
+    "eat construction",
+    "eat worker"
+  ],
+  "response_type": "display",
+  "response": "You probably shouldn't do that. You're not a cannibal - are you?"
+}

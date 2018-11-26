@@ -1,5 +1,8 @@
 {
-  "commands": [ "view hobo", "look at hobo"],
+  "commands": [
+    "eat hobo",
+    "eat the hobo"
+  ],
   "response_type": "display",
-  "response": "Just your regular hobo sitting on the ground."
+  "response": "You probably shouldn't do that. You're not a cannibal - are you?"
 }

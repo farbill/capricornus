@@ -1,0 +1,8 @@
+{
+  "commands": [
+    "look at wizard",
+    "view wizard"
+  ],
+  "response_type": "display",
+  "response": "A Wizard is swaying his arms around with his eyes closed. He seems deep in focus."
+}

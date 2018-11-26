@@ -1,0 +1,8 @@
+{
+  "commands": [
+    "look at florist",
+    "view florist"
+  ],
+  "response_type": "display",
+  "response": "A Florist is enjoying the beautiful and relaxing scenery."
+}

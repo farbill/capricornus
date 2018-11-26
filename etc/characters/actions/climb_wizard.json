@@ -1,0 +1,7 @@
+{
+  "commands": [
+    "climb wizard"
+  ],
+  "response_type": "display",
+  "response": "I'm pretty sure the Wizard won't appreciate that."
+}

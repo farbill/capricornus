@@ -1,0 +1,8 @@
+{
+  "commands": [
+    "move wizard",
+    "push wizard"
+  ],
+  "response_type": "display",
+  "response": "The Wizard has a spell that prevents him from being touched."
+}

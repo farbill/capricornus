@@ -1,0 +1,12 @@
+{
+  "commands": [
+    "move construction worker",
+    "push construction worker",
+        "move worker",
+    "push worker",
+        "move construction",
+    "push construction"
+  ],
+  "response_type": "display",
+  "response": "The Construction Worker is doing his work. Best not disturb him."
+}

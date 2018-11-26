@@ -2,7 +2,9 @@
   "commands": [ "talk to wizard",
                         "talk wizard",
                         "speak wizard",
-                        "speak to wizard"],
+                        "speak to wizard",
+                        "talk to the wizard",
+                        "speak to the wizard"],
   "response_type": "event",
   "response": ""
 }

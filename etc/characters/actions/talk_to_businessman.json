@@ -2,7 +2,9 @@
   "commands": [ "talk to businessman",
                         "talk businessman",
                         "speak businessman",
-                        "speak to businessman"],
+                        "speak to businessman",
+                        "talk to the businessman",
+                        "speak to the businessman"],
   "response_type": "event",
   "response": ""
 }

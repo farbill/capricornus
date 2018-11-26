@@ -11,7 +11,18 @@
             "Wow, I think that's the answer. Here, it seems like this could be of some value to you.",
             "I have to finish eating and get back to work. It seems like chewing takes forever." ],
   "action":[
-            "etc/characters/actions/talk_to_businessman.json"
-        ]
+    "etc/characters/actions/look_at_businessman.json",
+    "etc/characters/actions/take_businessman.json",
+    "etc/characters/actions/use_businessman.json",
+    "etc/characters/actions/talk_to_businessman.json",
+    "etc/characters/actions/enter_businessman.json",
+    "etc/characters/actions/eat_businessman.json",
+    "etc/characters/actions/hit_businessman.json",
+    "etc/characters/actions/climb_businessman.json",
+    "etc/characters/actions/move_businessman.json",
+    "etc/characters/actions/swim_businessman.json",
+    "etc/characters/actions/lift_businessman.json",
+    "etc/characters/actions/feed_businessman.json"
+  ]
 
 }

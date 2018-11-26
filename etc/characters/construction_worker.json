@@ -1,0 +1,27 @@
+{
+  "short_description": "A construction worker.",
+  "long_description": "A construction worker working on a housing development.",
+  "puzzle": "etc/puzzles/construction_worker_puzzle.json",
+  "narration": "A Construction Worker is surveying the area.",
+  "dialogs": [
+            "You approach the Construction Worker. He says: 'I got a bit of a thinker for you. Want to solve it?'",
+            "You want another try at my puzzle?",
+            "Yeah, I don't think that's it.",
+            "Nice job. Sorry, I don't have anything to offer you but at least you had fun, eh?",
+            "Sorry, can't chat. I have to finish this before the boss gets on my case." ],
+  "action":[
+    "etc/characters/actions/look_at_construction_worker.json",
+    "etc/characters/actions/take_construction_worker.json",
+    "etc/characters/actions/use_construction_worker.json",
+    "etc/characters/actions/talk_to_construction_worker.json",
+    "etc/characters/actions/enter_construction_worker.json",
+    "etc/characters/actions/eat_construction_worker.json",
+    "etc/characters/actions/hit_construction_worker.json",
+    "etc/characters/actions/climb_construction_worker.json",
+    "etc/characters/actions/move_construction_worker.json",
+    "etc/characters/actions/swim_construction_worker.json",
+    "etc/characters/actions/lift_construction_worker.json",
+    "etc/characters/actions/feed_construction_worker.json"
+        ]
+
+}

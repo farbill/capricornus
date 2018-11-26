@@ -4,8 +4,8 @@
   "name": "Oak Square",
   "district_items": ["etc/items/dog.json"],
   "clues": [],
-  "characters": [],
-  "short_description": "Oak Square is considered one of the major historic urban communities of New San Diego.",
-  "long_description": "Oak Square is considered one of the major historic urban communities of New San Diego. It stands out in New San Diego for its tree-lined streets, compact blocks, and walkable business district."
+  "characters": ["etc/characters/kid.json"],
+  "short_description": "Oak Square is one of the major historic urban communities of New San Diego.",
+  "long_description": "Oak Square is one of the major historic urban communities of New San Diego. It stands out in New San Diego for its tree-lined streets, compact blocks, and walkable business district."
 
 }

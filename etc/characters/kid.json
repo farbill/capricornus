@@ -1,0 +1,27 @@
+{
+  "short_description": "A kid.",
+  "long_description": "A kid riding on his tricycle.",
+  "puzzle": "etc/puzzles/kid_puzzle.json",
+  "narration": "A Kid is riding around on his tricycle.",
+  "dialogs": [
+            "You approach the Kid. The Kid says: 'My parents told me not to talk to strangers. But since you're already here, want to solve my puzzle?'",
+            "I bet you still won't get it this time around. Want to try again?",
+            "That is WRONG, mister. I thought grown-ups were suppose to be smart.",
+            "Meh, you got lucky. I'm going to ride my bike now.",
+            "Stranger danger!!" ],
+  "action":[
+    "etc/characters/actions/look_at_kid.json",
+    "etc/characters/actions/take_kid.json",
+    "etc/characters/actions/use_kid.json",
+    "etc/characters/actions/talk_to_kid.json",
+    "etc/characters/actions/enter_kid.json",
+    "etc/characters/actions/eat_kid.json",
+    "etc/characters/actions/hit_kid.json",
+    "etc/characters/actions/climb_kid.json",
+    "etc/characters/actions/move_kid.json",
+    "etc/characters/actions/swim_kid.json",
+    "etc/characters/actions/lift_kid.json",
+    "etc/characters/actions/feed_kid.json"
+        ]
+
+}

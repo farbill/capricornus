@@ -1,0 +1,9 @@
+{
+  "commands": [
+    "hit student",
+    "attack student",
+    "strike student"
+  ],
+  "response_type": "display",
+  "response": "Better not. You're an officer of the law after all."
+}

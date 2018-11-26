@@ -1,8 +1,1 @@
-{
-  "name": "Red Key",
-  "item_type": "CRITICAL",
-  "narration": "",
-  "description": "A red-colored key. It looks like it can be used to open something.",
-  "actions":["etc/items/actions/use_red_key_on_red_chest.json",
-              "etc/items/actions/take_red_key.json" ]
-}
+{"name": "Red Key", "item_type": "CRITICAL", "narration": "", "description": "A red-colored key. It looks like it can be used to open something.", "actions": ["etc/items/actions/use_red_key_on_red_chest.json", "etc/items/actions/take_red_key.json", "etc/items/actions/view_red_key.json", "etc/items/actions/talk_red_key.json", "etc/items/actions/eat_red_key.json", "etc/items/actions/move_red_key.json", "etc/items/actions/climb_red_key.json", "etc/items/actions/feed_red_key.json", "etc/items/actions/hit_red_key.json", "etc/items/actions/lift_red_key.json", "etc/items/actions/use_red_key.json"]}

@@ -1,0 +1,8 @@
+{
+  "commands": [ "talk to driver",
+                        "talk driver",
+                        "speak driver",
+                        "speak to driver"],
+  "response_type": "event",
+  "response": ""
+}

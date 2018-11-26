@@ -1,0 +1,7 @@
+{
+  "commands": [
+    "lift driver"
+  ],
+  "response_type": "display",
+  "response": "The Driver is inside his vehicle. Lifting that will probably break your back."
+}
