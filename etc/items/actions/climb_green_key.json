@@ -1,3 +1,4 @@
+
 {
   "commands": [
     "climb green key"
@@ -5,3 +6,4 @@
   "response_type": "display",
   "response": "The Green Key is too small to climb."
 }
+

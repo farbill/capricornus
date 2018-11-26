@@ -1,6 +1,8 @@
 import sys
 from os import name, system
 from command_parsing import command_parsing
+from nlp import NLP
+translator = NLP()
 
 TIME_TO_WAIT_FOR_WRITE_OVER = 1
 
@@ -99,7 +101,7 @@ def main_selection(the_input):
             write_over("Invalid Input.  Try again.")
             go_up_and_clear()
             command_line = "Make your selection >>> "
-            the_input = input(command_line)
+            the_input = translator.translate(input(command_line))
             the_input = str(the_input)
             lowered_input = the_input.lower()
     return int(selection)
@@ -131,8 +133,8 @@ def yes_no_selection(the_input) -> int:
             write_over("Invalid Input.  Try again.")
             go_up_and_clear()
             command_line = "Yes/No >>> "
-            the_input = input(command_line)
-            the_input = str(the_input)
+            the_input = translator.translate(input(command_line))
+            the_input = translator.translate(str(the_input))
             lowered_input = the_input.lower()
 
     return int(selection)
@@ -163,7 +165,7 @@ def main_menu():
     dotted_line(dotted_line_length)
 
     command_line = "Make your selection >>> "
-    the_input = input(command_line)
+    the_input = translator.translate(input(command_line))
     selection = main_selection(the_input)
 
     return selection

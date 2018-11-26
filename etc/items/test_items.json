@@ -1,5 +1,1 @@
-{
-  "name": "TesterItem",
-  "item_type": "CRITICAL",
-  "narration": "Once, upon a time, there was a critical test item"
-}
+{"name": "TesterItem", "item_type": "CRITICAL", "narration": "Once, upon a time, there was a critical test item", "actions": ["etc/items/actions/talk_test_items.json", "etc/items/actions/eat_test_items.json", "etc/items/actions/view_test_items.json", "etc/items/actions/move_test_items.json", "etc/items/actions/climb_test_items.json", "etc/items/actions/feed_test_items.json", "etc/items/actions/hit_test_items.json", "etc/items/actions/lift_test_items.json", "etc/items/actions/take_test_items.json", "etc/items/actions/use_test_items.json"]}

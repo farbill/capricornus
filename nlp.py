@@ -1,31 +1,56 @@
 import json
+import time
+
+
+def replace(l, find, replace):
+    return [x  if  not (x == find)  else  replace for x in l]
+
+
+
+def add_whitepace(s: str) -> str:
+    return s + ' '
+
+
+
+
+def add_whitespace_dict_list(dl: dict) -> dict:
+    return {add_whitepace(k): map(add_whitepace, v) for k, v in dl.items()}
 
 
 class NLP(object):
     def __init__(self):
         with open('etc/nlp/prepositions.json', 'r') as f:
             self.prepositions = set(json.load(f)['prepositions'])
+            #self.prepositions = list(map(add_whitepace, self.prepositions))
 
         with open('etc/nlp/verbs.json', 'r') as f:
             self.verbs = json.load(f)
+            #self.verbs = add_whitespace_dict_list(self.verbs)
 
         with open('etc/nlp/nouns.json', 'r') as f:
             self.nouns = json.load(f)
+            #self.nouns = add_whitespace_dict_list(self.nouns)
+
 
     def translate(self, command):
-        for base_verb, synonyms in self.verbs.items():
-            for synonym in synonyms:
-                command = command.replace(synonym, base_verb)
+        command = " ".join(command.split()).split(' ')
 
-        for base_noun, synonyms in self.nouns:
-            for synonym in synonyms:
-                command = command.replace(synonym, base_noun)
 
         for preposition in self.prepositions:
-            command = command.replace(preposition, '')
+            command = replace(command, preposition, '')
 
-        #remove whitespace https://stackoverflow.com/questions/1546226/simple-way-to-remove-multiple-spaces-in-a-string
+
+        for base_verb, synonyms in self.verbs.items():
+            for synonym in synonyms:
+                command = replace(command, synonym, base_verb)
+
+        for base_noun, synonyms in self.nouns.items():
+            for synonym in synonyms:
+                command = replace(command, synonym, base_noun)
+        command = " ".join(command)
         command = " ".join(command.split())
+        #remove whitespace https://stackoverflow.com/questions/1546226/simple-way-to-remove-multiple-spaces-in-a-string
+
         return command
 
     def get_jaccard_sim(self, str1, str2):

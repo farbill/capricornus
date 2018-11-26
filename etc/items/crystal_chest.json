@@ -1,7 +1,1 @@
-{
-  "name": "Crystal Chest",
-  "item_type": "FEATURE",
-  "narration": "You can see a Crystal Chest nearby.",
-  "description": "A Crystal Chest with a keyhole.",
-  "actions":["etc/items/actions/view_crystal_chest.json"]
-}
+{"name": "Crystal Chest", "item_type": "FEATURE", "narration": "You can see a Crystal Chest nearby.", "description": "A Crystal Chest with a keyhole.", "actions": ["etc/items/actions/view_crystal_chest.json", "etc/items/actions/talk_crystal_chest.json", "etc/items/actions/eat_crystal_chest.json", "etc/items/actions/move_crystal_chest.json", "etc/items/actions/climb_crystal_chest.json", "etc/items/actions/feed_crystal_chest.json", "etc/items/actions/hit_crystal_chest.json", "etc/items/actions/lift_crystal_chest.json", "etc/items/actions/take_crystal_chest.json", "etc/items/actions/use_crystal_chest.json"]}

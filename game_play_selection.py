@@ -1,7 +1,7 @@
 import sys
 from typing import Tuple, List
 from random import choice, randint
-
+from nlp import NLP
 import city
 from items import ActionType
 
@@ -9,6 +9,8 @@ import time
 import gamestate
 from main_menu import go_up_and_clear, write_over, informScreen
 from narration import narrationScreen
+
+translator = NLP()
 
 def gameplay_selection(ga, the_input: str,
                        nswe_districts: List[str],
@@ -84,7 +86,7 @@ def gameplay_selection(ga, the_input: str,
     ]
 
     selection = None
-    the_input = str(the_input).lower()  # to make the input case insensitive
+    the_input = translator.translate(str(the_input).lower())  # to make the input case insensitive
 
     while selection == None:
 
@@ -140,7 +142,7 @@ def gameplay_selection(ga, the_input: str,
                         return ga.final_game_sequence()
                     sys.stdout.write("\033[F")  # go up one line
                     go_up_and_clear()
-                    the_input = str(input(">>> ")).lower()
+                    the_input = translator.translate(str(input(">>> ")).lower())
                     continue
 
         # Check for valid actions for district items
@@ -180,7 +182,7 @@ def gameplay_selection(ga, the_input: str,
                             return ""
             sys.stdout.write("\033[F")      # go up one line
             go_up_and_clear()
-            the_input = str(input(">>> ")).lower()
+            the_input = translator.translate(str(input(">>> ")).lower())
             continue
 
         # Check for user's item action
@@ -281,7 +283,7 @@ def gameplay_selection(ga, the_input: str,
                             print("Use inventory menu to directly interact with items in your possession.")
             sys.stdout.write("\033[F")      # go up one line
             go_up_and_clear()
-            the_input = str(input(">>> ")).lower()
+            the_input = translator.translate(str(input(">>> ")).lower())
             continue
 
         # Check for command in action arrays: END --------------------------------------------------------------
@@ -295,7 +297,7 @@ def gameplay_selection(ga, the_input: str,
             sys.stdout.write("\033[K")  # clear line
             write_over("Invalid Input.  Try again.")
             go_up_and_clear()
-            the_input = str(input(">>> ")).lower()
+            the_input = translator.translate(str(input(">>> ")).lower())
 
         # Else, bad action: END -----------------------------------------------------------------------------
 
@@ -468,7 +470,7 @@ def district_action_function(ga, the_input, action_arr, item_arr):
 
         sys.stdout.write("\033[F")  # go up one line
         go_up_and_clear()
-        the_input = str(input(">>> ")).lower()
+        the_input = translator.translate(str(input(">>> ")).lower())
         return "continue", the_input
     else:
         return "pass", the_input

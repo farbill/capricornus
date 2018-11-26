@@ -1,3 +1,4 @@
+
 {
   "commands": [
     "hit green key",
@@ -7,3 +8,4 @@
   "response_type": "display",
   "response": "You hit the Green Key. But that didn't do anything."
 }
+
