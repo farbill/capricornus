@@ -30,20 +30,13 @@ def get_default_display_action(verb, noun):
         return "you cant take the {}".format(noun)
     elif verb == 'use':
         return "The {} is not usable".format(noun)
+    elif verb == 'enter':
+        return "You can't just enter a {}".format(noun)
 
 if __name__ == '__main__':
-    mypath = 'etc/items/'
+    mypath = '/Users/williamfargo/etc/items/'
     onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
-    verbs = ['talk',
-             'eat',
-             'view',
-             'move',
-             'climb',
-             'feed',
-             'hit',
-             'lift',
-             'take',
-             'use']
+    verbs = ['enter']
     for file in onlyfiles:
         with open(mypath + file, 'r') as f:
             d = json.load(f)

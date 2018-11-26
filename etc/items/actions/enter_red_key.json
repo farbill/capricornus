@@ -1,7 +1,1 @@
-{
-  "commands": [
-    "enter red key"
-  ],
-  "response_type": "display",
-  "response": "That doesn't work. Did you mean to use the Red Key on something instead?"
-}
+{"commands": ["enter red key"], "response_type": "display", "response": "You can't just enter a red key"}
