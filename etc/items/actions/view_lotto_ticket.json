@@ -1,1 +1,15 @@
-{"commands": ["view lotto ticket"], "response_type": "display", "response": "Ahh, what a gorgeous lotto ticket"}
+{
+  "commands": [
+        "view lotto",
+        "view lotto ticket",
+        "view the lotto ticket",
+        "look at lotto",
+        "look at ticket",
+        "look at lotto ticket",
+        "look at the lotto ticket",
+        "view the lotto",
+        "look at the lotto",
+        "look at the ticket"],
+  "response_type": "display",
+  "response": "A Lotto Ticket with the numbers '23 57 12' on it."
+}

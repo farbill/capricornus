@@ -1,1 +1,11 @@
-{"commands": ["take magic sword"], "response_type": "display", "response": "you cant take the magic sword"}
+{
+  "commands": ["take the sword",
+        "grab the sword",
+        "take sword",
+        "grab sword",
+        "obtain the sword",
+        "take magic sword"],
+  "response_type": "action",
+  "response": "You have obtained the magic sword!",
+  "more_response_type": "take_item"
+}
