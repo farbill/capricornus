@@ -1,5 +1,1 @@
-{"commands": ["take dog", 
-            "take up dog",
-            "take the dog"], 
-"response_type": "display", 
-"response": "Might be diseased. Better leave the Dog alone."}
+{"commands": ["take dog", "take up dog"], "response_type": "display", "response": "Might be diseased. Better leave the Dog alone."}

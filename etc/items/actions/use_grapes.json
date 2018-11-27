@@ -1,6 +1,1 @@
-{"commands": ["use grapes",
-            "use the grapes",
-            "use the grape",
-            "use grape"], 
-"response_type": "display", 
-"response": "The grapes is not usable"}
+{"commands": ["use grapes"], "response_type": "display", "response": "The grapes is not usable"}

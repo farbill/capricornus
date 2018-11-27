@@ -1,9 +1,7 @@
 {
   "commands": [
     "move crystal key",
-    "push crystal key",
-    "move the crystal key",
-    "push the crystal key"
+    "push crystal key"
   ],
   "response_type": "display",
   "response": "You moved the Crystal Key around. That didn't do much."

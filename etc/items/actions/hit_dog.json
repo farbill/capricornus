@@ -1,7 +1,1 @@
-{"commands": ["hit dog",
-            "hit the dog",
-            "smash the dog",
-            "beat up the dog",
-            "beat the dog"], 
-"response_type": "display", 
-"response": "Ouch, the dog hit you first"}
+{"commands": ["hit dog"], "response_type": "display", "response": "Ouch, the dog hit you first"}

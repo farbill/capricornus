@@ -1,4 +1,1 @@
-{"commands": ["swim apple",
-            "swim the apple"], 
-"response_type": "display", 
-"response": "You can't just swim in a apple"}
+{"commands": ["swim apple"], "response_type": "display", "response": "You can't just swim in a apple"}

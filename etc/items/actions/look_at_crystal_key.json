@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "commands": [
     "look crystal key",
@@ -7,13 +6,3 @@
   "response_type": "display",
   "response": "A sparkling crystal-colored key. It looks like it can be used to open something."
 }
-=======
-{
-  "commands": [
-    "look at crystal key",
-    "view crystal key"
-  ],
-  "response_type": "display",
-  "response": "A sparkling crystal-colored key. It looks like it can be used to open something."
-}
->>>>>>> 86ab585cfa9470688649b45dd08aafb75cda77c7

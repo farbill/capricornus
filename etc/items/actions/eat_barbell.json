@@ -1,5 +1,1 @@
-{"commands": ["eat barbell",
-            "eat the barbell",
-            "consume the barbell"], 
-"response_type": "display", 
-"response": "I just gave up barbell last week"}
+{"commands": ["eat barbell"], "response_type": "display", "response": "I just gave up barbell last week"}

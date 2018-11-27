@@ -1,4 +1,1 @@
-{"commands": ["lift apple",
-            "lift the apple"], 
-"response_type": "display", 
-"response": "Lifting a apple is no job for you"}
+{"commands": ["lift apple"], "response_type": "display", "response": "Lifting a apple is no job for you"}

@@ -1,8 +1,1 @@
-<<<<<<< HEAD
 {"commands": ["lift crystal chest", "lift chest"], "response_type": "display", "response": "Lifting a crystal chest is no job for you"}
-=======
-{"commands": ["lift crystal chest",
-            "life the crystal chest"], 
-"response_type": "display", 
-"response": "Lifting a crystal chest is no job for you"}
->>>>>>> 86ab585cfa9470688649b45dd08aafb75cda77c7

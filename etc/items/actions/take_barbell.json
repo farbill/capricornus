@@ -1,6 +1,1 @@
-{"commands": ["take barbell", 
-        "take up barbell",
-        "take the barbell",
-        "take up the barbell"], 
-"response_type": "display", 
-"response": "The Barbell is too heavy to put in your inventory!"}
+{"commands": ["take barbell", "take up barbell"], "response_type": "display", "response": "The Barbell is too heavy to put in your inventory!"}

@@ -1,4 +1,1 @@
-{"commands": ["feed apple",
-            "feed the apple"], 
-"response_type": "display", 
-"response": "the apple is not hungry right now"}
+{"commands": ["feed apple"], "response_type": "display", "response": "the apple is not hungry right now"}

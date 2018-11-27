@@ -1,4 +1,1 @@
-{"commands": ["move barbell",
-            "move the barbell"], 
-"response_type": "display", 
-"response": "You can't move a barbell"}
+{"commands": ["move barbell"], "response_type": "display", "response": "You can't move a barbell"}

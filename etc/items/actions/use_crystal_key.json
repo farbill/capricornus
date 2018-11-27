@@ -1,7 +1,6 @@
 {
   "commands": [
-    "use crystal key",
-    "use the crystal key"
+    "use crystal key"
   ],
   "response_type": "display",
   "response": "Use Crystal Key how?"

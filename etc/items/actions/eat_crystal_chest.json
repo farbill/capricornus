@@ -1,9 +1,1 @@
-<<<<<<< HEAD
 {"commands": ["eat crystal chest", "eat chest"], "response_type": "display", "response": "I just gave up crystal chest last week"}
-=======
-{"commands": ["eat crystal chest",
-            "eat the crystal chest",
-            "consume the crystal chest"], 
-"response_type": "display", 
-"response": "I just gave up crystal chest last week"}
->>>>>>> 86ab585cfa9470688649b45dd08aafb75cda77c7

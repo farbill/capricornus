@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "commands": [
     "look coin",
@@ -6,15 +5,3 @@
   "response_type": "display",
   "response": "It's a silver Coin.  It says 'IN DOG WE TRUST' on the front side. Huh? Is this a typo?"
 }
-=======
-{
-  "commands": ["look coin",
-        "look at coin",
-        "look at the coin",
-        "see the coin",
-        "check out the coin",
-  "view coin"],
-  "response_type": "display",
-  "response": "It's a silver Coin.  It says 'IN DOG WE TRUST' on the front side. Huh? Is this a typo?"
-}
->>>>>>> 86ab585cfa9470688649b45dd08aafb75cda77c7

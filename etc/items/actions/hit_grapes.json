@@ -1,5 +1,1 @@
-{"commands": ["hit grapes",
-            "hit the grapes",
-            "hit the grape"], 
-"response_type": "display", 
-"response": "Ouch, the grapes hit you first"}
+{"commands": ["hit grapes"], "response_type": "display", "response": "Ouch, the grapes hit you first"}

@@ -1,10 +1,1 @@
-<<<<<<< HEAD
 {"commands": ["enter grapes"], "response_type": "display", "response": "You can't just enter grapes."}
-=======
-{"commands": ["enter grapes",
-            "enter the grapes",
-            "enter the grape",
-            "enter grape"], 
-"response_type": "display", 
-"response": "You can't just enter a grapes"}
->>>>>>> 86ab585cfa9470688649b45dd08aafb75cda77c7

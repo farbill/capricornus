@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "commands": [
     "view green chest",
@@ -9,21 +8,3 @@
   "response_type": "display",
   "response": "A Green Chest about the size of a cooler sits on the ground. It looks like it has a keyhole."
 }
-=======
-{
-  "commands": [
-            "view green chest",
-            "view the green chest",
-            "look at green chest",
-            "look at the green chest",
-            "see the green chest",
-            "see green chest",
-            "look at the chest",
-            "see the chest",
-            "view the chest",
-            "take a look at the chest"
-            ],
-  "response_type": "display",
-  "response": "A Green Chest about the size of a cooler sits on the ground. It looks like it has a keyhole."
-}
->>>>>>> 86ab585cfa9470688649b45dd08aafb75cda77c7

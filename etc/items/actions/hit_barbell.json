@@ -1,4 +1,1 @@
-{"commands": ["hit barbell",
-            "hit the barbell"], 
-"response_type": "display", 
-"response": "Ouch, the barbell hit you first"}
+{"commands": ["hit barbell"], "response_type": "display", "response": "Ouch, the barbell hit you first"}

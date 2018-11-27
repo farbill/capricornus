@@ -1,7 +1,6 @@
 {
   "commands": [
-    "climb crystal key",
-    "climb the crystal key"
+    "climb crystal key"
   ],
   "response_type": "display",
   "response": "The Crystal Key is too small to climb."

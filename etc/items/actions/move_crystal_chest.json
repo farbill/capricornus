@@ -1,8 +1,1 @@
-<<<<<<< HEAD
 {"commands": ["move crystal chest", "move chest"], "response_type": "display", "response": "You can't move a crystal chest"}
-=======
-{"commands": ["move crystal chest",
-            "move the crystal chest"], 
-"response_type": "display", 
-"response": "You can't move a crystal chest"}
->>>>>>> 86ab585cfa9470688649b45dd08aafb75cda77c7

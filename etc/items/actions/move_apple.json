@@ -1,4 +1,1 @@
-{"commands": ["move apple",
-            "move the apple"], 
-"response_type": "display", 
-"response": "You can't move a apple"}
+{"commands": ["move apple"], "response_type": "display", "response": "You can't move a apple"}

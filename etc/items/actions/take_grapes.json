@@ -1,8 +1,1 @@
-{"commands": ["take grapes", 
-        "take up grapes",
-        "take the grapes",
-        "take the grape",
-        "take up the grapes",
-        "take up the grape"], 
-"response_type": "display", 
-"response": "You can't take the Grapes, but you can eat it instead."}
+{"commands": ["take grapes", "take up grapes"], "response_type": "display", "response": "You can't take the Grapes, but you can eat it instead."}

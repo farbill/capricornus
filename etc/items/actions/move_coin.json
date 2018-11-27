@@ -1,4 +1,1 @@
-{"commands": ["move coin",
-            "move the coin"], 
-"response_type": "display", 
-"response": "You can't move a coin"}
+{"commands": ["move coin"], "response_type": "display", "response": "You can't move a coin"}

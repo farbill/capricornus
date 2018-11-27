@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "commands": [
     "look grapes",
@@ -7,17 +6,3 @@
   "response_type": "display",
   "response": "An assortment of colorful Grapes. My mouth waters as I stare at these."
 }
-=======
-{
-  "commands": ["look grapes",
-        "look at grapes",
-        "look at the grapes",
-  "look grape",
-        "look at grape",
-        "look at the grape",
-  "view grape",
-  "view grapes"],
-  "response_type": "display",
-  "response": "An assortment of colorful Grapes. My mouth waters as I stare at these."
-}
->>>>>>> 86ab585cfa9470688649b45dd08aafb75cda77c7
