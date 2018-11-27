@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 {"commands": ["swim green chest", "swim chest"], "response_type": "display", "response": "You can't just swim in a green chest"}
+=======
+{"commands": ["swim green chest",
+            "swim the green chest"], 
+"response_type": "display", 
+"response": "You can't just swim in a green chest"}
+>>>>>>> 86ab585cfa9470688649b45dd08aafb75cda77c7

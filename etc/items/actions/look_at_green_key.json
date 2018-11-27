@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "commands": [
     "look green key",
@@ -6,3 +7,13 @@
   "response_type": "display",
   "response": "A green-colored key. It looks like it can be used to open something."
 }
+=======
+{
+  "commands": [
+    "look at green key",
+    "view green key"
+  ],
+  "response_type": "display",
+  "response": "A green-colored key. It looks like it can be used to open something."
+}
+>>>>>>> 86ab585cfa9470688649b45dd08aafb75cda77c7

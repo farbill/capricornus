@@ -1,7 +1,8 @@
 
 {
   "commands": [
-    "feed crystal key"
+    "feed crystal key",
+    "feed the crystal key"
   ],
   "response_type": "display",
   "response": "You can't feed an inanimate object."

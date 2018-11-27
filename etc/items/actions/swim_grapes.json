@@ -1,1 +1,4 @@
-{"commands": ["swim grapes"], "response_type": "display", "response": "You can't just swim in a grapes"}
+{"commands": ["swim grapes",
+            "swim the grapes"], 
+"response_type": "display", 
+"response": "You can't just swim in a grapes"}

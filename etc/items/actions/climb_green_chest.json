@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 {"commands": ["climb green chest", "climb chest"], "response_type": "display", "response": "You climbed up and felt taller."}
+=======
+{"commands": ["climb green chest",
+            "climb the green chest"], 
+"response_type": "display", 
+"response": "You climbed up and felt taller."}
+>>>>>>> 86ab585cfa9470688649b45dd08aafb75cda77c7

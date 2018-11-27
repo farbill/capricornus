@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 {
   "commands": [
@@ -7,3 +8,16 @@
   "response": "You shouldn't do that! The Crystal Key is very important and you need it!"
 }
 
+=======
+
+{
+  "commands": [
+    "eat crystal key",
+    "eat the crystal key",
+    "consume the crystal key"
+  ],
+  "response_type": "display",
+  "response": "You shouldn't do that! The Crystal Key is very important and you need it!"
+}
+
+>>>>>>> 86ab585cfa9470688649b45dd08aafb75cda77c7

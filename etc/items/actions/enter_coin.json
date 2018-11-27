@@ -1,1 +1,4 @@
-{"commands": ["enter coin"], "response_type": "display", "response": "You can't just enter a coin"}
+{"commands": ["enter coin",
+            "enter the coin"], 
+"response_type": "display", 
+"response": "You can't just enter a coin"}

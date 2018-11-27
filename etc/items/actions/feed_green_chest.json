@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 {"commands": ["feed green chest", "feed chest"], "response_type": "display", "response": "the green chest is not hungry right now"}
+=======
+{"commands": ["feed green chest",
+            "feed the green chest"], 
+"response_type": "display", 
+"response": "the green chest is not hungry right now"}
+>>>>>>> 86ab585cfa9470688649b45dd08aafb75cda77c7

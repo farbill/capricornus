@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 {"commands": ["use crystal chest", "use chest"], "response_type": "display", "response": "The crystal chest is not usable"}
+=======
+{"commands": ["use crystal chest",
+            "use the crystal chest"], 
+"response_type": "display", 
+"response": "The crystal chest is not usable"}
+>>>>>>> 86ab585cfa9470688649b45dd08aafb75cda77c7

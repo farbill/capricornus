@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 {"commands": ["lift green chest", "lift chest"], "response_type": "display", "response": "Lifting a green chest is no job for you"}
+=======
+{"commands": ["lift green chest",
+            "life the green chest"], 
+"response_type": "display", 
+"response": "Lifting a green chest is no job for you"}
+>>>>>>> 86ab585cfa9470688649b45dd08aafb75cda77c7

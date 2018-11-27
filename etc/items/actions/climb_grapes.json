@@ -1,1 +1,6 @@
-{"commands": ["climb grapes"], "response_type": "display", "response": "Grapes are for eating, not climbing!"}
+{"commands": ["climb grapes",
+            "climb the grapes",
+            "climb the grape",
+            "climb grape"], 
+"response_type": "display", 
+"response": "Grapes are for eating, not climbing!"}

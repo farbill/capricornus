@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "commands": [
     "view crystal chest",
@@ -7,4 +8,14 @@
   ],
   "response_type": "display",
   "response": "A giant Crystal Chest about the size of 3 coolers sits on the ground. It looks like it has a keyhole."
+=======
+{
+  "commands": [
+            "view crystal chest",
+            "view the crystal chest",
+            "look at crystal chest",
+            "look at the crystal chest"],
+  "response_type": "display",
+  "response": "A giant Crystal Chest about the size of 3 coolers sits on the ground. It looks like it has a keyhole."
+>>>>>>> 86ab585cfa9470688649b45dd08aafb75cda77c7
 }

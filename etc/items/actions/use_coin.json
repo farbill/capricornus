@@ -1,1 +1,4 @@
-{"commands": ["use coin"], "response_type": "display", "response": "The coin is not usable"}
+{"commands": ["use coin",
+            "use the coin"], 
+"response_type": "display", 
+"response": "The coin is not usable"}

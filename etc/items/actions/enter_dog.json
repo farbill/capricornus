@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 {"commands": ["enter dog"], "response_type": "display", "response": "You can't just enter a dog."}
+=======
+{"commands": ["enter dog",
+            "enter the dog"], 
+"response_type": "display", 
+"response": "You can't just enter a dog"}
+>>>>>>> 86ab585cfa9470688649b45dd08aafb75cda77c7

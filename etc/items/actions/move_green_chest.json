@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 {"commands": ["move green chest", "move chest"], "response_type": "display", "response": "You can't move a green chest"}
+=======
+{"commands": ["move green chest",
+            "move the green chest"], 
+"response_type": "display", 
+"response": "You can't move a green chest"}
+>>>>>>> 86ab585cfa9470688649b45dd08aafb75cda77c7

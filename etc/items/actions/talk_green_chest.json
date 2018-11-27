@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 {"commands": ["talk green chest", "talk chest"], "response_type": "display", "response": "the green chest certainly does not want to talk to you right now"}
+=======
+{"commands": ["talk green chest",
+            "talk to the green chest"], 
+"response_type": "display", 
+"response": "the green chest certainly does not want to talk to you right now"}
+>>>>>>> 86ab585cfa9470688649b45dd08aafb75cda77c7

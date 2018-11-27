@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "commands": [
     "look barbell",
@@ -5,3 +6,16 @@
   "response_type": "display",
   "response": "The Barbell is loaded with about 200 kg.  Can I lift it?"
 }
+=======
+{
+  "commands": ["look barbell",
+        "look at barbell",
+        "look at the barbell",
+        "take a look at the barbell",
+        "see the barbell",
+        "inspect the barbell",
+  "view barbell"],
+  "response_type": "display",
+  "response": "The Barbell is loaded with about 200 kg.  Can I lift it?"
+}
+>>>>>>> 86ab585cfa9470688649b45dd08aafb75cda77c7

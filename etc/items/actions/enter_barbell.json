@@ -1,1 +1,4 @@
-{"commands": ["enter barbell"], "response_type": "display", "response": "You can't just enter a barbell"}
+{"commands": ["enter barbell",
+            "enter the barbell"], 
+"response_type": "display", 
+"response": "You can't just enter a barbell"}

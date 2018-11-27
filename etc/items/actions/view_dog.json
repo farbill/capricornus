@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "commands": [
     "look dog",
@@ -6,3 +7,13 @@
   "response_type": "display",
   "response": "The Dog appears to be homeless and wants to be fed."
 }
+=======
+{
+  "commands": ["look dog",
+        "look at dog",
+        "look at the dog",
+  "view dog"],
+  "response_type": "display",
+  "response": "The Dog appears to be homeless and wants to be fed."
+}
+>>>>>>> 86ab585cfa9470688649b45dd08aafb75cda77c7

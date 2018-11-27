@@ -1,1 +1,4 @@
-{"commands": ["climb coin"], "response_type": "display", "response": "It's a tiny Coin. You can't climb that!"}
+{"commands": ["climb coin",
+            "climb the coin"], 
+"response_type": "display", 
+"response": "It's a tiny Coin. You can't climb that!"}

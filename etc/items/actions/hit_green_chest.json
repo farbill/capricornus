@@ -1,1 +1,11 @@
+<<<<<<< HEAD
 {"commands": ["hit green chest", "hit chest"], "response_type": "display", "response": "Ouch, the green chest hit you first"}
+=======
+{"commands": ["hit green chest",
+            "hit the green chest",
+            "punch the green chest",
+            "kick the green chest",
+            "smash the green chest"], 
+"response_type": "display", 
+"response": "Ouch, the green chest hit you first"}
+>>>>>>> 86ab585cfa9470688649b45dd08aafb75cda77c7

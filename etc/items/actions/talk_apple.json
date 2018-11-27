@@ -1,1 +1,6 @@
-{"commands": ["talk apple"], "response_type": "display", "response": "the apple certainly does not want to talk to you right now"}
+{"commands": ["talk apple",
+            "talk to the apple",
+            "talk the apple",
+            "speak to the apple"], 
+"response_type": "display", 
+"response": "the apple certainly does not want to talk to you right now"}
