@@ -1,9 +1,6 @@
 {
   "commands": [
-    "talk to hobo",
-    "talk hobo",
-    "speak to hobo",
-    "speak hobo"
+    "talk hobo"
   ],
   "response_type": "event",
   "response": ""

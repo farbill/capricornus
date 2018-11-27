@@ -1,8 +1,7 @@
 {
   "commands": [
     "take businessman",
-    "grab businessman",
-    "pick up businessman"
+    "take up businessman"
   ],
   "response_type": "display",
   "response": "I'm pretty sure you won't be able to fit the Businessman in your inventory."

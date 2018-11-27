@@ -1,10 +1,10 @@
 {
   "commands": [
-    "look at construction worker",
+    "look construction worker",
     "view construction worker",
-        "look at worker",
+        "look worker",
     "view worker",
-        "look at construction",
+        "look construction",
     "view construction"
   ],
   "response_type": "display",

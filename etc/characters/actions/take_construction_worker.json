@@ -1,14 +1,11 @@
 {
   "commands": [
     "take construction worker",
-    "grab construction worker",
-    "pick up construction worker",
-        "take worker",
-    "grab worker",
-    "pick up worker",
-        "take construction",
-    "grab construction",
-    "pick up construction"
+    "take up construction worker",
+    "take worker",
+    "take up worker",
+    "take construction",
+    "take up construction"
   ],
   "response_type": "display",
   "response": "I'm pretty sure you won't be able to fit the Construction Worker in your inventory."

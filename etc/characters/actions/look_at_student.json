@@ -1,6 +1,6 @@
 {
   "commands": [
-    "look at student",
+    "look student",
     "view student"
   ],
   "response_type": "display",

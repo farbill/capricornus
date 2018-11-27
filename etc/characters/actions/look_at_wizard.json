@@ -1,6 +1,6 @@
 {
   "commands": [
-    "look at wizard",
+    "look wizard",
     "view wizard"
   ],
   "response_type": "display",

@@ -1,6 +1,6 @@
 {
   "commands": [
-    "look at florist",
+    "look florist",
     "view florist"
   ],
   "response_type": "display",

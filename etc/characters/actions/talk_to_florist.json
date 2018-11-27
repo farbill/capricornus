@@ -1,8 +1,7 @@
 {
-  "commands": [ "talk to florist",
-                        "talk florist",
-                        "speak florist",
-                        "speak to florist"],
+  "commands": [
+    "talk florist"
+  ],
   "response_type": "event",
   "response": ""
 }

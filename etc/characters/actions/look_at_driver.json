@@ -1,6 +1,6 @@
 {
   "commands": [
-    "look at driver",
+    "look driver",
     "view driver"
   ],
   "response_type": "display",

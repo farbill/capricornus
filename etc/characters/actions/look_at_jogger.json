@@ -1,6 +1,6 @@
 {
   "commands": [
-    "look at jogger",
+    "look jogger",
     "view jogger"
   ],
   "response_type": "display",

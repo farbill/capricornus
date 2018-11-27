@@ -1,6 +1,6 @@
 {
   "commands": [
-    "look at kid",
+    "look kid",
     "view kid"
   ],
   "response_type": "display",

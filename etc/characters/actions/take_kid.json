@@ -1,8 +1,7 @@
 {
   "commands": [
     "take kid",
-    "grab kid",
-    "pick up kid"
+    "take up kid"
   ],
   "response_type": "display",
   "response": "I'm pretty sure that would be kidnapping."

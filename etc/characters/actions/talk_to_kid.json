@@ -1,8 +1,7 @@
 {
-  "commands": [ "talk to kid",
-                        "talk kid",
-                        "speak kid",
-                        "speak to kid"],
+  "commands": [
+    "talk kid"
+  ],
   "response_type": "event",
   "response": ""
 }

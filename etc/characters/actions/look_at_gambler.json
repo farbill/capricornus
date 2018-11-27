@@ -1,6 +1,6 @@
 {
   "commands": [
-    "look at gambler",
+    "look gambler",
     "view gambler"
   ],
   "response_type": "display",

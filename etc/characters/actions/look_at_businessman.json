@@ -1,6 +1,6 @@
 {
   "commands": [
-    "look at businessman",
+    "look businessman",
     "view businessman"
   ],
   "response_type": "display",

@@ -1,6 +1,6 @@
 {
   "commands": [
-    "look at hobo",
+    "look hobo",
     "view hobo"
   ],
   "response_type": "display",

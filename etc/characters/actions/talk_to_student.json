@@ -1,10 +1,7 @@
 {
-  "commands": [ "talk to student",
-                        "talk student",
-                        "speak student",
-                        "speak to student",
-                        "talk to the student",
-                        "speak to the student"],
+  "commands": [
+    "talk student"
+  ],
   "response_type": "event",
   "response": ""
 }

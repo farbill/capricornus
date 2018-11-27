@@ -1,6 +1,6 @@
 {
   "commands": [
-    "look at daniel",
+    "look daniel",
     "view daniel"
   ],
   "response_type": "display",
