@@ -1,1 +1,1 @@
-{"commands": ["use yellow chest"], "response_type": "display", "response": "The yellow chest is not usable"}
+{"commands": ["use yellow chest", "use chest"], "response_type": "display", "response": "The yellow chest is not usable"}

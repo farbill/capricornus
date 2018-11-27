@@ -1,1 +1,1 @@
-{"commands": ["hit red chest"], "response_type": "display", "response": "You hit the Red Chest hard, but it stayed solid."}
+{"commands": ["hit red chest", "hit chest"], "response_type": "display", "response": "You hit the Red Chest hard, but it stayed solid."}

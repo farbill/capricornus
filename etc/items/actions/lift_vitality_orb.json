@@ -1,1 +1,1 @@
-{"commands": ["lift vitality orb"], "response_type": "display", "response": "Lifting a vitality orb is no job for you"}
+{"commands": ["lift vitality orb", "lift vitality"], "response_type": "display", "response": "Lifting a vitality orb is no job for you"}

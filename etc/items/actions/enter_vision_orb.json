@@ -1,1 +1,1 @@
-{"commands": ["enter vision orb"], "response_type": "display", "response": "You can't just enter a vision orb"}
+{"commands": ["enter vision orb", "enter vision"], "response_type": "display", "response": "You can't just enter a vision orb"}

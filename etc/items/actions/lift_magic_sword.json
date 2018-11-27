@@ -1,1 +1,1 @@
-{"commands": ["lift magic sword"], "response_type": "display", "response": "Did you mean pick up instead?"}
+{"commands": ["lift magic sword", "lift sword"], "response_type": "display", "response": "Did you mean pick up instead?"}

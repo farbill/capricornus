@@ -1,15 +1,10 @@
 {
   "commands": [
-            "view red chest",
-            "view the red chest",
-            "look at red chest",
-            "look at the red chest",
-            "see the red chest",
-            "see red chest",
-            "look at the chest",
-            "see the chest",
-            "view the chest",
-            "take a look at the chest"],
+    "view red chest",
+    "look red chest",
+    "view chest",
+    "look chest"
+  ],
   "response_type": "display",
   "response": "A Red Chest about the size of a cooler sits on the ground. It looks like it has a keyhole."
 }

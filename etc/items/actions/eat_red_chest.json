@@ -1,1 +1,1 @@
-{"commands": ["eat red chest"], "response_type": "display", "response": "You'll probably die if you try to eat the Red Chest."}
+{"commands": ["eat red chest", "eat chest"], "response_type": "display", "response": "You'll probably die if you try to eat the Red Chest."}

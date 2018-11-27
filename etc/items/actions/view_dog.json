@@ -1,8 +1,8 @@
 {
-  "commands": ["look dog",
-        "look at dog",
-        "look at the dog",
-  "view dog"],
+  "commands": [
+    "look dog",
+    "view dog"
+  ],
   "response_type": "display",
   "response": "The Dog appears to be homeless and wants to be fed."
 }

@@ -1,1 +1,1 @@
-{"commands": ["hit vitality orb"], "response_type": "display", "response": "Ouch, the vitality orb hit you first"}
+{"commands": ["hit vitality orb", "hit vitality"], "response_type": "display", "response": "Ouch, the vitality orb hit you first"}

@@ -1,1 +1,1 @@
-{"commands": ["eat magic sword"], "response_type": "display", "response": "You need the Magic Sword! Don't eat it!"}
+{"commands": ["eat magic sword", "eat sword"], "response_type": "display", "response": "You need the Magic Sword! Don't eat it!"}

@@ -1,1 +1,1 @@
-{"commands": ["hit magic sword"], "response_type": "display", "response": "You hit the Magic Sword and hurted yourself."}
+{"commands": ["hit magic sword", "hit sword"], "response_type": "display", "response": "You hit the Magic Sword and hurted yourself."}

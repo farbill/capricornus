@@ -1,6 +1,6 @@
 {
   "eat": ["snack", "chew", "devour", "consume"],
-  "view": ["gaze", "stare"],
+  "view": ["gaze", "stare", "see", "inspect"],
   "take": ["grab", "pick", "get", "acquire", "obtain"],
   "use": ["activate", "insert"],
   "talk": ["chat", "converse", "speak"],

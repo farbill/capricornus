@@ -1,1 +1,16 @@
-{"name": "Vision Orb", "item_type": "LEGENDARY", "narration": "There is an orb glowing in blue in the spring!", "description": "It's the legendary vision orb I was looking for!", "actions": ["etc/items/actions/view_vision_orb.json", "etc/items/actions/take_vision_orb.json", "etc/items/actions/talk_vision_orb.json", "etc/items/actions/eat_vision_orb.json", "etc/items/actions/move_vision_orb.json", "etc/items/actions/climb_vision_orb.json", "etc/items/actions/feed_vision_orb.json", "etc/items/actions/hit_vision_orb.json", "etc/items/actions/lift_vision_orb.json", "etc/items/actions/use_vision_orb.json", "etc/items/actions/enter_vision_orb.json", "etc/items/actions/swim_vision_orb.json"]}
+{"name": "Vision Orb",
+  "item_type": "LEGENDARY",
+  "narration": "There is an orb glowing in blue in the spring!",
+  "description": "It's the legendary vision orb I was looking for!",
+  "actions": ["etc/items/actions/view_vision_orb.json",
+    "etc/items/actions/take_vision_orb.json",
+    "etc/items/actions/talk_vision_orb.json",
+    "etc/items/actions/eat_vision_orb.json",
+    "etc/items/actions/move_vision_orb.json",
+    "etc/items/actions/climb_vision_orb.json",
+    "etc/items/actions/feed_vision_orb.json",
+    "etc/items/actions/hit_vision_orb.json",
+    "etc/items/actions/lift_vision_orb.json",
+    "etc/items/actions/use_vision_orb.json",
+    "etc/items/actions/enter_vision_orb.json",
+    "etc/items/actions/swim_vision_orb.json"]}

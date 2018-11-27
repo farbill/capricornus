@@ -1,13 +1,10 @@
 {
   "commands": [
-    "view magic sword",
     "view sword",
-        "look at sword",
-        "view the sword",
-        "look at the sword",
-        "inspect the sword",
-        "see the sword",
-        "take a look at the sword"],
+    "look sword",
+    "view magic sword",
+    "look magic sword"
+  ],
   "response_type": "display",
   "response": "The Magic Sword is so shiny. Perfect for slaying Dr. Crime with!"
 }

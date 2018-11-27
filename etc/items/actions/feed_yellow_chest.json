@@ -1,1 +1,1 @@
-{"commands": ["feed yellow chest"], "response_type": "display", "response": "the yellow chest is not hungry right now"}
+{"commands": ["feed yellow chest", "feed chest"], "response_type": "display", "response": "the yellow chest is not hungry right now"}

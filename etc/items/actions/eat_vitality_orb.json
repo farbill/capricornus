@@ -1,1 +1,1 @@
-{"commands": ["eat vitality orb"], "response_type": "display", "response": "I just gave up vitality orb last week"}
+{"commands": ["eat vitality orb", "eat vitality"], "response_type": "display", "response": "I just gave up vitality orb last week"}

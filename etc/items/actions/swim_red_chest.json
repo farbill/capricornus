@@ -1,1 +1,1 @@
-{"commands": ["swim red chest"], "response_type": "display", "response": "The Red Chest isn't large enough to swim in."}
+{"commands": ["swim red chest", "swim chest"], "response_type": "display", "response": "The Red Chest isn't large enough to swim in."}

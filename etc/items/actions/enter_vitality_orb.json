@@ -1,1 +1,1 @@
-{"commands": ["enter vitality orb"], "response_type": "display", "response": "You can't just enter a vitality orb"}
+{"commands": ["enter vitality orb", "enter vitality"], "response_type": "display", "response": "You can't just enter a vitality orb"}

@@ -1,6 +1,6 @@
 {
   "commands": [
-    "look at red key",
+    "look red key",
     "view red key"
   ],
   "response_type": "display",

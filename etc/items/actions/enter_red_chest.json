@@ -1,1 +1,1 @@
-{"commands": ["enter red chest"], "response_type": "display", "response": "Did you mean to use a key instead?"}
+{"commands": ["enter red chest", "enter chest"], "response_type": "display", "response": "Did you mean to use a key instead?"}

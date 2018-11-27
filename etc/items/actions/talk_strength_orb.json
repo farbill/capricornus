@@ -1,1 +1,1 @@
-{"commands": ["talk strength orb"], "response_type": "display", "response": "the strength orb certainly does not want to talk to you right now"}
+{"commands": ["talk strength orb", "talk strength"], "response_type": "display", "response": "the strength orb certainly does not want to talk to you right now"}

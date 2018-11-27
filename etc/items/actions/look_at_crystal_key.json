@@ -1,6 +1,6 @@
 {
   "commands": [
-    "look at crystal key",
+    "look crystal key",
     "view crystal key"
   ],
   "response_type": "display",

@@ -1,1 +1,1 @@
-{"commands": ["talk magic sword"], "response_type": "display", "response": "The Magic Sword isn't that magical."}
+{"commands": ["talk magic sword", "talk sword"], "response_type": "display", "response": "The Magic Sword isn't that magical."}

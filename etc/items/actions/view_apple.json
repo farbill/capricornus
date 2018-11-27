@@ -1,7 +1,6 @@
 {
-  "commands": ["look apple",
-        "look at apple",
-        "look at the apple",
+  "commands": [
+    "look apple",
     "view apple"
   ],
   "response_type": "display",

@@ -1,1 +1,1 @@
-{"commands": ["talk red chest"], "response_type": "display", "response": "Talking to it won't open it!"}
+{"commands": ["talk red chest", "talk chest"], "response_type": "display", "response": "Talking to it won't open it!"}

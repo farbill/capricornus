@@ -1,1 +1,1 @@
-{"commands": ["hit yellow chest"], "response_type": "display", "response": "Ouch, the yellow chest hit you first"}
+{"commands": ["hit yellow chest", "hit chest"], "response_type": "display", "response": "Ouch, the yellow chest hit you first"}

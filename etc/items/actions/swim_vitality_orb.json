@@ -1,1 +1,1 @@
-{"commands": ["swim vitality orb"], "response_type": "display", "response": "You can't just swim in a vitality orb"}
+{"commands": ["swim vitality orb", "swim vitality"], "response_type": "display", "response": "You can't just swim in a vitality orb"}

@@ -1,6 +1,5 @@
 {
-  "commands": [ "eat the lotto",
-        "eat the lotto ticket",
+  "commands": [
         "eat lotto",
         "eat ticket",
         "eat lotto ticket"],

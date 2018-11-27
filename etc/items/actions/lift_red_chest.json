@@ -1,1 +1,1 @@
-{"commands": ["lift red chest"], "response_type": "display", "response": "The Red Chest was too heavy to lift."}
+{"commands": ["lift red chest", "lift chest"], "response_type": "display", "response": "The Red Chest was too heavy to lift."}

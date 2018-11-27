@@ -1,9 +1,6 @@
 {
-  "commands": ["look stone",
-        "look at stone",
-        "look at the stone",
-        "see the stone",
-        "check out the stone",
+  "commands": [
+    "look stone",
   "view stone"],
   "response_type": "display",
   "response": "An ancient-looking Stone as big as a house. I shouldn't try to damage it."

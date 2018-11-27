@@ -1,1 +1,1 @@
-{"commands": ["use crystal chest"], "response_type": "display", "response": "The crystal chest is not usable"}
+{"commands": ["use crystal chest", "use chest"], "response_type": "display", "response": "The crystal chest is not usable"}

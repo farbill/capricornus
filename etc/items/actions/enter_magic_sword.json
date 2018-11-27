@@ -1,1 +1,1 @@
-{"commands": ["enter magic sword"], "response_type": "display", "response": "You can't enter the Magic Sword."}
+{"commands": ["enter magic sword", "enter sword"], "response_type": "display", "response": "You can't enter the Magic Sword."}

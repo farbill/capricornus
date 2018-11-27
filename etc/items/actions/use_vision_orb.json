@@ -1,1 +1,1 @@
-{"commands": ["use vision orb"], "response_type": "display", "response": "The vision orb is not usable"}
+{"commands": ["use vision orb", "use vision"], "response_type": "display", "response": "The vision orb is not usable"}

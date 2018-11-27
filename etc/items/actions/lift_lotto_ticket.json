@@ -1,1 +1,1 @@
-{"commands": ["lift lotto ticket", "lift lotto"], "response_type": "display", "response": "Cool. You've lifted the Lotto Ticket. Did you mean to pick up instead?"}
+{"commands": ["lift lotto ticket", "lift lotto", "lift ticket"], "response_type": "display", "response": "Cool. You've lifted the Lotto Ticket. Did you mean to pick up instead?"}
