@@ -1,1 +1,3 @@
-{"commands": ["talk crystal chest"], "response_type": "display", "response": "the crystal chest certainly does not want to talk to you right now"}
+{"commands": ["talk crystal chest", "talk to the crystal chest"], 
+"response_type": "display", 
+"response": "the crystal chest certainly does not want to talk to you right now"}

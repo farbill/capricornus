@@ -1,1 +1,6 @@
-{"commands": ["enter grapes"], "response_type": "display", "response": "You can't just enter a grapes"}
+{"commands": ["enter grapes",
+            "enter the grapes",
+            "enter the grape",
+            "enter grape"], 
+"response_type": "display", 
+"response": "You can't just enter a grapes"}

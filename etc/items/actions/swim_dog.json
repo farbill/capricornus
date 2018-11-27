@@ -1,1 +1,5 @@
-{"commands": ["swim dog"], "response_type": "display", "response": "You can't just swim in a dog"}
+{"commands": ["swim dog",
+            "swim the dog",
+            "let the dog swim"], 
+"response_type": "display", 
+"response": "You can't just swim in a dog"}

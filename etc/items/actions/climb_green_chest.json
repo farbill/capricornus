@@ -1,1 +1,4 @@
-{"commands": ["climb green chest"], "response_type": "display", "response": "You climbed up and felt taller."}
+{"commands": ["climb green chest",
+            "climb the green chest"], 
+"response_type": "display", 
+"response": "You climbed up and felt taller."}

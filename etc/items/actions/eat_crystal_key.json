@@ -2,7 +2,8 @@
 {
   "commands": [
     "eat crystal key",
-    "eat the crystal key"
+    "eat the crystal key",
+    "consume the crystal key"
   ],
   "response_type": "display",
   "response": "You shouldn't do that! The Crystal Key is very important and you need it!"

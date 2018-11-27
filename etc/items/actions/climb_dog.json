@@ -1,1 +1,4 @@
-{"commands": ["climb dog"], "response_type": "display", "response": "Pretty sure you'll squish the Dog if you do."}
+{"commands": ["climb dog",
+            "climb the dog"], 
+"response_type": "display", 
+"response": "Pretty sure you'll squish the Dog if you do."}

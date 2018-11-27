@@ -1,1 +1,4 @@
-{"commands": ["enter green chest"], "response_type": "display", "response": "You can't just enter a green chest"}
+{"commands": ["enter green chest",
+            "enter the green chest"], 
+"response_type": "display", 
+"response": "You can't just enter a green chest"}

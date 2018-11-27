@@ -1,1 +1,4 @@
-{"commands": ["enter apple"], "response_type": "display", "response": "You can't just enter a apple"}
+{"commands": ["enter apple",
+            "enter the apple"], 
+"response_type": "display", 
+"response": "You can't just enter a apple"}

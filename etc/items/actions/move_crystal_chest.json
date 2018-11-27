@@ -1,1 +1,4 @@
-{"commands": ["move crystal chest"], "response_type": "display", "response": "You can't move a crystal chest"}
+{"commands": ["move crystal chest",
+            "move the crystal chest"], 
+"response_type": "display", 
+"response": "You can't move a crystal chest"}

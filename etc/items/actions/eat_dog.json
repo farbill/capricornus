@@ -1,1 +1,5 @@
-{"commands": ["eat dog"], "response_type": "display", "response": "I just gave up dog last week"}
+{"commands": ["eat dog",
+            "eat the dog",
+            "consume the dog"], 
+"response_type": "display", 
+"response": "I just gave up dog last week"}

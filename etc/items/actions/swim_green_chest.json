@@ -1,1 +1,4 @@
-{"commands": ["swim green chest"], "response_type": "display", "response": "You can't just swim in a green chest"}
+{"commands": ["swim green chest",
+            "swim the green chest"], 
+"response_type": "display", 
+"response": "You can't just swim in a green chest"}

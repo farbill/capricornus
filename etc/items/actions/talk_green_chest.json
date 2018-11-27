@@ -1,1 +1,4 @@
-{"commands": ["talk green chest"], "response_type": "display", "response": "the green chest certainly does not want to talk to you right now"}
+{"commands": ["talk green chest",
+            "talk to the green chest"], 
+"response_type": "display", 
+"response": "the green chest certainly does not want to talk to you right now"}

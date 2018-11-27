@@ -1,1 +1,6 @@
-{"commands": ["talk barbell"], "response_type": "display", "response": "the barbell certainly does not want to talk to you right now"}
+{"commands": ["talk barbell",
+            "talk the barbell",
+            "talk to the barbell",
+            "talk to barbell"], 
+"response_type": "display", 
+"response": "the barbell certainly does not want to talk to you right now"}

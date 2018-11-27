@@ -1,1 +1,4 @@
-{"commands": ["use dog"], "response_type": "display", "response": "The dog is not usable"}
+{"commands": ["use dog",
+            "use the dog"], 
+"response_type": "display", 
+"response": "The dog is not usable"}

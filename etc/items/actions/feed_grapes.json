@@ -1,1 +1,6 @@
-{"commands": ["feed grapes"], "response_type": "display", "response": "the grapes is not hungry right now"}
+{"commands": ["feed grapes",
+            "feed the grapes",
+            "feed grapes",
+            "feed grape"], 
+"response_type": "display", 
+"response": "the grapes is not hungry right now"}
