@@ -78,11 +78,18 @@ def gameplay_selection(ga, the_input: str,
             general_action_array.append(arr)
 
     lair_action_array = [
-        ["view lair", "look at lair"],
-        ["enter lair", "enter the lair"]
-
-        # TODO: need to apply all verbs to lair
-        # ...
+        ["view lair", "look lair"],
+        ["enter lair"],
+        ["take lair", "take up lair"],
+        ["use lair"],
+        ["talk lair"],
+        ["eat lair"],
+        ["hit lair"],
+        ["climb lair"],
+        ["move lair"],
+        ["swim lair"],
+        ["lift lair"],
+        ["feed lair"]
     ]
 
     selection = None
@@ -135,15 +142,58 @@ def gameplay_selection(ga, the_input: str,
         if ga.lair_discovered():
             for action_list in lair_action_array:
                 if the_input in action_list:
-                    if action_list[0] == "view lair":
-                        sys.stdout.write("\033[K")  # clear line
-                        print("This must be Dr. Crime's Lair. Now is your chance to stop his madness!")
+
                     if action_list[0] == "enter lair":
                         return ga.final_game_sequence()
-                    sys.stdout.write("\033[F")  # go up one line
-                    go_up_and_clear()
-                    the_input = translator.translate(str(input(">>> ")).lower())
-                    continue
+
+                    elif action_list[0] == "view lair":
+                        sys.stdout.write("\033[K")  # clear line
+                        print("This must be Dr. Crime's Lair. Now is your chance to stop his madness!")
+
+                    elif action_list[0] == "take lair":
+                        sys.stdout.write("\033[K")  # clear line
+                        print("You can't possibly fit a giant Lair in your inventory!")
+
+                    elif action_list[0] == "use lair":
+                        sys.stdout.write("\033[K")  # clear line
+                        print("Did you mean to enter instead?")
+
+                    elif action_list[0] == "talk lair":
+                        sys.stdout.write("\033[K")  # clear line
+                        print("You yell, 'I'm coming for you Dr. Crime!'")
+
+                    elif action_list[0] == "eat lair":
+                        sys.stdout.write("\033[K")  # clear line
+                        print("You can't eat a building!")
+
+                    elif action_list[0] == "hit lair":
+                        sys.stdout.write("\033[K")  # clear line
+                        print("You try to harm the Lair, but a magic seems to be protecting it.")
+
+                    elif action_list[0] == "climb lair":
+                        sys.stdout.write("\033[K")  # clear line
+                        print("Better off saving your energy to fit Dr. Crime instead.")
+
+                    elif action_list[0] == "move lair":
+                        sys.stdout.write("\033[K")  # clear line
+                        print("Pretty sure you won't be able to move the Lair.")
+
+                    elif action_list[0] == "swim lair":
+                        sys.stdout.write("\033[K")  # clear line
+                        print("That doesn't make sense!")
+
+                    elif action_list[0] == "lift lair":
+                        sys.stdout.write("\033[K")  # clear line
+                        print("Pretty sure you won't be able to lift the Lair.")
+
+                    elif action_list[0] == "feed lair":
+                        sys.stdout.write("\033[K")  # clear line
+                        print("It's a building. Also you don't have any food.")
+
+            sys.stdout.write("\033[F")  # go up one line
+            go_up_and_clear()
+            the_input = translator.translate(str(input(">>> ")).lower())
+            continue
 
         # Check for valid actions for district items
         status, the_input = district_action_function(ga, the_input, district_items_action, this_district._district_items)
@@ -178,7 +228,6 @@ def gameplay_selection(ga, the_input: str,
                                 clue_str = "Daniel Webster Jr. Jr. says not to mess with the Stone."
                                 if clue_str not in ga.obtained_clues:
                                     ga.add_to_obtained_clues(clue_str)
-
                             return ""
             sys.stdout.write("\033[F")      # go up one line
             go_up_and_clear()
