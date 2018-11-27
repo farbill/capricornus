@@ -1,1 +1,1 @@
-{"commands": ["climb lotto ticket", "climb lotto"], "response_type": "display", "response": "You can't climb a piece of paper."}
+{"commands": ["climb lotto ticket", "climb lotto", "climb ticket"], "response_type": "display", "response": "You can't climb a piece of paper."}
