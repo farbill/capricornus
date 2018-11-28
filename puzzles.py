@@ -62,7 +62,7 @@ class Puzzle(object):
         lowered_input = str(the_input).lower()  # to make the input case insensitive
 
         while True:
-            ga.game_state._turns_remaining = ga.game_state._turns_remaining - 1
+            # ga.game_state._turns_remaining = ga.game_state._turns_remaining - 1
             if command_parsing(lowered_input, list_answers):
                 selection = 1
                 break
