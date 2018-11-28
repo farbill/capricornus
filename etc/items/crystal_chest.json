@@ -1,7 +1,7 @@
 {"name": "Crystal Chest",
   "item_type": "FEATURE",
   "narration": "You can see a Crystal Chest nearby.",
-  "description": "A Crystal Chest with a keyhole.",
+  "description": "A giant cooler-sized Crystal Chest sits on the ground. It looks like it has a keyhole.",
   "actions": ["etc/items/actions/view_crystal_chest.json",
     "etc/items/actions/talk_crystal_chest.json",
     "etc/items/actions/eat_crystal_chest.json",

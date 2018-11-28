@@ -1,1 +1,1 @@
-{"commands": ["swim statue"], "response_type": "display", "response": "Swim statue? Come again?"}
+{"commands": ["swim statue"], "response_type": "display", "response": "You can't swim that!"}

@@ -1,1 +1,1 @@
-{"commands": ["feed stone"], "response_type": "display", "response": "the stone is not hungry right now"}
+{"commands": ["feed stone"], "response_type": "display", "response": "The Stone is already feeding off your spiritual energy."}

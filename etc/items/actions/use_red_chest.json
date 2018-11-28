@@ -1,1 +1,1 @@
-{"commands": ["use red chest", "use chest"], "response_type": "display", "response": "You'll need something to open the Red Chest."}
+{"commands": ["use red chest", "use chest"], "response_type": "display", "response": "You'll need to use something on the Red Chest."}

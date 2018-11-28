@@ -1,5 +1,5 @@
 {"name": "Lotto Ticket",
-  "item_type": "CRITICAL",
+  "item_type": "NONCRITICAL",
   "narration": "You see a Lotto Ticket on the ground.",
   "description": "A Lotto Ticket with the numbers '23 57 12' on it.",
   "actions": ["etc/items/actions/view_lotto_ticket.json",

@@ -2,7 +2,7 @@
   "short_description": "Daniel Webster",
   "long_description": "Daniel Webster. Benjamin Webster's grandson.",
   "puzzle": "etc/puzzles/question_daniel.json",
-  "narration": "Daniel is standing, staring afar. He is the grandson of Benjamin Webster.",
+  "narration": "Daniel is standing, staring afar - he is the grandson of Benjamin Webster.",
   "dialogs": [
             "You approach Daniel. He says: 'Do you want to challenge my problem?'",
             "You want another try at my problem?",

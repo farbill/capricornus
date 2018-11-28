@@ -1,1 +1,1 @@
-{"commands": ["move stone"], "response_type": "display", "response": "You can't move a stone"}
+{"commands": ["move stone"], "response_type": "display", "response": "The Stone wouldn't budge."}

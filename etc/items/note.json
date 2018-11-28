@@ -1,5 +1,5 @@
 {"name": "Note",
-  "item_type": "CRITICAL",
+  "item_type": "NONCRITICAL",
   "narration": "A Note is pin to a street light.",
   "description": "The Note reads, 'Hobo, Student, Businessman, Wizard'.",
   "actions": ["etc/items/actions/view_note.json",

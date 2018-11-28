@@ -3,5 +3,5 @@
     "look barbell",
   "view barbell"],
   "response_type": "display",
-  "response": "The Barbell is loaded with about 200 kg.  Can I lift it?"
+  "response": "The Barbell is loaded with about 200 kg."
 }

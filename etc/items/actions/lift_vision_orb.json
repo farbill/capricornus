@@ -1,1 +1,1 @@
-{"commands": ["lift vision orb", "lift vision"], "response_type": "display", "response": "Lifting a vision orb is no job for you"}
+{"commands": ["lift vision orb", "lift vision"], "response_type": "display", "response": "You've lifted the Vision Orb and placed it back down. Did you mean pick up instead?"}

@@ -1,1 +1,1 @@
-{"commands": ["move grapes"], "response_type": "display", "response": "You can't move a grapes"}
+{"commands": ["move grapes"], "response_type": "display", "response": "You moved the Grapes slightly."}

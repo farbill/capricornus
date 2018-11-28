@@ -1,1 +1,1 @@
-{"commands": ["use apple"], "response_type": "display", "response": "The apple is not usable"}
+{"commands": ["use apple"], "response_type": "display", "response": "The Apple is not usable. Did you mean eat instead?"}

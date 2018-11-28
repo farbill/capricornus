@@ -1,1 +1,1 @@
-{"commands": ["move strength orb", "move strength"], "response_type": "display", "response": "You can't move a strength orb"}
+{"commands": ["move strength orb", "move strength"], "response_type": "display", "response": "You rolled the Strength Orb around. It didn't do anything."}

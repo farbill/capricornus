@@ -1,1 +1,1 @@
-{"commands": ["enter crystal chest", "enter chest"], "response_type": "display", "response": "You can't just enter a crystal chest"}
+{"commands": ["enter crystal chest", "enter chest"], "response_type": "display", "response": "You can't enter the Chest, but may be able to use a Key on it."}

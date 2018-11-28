@@ -1,1 +1,1 @@
-{"commands": ["feed crystal chest", "feed chest"], "response_type": "display", "response": "the crystal chest is not hungry right now"}
+{"commands": ["feed crystal chest", "feed chest"], "response_type": "display", "response": "You can't feed an inanimate object."}

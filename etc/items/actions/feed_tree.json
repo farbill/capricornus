@@ -1,1 +1,1 @@
-{"commands": ["feed tree"], "response_type": "display", "response": "the tree is not hungry right now"}
+{"commands": ["feed tree"], "response_type": "display", "response": "The Tree is already dead. No point in feeding it."}

@@ -1,1 +1,1 @@
-{"commands": ["lift stone"], "response_type": "display", "response": "Lifting a stone is no job for you"}
+{"commands": ["lift stone"], "response_type": "display", "response": "It's too heavy to lift."}

@@ -1,5 +1,6 @@
 {
-  "commands": [ "talk to yellow key",
+  "commands": [ "talk key",
+  						"talk to yellow key",
                         "talk yellow key",
                         "speak yellow key",
                         "speak to yellow key",

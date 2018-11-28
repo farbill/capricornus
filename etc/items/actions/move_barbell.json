@@ -1,1 +1,1 @@
-{"commands": ["move barbell"], "response_type": "display", "response": "You can't move a barbell"}
+{"commands": ["move barbell"], "response_type": "display", "response": "Did you mean lift instead?"}

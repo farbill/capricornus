@@ -1,1 +1,1 @@
-{"commands": ["enter tree"], "response_type": "display", "response": "You can't just enter a tree"}
+{"commands": ["enter tree"], "response_type": "display", "response": "You can't enter a small Tree on the ground."}

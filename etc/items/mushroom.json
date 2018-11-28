@@ -1,5 +1,5 @@
 {"name": "Mushroom",
-  "item_type": "NONCRITICAL",
+  "item_type": "FEATURE",
   "narration": "There is a tasty looking Mushroom.",
   "description": "Looks delicious, but could be poisonous. I'd better not eat this.",
   "actions": ["etc/items/actions/view_mushroom.json",

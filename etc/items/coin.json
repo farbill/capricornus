@@ -1,1 +1,16 @@
-{"name": "Coin", "item_type": "NONCRITICAL", "narration": "There is Coin dropped on the street.", "description": "It's a silver Coin.  It says 'IN DOG WE TRUST' on the front side. Huh? Is this a typo?", "actions": ["etc/items/actions/view_coin.json", "etc/items/actions/eat_coin.json", "etc/items/actions/take_coin.json", "etc/items/actions/talk_coin.json", "etc/items/actions/move_coin.json", "etc/items/actions/climb_coin.json", "etc/items/actions/feed_coin.json", "etc/items/actions/hit_coin.json", "etc/items/actions/lift_coin.json", "etc/items/actions/use_coin.json", "etc/items/actions/enter_coin.json", "etc/items/actions/swim_coin.json"]}
+{"name": "Coin",
+  "item_type": "NONCRITICAL",
+  "narration": "There is Coin dropped on the street.",
+  "description": "It's a silver Coin.  It says 'IN DOG WE TRUST' on the front side. Huh? Is this a typo?",
+  "actions": ["etc/items/actions/view_coin.json",
+    "etc/items/actions/eat_coin.json",
+    "etc/items/actions/take_coin.json",
+    "etc/items/actions/talk_coin.json",
+    "etc/items/actions/move_coin.json",
+    "etc/items/actions/climb_coin.json",
+    "etc/items/actions/feed_coin.json",
+    "etc/items/actions/hit_coin.json",
+    "etc/items/actions/lift_coin.json",
+    "etc/items/actions/use_coin.json",
+    "etc/items/actions/enter_coin.json",
+    "etc/items/actions/swim_coin.json"]}

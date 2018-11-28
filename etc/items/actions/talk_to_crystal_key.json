@@ -1,5 +1,6 @@
 {
-  "commands": [ "talk to crystal key",
+  "commands": [ "talk key",
+  						"talk to crystal key",
                         "talk crystal key",
                         "speak crystal key",
                         "speak to crystal key",

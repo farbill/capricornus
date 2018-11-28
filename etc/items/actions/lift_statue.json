@@ -1,1 +1,1 @@
-{"commands": ["lift statue"], "response_type": "display", "response": "It's too heavy a statue."}
+{"commands": ["lift statue"], "response_type": "display", "response": "It's too heavy to lift."}
