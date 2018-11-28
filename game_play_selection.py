@@ -9,6 +9,7 @@ import time
 import gamestate
 from main_menu import go_up_and_clear, write_over, informScreen
 from narration import narrationScreen
+from puzzles import PuzzleState
 
 translator = NLP()
 
@@ -128,6 +129,12 @@ def gameplay_selection(ga, the_input: str,
                 for commands in action.commands:
                     user_items_action.append(commands)
 
+        #Build complete lair action array
+        complete_lair_arr = []
+        for arr in lair_action_array:
+            for elem in arr:
+                complete_lair_arr.append(elem)
+
         # Rebuild action arrays on screen refresh: END -------------------------------------------------------------
 
         # Check for command in action arrays: START --------------------------------------------------------------
@@ -135,11 +142,10 @@ def gameplay_selection(ga, the_input: str,
         # Check for valid action in general action array
         for action_list in general_action_array:
             if the_input in action_list:
-                selection = action_list[0]
-                break
+                return action_list[0]
 
         # Check for valid action in lair action, if applicable
-        if ga.lair_discovered():
+        if ga.lair_discovered() and (the_input in complete_lair_arr):
             for action_list in lair_action_array:
                 if the_input in action_list:
 
@@ -224,10 +230,11 @@ def gameplay_selection(ga, the_input: str,
                         if action.response_type == ActionType.EVENT:
                             character.play_char_puzzle(ga, this_district)
 
-                            if character._short_description == "Daniel Webster Jr. Jr.":
-                                clue_str = "Daniel Webster Jr. Jr. says not to mess with the Stone."
+                            if character._short_description == "Daniel Webster" and character._puzzle.state == PuzzleState.SOLVED:
+                                clue_str = "Daniel Webster says not to mess with the Stone."
                                 if clue_str not in ga.obtained_clues:
                                     ga.add_to_obtained_clues(clue_str)
+
                             return ""
             sys.stdout.write("\033[F")      # go up one line
             go_up_and_clear()

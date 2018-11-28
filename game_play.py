@@ -89,7 +89,7 @@ def gametext_output(ga, map_arr) -> Tuple[ List[str],
         dropped_items_str += "."
         narration.left_narration(dropped_items_str, main_menu.GAME_WIDTH)
 
-    empty_line(3)
+    empty_line(2)
 
     for i in range(4):
         if nswe_districts[i] is not None:
