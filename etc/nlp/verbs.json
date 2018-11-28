@@ -6,5 +6,6 @@
   "talk": ["chat", "converse", "speak"],
   "hit": ["attack", "strike", "punch", "kick"],
   "move": ["push", "pull"],
-  "climb": ["scale"]
+  "climb": ["scale"],
+  "go": ["walk", "run", "travel"]
 }
