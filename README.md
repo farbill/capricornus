@@ -1,6 +1,6 @@
 # Team Capricornus
 
 ### New San Diego Saga
-[![Build Status](https://img.shields.io/travis/com/:user/:repo.svg)](https://img.shields.io/travis/com/:user/:repo.svg)
+[![Build Status](https://img.shields.io/travis/rust-lang/rust/master.svg)](https://github.com/farbill/capricornus/)
 
-Work in progress.
+A text-based adventure-puzzle game coded using Python3.

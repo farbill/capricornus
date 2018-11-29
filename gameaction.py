@@ -157,33 +157,6 @@ class GameAction(gamestate.GameState):
                 break
         del self.game_state.uncollected_legendary_items[item_index]
 
-    # @property
-    # # Return solved puzzles in an ascending order by puzzle_id
-    # def solved_puzzles(self) -> Dict[int, str]:
-    #     # return self.game_state._solved_puzzles
-    #     return dict(sorted(self.game_state._solved_puzzles.items()))
-
-    # # Add puzzle to solved puzzle
-    # def add_to_solved_puzzles(self, puzzle_id: int, puzzle_name: str) -> int:
-    #     valid_puzzle = True
-    #
-    #     # TODO: validate puzzle_id and puzzle_name
-    #     if (True):
-    #         pass
-    #
-    #     if valid_puzzle:
-    #         self.game_state._solved_puzzles[puzzle_id] = puzzle_name
-    #         return 0
-    #     else:
-    #         return 1
-    #
-    # # Check if puzzle is solved
-    # def check_for_solved_puzzle(self, puzzle_id: int) -> bool:
-    #     solved_puzzle = False
-    #     if int(puzzle_id) in self.game_state._solved_puzzles:
-    #         solved_puzzle = True
-    #     return solved_puzzle
-
     @property
     # Return obtained clues in an ascending order by clue_id
     def obtained_clues(self) -> [str]:
@@ -192,13 +165,6 @@ class GameAction(gamestate.GameState):
     # Add clue to obtained clues
     def add_to_obtained_clues(self, clue_text: str):
         self.game_state._obtained_clues.append(clue_text)
-
-    # # Check if clue has been obtained
-    # def check_for_obtained_clue(self, clue_id: int) -> bool:
-    #     obtained_clue = False
-    #     if int(clue_id) in self.game_state._obtained_clues:
-    #         obtained_clue = True
-    #     return obtained_clue
 
     # Check if district has been visited
     def check_visited(self, district_name: str) -> bool:
@@ -272,7 +238,7 @@ class GameAction(gamestate.GameState):
         if self.enter_lair_confirmation() == 2: # User chooses 'no'
             return ""
 
-        # working here......
+        # Play all boss puzzles
         self.narration_screen(story1)
         status, number_of_tries = self.game_state.boss_puzzles[0].play_boss_puzzle(number_of_tries)
         if status == False:
@@ -299,9 +265,3 @@ class GameAction(gamestate.GameState):
 
         self.narration_screen(right4)
         return "wingame"
-
-if __name__ == "__main__":
-    game_state = gamestate.GameState()
-    game_action = GameAction(game_state)
-
-    # game_action.check_visited("hAWKINs")

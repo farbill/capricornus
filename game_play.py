@@ -170,14 +170,8 @@ def end_game_screen(msg1, msg2):
 
 def game_play(ga: gameaction.GameAction):
 
-    # TODO: Load in all game data
-    
-    # print("Initializing Character Information...")
-    agt_dope = characters.AgentDope(narration.short_for_agt_dope(), narration.long_for_agt_dope())
-    #Dr. Crime needs to be initialized with specified PUZZLE and DIALOGS
-    dr_crime = characters.DrCrime(narration.short_for_dr_crime(), narration.long_for_dr_crime(), 0, 0)
-
     clear_screen()
+
     # For new games, load in game data and play intro narration
     if ga.check_visited(STARTING_LOCATION) == False:
         map_arr, ga.game_state.uncollected_legendary_items, ga.game_state.boss_puzzles = stub_map.get_map_stub()
@@ -185,10 +179,7 @@ def game_play(ga: gameaction.GameAction):
         clear_screen()
     else: # For load game, load stored map data into map_arr
         map_arr = ga.map_arr
-    
-    #becomes false when the remaining turn becomes 1
-    still_playing = True
-    
+
     # Game loop
     while True:
         # When game over condition is met
@@ -196,11 +187,6 @@ def game_play(ga: gameaction.GameAction):
             end_game_screen("< G A M E   O V E R >", "You've ran out of turns.")
             break
         clear_screen()
-
-        # For testing -----------------------------------
-        # ga.game_state._lair_location = "City Hall"
-        # ga.game_state._vision_orb = True
-        # ------------------------------------------------
 
         # Display game stuff
         main_menu.dotted_line(main_menu.GAME_WIDTH)

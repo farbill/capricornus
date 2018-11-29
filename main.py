@@ -12,8 +12,9 @@ import narration
 MINIMUM_WIDTH = 101
 MINIMUM_HEIGHT = 35
 
+
+# Ensure window size is a minimum of 101 (width) x 35 (height)
 def check_and_inform_window_size() -> str:
-    # Ensure window size is a minimum of 101 (width) x 35 (height)
     size_info = os.get_terminal_size()
     if size_info.columns < MINIMUM_WIDTH or size_info.lines < MINIMUM_HEIGHT:
         game_play.end_game_screen("Your window size must be a minimum of "
@@ -58,7 +59,6 @@ def main():
             print("\nThanks for playing! Good-bye!")
             input("\nPress [Enter] to continue...\n")
             break
-
 
 
 # Game starts

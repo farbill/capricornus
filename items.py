@@ -25,7 +25,6 @@ class ActionType(Enum):
     FEED = 13
 
 
-
 class Action(object):
     def __init__(self,
                 commands: List[str],

@@ -78,6 +78,7 @@ def gameplay_selection(ga, the_input: str,
 
             general_action_array.append(arr)
 
+    # Action array for special feature, Lair
     lair_action_array = [
         ["view lair", "look lair"],
         ["enter lair"],

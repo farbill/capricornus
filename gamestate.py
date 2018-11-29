@@ -131,28 +131,3 @@ class GameState(object):
             return 2
 
         return 0
-
-
-# if __name__ == "__main__":
-#     from gamestate import GameState
-#     mygame = GameState()
-#     mygame.save_game_state(int(sys.argv[1]))
-
-    # mygame.save_game_state(1)
-
-    # mygame.load_game_state(1)
-
-    # print("city hall" in District.__dict__)
-    # print(District["City Hall"].value)
-    # print("City Hall" in District.__dict__)
-    # print("cityhall" in District.__dict__)
-    # print(District(3).name)
-
-    # district_name = "cIty hAll"
-    # district_name = district_name.lower()
-    # print(district_name in District.__dict__)
-    #
-    # rname = District[district_name].name
-    # print(mygame._visited[rname])
-
-
