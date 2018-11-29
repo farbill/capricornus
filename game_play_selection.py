@@ -203,7 +203,7 @@ def gameplay_selection(ga, the_input: str,
             continue
 
         # Check for valid actions for district items
-        status, the_input = district_action_function(ga, the_input, district_items_action, this_district._district_items)
+        status, the_input = district_action_function(ga, the_input, district_items_action, this_district._district_items, this_district)
         if status == "continue":
             continue
         elif status == "return":
@@ -212,7 +212,7 @@ def gameplay_selection(ga, the_input: str,
             return "brokestone"
 
         # Check for valid actions for dropped items
-        status, the_input = district_action_function(ga, the_input, dropped_items_action, this_district._dropped_items)
+        status, the_input = district_action_function(ga, the_input, dropped_items_action, this_district._dropped_items, this_district)
         if status == "continue":
             continue
         elif status == "return":
@@ -362,7 +362,7 @@ def gameplay_selection(ga, the_input: str,
 
 
 # Deals with items in district: district_items and dropped_items
-def district_action_function(ga, the_input, action_arr, item_arr):
+def district_action_function(ga, the_input, action_arr, item_arr, this_district):
 
     if the_input in action_arr:
         for item in item_arr:
@@ -493,29 +493,50 @@ def district_action_function(ga, the_input, action_arr, item_arr):
                                                     "feed it to the Dog. The Dog eats it rapidly and then stares at you waiting for more.")
                                     narrationScreen("Congratulations! You've found an easter egg. For your love of animals, "
                                                     "you are rewarded with all the Orbs and the Magic Sword. Go fight Dr. Crime now. "
-                                                    "He over at {}.".format(ga.game_state._lair_location))
+                                                    "He's over at {}.".format(ga.game_state._lair_location))
+
+                                    not_enough_space = False
 
                                     if not ga.game_state._strength_orb:
                                         ga.game_state._strength_orb = True
-                                        ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Strength Orb"))
+                                        if ga.space_in_inventory():
+                                            ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Strength Orb"))
+                                        else:
+                                            not_enough_space = True
+                                            this_district._dropped_items.append(ga.get_item_from_uncollected_legendary_items("Strength Orb"))
                                         ga.remove_item_from_uncollected_legendary_items("Strength Orb")
 
                                     if not ga.game_state._vitality_orb:
                                         ga.game_state._vitality_orb = True
-                                        ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Vitality Orb"))
+                                        if ga.space_in_inventory():
+                                            ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Vitality Orb"))
+                                        else:
+                                            not_enough_space = True
+                                            this_district._dropped_items.append(ga.get_item_from_uncollected_legendary_items("Vitality Orb"))
                                         ga.remove_item_from_uncollected_legendary_items("Vitality Orb")
 
                                     if not ga.game_state._vision_orb:
                                         ga.game_state._vision_orb = True
-                                        ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Vision Orb"))
+                                        if ga.space_in_inventory():
+                                            ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Vision Orb"))
+                                        else:
+                                            not_enough_space = True
+                                            this_district._dropped_items.append(ga.get_item_from_uncollected_legendary_items("Vision Orb"))
                                         ga.remove_item_from_uncollected_legendary_items("Vision Orb")
 
                                     if not ga.game_state._magic_sword:
                                         ga.game_state._magic_sword = True
-                                        ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Magic Sword"))
+                                        if ga.space_in_inventory():
+                                            ga.add_to_inventory(ga.get_item_from_uncollected_legendary_items("Magic Sword"))
+                                        else:
+                                            not_enough_space = True
+                                            this_district._dropped_items.append(ga.get_item_from_uncollected_legendary_items("Magic Sword"))
                                         ga.remove_item_from_uncollected_legendary_items("Magic Sword")
 
                                     ga.add_to_obtained_clues("Dr. Crime is at " + ga.game_state._lair_location + ".")
+
+                                    if not_enough_space:
+                                        narrationScreen("Some items were placed in the district because you didn't have enough space in your inventory.")
 
                                 else:
                                     narrationScreen("You again rummage through your pockets but couldn't find anything to feed the Dog with. Still, enjoy your easter egg.")
