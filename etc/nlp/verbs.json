@@ -7,5 +7,5 @@
   "hit": ["attack", "strike", "punch", "kick", "damage", "break"],
   "move": ["push", "pull"],
   "climb": ["scale"],
-  "go": ["walk", "run", "travel"]
+  "go": ["walk", "run", "travel", "journey"]
 }
