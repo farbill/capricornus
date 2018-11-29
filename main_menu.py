@@ -66,6 +66,7 @@ def print_left_indented(indentation, the_string):
 
 
 def write_over(the_string):
+    sys.stdout.write("\033[K")  # clear line
     sys.stdout.write(the_string)
     sys.stdout.flush()
 
